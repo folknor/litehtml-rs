@@ -63,6 +63,15 @@ brokkr history                                           # browse command histor
 - **lightningcss** 1.0.0-alpha.71 (CSS parsing — inline styles + stylesheet rules)
 - **hotpath** 0.14 (profiling, behind `profile` feature flag)
 
+## Bash rules
+
+- Never use sed, find, awk, or complex bash commands
+- Never chain commands with &&
+- Never chain commands with ;
+- Never pipe commands with |
+- Never read or write from /tmp. All data lives in the project.
+- Never run raw cargo, curl, pkill. Use `brokkr`.
+
 ## Parent project
 
 Part of **Ratatoskr** email client (`/home/folk/Programs/ratatoskr/`). Migrating from React/Tauri to pure Rust with iced. This renderer is the critical path item.

@@ -346,17 +346,6 @@ fn apply_html_attrs(mut style: ComputedStyle, el: &scraper::node::Element) -> Co
             style.height_px = parse_css_value_px(height);
         }
     }
-    // cellpadding on table elements
-    if let Some(cellpadding) = el.attr("cellpadding") {
-        if style.padding_top.is_none() {
-            if let Some(v) = parse_css_value_px(cellpadding) {
-                style.padding_top = Some(v);
-                style.padding_bottom = Some(v);
-                style.padding_left = Some(v);
-                style.padding_right = Some(v);
-            }
-        }
-    }
     style
 }
 
@@ -638,6 +627,7 @@ fn main() {
         &mut node_data,
         &inherited,
         &style_index,
+        None,
     );
     let tree_build_time = t1.elapsed();
 
@@ -798,6 +788,7 @@ fn build_node(
     node_data: &mut HashMap<taffy::NodeId, NodeData>,
     inherited: &InheritedStyle,
     style_index: &StyleIndex,
+    cellpadding: Option<f32>,
 ) -> taffy::NodeId {
     let node_ref = tree.get(node_id).unwrap();
 
@@ -824,7 +815,8 @@ fn build_node(
             let computed = apply_html_attrs(computed, el);
 
             let child_inherited = inherited.with_overrides(&computed, tag);
-            let style = element_style(tag, el, &computed);
+            let mut style = element_style(tag, el, &computed);
+
             // Check align attr for text-align (common in email HTML)
             let text_align = if computed.text_align.is_some() {
                 child_inherited.text_align
@@ -852,10 +844,37 @@ fn build_node(
                 text_align,
             };
 
+            // If this is a <table> with cellpadding, propagate to child cells
+            let child_cellpadding = if tag == "table" {
+                el.attr("cellpadding")
+                    .and_then(|v| parse_css_value_px(v))
+                    .or(cellpadding)
+            } else {
+                cellpadding
+            };
+
+            // Apply cellpadding to td/th cells
+            let style = if (tag == "td" || tag == "th") && child_cellpadding.is_some() {
+                let cp = child_cellpadding.unwrap();
+                let mut s = style;
+                // Only override default padding, not explicit CSS padding
+                if computed.padding_top.is_none() {
+                    s.padding = Rect {
+                        top: length(cp),
+                        bottom: length(cp),
+                        left: length(cp),
+                        right: length(cp),
+                    };
+                }
+                s
+            } else {
+                style
+            };
+
             let children: Vec<taffy::NodeId> = node_ref
                 .children()
                 .map(|child| {
-                    build_node(child.id(), tree, taffy, node_data, &child_inherited, style_index)
+                    build_node(child.id(), tree, taffy, node_data, &child_inherited, style_index, child_cellpadding)
                 })
                 .collect();
 
@@ -885,8 +904,12 @@ fn build_node(
 
             let style = Style {
                 size: Size {
-                    width: percent(1.0),
+                    width: auto(),
                     height: length(line_height * num_lines),
+                },
+                min_size: Size {
+                    width: length(text_width.min(780.0)),
+                    height: auto(),
                 },
                 ..Default::default()
             };
@@ -956,7 +979,7 @@ fn element_style(tag: &str, el: &scraper::node::Element, css: &ComputedStyle) ->
         },
 
         "table" => Style {
-            display: Display::Block,
+            display: Display::Table,
             size: Size {
                 width: percent_width_from_attr(el).unwrap_or(percent(1.0)),
                 height: auto(),
@@ -964,17 +987,11 @@ fn element_style(tag: &str, el: &scraper::node::Element, css: &ComputedStyle) ->
             ..Default::default()
         },
         "tr" => Style {
-            display: Display::Flex,
-            flex_direction: FlexDirection::Row,
-            size: Size {
-                width: percent(1.0),
-                height: auto(),
-            },
+            display: Display::TableRow,
             ..Default::default()
         },
         "td" | "th" => Style {
-            display: Display::Block,
-            flex_grow: 1.0,
+            display: Display::TableCell,
             padding: Rect {
                 top: length(2.0),
                 bottom: length(2.0),
@@ -984,11 +1001,7 @@ fn element_style(tag: &str, el: &scraper::node::Element, css: &ComputedStyle) ->
             ..Default::default()
         },
         "thead" | "tbody" | "tfoot" => Style {
-            display: Display::Block,
-            size: Size {
-                width: percent(1.0),
-                height: auto(),
-            },
+            display: Display::TableRowGroup,
             ..Default::default()
         },
 
@@ -1403,4 +1416,238 @@ fn blend_pixel(data: &mut [u8], width: u32, x: u32, y: u32, r: u8, g: u8, b: u8,
     data[idx + 1] = (sg + (dg * inv_sa + 127) / 255).min(255) as u8;
     data[idx + 2] = (sb + (db * inv_sa + 127) / 255).min(255) as u8;
     data[idx + 3] = (sa + (da * inv_sa + 127) / 255).min(255) as u8;
+}
+
+#[cfg(test)]
+mod tests {
+    use taffy::prelude::*;
+
+    fn length(v: f32) -> Dimension {
+        Dimension::length(v)
+    }
+    fn percent(v: f32) -> Dimension {
+        Dimension::percent(v)
+    }
+    fn auto() -> Dimension {
+        Dimension::auto()
+    }
+
+    /// Pure taffy test: 3-column table with explicit pixel widths.
+    /// Verifies taffy distributes column widths correctly.
+    #[test]
+    fn taffy_table_pixel_widths() {
+        let mut taffy: TaffyTree<()> = TaffyTree::new();
+
+        // Simulate text children inside cells (like the pipeline does)
+        let text1 = taffy
+            .new_leaf(Style {
+                size: Size { width: length(40.0), height: length(20.0) },
+                ..Default::default()
+            })
+            .unwrap();
+        let text2 = taffy
+            .new_leaf(Style {
+                size: Size { width: length(40.0), height: length(20.0) },
+                ..Default::default()
+            })
+            .unwrap();
+        let text3 = taffy
+            .new_leaf(Style {
+                size: Size { width: length(40.0), height: length(20.0) },
+                ..Default::default()
+            })
+            .unwrap();
+
+        // 3 cells with widths 100, 300, 200 (sum = 600 = table width)
+        let cell1 = taffy
+            .new_with_children(
+                Style {
+                    display: Display::TableCell,
+                    size: Size { width: length(100.0), height: auto() },
+                    ..Default::default()
+                },
+                &[text1],
+            )
+            .unwrap();
+        let cell2 = taffy
+            .new_with_children(
+                Style {
+                    display: Display::TableCell,
+                    size: Size { width: length(300.0), height: auto() },
+                    ..Default::default()
+                },
+                &[text2],
+            )
+            .unwrap();
+        let cell3 = taffy
+            .new_with_children(
+                Style {
+                    display: Display::TableCell,
+                    size: Size { width: length(200.0), height: auto() },
+                    ..Default::default()
+                },
+                &[text3],
+            )
+            .unwrap();
+        let row = taffy
+            .new_with_children(
+                Style { display: Display::TableRow, ..Default::default() },
+                &[cell1, cell2, cell3],
+            )
+            .unwrap();
+        let table = taffy
+            .new_with_children(
+                Style {
+                    display: Display::Table,
+                    size: Size { width: length(600.0), height: auto() },
+                    ..Default::default()
+                },
+                &[row],
+            )
+            .unwrap();
+
+        taffy.compute_layout(table, Size::MAX_CONTENT).unwrap();
+
+        let l1 = taffy.layout(cell1).unwrap();
+        let l2 = taffy.layout(cell2).unwrap();
+        let l3 = taffy.layout(cell3).unwrap();
+
+        println!("Cell1: x={}, w={}", l1.location.x, l1.size.width);
+        println!("Cell2: x={}, w={}", l2.location.x, l2.size.width);
+        println!("Cell3: x={}, w={}", l3.location.x, l3.size.width);
+
+        assert!(
+            l1.size.width < l2.size.width,
+            "Cell1 (100px) should be narrower than Cell2 (300px): {} vs {}",
+            l1.size.width,
+            l2.size.width
+        );
+        assert!(
+            l3.size.width < l2.size.width,
+            "Cell3 (200px) should be narrower than Cell2 (300px): {} vs {}",
+            l3.size.width,
+            l2.size.width
+        );
+    }
+
+    /// Pure taffy test: table row should have enough height for content.
+    #[test]
+    fn taffy_table_row_height() {
+        let mut taffy: TaffyTree<()> = TaffyTree::new();
+
+        // Cell with a fixed-height child (simulating text)
+        let text = taffy
+            .new_leaf(Style {
+                size: Size { width: length(100.0), height: length(20.0) },
+                ..Default::default()
+            })
+            .unwrap();
+        let cell = taffy
+            .new_with_children(
+                Style { display: Display::TableCell, ..Default::default() },
+                &[text],
+            )
+            .unwrap();
+        let row = taffy
+            .new_with_children(
+                Style { display: Display::TableRow, ..Default::default() },
+                &[cell],
+            )
+            .unwrap();
+        let table = taffy
+            .new_with_children(
+                Style {
+                    display: Display::Table,
+                    size: Size { width: length(600.0), height: auto() },
+                    ..Default::default()
+                },
+                &[row],
+            )
+            .unwrap();
+
+        taffy.compute_layout(table, Size::MAX_CONTENT).unwrap();
+
+        let row_layout = taffy.layout(row).unwrap();
+        let table_layout = taffy.layout(table).unwrap();
+
+        println!("Row height: {}", row_layout.size.height);
+        println!("Table height: {}", table_layout.size.height);
+
+        assert!(
+            row_layout.size.height >= 20.0,
+            "Row should be at least as tall as content (20px), got {}",
+            row_layout.size.height
+        );
+    }
+
+    /// Pure taffy test: percentage widths on cells.
+    #[test]
+    fn taffy_table_percentage_widths() {
+        let mut taffy: TaffyTree<()> = TaffyTree::new();
+
+        let cell1 = taffy
+            .new_leaf(Style {
+                display: Display::TableCell,
+                size: Size { width: percent(0.2), height: auto() },
+                ..Default::default()
+            })
+            .unwrap();
+        let cell2 = taffy
+            .new_leaf(Style {
+                display: Display::TableCell,
+                size: Size { width: percent(0.5), height: auto() },
+                ..Default::default()
+            })
+            .unwrap();
+        let cell3 = taffy
+            .new_leaf(Style {
+                display: Display::TableCell,
+                size: Size { width: percent(0.3), height: auto() },
+                ..Default::default()
+            })
+            .unwrap();
+        let row = taffy
+            .new_with_children(
+                Style { display: Display::TableRow, ..Default::default() },
+                &[cell1, cell2, cell3],
+            )
+            .unwrap();
+        let table = taffy
+            .new_with_children(
+                Style {
+                    display: Display::Table,
+                    size: Size { width: length(600.0), height: auto() },
+                    ..Default::default()
+                },
+                &[row],
+            )
+            .unwrap();
+
+        taffy.compute_layout(table, Size::MAX_CONTENT).unwrap();
+
+        let l1 = taffy.layout(cell1).unwrap();
+        let l2 = taffy.layout(cell2).unwrap();
+        let l3 = taffy.layout(cell3).unwrap();
+
+        println!("Cell1 (20%): x={}, w={}", l1.location.x, l1.size.width);
+        println!("Cell2 (50%): x={}, w={}", l2.location.x, l2.size.width);
+        println!("Cell3 (30%): x={}, w={}", l3.location.x, l3.size.width);
+
+        // 20% of 600 = 120, 50% = 300, 30% = 180
+        assert!(
+            (l1.size.width - 120.0).abs() < 5.0,
+            "Cell1 should be ~120px (20% of 600), got {}",
+            l1.size.width
+        );
+        assert!(
+            (l2.size.width - 300.0).abs() < 5.0,
+            "Cell2 should be ~300px (50% of 600), got {}",
+            l2.size.width
+        );
+        assert!(
+            (l3.size.width - 180.0).abs() < 5.0,
+            "Cell3 should be ~180px (30% of 600), got {}",
+            l3.size.width
+        );
+    }
 }

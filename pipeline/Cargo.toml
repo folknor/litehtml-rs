@@ -1,0 +1,11 @@
+[package]
+name = "litehtml-rs"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+scraper = "0.25"
+taffy = "0.8"
+tiny-skia = "0.11"
+cosmic-text = "0.18"
+ego-tree = "0.10"

@@ -47,7 +47,7 @@ HTML string
   - Map computed CSS properties to taffy style structs
   - Build taffy layout tree mirroring DOM structure
   - Text measurement callback (cosmic-text or iced's built-in text engine)
-  - **Table layout**: initially falls back to block display. Real table support is the big milestone.
+  - **Table layout**: implemented via local taffy fork with Display::Table support.
 
 ### Stage 5: Render to iced widgets
 - **Input**: DOM tree + computed styles + layout positions/sizes
@@ -86,7 +86,7 @@ HTML string
 - [ ] Build taffy node tree from DOM
 - [ ] Implement text measurement function (cosmic-text or iced font system)
 - [ ] Run `taffy::compute_layout()`
-- [ ] Tables render as block elements (wrong but functional)
+- [x] Tables use real Display::Table layout via local taffy fork
 - [ ] Validate: dump layout positions, compare against browser rendering
 
 ### Phase 3: Render to iced widgets
@@ -98,11 +98,11 @@ HTML string
 - [ ] Wrap in `scrollable` for overflow
 - [ ] Validate: visual comparison against litehtml output and browser rendering
 
-### Phase 4: Table layout
-- [ ] Study CSS 2.1 table layout algorithm (https://www.w3.org/TR/CSS2/tables.html)
-- [ ] Study taffy's architecture for adding new layout modes
-- [ ] Implement table layout (either in taffy as contribution, or standalone)
-- [ ] Validate: render table-heavy emails, compare against browser rendering
+### Phase 4: Table layout ✓
+- [x] Study CSS 2.1 table layout algorithm (https://www.w3.org/TR/CSS2/tables.html)
+- [x] Study taffy's architecture for adding new layout modes
+- [x] Implement table layout in local taffy fork (`/home/folk/Programs/taffy`)
+- [x] Validate: render table-heavy emails, compare against browser rendering
 
 ### Phase 5: Integration
 - [ ] Replace litehtml engine with new pipeline in the `Engine` trait
@@ -118,6 +118,6 @@ HTML string
 
 3. **How to handle absolute positioning in iced?** iced doesn't have CSS-style absolute positioning. Options: canvas widget, custom layout widget, or floating overlay layer.
 
-4. **Table layout scope for email?** Email table layout might be a smaller problem than general CSS tables. Most email tables use explicit widths, no colspan/rowspan nesting beyond 2-3 levels. Could we implement a subset?
+4. ~~**Table layout scope for email?**~~ Resolved — implemented full table layout in local taffy fork. Supports Display::Table, TableRow, TableCell, TableRowGroup with pixel/percentage widths, cellpadding, and nested tables.
 
 5. **Can we reuse the existing `WebView` widget infrastructure?** The `Engine` trait, view management, scrolling, image fetching — all of that can stay. We're just replacing what's behind `Engine`.

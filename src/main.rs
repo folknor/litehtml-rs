@@ -3,6 +3,15 @@ use std::collections::HashMap;
 use std::time::Instant;
 
 use cosmic_text::{Attrs, Family, FontSystem, Metrics, Shaping, SwashCache};
+use lightningcss::properties::display::Display as CssDisplay;
+use lightningcss::properties::font::{
+    FontFamily as CssFontFamily, FontSize as CssFontSize, FontStyle as CssFontStyle,
+    FontWeight as CssFontWeight,
+};
+use lightningcss::properties::Property;
+use lightningcss::stylesheet::{ParserOptions, StyleSheet};
+use lightningcss::values::color::CssColor;
+use lightningcss::values::length::LengthPercentage as CssLengthPercentage;
 use scraper::{Html, Node};
 use taffy::prelude::*;
 
@@ -42,242 +51,273 @@ enum TextAlign {
     Right,
 }
 
+/// Convert a CssColor to RGBA tuple.
+fn css_color_to_rgba(color: &CssColor) -> Option<(u8, u8, u8, u8)> {
+    match color {
+        CssColor::RGBA(rgba) => Some((rgba.red, rgba.green, rgba.blue, rgba.alpha)),
+        other => {
+            // Try converting to RGB for named colors, hsl, etc.
+            if let Ok(rgb) = other.to_rgb() {
+                if let CssColor::RGBA(rgba) = rgb {
+                    return Some((rgba.red, rgba.green, rgba.blue, rgba.alpha));
+                }
+            }
+            None
+        }
+    }
+}
+
+/// Extract px value from a CssLengthPercentage.
+fn lp_to_px(lp: &CssLengthPercentage) -> Option<f32> {
+    use lightningcss::values::length::LengthValue;
+    match lp {
+        CssLengthPercentage::Dimension(LengthValue::Px(v)) => Some(*v),
+        CssLengthPercentage::Dimension(LengthValue::Pt(v)) => Some(v * 4.0 / 3.0),
+        CssLengthPercentage::Dimension(LengthValue::Em(v)) => Some(v * 16.0),
+        CssLengthPercentage::Dimension(LengthValue::Rem(v)) => Some(v * 16.0),
+        _ => None,
+    }
+}
+
+/// Extract percentage from a CssLengthPercentage (as 0.0-1.0).
+fn lp_to_pct(lp: &CssLengthPercentage) -> Option<f32> {
+    match lp {
+        CssLengthPercentage::Percentage(p) => Some(p.0),
+        _ => None,
+    }
+}
+
+/// Apply a single lightningcss Property to our ComputedStyle.
+fn apply_property(style: &mut ComputedStyle, prop: &Property) {
+    use lightningcss::properties::border::BorderSideWidth;
+    use lightningcss::properties::size::{MaxSize, Size};
+    use lightningcss::values::length::LengthPercentageOrAuto;
+    match prop {
+        Property::Display(d) => {
+            use lightningcss::properties::display::DisplayKeyword;
+            // Check for display: none
+            if let CssDisplay::Keyword(DisplayKeyword::None) = d {
+                style.display_none = true;
+            }
+        }
+        Property::Width(s) => match s {
+            Size::LengthPercentage(lp) => {
+                if let Some(px) = lp_to_px(lp) {
+                    style.width_px = Some(px);
+                } else if let Some(pct) = lp_to_pct(lp) {
+                    style.width_pct = Some(pct);
+                }
+            }
+            _ => {}
+        },
+        Property::Height(s) => match s {
+            Size::LengthPercentage(lp) => {
+                if let Some(px) = lp_to_px(lp) {
+                    style.height_px = Some(px);
+                } else if let Some(pct) = lp_to_pct(lp) {
+                    style.height_pct = Some(pct);
+                }
+            }
+            _ => {}
+        },
+        Property::MaxWidth(s) => {
+            if let MaxSize::LengthPercentage(lp) = s {
+                style.max_width_px = lp_to_px(lp);
+            }
+        }
+        Property::PaddingTop(lp) => {
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
+                style.padding_top = lp_to_px(lp);
+            }
+        }
+        Property::PaddingBottom(lp) => {
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
+                style.padding_bottom = lp_to_px(lp);
+            }
+        }
+        Property::PaddingLeft(lp) => {
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
+                style.padding_left = lp_to_px(lp);
+            }
+        }
+        Property::PaddingRight(lp) => {
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
+                style.padding_right = lp_to_px(lp);
+            }
+        }
+        Property::Padding(p) => {
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = &p.top {
+                style.padding_top = lp_to_px(lp);
+            }
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = &p.bottom {
+                style.padding_bottom = lp_to_px(lp);
+            }
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = &p.left {
+                style.padding_left = lp_to_px(lp);
+            }
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = &p.right {
+                style.padding_right = lp_to_px(lp);
+            }
+        }
+        Property::MarginTop(lp) => {
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
+                style.margin_top = lp_to_px(lp);
+            }
+        }
+        Property::MarginBottom(lp) => {
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
+                style.margin_bottom = lp_to_px(lp);
+            }
+        }
+        Property::MarginLeft(lp) => {
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
+                style.margin_left = lp_to_px(lp);
+            }
+        }
+        Property::MarginRight(lp) => {
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
+                style.margin_right = lp_to_px(lp);
+            }
+        }
+        Property::Margin(m) => {
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = &m.top {
+                style.margin_top = lp_to_px(lp);
+            }
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = &m.bottom {
+                style.margin_bottom = lp_to_px(lp);
+            }
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = &m.left {
+                style.margin_left = lp_to_px(lp);
+            }
+            if let LengthPercentageOrAuto::LengthPercentage(lp) = &m.right {
+                style.margin_right = lp_to_px(lp);
+            }
+        }
+        Property::BackgroundColor(c) => {
+            style.background_color = css_color_to_rgba(c);
+        }
+        Property::Color(c) => {
+            style.color = css_color_to_rgba(c);
+        }
+        Property::FontSize(fs) => {
+            style.font_size = match fs {
+                CssFontSize::Length(lp) => lp_to_px(lp),
+                _ => None,
+            };
+        }
+        Property::FontFamily(families) => {
+            if let Some(first) = families.first() {
+                style.font_family = Some(match first {
+                    CssFontFamily::FamilyName(name) => {
+                        use lightningcss::traits::ToCss;
+                        use lightningcss::stylesheet::PrinterOptions;
+                        name.to_css_string(PrinterOptions::default())
+                            .unwrap_or_default()
+                            .trim_matches('"')
+                            .to_string()
+                    }
+                    CssFontFamily::Generic(g) => format!("{:?}", g).to_lowercase(),
+                });
+            }
+        }
+        Property::FontWeight(fw) => {
+            style.font_weight = Some(match fw {
+                CssFontWeight::Absolute(a) => {
+                    use lightningcss::properties::font::AbsoluteFontWeight;
+                    match a {
+                        AbsoluteFontWeight::Weight(n) => *n as u16,
+                        AbsoluteFontWeight::Normal => 400,
+                        AbsoluteFontWeight::Bold => 700,
+                    }
+                }
+                CssFontWeight::Bolder => 700,
+                CssFontWeight::Lighter => 300,
+            });
+        }
+        Property::FontStyle(fs) => {
+            style.font_style_italic = matches!(
+                fs,
+                CssFontStyle::Italic | CssFontStyle::Oblique(_)
+            );
+        }
+        Property::LineHeight(lh) => {
+            use lightningcss::properties::font::LineHeight;
+            style.line_height = match lh {
+                LineHeight::Length(lp) => lp_to_px(lp),
+                LineHeight::Number(n) => Some(n * 16.0),
+                _ => None,
+            };
+        }
+        Property::TextAlign(ta) => {
+            use lightningcss::properties::text::TextAlign as CssTextAlign;
+            style.text_align = match ta {
+                CssTextAlign::Center => Some(TextAlign::Center),
+                CssTextAlign::Right | CssTextAlign::End => Some(TextAlign::Right),
+                CssTextAlign::Left | CssTextAlign::Start => Some(TextAlign::Left),
+                _ => None,
+            };
+        }
+        Property::BorderTopWidth(w) => {
+            style.border_top = match w {
+                BorderSideWidth::Length(l) => l.to_px(),
+                _ => None,
+            };
+        }
+        Property::BorderBottomWidth(w) => {
+            style.border_bottom = match w {
+                BorderSideWidth::Length(l) => l.to_px(),
+                _ => None,
+            };
+        }
+        _ => {}
+    }
+}
+
+/// Parse inline style attribute using lightningcss.
+fn parse_inline_style(css: &str) -> ComputedStyle {
+    use lightningcss::stylesheet::StyleAttribute;
+    let mut style = ComputedStyle::default();
+    let Ok(attr) = StyleAttribute::parse(css, ParserOptions::default()) else {
+        return style;
+    };
+    for prop in &attr.declarations.declarations {
+        apply_property(&mut style, prop);
+    }
+    for prop in &attr.declarations.important_declarations {
+        apply_property(&mut style, prop);
+    }
+    style
+}
+
+/// Parse CSS color from string (for HTML attributes like bgcolor).
+fn parse_css_color(val: &str) -> Option<(u8, u8, u8, u8)> {
+    // Use lightningcss for proper parsing, with a color property wrapper
+    let css = format!("color: {val}");
+    let style = parse_inline_style(&css);
+    style.color
+}
+
+/// Parse a CSS value as px (for HTML attributes like width="600").
 fn parse_css_value_px(val: &str) -> Option<f32> {
     let val = val.trim();
     if val == "0" {
         return Some(0.0);
     }
-    if let Some(px) = val.strip_suffix("px") {
-        return px.trim().parse().ok();
+    // Try as plain number first (HTML attributes)
+    if let Ok(n) = val.parse::<f32>() {
+        return Some(n);
     }
-    if let Some(pt) = val.strip_suffix("pt") {
-        return pt.trim().parse::<f32>().ok().map(|v| v * 4.0 / 3.0);
-    }
-    if let Some(em) = val.strip_suffix("em") {
-        return em.trim().parse::<f32>().ok().map(|v| v * 16.0);
-    }
-    val.parse().ok()
+    // Try as CSS length
+    let css = format!("width: {val}");
+    let style = parse_inline_style(&css);
+    style.width_px
 }
 
+/// Parse a CSS value as percentage (0.0-1.0).
 fn parse_css_value_pct(val: &str) -> Option<f32> {
-    val.trim()
-        .strip_suffix('%')
-        .and_then(|v| v.trim().parse::<f32>().ok())
-        .map(|v| v / 100.0)
-}
-
-fn parse_css_color(val: &str) -> Option<(u8, u8, u8, u8)> {
-    let val = val.trim();
-    if let Some(hex) = val.strip_prefix('#') {
-        if hex.len() == 6 {
-            let r = u8::from_str_radix(&hex[0..2], 16).ok()?;
-            let g = u8::from_str_radix(&hex[2..4], 16).ok()?;
-            let b = u8::from_str_radix(&hex[4..6], 16).ok()?;
-            return Some((r, g, b, 255));
-        }
-        if hex.len() == 3 {
-            let r = u8::from_str_radix(&hex[0..1], 16).ok()? * 17;
-            let g = u8::from_str_radix(&hex[1..2], 16).ok()? * 17;
-            let b = u8::from_str_radix(&hex[2..3], 16).ok()? * 17;
-            return Some((r, g, b, 255));
-        }
-        return None;
-    }
-    if val.starts_with("rgb") {
-        let inner = val
-            .trim_start_matches("rgba(")
-            .trim_start_matches("rgb(")
-            .trim_end_matches(')');
-        let parts: Vec<&str> = inner.split(',').collect();
-        if parts.len() >= 3 {
-            let r = parts[0].trim().parse().ok()?;
-            let g = parts[1].trim().parse().ok()?;
-            let b = parts[2].trim().parse().ok()?;
-            let a = if parts.len() > 3 {
-                (parts[3].trim().parse::<f32>().unwrap_or(1.0) * 255.0) as u8
-            } else {
-                255
-            };
-            return Some((r, g, b, a));
-        }
-    }
-    match val.to_lowercase().as_str() {
-        "white" => Some((255, 255, 255, 255)),
-        "black" => Some((0, 0, 0, 255)),
-        "red" => Some((255, 0, 0, 255)),
-        "green" => Some((0, 128, 0, 255)),
-        "blue" => Some((0, 0, 255, 255)),
-        "gray" | "grey" => Some((128, 128, 128, 255)),
-        "transparent" => Some((0, 0, 0, 0)),
-        _ => None,
-    }
-}
-
-fn parse_inline_style(css: &str) -> ComputedStyle {
-    let mut style = ComputedStyle::default();
-
-    for decl in css.split(';') {
-        let decl = decl.trim();
-        if decl.is_empty() {
-            continue;
-        }
-        let Some((prop, val)) = decl.split_once(':') else {
-            continue;
-        };
-        let prop = prop.trim().to_lowercase();
-        let val = val.trim().trim_end_matches("!important").trim();
-
-        match prop.as_str() {
-            "display" => {
-                if val.eq_ignore_ascii_case("none") {
-                    style.display_none = true;
-                }
-            }
-            "width" => {
-                if let Some(pct) = parse_css_value_pct(val) {
-                    style.width_pct = Some(pct);
-                } else if let Some(px) = parse_css_value_px(val) {
-                    style.width_px = Some(px);
-                }
-            }
-            "height" => {
-                if let Some(pct) = parse_css_value_pct(val) {
-                    style.height_pct = Some(pct);
-                } else if let Some(px) = parse_css_value_px(val) {
-                    style.height_px = Some(px);
-                }
-            }
-            "max-width" => {
-                style.max_width_px = parse_css_value_px(val);
-            }
-            "padding" => {
-                let parts: Vec<&str> = val.split_whitespace().collect();
-                match parts.len() {
-                    1 => {
-                        let v = parse_css_value_px(parts[0]);
-                        style.padding_top = v;
-                        style.padding_bottom = v;
-                        style.padding_left = v;
-                        style.padding_right = v;
-                    }
-                    2 => {
-                        let v = parse_css_value_px(parts[0]);
-                        let h = parse_css_value_px(parts[1]);
-                        style.padding_top = v;
-                        style.padding_bottom = v;
-                        style.padding_left = h;
-                        style.padding_right = h;
-                    }
-                    3 => {
-                        style.padding_top = parse_css_value_px(parts[0]);
-                        style.padding_left = parse_css_value_px(parts[1]);
-                        style.padding_right = parse_css_value_px(parts[1]);
-                        style.padding_bottom = parse_css_value_px(parts[2]);
-                    }
-                    4 => {
-                        style.padding_top = parse_css_value_px(parts[0]);
-                        style.padding_right = parse_css_value_px(parts[1]);
-                        style.padding_bottom = parse_css_value_px(parts[2]);
-                        style.padding_left = parse_css_value_px(parts[3]);
-                    }
-                    _ => {}
-                }
-            }
-            "padding-top" => style.padding_top = parse_css_value_px(val),
-            "padding-bottom" => style.padding_bottom = parse_css_value_px(val),
-            "padding-left" => style.padding_left = parse_css_value_px(val),
-            "padding-right" => style.padding_right = parse_css_value_px(val),
-            "margin" => {
-                let parts: Vec<&str> = val.split_whitespace().collect();
-                match parts.len() {
-                    1 => {
-                        let v = parse_css_value_px(parts[0]);
-                        style.margin_top = v;
-                        style.margin_bottom = v;
-                        style.margin_left = v;
-                        style.margin_right = v;
-                    }
-                    2 => {
-                        let v = parse_css_value_px(parts[0]);
-                        let h = parse_css_value_px(parts[1]);
-                        style.margin_top = v;
-                        style.margin_bottom = v;
-                        style.margin_left = h;
-                        style.margin_right = h;
-                    }
-                    4 => {
-                        style.margin_top = parse_css_value_px(parts[0]);
-                        style.margin_right = parse_css_value_px(parts[1]);
-                        style.margin_bottom = parse_css_value_px(parts[2]);
-                        style.margin_left = parse_css_value_px(parts[3]);
-                    }
-                    _ => {}
-                }
-            }
-            "margin-top" => style.margin_top = parse_css_value_px(val),
-            "margin-bottom" => style.margin_bottom = parse_css_value_px(val),
-            "margin-left" => style.margin_left = parse_css_value_px(val),
-            "margin-right" => style.margin_right = parse_css_value_px(val),
-            "background-color" | "background" => {
-                style.background_color = parse_css_color(val);
-            }
-            "color" => {
-                style.color = parse_css_color(val);
-            }
-            "font-size" => {
-                style.font_size = parse_css_value_px(val);
-            }
-            "font-family" => {
-                // Take the first family, strip quotes
-                if let Some(first) = val.split(',').next() {
-                    let family = first.trim().trim_matches(|c| c == '\'' || c == '"');
-                    style.font_family = Some(family.to_string());
-                }
-            }
-            "font-weight" => {
-                style.font_weight = match val.to_lowercase().as_str() {
-                    "bold" => Some(700),
-                    "normal" => Some(400),
-                    "lighter" => Some(300),
-                    "bolder" => Some(800),
-                    _ => val.parse().ok(),
-                };
-            }
-            "font-style" => {
-                if val.eq_ignore_ascii_case("italic") || val.eq_ignore_ascii_case("oblique") {
-                    style.font_style_italic = true;
-                }
-            }
-            "line-height" => {
-                style.line_height = parse_css_value_px(val);
-            }
-            "text-align" => {
-                style.text_align = match val.to_lowercase().as_str() {
-                    "center" => Some(TextAlign::Center),
-                    "right" => Some(TextAlign::Right),
-                    "left" | "start" => Some(TextAlign::Left),
-                    _ => None,
-                };
-            }
-            "border-top" => {
-                if val == "0" || val == "none" {
-                    style.border_top = Some(0.0);
-                } else if let Some(first) = val.split_whitespace().next() {
-                    style.border_top = parse_css_value_px(first);
-                }
-            }
-            "border-bottom" => {
-                if val == "0" || val == "none" {
-                    style.border_bottom = Some(0.0);
-                } else if let Some(first) = val.split_whitespace().next() {
-                    style.border_bottom = parse_css_value_px(first);
-                }
-            }
-            _ => {}
-        }
-    }
-
-    style
+    let css = format!("width: {val}");
+    let style = parse_inline_style(&css);
+    style.width_pct
 }
 
 /// Apply HTML attributes commonly used in email HTML (bgcolor, width, align, color).
@@ -392,285 +432,149 @@ fn measure_text_width(text: &str, font_size: f32, family: &str, weight: u16, ita
     })
 }
 
-/// Extract CSS rules from <style> blocks. Returns a map of selector -> declarations.
-fn extract_style_rules(document: &Html) -> HashMap<String, String> {
-    use scraper::Selector;
-    let mut rules = HashMap::new();
-    let style_sel = Selector::parse("style").unwrap();
-    for style_el in document.select(&style_sel) {
-        let css_text = style_el.text().collect::<String>();
-        parse_css_rules(&css_text, &mut rules);
-    }
-    rules
-}
-
-fn parse_css_rules(css: &str, rules: &mut HashMap<String, String>) {
-    let mut rest = css.trim();
-    while !rest.is_empty() {
-        // Skip whitespace and comments
-        rest = rest.trim_start();
-        if rest.starts_with("/*") {
-            if let Some(end) = rest.find("*/") {
-                rest = &rest[end + 2..];
-                continue;
-            }
-            break;
-        }
-        // Handle @media blocks — parse the inner rules
-        if rest.starts_with("@media") {
-            if let Some(brace) = rest.find('{') {
-                let inner = &rest[brace + 1..];
-                // Find matching closing brace (handle nesting)
-                let mut depth = 1;
-                let mut end = 0;
-                for (i, ch) in inner.char_indices() {
-                    match ch {
-                        '{' => depth += 1,
-                        '}' => {
-                            depth -= 1;
-                            if depth == 0 {
-                                end = i;
-                                break;
-                            }
-                        }
-                        _ => {}
-                    }
-                }
-                if depth == 0 {
-                    // Parse inner rules (media queries are mostly for mobile — include them all)
-                    parse_css_rules(&inner[..end], rules);
-                    rest = &inner[end + 1..];
-                } else {
-                    break;
-                }
-                continue;
-            }
-            break;
-        }
-        // Skip other @-rules (charset, import, etc.)
-        if rest.starts_with('@') {
-            if let Some(semi) = rest.find(';') {
-                rest = &rest[semi + 1..];
-                continue;
-            }
-            if let Some(brace) = rest.find('{') {
-                let inner = &rest[brace + 1..];
-                if let Some(close) = inner.find('}') {
-                    rest = &inner[close + 1..];
-                    continue;
-                }
-            }
-            break;
-        }
-        // Regular rule: selector { declarations }
-        if let Some(brace_start) = rest.find('{') {
-            let selector = rest[..brace_start].trim();
-            let after_brace = &rest[brace_start + 1..];
-            if let Some(brace_end) = after_brace.find('}') {
-                let declarations = after_brace[..brace_end].trim();
-                for sel in selector.split(',') {
-                    let sel = sel.trim();
-                    if !sel.is_empty() {
-                        rules
-                            .entry(sel.to_string())
-                            .and_modify(|existing: &mut String| {
-                                existing.push(';');
-                                existing.push_str(declarations);
-                            })
-                            .or_insert_with(|| declarations.to_string());
-                    }
-                }
-                rest = &after_brace[brace_end + 1..];
-            } else {
-                break;
-            }
-        } else {
-            break;
-        }
-    }
-}
-
-/// Check if a simple selector (no spaces) matches an element.
-fn selector_part_matches(sel: &str, el: &scraper::node::Element) -> bool {
-    let sel = sel.trim();
-    if sel == "*" {
-        return true;
-    }
-
-    // Split compound selector like "table.main" or "td.content"
-    // into tag + class/id parts
-    let mut rest = sel;
-    let mut required_tag = None;
-    let mut required_classes = Vec::new();
-    let mut required_id = None;
-
-    // Extract tag name (anything before first . or #)
-    if let Some(pos) = rest.find(['.', '#']) {
-        let tag = &rest[..pos];
-        if !tag.is_empty() {
-            required_tag = Some(tag);
-        }
-        rest = &rest[pos..];
-    } else if !rest.starts_with('.') && !rest.starts_with('#') {
-        required_tag = Some(rest);
-        rest = "";
-    }
-
-    // Extract classes and ids
-    while !rest.is_empty() {
-        if let Some(stripped) = rest.strip_prefix('.') {
-            let end = stripped.find(['.', '#']).unwrap_or(stripped.len());
-            required_classes.push(&stripped[..end]);
-            rest = &stripped[end..];
-        } else if let Some(stripped) = rest.strip_prefix('#') {
-            let end = stripped.find(['.', '#']).unwrap_or(stripped.len());
-            required_id = Some(&stripped[..end]);
-            rest = &stripped[end..];
-        } else {
-            break;
-        }
-    }
-
-    if let Some(tag) = required_tag {
-        if el.name() != tag {
-            return false;
-        }
-    }
-    if let Some(id) = required_id {
-        if el.attr("id") != Some(id) {
-            return false;
-        }
-    }
-    if !required_classes.is_empty() {
-        let el_classes: Vec<&str> = el
-            .attr("class")
-            .map(|c| c.split_whitespace().collect())
-            .unwrap_or_default();
-        for cls in &required_classes {
-            if !el_classes.contains(cls) {
-                return false;
-            }
-        }
-    }
-
-    true
-}
-
-/// Pre-indexed style rules for fast matching.
+/// Pre-indexed style rules using lightningcss parsed properties.
+/// Maps selector strings to their raw CSS declaration text (for merging with inline).
 struct StyleIndex {
-    /// Rules keyed by tag name
     by_tag: HashMap<String, String>,
-    /// Rules keyed by class name
     by_class: HashMap<String, String>,
-    /// Rules keyed by id
     by_id: HashMap<String, String>,
-    /// Compound selectors (tag.class, .class1.class2, etc.)
-    compound: Vec<(String, String)>,
 }
 
 impl StyleIndex {
-    fn from_rules(rules: &HashMap<String, String>) -> Self {
-        let mut by_tag = HashMap::new();
-        let mut by_class = HashMap::new();
-        let mut by_id = HashMap::new();
-        let mut compound = Vec::new();
+    fn from_document(document: &Html) -> Self {
+        use scraper::Selector;
+        let mut by_tag: HashMap<String, String> = HashMap::new();
+        let mut by_class: HashMap<String, String> = HashMap::new();
+        let mut by_id: HashMap<String, String> = HashMap::new();
 
-        for (selector, decls) in rules {
-            // Only match single-part selectors
-            if selector.contains(char::is_whitespace)
-                || selector.contains(':')
-                || selector.contains('[')
-                || selector.contains('>')
-            {
+        let style_sel = Selector::parse("style").unwrap();
+        for style_el in document.select(&style_sel) {
+            let css_text = style_el.text().collect::<String>();
+            let Ok(sheet) = StyleSheet::parse(&css_text, ParserOptions::default()) else {
                 continue;
-            }
-
-            let sel = selector.trim();
-            if sel == "*" {
-                // Skip universal selector
-                continue;
-            }
-
-            // Simple selectors: just a tag, just a class, just an id
-            if !sel.contains('.') && !sel.contains('#') {
-                by_tag
-                    .entry(sel.to_string())
-                    .and_modify(|e: &mut String| {
-                        e.push(';');
-                        e.push_str(decls);
-                    })
-                    .or_insert_with(|| decls.clone());
-            } else if sel.starts_with('.') && !sel[1..].contains('.') && !sel.contains('#') {
-                by_class
-                    .entry(sel[1..].to_string())
-                    .and_modify(|e: &mut String| {
-                        e.push(';');
-                        e.push_str(decls);
-                    })
-                    .or_insert_with(|| decls.clone());
-            } else if sel.starts_with('#') && !sel.contains('.') {
-                by_id
-                    .entry(sel[1..].to_string())
-                    .and_modify(|e: &mut String| {
-                        e.push(';');
-                        e.push_str(decls);
-                    })
-                    .or_insert_with(|| decls.clone());
-            } else {
-                compound.push((sel.to_string(), decls.clone()));
-            }
+            };
+            Self::collect_rules(&sheet.rules.0, &mut by_tag, &mut by_class, &mut by_id);
         }
 
         Self {
             by_tag,
             by_class,
             by_id,
-            compound,
+        }
+    }
+
+    fn collect_rules(
+        rules: &[lightningcss::rules::CssRule],
+        by_tag: &mut HashMap<String, String>,
+        by_class: &mut HashMap<String, String>,
+        by_id: &mut HashMap<String, String>,
+    ) {
+        use lightningcss::rules::CssRule;
+        use lightningcss::traits::ToCss;
+        use lightningcss::stylesheet::PrinterOptions;
+
+        for rule in rules {
+            match rule {
+                CssRule::Style(style_rule) => {
+                    // Serialize declarations back to CSS text for merging with inline styles
+                    let mut decl_text = String::new();
+                    for prop in &style_rule.declarations.declarations {
+                        if let Ok(css) = prop.to_css_string(false, PrinterOptions::default()) {
+                            decl_text.push_str(&css);
+                            decl_text.push(';');
+                        }
+                    }
+                    for prop in &style_rule.declarations.important_declarations {
+                        if let Ok(css) = prop.to_css_string(false, PrinterOptions::default()) {
+                            decl_text.push_str(&css);
+                            decl_text.push(';');
+                        }
+                    }
+
+                    if decl_text.is_empty() {
+                        continue;
+                    }
+
+                    // Extract selector text and index by simple selectors
+                    let sel_text = style_rule
+                        .selectors
+                        .to_css_string(PrinterOptions::default())
+                        .unwrap_or_default();
+
+                    for sel in sel_text.split(',') {
+                        let sel = sel.trim();
+                        // Only index single-part selectors (no descendant/child combinators)
+                        if sel.contains(char::is_whitespace) || sel.contains('>') {
+                            continue;
+                        }
+                        // Skip pseudo-classes/elements and attribute selectors
+                        if sel.contains(':') || sel.contains('[') || sel == "*" {
+                            continue;
+                        }
+
+                        let target = if !sel.contains('.') && !sel.contains('#') {
+                            &mut *by_tag
+                        } else if sel.starts_with('.') && !sel[1..].contains('.') && !sel.contains('#') {
+                            &mut *by_class
+                        } else if sel.starts_with('#') && !sel.contains('.') {
+                            &mut *by_id
+                        } else {
+                            continue; // compound selectors — skip for now
+                        };
+
+                        let key = if sel.starts_with('.') || sel.starts_with('#') {
+                            &sel[1..]
+                        } else {
+                            sel
+                        };
+
+                        target
+                            .entry(key.to_string())
+                            .and_modify(|e: &mut String| {
+                                e.push_str(&decl_text);
+                            })
+                            .or_insert_with(|| decl_text.clone());
+                    }
+                }
+                CssRule::Media(media_rule) => {
+                    // Recurse into @media blocks
+                    Self::collect_rules(&media_rule.rules.0, by_tag, by_class, by_id);
+                }
+                _ => {}
+            }
         }
     }
 
     fn match_element(&self, el: &scraper::node::Element) -> String {
         let mut matched = String::new();
 
-        // Tag match
         if let Some(decls) = self.by_tag.get(el.name()) {
             matched.push_str(decls);
-            matched.push(';');
         }
-
-        // Class matches
         if let Some(classes) = el.attr("class") {
             for class in classes.split_whitespace() {
                 if let Some(decls) = self.by_class.get(class) {
                     matched.push_str(decls);
-                    matched.push(';');
                 }
             }
         }
-
-        // Id match
         if let Some(id) = el.attr("id") {
             if let Some(decls) = self.by_id.get(id) {
                 matched.push_str(decls);
-                matched.push(';');
-            }
-        }
-
-        // Compound selectors (slow path, but typically few)
-        for (sel, decls) in &self.compound {
-            if selector_part_matches(sel, el) {
-                matched.push_str(decls);
-                matched.push(';');
             }
         }
 
         matched
     }
+
+    fn selector_count(&self) -> usize {
+        self.by_tag.len() + self.by_class.len() + self.by_id.len()
+    }
 }
 
 fn main() {
     let path = std::env::args().nth(1).unwrap_or_else(|| {
-        eprintln!("Usage: rt-pipeline <html-file>");
+        eprintln!("Usage: litehtml-rs <html-file>");
         std::process::exit(1);
     });
     let html_str = std::fs::read_to_string(&path).unwrap_or_else(|e| {
@@ -683,11 +587,11 @@ fn main() {
     let document = Html::parse_document(&html_str);
     let parse_time = t0.elapsed();
 
-    // Extract <style> block rules and build index
-    let style_rules = extract_style_rules(&document);
-    let style_index = StyleIndex::from_rules(&style_rules);
-    if !style_rules.is_empty() {
-        println!("Style rules extracted: {} selectors", style_rules.len());
+    // Extract <style> block rules using lightningcss
+    let style_index = StyleIndex::from_document(&document);
+    let selector_count = style_index.selector_count();
+    if selector_count > 0 {
+        println!("Style rules extracted: {} selectors", selector_count);
     }
 
     // Count
@@ -781,6 +685,8 @@ fn main() {
     pixmap.save_png(&out_path).unwrap();
     let png_time = t4.elapsed();
 
+    let pipeline_total = parse_time + tree_build_time + layout_time + render_time;
+
     println!("Saved to {out_path}");
     println!("--- Timing ---");
     println!("  Font init:    {:?} (one-time)", font_init_time);
@@ -789,12 +695,20 @@ fn main() {
     println!("  Layout:       {:?}", layout_time);
     println!("  Render:       {:?}", render_time);
     println!("  PNG encode:   {:?}", png_time);
-    let pipeline_total = parse_time + tree_build_time + layout_time + render_time;
     println!("  Total (no PNG): {:?}", pipeline_total);
     println!(
         "  Total (warm):   {:?} (excludes font init)",
         pipeline_total
     );
+
+    // Machine-readable key=value output for brokkr
+    eprintln!("elapsed_ms={}", pipeline_total.as_millis());
+    eprintln!("parse_ms={}", parse_time.as_micros() as f64 / 1000.0);
+    eprintln!("tree_css_ms={}", tree_build_time.as_micros() as f64 / 1000.0);
+    eprintln!("layout_ms={}", layout_time.as_micros() as f64 / 1000.0);
+    eprintln!("render_ms={}", render_time.as_micros() as f64 / 1000.0);
+    eprintln!("png_ms={}", png_time.as_micros() as f64 / 1000.0);
+    eprintln!("font_init_ms={}", font_init_time.as_micros() as f64 / 1000.0);
 }
 
 /// Inherited CSS properties that cascade down the tree.

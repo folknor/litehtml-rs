@@ -2,3 +2,5 @@
 *.png
 /test-emails/
 /test-emails-eml/
+.brokkr/*
+!.brokkr/results.db

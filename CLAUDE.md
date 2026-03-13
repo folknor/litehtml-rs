@@ -15,7 +15,7 @@ The old litehtml C++ renderer has been deleted. See `RENDERING-RESEARCH.md` for 
 ```
 HTML string
   → scraper/html5ever (parse DOM, ~1ms)
-  → custom CSS parser (inline styles + <style> blocks, ~5ms)
+  → lightningcss (inline styles + <style> blocks)
   → style resolution (cascade, inheritance, HTML attrs)
   → taffy (layout, ~1-4ms)
   → tiny-skia (scaffold) → iced widgets (final target)
@@ -26,7 +26,8 @@ Table layout is the critical missing piece — taffy doesn't support it (issue #
 ## Key files
 
 - `src/main.rs` — The rendering pipeline
-- `Cargo.toml` — Dependencies: scraper, taffy, tiny-skia, cosmic-text, ego-tree
+- `Cargo.toml` — Dependencies: scraper, taffy, tiny-skia, cosmic-text, ego-tree, lightningcss
+- `brokkr.toml` — Brokkr dev tooling config
 - `docs/RENDERING-RESEARCH.md` — Performance analysis, ecosystem survey, benchmarks
 - `docs/PIPELINE-PLAN.md` — Implementation plan and work items
 - `test-emails/` — HTML test corpus (numbered by complexity + real Gmail emails)
@@ -34,12 +35,23 @@ Table layout is the critical missing piece — taffy doesn't support it (issue #
 
 ## Commands
 
+Never use `cargo` directly — use brokkr for everything.
+
 ```bash
-cargo build                                              # build
-cargo run -- test-emails/1.html                          # run on test email
-cargo run --release -- test-emails/1.html                # release benchmark
-cargo run --features profile -- test-emails/1.html       # with hotpath profiling
+brokkr check                                             # clippy + tests
+brokkr run -- test-emails/1.html                         # build release + run
+brokkr run --time -- test-emails/1.html                  # release run with timing output
+brokkr bench run -- test-emails/1.html                   # benchmark (3 runs, best-of, stored in results.db)
+brokkr bench run --runs 5 -- test-emails/1.html          # benchmark with 5 runs
+brokkr bench run --variant "name" -- test-emails/1.html  # benchmark with variant label
+brokkr hotpath -- test-emails/1.html                     # function-level timing profiling
+brokkr hotpath --alloc -- test-emails/1.html             # allocation profiling
+brokkr results                                           # query benchmark results
+brokkr results --compare-last --command "bench run"      # diff two most recent runs
+brokkr history                                           # browse command history (all projects)
 ```
+
+`brokkr bench` requires a clean git tree to store results, but ignores dirty markdown files and `results.db` itself.
 
 ## Dependencies
 
@@ -48,6 +60,8 @@ cargo run --features profile -- test-emails/1.html       # with hotpath profilin
 - **cosmic-text** 0.18 (text measurement + glyph rasterization)
 - **tiny-skia** 0.11 (CPU rasterization, scaffold only)
 - **ego-tree** 0.10 (DOM tree traversal)
+- **lightningcss** 1.0.0-alpha.71 (CSS parsing — inline styles + stylesheet rules)
+- **hotpath** 0.14 (profiling, behind `profile` feature flag)
 
 ## Parent project
 

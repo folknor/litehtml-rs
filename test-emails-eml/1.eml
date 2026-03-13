@@ -1,0 +1,1405 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.231.31.197 with SMTP id z5cs123577ibc;
+        Wed, 6 Oct 2010 15:29:32 -0700 (PDT)
+Return-Path: <bigcampaign+bncCPyYu4rnDRC28LPlBBoE0ZwVrg@googlegroups.com>
+Received-SPF: pass (google.com: domain of bigcampaign+bncCPyYu4rnDRC28LPlBBoE0ZwVrg@googlegroups.com designates 10.220.193.9 as permitted sender) client-ip=10.220.193.9;
+Authentication-Results: mr.google.com; spf=pass (google.com: domain of bigcampaign+bncCPyYu4rnDRC28LPlBBoE0ZwVrg@googlegroups.com designates 10.220.193.9 as permitted sender) smtp.mail=bigcampaign+bncCPyYu4rnDRC28LPlBBoE0ZwVrg@googlegroups.com; dkim=pass header.i=bigcampaign+bncCPyYu4rnDRC28LPlBBoE0ZwVrg@googlegroups.com
+Received: from mr.google.com ([10.220.193.9])
+        by 10.220.193.9 with SMTP id ds9mr524022vcb.5.1286404171382 (num_hops = 1);
+        Wed, 06 Oct 2010 15:29:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=beta;
+        h=domainkey-signature:received:x-beenthere:received:received:received
+         :received:received-spf:x-asg-debug-id:received
+         :x-barracuda-envelope-from:x-asg-whitelist:received:from:to:date
+         :x-asg-orig-subj:subject:thread-topic:thread-index:message-id
+         :accept-language:x-ms-has-attach:x-ms-tnef-correlator:acceptlanguage
+         :mime-version:x-barracuda-connect:x-barracuda-start-time
+         :x-barracuda-encrypted:x-barracuda-url:x-virus-scanned
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :sender:list-unsubscribe:content-language:content-type;
+        bh=Vt7Pzi7bghOzFTu4ZgtP/9UsLhNLNjxViKBPxrCBdyE=;
+        b=vofQ8VYSqRYgc0rdj/ZFGG4sZHao57I0fYQJyIxAQHgX+KpIO0ppr9D8ukp5nzKomV
+         iht6A2xCpynDy+C6Vb8cRNKzpUU6J41JdPKHQGeOG+eeqFAh4fTTtrnyHBbFXasGG5pz
+         ikCmYBhWqwEXpUBD8TTK5+4j+82G6dUtWuCXs=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=googlegroups.com; s=beta;
+        h=x-beenthere:received-spf:x-asg-debug-id:x-barracuda-envelope-from
+         :x-asg-whitelist:from:to:date:x-asg-orig-subj:subject:thread-topic
+         :thread-index:message-id:accept-language:x-ms-has-attach
+         :x-ms-tnef-correlator:acceptlanguage:mime-version
+         :x-barracuda-connect:x-barracuda-start-time:x-barracuda-encrypted
+         :x-barracuda-url:x-virus-scanned:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:sender:list-unsubscribe
+         :content-language:content-type;
+        b=yWslND2SuNvSpgaAV4JKAW8VFvXRZjhKdHf4L9KWMNm8jeauQVb7is/Ri/QNxnRt7O
+         3fLt95p2jwd3cFvYVFdQjX4yC2NwtSwDi3RtlygK8FmXGAewSbymBdjB3OidQAUG9RmF
+         Nc9rzcy4lhNhH4dD6ryNIJskPm12iglpKoLqk=
+Received: by 10.220.193.9 with SMTP id ds9mr105058vcb.5.1286404150124;
+        Wed, 06 Oct 2010 15:29:10 -0700 (PDT)
+X-BeenThere: bigcampaign@googlegroups.com
+Received: by 10.220.52.1 with SMTP id f1ls324914vcg.0.p; Wed, 06 Oct 2010
+ 15:29:09 -0700 (PDT)
+Received: by 10.220.184.8 with SMTP id ci8mr646141vcb.26.1286404149356;
+        Wed, 06 Oct 2010 15:29:09 -0700 (PDT)
+Received: by 10.220.184.8 with SMTP id ci8mr646139vcb.26.1286404149274;
+        Wed, 06 Oct 2010 15:29:09 -0700 (PDT)
+Received: from mrelay2.americanprogress.org (mrelay2.americanprogress.org [208.87.104.101])
+        by gmr-mx.google.com with ESMTP id n18si681609vbs.3.2010.10.06.15.29.09;
+        Wed, 06 Oct 2010 15:29:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jdorner@americanprogress.org designates 208.87.104.101 as permitted sender) client-ip=208.87.104.101;
+X-ASG-Debug-ID: 1286404148-2aebdd0d0001-QLVFix
+Received: from mail.americanprogress.org ([172.16.10.1]) by mrelay2.americanprogress.org with ESMTP id 8F9iCCPhCNNVQUtG (version=TLSv1 cipher=RC4-MD5 bits=128 verify=NO) for <bigcampaign@googlegroups.com>; Wed, 06 Oct 2010 18:29:08 -0400 (EDT)
+X-Barracuda-Envelope-From: jdorner@americanprogress.org
+X-ASG-Whitelist: Client
+Received: from CAPMAILBOX.americanprogresscenter.org ([172.16.10.17]) by
+ mailfe2.americanprogresscenter.org ([172.16.10.24]) with mapi; Wed, 6 Oct
+ 2010 18:29:53 -0400
+From: Joshua Dorner <jdorner@americanprogress.org>
+To: "'bigcampaign@googlegroups.com'" <bigcampaign@googlegroups.com>
+Date: Wed, 6 Oct 2010 18:29:52 -0400
+X-ASG-Orig-Subj: Follow-up Materials from Background Briefing on the Chamber's
+ Foreign Funding, fyi
+Subject: [big campaign] Follow-up Materials from Background Briefing on the
+ Chamber's Foreign Funding, fyi
+Thread-Topic: Follow-up Materials from Background Briefing on the Chamber's
+ Foreign Funding, fyi
+Thread-Index: ActlpdISs7flA0p4SQ2gbGH6VIqNUgAAAchw
+Message-ID: <A28459BA2B4D5D49BED0238513058A7F012ADC1EF58F@CAPMAILBOX.americanprogresscenter.org>
+Accept-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+acceptlanguage: en-US
+MIME-Version: 1.0
+X-Barracuda-Connect: UNKNOWN[172.16.10.1]
+X-Barracuda-Start-Time: 1286404148
+X-Barracuda-Encrypted: RC4-MD5
+X-Barracuda-URL: http://mrelay2.americanprogress.org:8000/cgi-mod/mark.cgi
+X-Virus-Scanned: by bsmtpd at americanprogress.org
+X-Original-Sender: jdorner@americanprogress.org
+X-Original-Authentication-Results: gmr-mx.google.com; spf=pass (google.com:
+ domain of jdorner@americanprogress.org designates 208.87.104.101 as permitted
+ sender) smtp.mail=jdorner@americanprogress.org
+Reply-To: jdorner@americanprogress.org
+Precedence: list
+Mailing-list: list bigcampaign@googlegroups.com; contact bigcampaign+owners@googlegroups.com
+List-ID: <bigcampaign.googlegroups.com>
+List-Post: <http://groups.google.com/group/bigcampaign/post?hl=en_US>, <mailto:bigcampaign@googlegroups.com>
+List-Help: <http://groups.google.com/support/?hl=en_US>, <mailto:bigcampaign+help@googlegroups.com>
+List-Archive: <http://groups.google.com/group/bigcampaign?hl=en_US>
+Sender: bigcampaign@googlegroups.com
+List-Unsubscribe: <http://groups.google.com/group/bigcampaign/subscribe?hl=en_US>,
+ <mailto:bigcampaign+unsubscribe@googlegroups.com>
+Content-Language: en-US
+Content-Type: multipart/alternative;
+	boundary="_000_A28459BA2B4D5D49BED0238513058A7F012ADC1EF58FCAPMAILBOXa_"
+
+--_000_A28459BA2B4D5D49BED0238513058A7F012ADC1EF58FCAPMAILBOXa_
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+U.S. Chamber & Foreign Funding Resources:
+
+I.                    The original exclusive ThinkProgress post<http://thin=
+kprogress.org/2010/10/05/foreign-chamber-commerce/> on the Chamber's foreig=
+n funding.
+II.                  The latest ThinkProgress post: Inconvenient Facts That=
+ The Chamber Hasn't Refuted<http://thinkprogress.org/2010/10/06/chamber-res=
+ponse-funding/>.
+III.               Today's Progress Report<http://pr.thinkprogress.org/2010=
+/10/pr20101006/index.html>, "The Chamber's Foreign Influence," detailing th=
+e situation and the facts.
+IV.               U.S. Chamber Watch's site at www.fixtheuschamber.org<http=
+://www.fixtheuschamber.org>.  Contact Samantha Brown at bsamantha@gmail.com=
+<mailto:bsamantha@gmail.com> for more information on the Chamber's activiti=
+es, including a full list of attack ads the Chamber has run and is running =
+and the Chamber's endorsements.
+V.                  A press call tomorrow at 1:30 p.m. with ThinkProgress' =
+Faiz Shakir and Lee Fang and Senator Al Franken, who has publicly called fo=
+r an investigation of the Chamber's foreign funding.
+
+Call info: ( 877 ) 210 - 8943    Conference ID: 16738967
+VI.               The Facts on the Chamber's Foreign Funding (see below).
+
+WHAT WE KNOW...
+
+
+ *   CHAMBER AGRESSIVELY FUNDRAISING OVERSEAS FOR GENERAL FUNDS.  The Chamb=
+er has received hundreds of thousands of dollars-if not millions-in foreign=
+ donations<http://thinkprogress.org/2010/10/05/foreign-chamber-commerce/> f=
+rom countries like Bahrain, Abu Dhabi (U.A.E.), India, Russia, China, and e=
+lsewhere following an aggressive public fundraising campaign.  ThinkProgres=
+s has identified several foreign entities created by, run by, or affiliated=
+ with the Chamber that return hundreds of thousands of dollars annually to =
+the Chamber's general fund.  Some of these corporations are even state-owne=
+d entities controlled by foreign governments.  To recap, we know of at leas=
+t three ways the Chamber takes in foreign money:
+
+       *   Direct contributions from the foreign firms, such as BP or Sieme=
+ns, that are among its 300,000 members.
+       *   Direct contributions from foreign firms under the auspices of "B=
+usiness Councils" located in various foreign countries.  Our investigation =
+has discovered that the U.S.-Bahrain Business Council and U.S.-India Busine=
+ss Council have raised at least $300,000 in such direct contributions to th=
+e Chamber.
+       *   Indirect contributions from foreign firms who belong to their lo=
+cal "AmCham," which itself in turn pays dues to the U.S. Chamber's general =
+account.
+
+ *   CHAMBER RUNNING $75 MILLION ATTACK CAMPAIGN AGAINST DEMS USING GENERAL=
+ FUNDS. As of September 15, the Chamber has spent more than $6.7 million to=
+ run more than 8,000 ads<http://thinkprogress.org/2010/10/05/foreign-chambe=
+r-commerce/> on behalf of GOP Senate candidates alone. A new round of highl=
+y misleading ads began targeting House members this week.  The Chamber says=
+ it will spend some $75 million<http://www.nytimes.com/2010/10/02/us/politi=
+cs/02murdoch.html?ref=3Dpolitics> on this year's election-paid for out of t=
+he same general fund that the foreign money is going into.
+ *   CHAMBER DISCUSSING IMPORTANCE OF 2010 ELECTION TO FOREIGN ENTITIES. To=
+ galvanize foreign businesses<http://thinkprogress.org/2010/10/05/foreign-c=
+hamber-commerce/>, the Chamber has commissioned former Ambassador Frank Lav=
+in - who served as the McCain-Palin Asia campaign director and has appeared=
+ on television multiple times recently saying a Democratic Congress is bad =
+for business - to speak before various foreign Chamber affiliates to talk a=
+bout the stakes for the 2010 midterm elections.
+ *   WE'VE SEEN THIS MOVIE BEFORE.  The Chamber was exposed for having secr=
+etly taken approximately $20 million from the health insurance industry<htt=
+p://undertheinfluence.nationaljournal.com/2010/01/health-insurers-funded-ch=
+amber.php>, which it then used to launch anti-health reform ads against Dem=
+ocrats.  More recently, the Chamber, which receives money from BP, called o=
+n taxpayers to help foot the bill<http://www.huffingtonpost.com/2010/06/10/=
+chamber-of-commerce-says_n_607748.html> for BP's oil disaster in the Gulf. =
+ Another secret $1 million in funding<http://www.politico.com/news/stories/=
+0910/42989.html> from Fox News' parent corporation was also recently uncove=
+red.
+
+WHAT THE CHAMBER SAYS...
+
+
+ *   ADMITS TO TAKING FOREIGN FUNDS. "The Chamber is proud to have global c=
+ompanies<http://www.politico.com/blogs/bensmith/1010/Chamber_We_have_a_syst=
+em.html?showall> among our membership."
+ *   TRUST, DON'T VERIFY. The Chamber denies the allegations and claims the=
+y have "a system"<http://www.politico.com/blogs/bensmith/1010/Chamber_We_ha=
+ve_a_system.html?showall> in place.  As the New York Times notes today<http=
+://www.nytimes.com/2010/10/06/opinion/06wed1.html?hp>: "Money, however, is =
+fungible, and it is impossible for an outsider to know whether the group is=
+ following its rules."
+
+    *   When pressed further<http://voices.washingtonpost.com/plum-line/201=
+0/10/us_chamber_broadens_attack_on.html> to explain whether foreign funds a=
+re going into the same fund used for the political attack ads, the Chamber =
+didn't deny that that was the case and once again refused to answer basic q=
+uestions: "We don't feel obligated to answer that question because we follo=
+w all applicable law, and no foreign money funds our voter education activi=
+ties."
+
+WHAT THE LAW SAYS...
+
+ *   ILLEGAL FOR FOREIGN ENTITIES AND INDIVIDUALS TO SPEND IN AMERICAN ELEC=
+TIONS. Under the Federal Election Campaign Act<http://www.fec.gov/pages/bro=
+chures/foreign.shtml> (FECA), it is illegal for "foreign nationals" to "dir=
+ectly or indirectly" contribute, donate, or spend funds in connection with =
+any federal, state, or local election in the U.S.
+ *   ILLEGAL FOR AMERICAN ENTITIES-LIKE THE CHAMBER-TO SOLICIT FOREIGN FUND=
+S FOR AMERICAN ELECTIONS. As MoveOn's letter to the Department of Justice n=
+oted: "It is not only unlawful for a foreign national to make such a contri=
+bution, directly or indirectly, it is also unlawful for anyone "to solicit,=
+ accept or receive" such a contribution "from a foreign national." 2 U.S.C.=
+ =A7441e(a)(2)."
+
+CALLS FOR INVESTIGATION...
+
+
+ *   MOVEON.  MoveOn sent a letter to the Department of Justice Tuesday<htt=
+p://www.huffingtonpost.com/2010/10/05/moveon-asks-doj-to-launch_n_751534.ht=
+ml> requesting that it began an immediate investigation of the Chamber's po=
+tentially illegal activities.  MoveOn has also launched a petition calling =
+for the investigation and its members are calling on local TV stations to i=
+mmediately take down the Chamber's ads.
+ *   SENATOR FRANKEN. Senator Al Franken wrote to the Federal Election Comm=
+ission<http://www.startribune.com/politics/blogs/104373294.html?elr=3DKArks=
+LckD8EQDUoaEyqyP4O:DW3ckUiD3aPc:_Yyc:aUgOy9cP3DieyckcUsI> Tuesday and reque=
+sted that they too began an immediate investigation, as well close certain =
+loopholes that could allow foreign spending in American elections.
+
+PERRIELLO GETS AHEAD OF POTENTIAL FOREIGN MONEY IN HIS DISTRICT...
+
+
+ *   Rep. Tom Perriello held a conference call with reporters Tuesday night=
+ to denounce foreign money in American elections:
+    *   "This latest move is beyond outrageous, to being fundamentally un-A=
+merican and undemocratic." [Lynchburg News & Advance, 10/5<http://www2.news=
+advance.com/news/2010/oct/05/perriello-foreign-money-financing-attack-ads-a=
+r-544575/>]
+    *   "On Tuesday, Perriello called on his opponent Sen. Robert Hurt to s=
+tand-up against what he calls an 'organization with shadow funding'." [WDJB=
+-TV, 10/5<http://www.wdbj7.com/news/wdbj7-story-perriello-ad-100510,0,75296=
+97.story>]
+
+SECRET MONEY THREATENS TO DROWN OUT REAL PEOPLE'S VOICES...
+
+ *   Secret money from corporate special interests - foreign and domestic -=
+ threatens to drown out the voices and concerns of everyday Americans.  Rig=
+ht-wing third-party groups are preparing to spend a whopping $400 MILLION<h=
+ttp://thinkprogress.org/2010/08/27/conservative-groups-400-millio/>, much o=
+f it from secret sources, to buy our election.  The American people - not s=
+pecial interests - should decide our elections.
+
+
+Josh Dorner
+Communications Director, Progressive Media
+tel 202.481.8153
+cel 202.679.7570
+
+--=20
+You received this message because you are subscribed to the "big campaign" =
+group.
+
+To post to this group, send to bigcampaign@googlegroups.com
+
+To unsubscribe, send email to bigcampaign-unsubscribe@googlegroups.com
+
+E-mail dubois.sara@gmail.com with questions or concerns
+=20
+This is a list of individuals. It is not affiliated with any group or organ=
+ization.
+--_000_A28459BA2B4D5D49BED0238513058A7F012ADC1EF58FCAPMAILBOXa_
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:x=3D"urn:schemas-microsoft-com:office:excel" xmlns:p=3D"urn:schemas-m=
+icrosoft-com:office:powerpoint" xmlns:a=3D"urn:schemas-microsoft-com:office=
+:access" xmlns:dt=3D"uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:s=3D"=
+uuid:BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882" xmlns:rs=3D"urn:schemas-microsof=
+t-com:rowset" xmlns:z=3D"#RowsetSchema" xmlns:b=3D"urn:schemas-microsoft-co=
+m:office:publisher" xmlns:ss=3D"urn:schemas-microsoft-com:office:spreadshee=
+t" xmlns:c=3D"urn:schemas-microsoft-com:office:component:spreadsheet" xmlns=
+:odc=3D"urn:schemas-microsoft-com:office:odc" xmlns:oa=3D"urn:schemas-micro=
+soft-com:office:activation" xmlns:html=3D"http://www.w3.org/TR/REC-html40" =
+xmlns:q=3D"http://schemas.xmlsoap.org/soap/envelope/" xmlns:rtc=3D"http://m=
+icrosoft.com/officenet/conferencing" xmlns:D=3D"DAV:" xmlns:Repl=3D"http://=
+schemas.microsoft.com/repl/" xmlns:mt=3D"http://schemas.microsoft.com/share=
+point/soap/meetings/" xmlns:x2=3D"http://schemas.microsoft.com/office/excel=
+/2003/xml" xmlns:ppda=3D"http://www.passport.com/NameSpace.xsd" xmlns:ois=
+=3D"http://schemas.microsoft.com/sharepoint/soap/ois/" xmlns:dir=3D"http://=
+schemas.microsoft.com/sharepoint/soap/directory/" xmlns:ds=3D"http://www.w3=
+.org/2000/09/xmldsig#" xmlns:dsp=3D"http://schemas.microsoft.com/sharepoint=
+/dsp" xmlns:udc=3D"http://schemas.microsoft.com/data/udc" xmlns:xsd=3D"http=
+://www.w3.org/2001/XMLSchema" xmlns:sub=3D"http://schemas.microsoft.com/sha=
+repoint/soap/2002/1/alerts/" xmlns:ec=3D"http://www.w3.org/2001/04/xmlenc#"=
+ xmlns:sp=3D"http://schemas.microsoft.com/sharepoint/" xmlns:sps=3D"http://=
+schemas.microsoft.com/sharepoint/soap/" xmlns:xsi=3D"http://www.w3.org/2001=
+/XMLSchema-instance" xmlns:udcs=3D"http://schemas.microsoft.com/data/udc/so=
+ap" xmlns:udcxf=3D"http://schemas.microsoft.com/data/udc/xmlfile" xmlns:udc=
+p2p=3D"http://schemas.microsoft.com/data/udc/parttopart" xmlns:st=3D"&#1;" =
+xmlns:st1=3D"urn:schemas-microsoft-com:office:smarttags" xmlns=3D"http://ww=
+w.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=3DContent-Type content=3D"text/html; charset=3Diso-8859-1"=
+>
+<meta name=3DGenerator content=3D"Microsoft Word 11 (filtered medium)">
+<o:SmartTagType namespaceuri=3D"urn:schemas-microsoft-com:office:smarttags"
+ name=3D"City"/>
+<o:SmartTagType namespaceuri=3D"urn:schemas-microsoft-com:office:smarttags"
+ name=3D"country-region"/>
+<o:SmartTagType namespaceuri=3D"urn:schemas-microsoft-com:office:smarttags"
+ name=3D"place"/>
+<o:SmartTagType namespaceuri=3D"urn:schemas-microsoft-com:office:smarttags"
+ name=3D"PersonName"/>
+<!--[if !mso]>
+<style>
+st1\:*{behavior:url(#default#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+span.EmailStyle18
+	{mso-style-type:personal;
+	font-family:Arial;
+	color:windowtext;}
+span.EmailStyle21
+	{mso-style-type:personal-reply;
+	font-family:Arial;
+	color:navy;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:31149168;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1433260998 1350457892 67698713 67698715 67698703 67=
+698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-number-format:roman-upper;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.5in;}
+@list l0:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:31657132;
+	mso-list-template-ids:-1644246290;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:158887378;
+	mso-list-template-ids:-1298661318;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:192156293;
+	mso-list-template-ids:1160673684;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:229778924;
+	mso-list-type:hybrid;
+	mso-list-template-ids:710473992 67698689 67698691 67698693 67698689 676986=
+91 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:1104808808;
+	mso-list-template-ids:-1458245394;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l5:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:1201475603;
+	mso-list-template-ids:-1697981296;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l6:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:1226380567;
+	mso-list-template-ids:-1740999736;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l7:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l7:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8
+	{mso-list-id:1257060659;
+	mso-list-template-ids:756176636;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l8:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext=3D"edit">
+  <o:idmap v:ext=3D"edit" data=3D"1" />
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=3DEN-US link=3Dblue vlink=3Dpurple>
+
+<div class=3DSection1>
+
+<p class=3DMsoNormal><st1:place w:st=3D"on"><st1:country-region w:st=3D"on"=
+><b><font
+  size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambr=
+ia;
+  font-weight:bold'>U.S.</span></font></b></st1:country-region></st1:place>=
+<b><font
+face=3DCambria><span style=3D'font-family:Cambria;font-weight:bold'> Chambe=
+r &amp;
+Foreign Funding Resources:<o:p></o:p></span></font></b></p>
+
+<p class=3DMsoNormal><font size=3D3 face=3DCambria><span style=3D'font-size=
+:12.0pt;
+font-family:Cambria'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:0in;margin-right:0in;margi=
+n-bottom:
+12.0pt;margin-left:.75in;text-indent:-.5in;mso-list:l0 level1 lfo1'><![if !=
+supportLists]><font
+size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria=
+'><span
+style=3D'mso-list:Ignore'>I.<font size=3D1 face=3D"Times New Roman"><span
+style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;
+</span></font></span></span></font><![endif]><font face=3DCambria><span
+style=3D'font-family:Cambria'>The <a
+href=3D"http://thinkprogress.org/2010/10/05/foreign-chamber-commerce/">orig=
+inal
+exclusive ThinkProgress post</a> on the Chamber&#8217;s foreign funding.<o:=
+p></o:p></span></font></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:0in;margin-right:0in;margi=
+n-bottom:
+12.0pt;margin-left:.75in;text-indent:-.5in;mso-list:l0 level1 lfo1'><![if !=
+supportLists]><font
+size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria=
+'><span
+style=3D'mso-list:Ignore'>II.<font size=3D1 face=3D"Times New Roman"><span
+style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></font></span></span></font><![endif]><font face=3DCambria><span
+style=3D'font-family:Cambria'>The latest ThinkProgress post: <a
+href=3D"http://thinkprogress.org/2010/10/06/chamber-response-funding/">Inco=
+nvenient
+Facts That The Chamber Hasn&#8217;t Refuted</a>.<o:p></o:p></span></font></=
+p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:0in;margin-right:0in;margi=
+n-bottom:
+12.0pt;margin-left:.75in;text-indent:-.5in;mso-list:l0 level1 lfo1'><![if !=
+supportLists]><font
+size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria=
+'><span
+style=3D'mso-list:Ignore'>III.<font size=3D1 face=3D"Times New Roman"><span
+style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></font></span></span></font><![endif]><font face=3DCambria><span
+style=3D'font-family:Cambria'>Today&#8217;s <a
+href=3D"http://pr.thinkprogress.org/2010/10/pr20101006/index.html">Progress
+Report</a>, &#8220;The Chamber&#8217;s Foreign Influence,&#8221; detailing =
+the
+situation and the facts.<o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:0in;margin-right:0in;margi=
+n-bottom:
+12.0pt;margin-left:.75in;text-indent:-.5in;mso-list:l0 level1 lfo1'><![if !=
+supportLists]><font
+size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria=
+'><span
+style=3D'mso-list:Ignore'>IV.<font size=3D1 face=3D"Times New Roman"><span
+style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></font></span></span></font><![endif]><font face=3DCambria><span
+style=3D'font-family:Cambria'>U.S. Chamber Watch&#8217;s site at <a
+href=3D"http://www.fixtheuschamber.org" title=3D"http://www.fixtheuschamber=
+.org/">www.fixtheuschamber.org</a>.&nbsp;
+<b><span style=3D'font-weight:bold'>Contact Samantha Brown at <a
+href=3D"mailto:bsamantha@gmail.com">bsamantha@gmail.com</a> for more inform=
+ation</span></b>
+on the Chamber&#8217;s activities, including a full list of attack ads the
+Chamber has run and is running and the Chamber&#8217;s endorsements.<o:p></=
+o:p></span></font></p>
+
+<p class=3DMsoNormal style=3D'mso-margin-top-alt:0in;margin-right:0in;margi=
+n-bottom:
+12.0pt;margin-left:.75in;text-indent:-.5in;mso-list:l0 level1 lfo1'><![if !=
+supportLists]><font
+size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria=
+'><span
+style=3D'mso-list:Ignore'>V.<font size=3D1 face=3D"Times New Roman"><span
+style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></font></span></span></font><![endif]><font face=3DCambria><span
+style=3D'font-family:Cambria'>A <b><span style=3D'font-weight:bold'>press c=
+all
+tomorrow at 1:30 p.m.</span></b> with ThinkProgress&#8217; <st1:PersonName
+w:st=3D"on">Faiz Shakir</st1:PersonName> and <st1:PersonName w:st=3D"on">Le=
+e Fang</st1:PersonName>
+and Senator Al Franken, who has publicly called for an investigation of the
+Chamber&#8217;s foreign funding.<br>
+<br>
+<b><span style=3D'font-weight:bold'>Call info: ( 877 ) 210 &#8211; 8943</sp=
+an></b>
+&nbsp;&nbsp; <b><span style=3D'font-weight:bold'>Conference ID: 16738967</s=
+pan></b><o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal style=3D'margin-left:.75in;text-indent:-.5in;mso-list:=
+l0 level1 lfo1'><![if !supportLists]><font
+size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria=
+'><span
+style=3D'mso-list:Ignore'>VI.<font size=3D1 face=3D"Times New Roman"><span
+style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></font></span></span></font><![endif]><font face=3DCambria><span
+style=3D'font-family:Cambria'>The Facts on the Chamber&#8217;s Foreign Fund=
+ing
+(see below).<o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D3 face=3DCambria><span style=3D'font-size=
+:12.0pt;
+font-family:Cambria'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'>WHAT WE KNOW&#8230;<o:p></o:p></span>=
+</font></b></p>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'><o:p>&nbsp;</o:p></span></font></b></=
+p>
+
+<ul style=3D'margin-top:0in' type=3Ddisc>
+ <li class=3DMsoNormal style=3D'margin-bottom:12.0pt;mso-list:l6 level1 lfo=
+2'><b><font
+     size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Ca=
+mbria;
+     font-weight:bold'>CHAMBER&nbsp;AGRESSIVELY FUNDRAISING&nbsp;OVERSEAS F=
+OR
+     GENERAL FUNDS.</span></font></b><font face=3DCambria><span style=3D'fo=
+nt-family:
+     Cambria'>&nbsp; The Chamber has <a
+     href=3D"http://thinkprogress.org/2010/10/05/foreign-chamber-commerce/"
+     title=3D"http://thinkprogress.org/2010/10/05/foreign-chamber-commerce/=
+">received
+     hundreds of thousands of dollars&#8212;if not millions&#8212;in foreig=
+n
+     donations</a> from countries like <st1:country-region w:st=3D"on"><b><=
+span
+      style=3D'font-weight:bold'>Bahrain</span></b></st1:country-region><b>=
+<span
+     style=3D'font-weight:bold'>, <st1:City w:st=3D"on">Abu Dhabi</st1:City=
+>
+     (U.A.E.), <st1:country-region w:st=3D"on">India</st1:country-region>, =
+<st1:country-region
+     w:st=3D"on">Russia</st1:country-region>, <st1:place w:st=3D"on"><st1:c=
+ountry-region
+      w:st=3D"on">China</st1:country-region></st1:place></span></b>, and
+     elsewhere following an aggressive public fundraising campaign.&nbsp;
+     ThinkProgress has identified several foreign entities created by, run =
+by,
+     or affiliated with the Chamber that return hundreds of thousands of
+     dollars annually to the Chamber&#8217;s general fund.&nbsp; Some of th=
+ese
+     corporations are even state-owned entities controlled by foreign
+     governments.</span></font> &nbsp;To recap, we know of at least three w=
+ays
+     the Chamber takes in foreign money:<b><font face=3DCambria><span
+     style=3D'font-family:Cambria;font-weight:bold'><o:p></o:p></span></fon=
+t></b></li>
+</ul>
+
+<ul style=3D'margin-top:0in' type=3Ddisc>
+ <ol style=3D'margin-top:0in' start=3D1 type=3D1>
+  <ul style=3D'margin-top:0in' type=3Ddisc>
+   <li class=3DMsoNormal style=3D'margin-bottom:12.0pt;mso-list:l2 level3 l=
+fo3'><font
+       size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:=
+Cambria'>Direct
+       contributions from the foreign firms, such as BP or Siemens, that ar=
+e
+       among its 300,000 members.<b><span style=3D'font-weight:bold'><o:p><=
+/o:p></span></b></span></font></li>
+   <li class=3DMsoNormal style=3D'margin-bottom:12.0pt;mso-list:l2 level3 l=
+fo3'><font
+       size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:=
+Cambria'>Direct
+       contributions from foreign firms under the auspices of &#8220;Busine=
+ss
+       Councils&#8221; located in various foreign countries. &nbsp;Our inve=
+stigation
+       has discovered that the U.S.-Bahrain Business Council and U.S.-India
+       Business Council have raised at least $300,000 in such direct
+       contributions to the Chamber. <b><span style=3D'font-weight:bold'><o=
+:p></o:p></span></b></span></font></li>
+   <li class=3DMsoNormal style=3D'margin-bottom:12.0pt;mso-list:l2 level3 l=
+fo3'><font
+       size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:=
+Cambria'>Indirect
+       contributions from foreign firms who belong to their local
+       &#8220;AmCham,&#8221; which itself in turn pays dues to the U.S.
+       Chamber&#8217;s general account. <b><span style=3D'font-weight:bold'=
+><o:p></o:p></span></b></span></font></li>
+  </ul>
+ </ol>
+</ul>
+
+<ul style=3D'margin-top:0in' type=3Ddisc>
+ <li class=3DMsoNormal style=3D'margin-bottom:12.0pt;mso-list:l6 level1 lfo=
+2'><b><font
+     size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Ca=
+mbria;
+     font-weight:bold'>CHAMBER RUNNING $75 MILLION ATTACK CAMPAIGN AGAINST =
+DEMS
+     USING GENERAL FUNDS. </span></font></b><font face=3DCambria><span
+     style=3D'font-family:Cambria'>As of September 15, the Chamber has spen=
+t more
+     than <a
+     href=3D"http://thinkprogress.org/2010/10/05/foreign-chamber-commerce/"
+     title=3D"http://thinkprogress.org/2010/10/05/foreign-chamber-commerce/=
+">$6.7
+     million to run more than 8,000 ads</a> on behalf of GOP Senate candida=
+tes
+     alone.&nbsp;A new round of highly misleading ads began targeting House
+     members this week.&nbsp; The Chamber says it will spend some <a
+     href=3D"http://www.nytimes.com/2010/10/02/us/politics/02murdoch.html?r=
+ef=3Dpolitics"
+     title=3D"http://www.nytimes.com/2010/10/02/us/politics/02murdoch.html?=
+ref=3Dpolitics">$75
+     million</a> on this year&#8217;s election&#8212;paid for out of the sa=
+me
+     general fund that the foreign money is going into.</span></font> <b><f=
+ont
+     face=3DCambria><span style=3D'font-family:Cambria;font-weight:bold'><o=
+:p></o:p></span></font></b></li>
+ <li class=3DMsoNormal style=3D'margin-bottom:12.0pt;mso-list:l6 level1 lfo=
+2'><b><font
+     size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Ca=
+mbria;
+     font-weight:bold'>CHAMBER DISCUSSING IMPORTANCE OF 2010 ELECTION TO
+     FOREIGN ENTITIES. </span></font></b><font face=3DCambria><span
+     style=3D'font-family:Cambria'>To galvanize <a
+     href=3D"http://thinkprogress.org/2010/10/05/foreign-chamber-commerce/"
+     title=3D"http://thinkprogress.org/2010/10/05/foreign-chamber-commerce/=
+">foreign
+     businesses</a>, the Chamber has commissioned former Ambassador Frank L=
+avin
+     &#8212; who served as the McCain-Palin Asia campaign director and has
+     appeared on television multiple times recently saying a Democratic
+     Congress is bad for business &#8212; to speak before various foreign
+     Chamber affiliates to talk about the stakes for the 2010 midterm
+     elections.</span></font> <b><font face=3DCambria><span style=3D'font-f=
+amily:
+     Cambria;font-weight:bold'><o:p></o:p></span></font></b></li>
+ <li class=3DMsoNormal style=3D'mso-list:l6 level1 lfo2'><b><font size=3D3
+     face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria;fon=
+t-weight:
+     bold'>WE&#8217;VE SEEN THIS MOVIE BEFORE.&nbsp; </span></font></b><fon=
+t
+     face=3DCambria><span style=3D'font-family:Cambria'>The Chamber was exp=
+osed for
+     having secretly taken approximately <a
+     href=3D"http://undertheinfluence.nationaljournal.com/2010/01/health-in=
+surers-funded-chamber.php"
+     title=3D"http://undertheinfluence.nationaljournal.com/2010/01/health-i=
+nsurers-funded-chamber.php">$20
+     million from the health insurance industry</a>, which it then used to
+     launch anti-health reform ads against Democrats.&nbsp; More recently, =
+the
+     Chamber, which receives money from BP, called on taxpayers to help <a
+     href=3D"http://www.huffingtonpost.com/2010/06/10/chamber-of-commerce-s=
+ays_n_607748.html"
+     title=3D"http://www.huffingtonpost.com/2010/06/10/chamber-of-commerce-=
+says_n_607748.html">foot
+     the bill</a> for BP&#8217;s oil disaster in the Gulf.&nbsp; Another <a
+     href=3D"http://www.politico.com/news/stories/0910/42989.html"
+     title=3D"http://www.politico.com/news/stories/0910/42989.html">secret =
+$1
+     million in funding</a> from Fox News&#8217; parent corporation was als=
+o
+     recently uncovered.&nbsp; &nbsp;&nbsp;&nbsp;</span></font> <b><font
+     face=3DCambria><span style=3D'font-family:Cambria;font-weight:bold'><o=
+:p></o:p></span></font></b></li>
+</ul>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'><o:p>&nbsp;</o:p></span></font></b></=
+p>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'>WHAT THE CHAMBER SAYS&#8230;<o:p></o:=
+p></span></font></b></p>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'><o:p>&nbsp;</o:p></span></font></b></=
+p>
+
+<ul style=3D'margin-top:0in' type=3Ddisc>
+ <li class=3DMsoNormal style=3D'margin-bottom:12.0pt;mso-list:l1 level1 lfo=
+4'><b><font
+     size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Ca=
+mbria;
+     font-weight:bold'>ADMITS TO TAKING FOREIGN FUNDS. &#8220;</span></font=
+></b><span
+     class=3Dapple-style-span><font face=3DCambria><span style=3D'font-fami=
+ly:Cambria'>The
+     Chamber is <a
+     href=3D"http://www.politico.com/blogs/bensmith/1010/Chamber_We_have_a_=
+system.html?showall"
+     title=3D"http://www.politico.com/blogs/bensmith/1010/Chamber_We_have_a=
+_system.html?showall">proud
+     to have global companies</a> among our membership.</span></font></span=
+><span
+     class=3Dapple-converted-space><font face=3DCambria><span style=3D'font=
+-family:
+     Cambria'>&#8221;</span></font></span> <span class=3Dapple-converted-sp=
+ace><o:p></o:p></span></li>
+ <li class=3DMsoNormal style=3D'mso-list:l1 level1 lfo4'><b><font size=3D3
+     face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria;fon=
+t-weight:
+     bold'>TRUST, DON&#8217;T VERIFY. </span></font></b><font face=3DCambri=
+a><span
+     style=3D'font-family:Cambria'>The Chamber denies the allegations and c=
+laims
+     they have <a
+     href=3D"http://www.politico.com/blogs/bensmith/1010/Chamber_We_have_a_=
+system.html?showall"
+     title=3D"http://www.politico.com/blogs/bensmith/1010/Chamber_We_have_a=
+_system.html?showall">&#8220;a
+     system&#8221;</a> in place.&nbsp; As the <i><span style=3D'font-style:=
+italic'><a
+     href=3D"http://www.nytimes.com/2010/10/06/opinion/06wed1.html?hp"
+     title=3D"http://www.nytimes.com/2010/10/06/opinion/06wed1.html?hp">New=
+ York
+     Times <span
+     title=3D"http://www.nytimes.com/2010/10/06/opinion/06wed1.html?hp"><sp=
+an
+     style=3D'font-style:normal'>notes today</span></span></a></span></i>:
+     &#8220;Money, however, is fungible, and <b><span style=3D'font-weight:=
+bold'>it</span></b>
+     <b><span style=3D'font-weight:bold'>is impossible for an outsider to k=
+now</span></b>
+     whether the group is following its rules.&#8221;</span></font> <o:p></=
+o:p></li>
+</ul>
+
+<ul style=3D'margin-top:0in' type=3Ddisc>
+ <ul style=3D'margin-top:0in' type=3Ddisc>
+  <li class=3DMsoNormal style=3D'mso-list:l3 level2 lfo5'><font size=3D3
+      face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria'>W=
+hen <a
+      href=3D"http://voices.washingtonpost.com/plum-line/2010/10/us_chamber=
+_broadens_attack_on.html">pressed
+      further</a> to explain whether foreign funds are going into the same =
+fund
+      used for the political attack ads, the Chamber didn&#8217;t deny that
+      that was the case and once again refused to answer basic questions: <=
+b><span
+      style=3D'font-weight:bold'>&quot;We don't feel obligated to answer th=
+at
+      question</span></b> because we follow all applicable law, and no fore=
+ign
+      money funds our voter education activities.&quot;</span></font><o:p><=
+/o:p></li>
+ </ul>
+</ul>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'><o:p>&nbsp;</o:p></span></font></b></=
+p>
+
+<p class=3DMsoNormal style=3D'margin-bottom:12.0pt'><b><font size=3D3 face=
+=3DCambria><span
+style=3D'font-size:12.0pt;font-family:Cambria;font-weight:bold'>WHAT THE LA=
+W
+SAYS&#8230;<o:p></o:p></span></font></b></p>
+
+<ul style=3D'margin-top:0in' type=3Ddisc>
+ <li class=3DMsoNormal style=3D'margin-bottom:12.0pt;mso-list:l5 level1 lfo=
+6'><b><font
+     size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Ca=
+mbria;
+     font-weight:bold'>ILLEGAL FOR FOREIGN ENTITIES AND INDIVIDUALS TO SPEN=
+D IN
+     AMERICAN ELECTIONS. </span></font></b><span class=3Dapple-style-span><=
+font
+     color=3Dblack face=3DCambria><span style=3D'font-family:Cambria;color:=
+black'>Under
+     the&nbsp;<a href=3D"http://www.fec.gov/pages/brochures/foreign.shtml"
+     title=3D"http://www.fec.gov/pages/brochures/foreign.shtml" style=3D'OU=
+TLINE-STYLE: none;
+     MAX-WIDTH: 551px'><font color=3D"#3a71a7"
+     title=3D"http://www.fec.gov/pages/brochures/foreign.shtml"><span
+     title=3D"http://www.fec.gov/pages/brochures/foreign.shtml"><span
+     style=3D'color:#3A71A7'>Federal Election Campaign Ac</span></font><fon=
+t
+     color=3D"#3a71a7"><span style=3D'color:#3A71A7'>t</span></span></font>=
+</a>&nbsp;(FECA),
+     it is illegal for &quot;foreign nationals&quot; to &quot;directly or
+     indirectly&quot; contribute, donate, or spend funds in connection with=
+ any
+     federal, state, or local election in the <st1:place w:st=3D"on"><st1:c=
+ountry-region
+      w:st=3D"on">U.S.</st1:country-region></st1:place></span></font></span=
+> <b><font
+     face=3DCambria><span style=3D'font-family:Cambria;font-weight:bold'><o=
+:p></o:p></span></font></b></li>
+ <li class=3DMsoNormal style=3D'mso-list:l5 level1 lfo6'><b><font size=3D3
+     face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria;fon=
+t-weight:
+     bold'>ILLEGAL FOR AMERICAN ENTITIES&#8212;LIKE THE CHAMBER&#8212;TO
+     SOLICIT FOREIGN FUNDS FOR AMERICAN ELECTIONS. </span></font></b><font
+     face=3DCambria><span style=3D'font-family:Cambria'>As MoveOn&#8217;s l=
+etter to
+     the Department of Justice noted: &#8220;It is not only unlawful for a
+     foreign national to make such a contribution, directly or indirectly, =
+it
+     is also unlawful for anyone &#8220;to solicit, accept or receive&#8221=
+;
+     such a contribution &#8220;from a foreign national.&#8221; 2 U.S.C.
+     =A7441e(a)(2).&#8221; <o:p></o:p></span></font></li>
+</ul>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'><o:p>&nbsp;</o:p></span></font></b></=
+p>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'>CALLS FOR INVESTIGATION&#8230;<o:p></=
+o:p></span></font></b></p>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'><o:p>&nbsp;</o:p></span></font></b></=
+p>
+
+<ul style=3D'margin-top:0in' type=3Ddisc>
+ <li class=3DMsoNormal style=3D'margin-bottom:12.0pt;mso-list:l8 level1 lfo=
+7'><b><font
+     size=3D3 face=3DCambria><span style=3D'font-size:12.0pt;font-family:Ca=
+mbria;
+     font-weight:bold'>MOVEON.&nbsp; </span></font></b><font face=3DCambria=
+><span
+     style=3D'font-family:Cambria'>MoveOn sent a <a
+     href=3D"http://www.huffingtonpost.com/2010/10/05/moveon-asks-doj-to-la=
+unch_n_751534.html"
+     title=3D"http://www.huffingtonpost.com/2010/10/05/moveon-asks-doj-to-l=
+aunch_n_751534.html">letter
+     to the Department of Justice Tuesday</a> requesting that it began an i=
+mmediate
+     investigation of the Chamber&#8217;s potentially illegal activities.&n=
+bsp;
+     MoveOn has also launched a petition calling for the investigation and =
+its
+     members are calling on local TV stations to immediately take down the
+     Chamber&#8217;s ads.&nbsp; <b><span style=3D'font-weight:bold'><o:p></=
+o:p></span></b></span></font></li>
+ <li class=3DMsoNormal style=3D'mso-list:l8 level1 lfo7'><b><font size=3D3
+     face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria;fon=
+t-weight:
+     bold'>SENATOR FRANKEN. </span></font></b><font face=3DCambria><span
+     style=3D'font-family:Cambria'>Senator Al Franken <a
+     href=3D"http://www.startribune.com/politics/blogs/104373294.html?elr=
+=3DKArksLckD8EQDUoaEyqyP4O:DW3ckUiD3aPc:_Yyc:aUgOy9cP3DieyckcUsI"
+     title=3D"http://www.startribune.com/politics/blogs/104373294.html?elr=
+=3DKArksLckD8EQDUoaEyqyP4O:DW3ckUiD3aPc:_Yyc:aUgOy9cP3DieyckcUsI">wrote
+     to the Federal Election Commission</a> Tuesday and requested that they=
+ too
+     began an immediate investigation, as well close certain loopholes that
+     could allow foreign spending in American elections.</span></font> <b><=
+font
+     face=3DCambria><span style=3D'font-family:Cambria;font-weight:bold'><o=
+:p></o:p></span></font></b></li>
+</ul>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'><o:p>&nbsp;</o:p></span></font></b></=
+p>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'>PERRIELLO GETS AHEAD OF POTENTIAL FOR=
+EIGN
+MONEY IN HIS DISTRICT&#8230;<o:p></o:p></span></font></b></p>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'><o:p>&nbsp;</o:p></span></font></b></=
+p>
+
+<ul style=3D'margin-top:0in' type=3Ddisc>
+ <li class=3DMsoNormal style=3D'mso-list:l7 level1 lfo8'><font size=3D3 fac=
+e=3DCambria><span
+     style=3D'font-size:12.0pt;font-family:Cambria'>Rep. Tom Perriello held=
+ a
+     conference call with reporters Tuesday night to denounce foreign money=
+ in
+     American elections:</span></font> <b><font face=3DCambria><span
+     style=3D'font-family:Cambria;font-weight:bold'><o:p></o:p></span></fon=
+t></b></li>
+ <ul style=3D'margin-top:0in' type=3Dcircle>
+  <li class=3DMsoNormal style=3D'mso-list:l7 level2 lfo8'><font size=3D3
+      face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria'>&=
+#8220;This
+      latest move is beyond outrageous, to being fundamentally un-American =
+and
+      undemocratic.&#8221; [<st1:place w:st=3D"on"><st1:City w:st=3D"on"><i=
+><span
+        style=3D'font-style:italic'>Lynchburg</span></i></st1:City></st1:pl=
+ace><i><span
+      style=3D'font-style:italic'> News &amp; Advance</span></i>, <a
+      href=3D"http://www2.newsadvance.com/news/2010/oct/05/perriello-foreig=
+n-money-financing-attack-ads-ar-544575/"
+      title=3D"http://www2.newsadvance.com/news/2010/oct/05/perriello-forei=
+gn-money-financing-attack-ads-ar-544575/">10/5</a>]</span></font>
+      <font face=3DCambria><span style=3D'font-family:Cambria'><o:p></o:p><=
+/span></font></li>
+  <li class=3DMsoNormal style=3D'mso-list:l7 level2 lfo8'><font size=3D3
+      face=3DCambria><span style=3D'font-size:12.0pt;font-family:Cambria'>&=
+#8220;On
+      Tuesday, Perriello called on his opponent Sen. Robert Hurt to stand-u=
+p
+      against what he calls an &#8216;organization with shadow
+      funding&#8217;.&#8221; [WDJB-TV, <a
+      href=3D"http://www.wdbj7.com/news/wdbj7-story-perriello-ad-100510,0,7=
+529697.story"
+      title=3D"http://www.wdbj7.com/news/wdbj7-story-perriello-ad-100510,0,=
+7529697.story">10/5</a>]</span></font>
+      <font face=3DCambria><span style=3D'font-family:Cambria'><o:p></o:p><=
+/span></font></li>
+ </ul>
+</ul>
+
+<p class=3DMsoNormal><font size=3D3 face=3DCambria><span style=3D'font-size=
+:12.0pt;
+font-family:Cambria'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=3DMsoNormal><b><font size=3D3 face=3DCambria><span style=3D'font-s=
+ize:12.0pt;
+font-family:Cambria;font-weight:bold'>SECRET MONEY THREATENS TO DROWN OUT R=
+EAL
+PEOPLE</span></font></b><b><font size=3D2 face=3DArial><span style=3D'font-=
+size:10.0pt;
+font-family:Arial;font-weight:bold'>'S VOICES</span></font></b><b><font
+face=3DCambria><span style=3D'font-family:Cambria;font-weight:bold'>&#8230;=
+<o:p></o:p></span></font></b></p>
+
+<ul style=3D'margin-top:0in' type=3Ddisc>
+ <li class=3DMsoNormal style=3D'mso-list:l4 level1 lfo9'><font size=3D3 fac=
+e=3DCambria><span
+     style=3D'font-size:12.0pt;font-family:Cambria'>Secret money from corpo=
+rate
+     special interests &#8212; foreign and domestic &#8212; threatens to dr=
+own
+     out the voices and concerns of everyday Americans.&nbsp; Right-wing
+     third-party groups are preparing to spend a <a
+     href=3D"http://thinkprogress.org/2010/08/27/conservative-groups-400-mi=
+llio/"
+     title=3D"http://thinkprogress.org/2010/08/27/conservative-groups-400-m=
+illio/">whopping
+     $400 MILLION</a>, much of it from secret sources, to buy our
+     election.&nbsp; The American people &#8212; not special interests &#82=
+12;
+     should decide our elections.</span></font> <font size=3D2 face=3DArial=
+><span
+     style=3D'font-size:10.0pt;font-family:Arial'><o:p></o:p></span></font>=
+</li>
+</ul>
+
+<p class=3DMsoNormal><font size=3D3 face=3DCambria><span style=3D'font-size=
+:12.0pt;
+font-family:Cambria'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D3 face=3DCambria><span style=3D'font-size=
+:12.0pt;
+font-family:Cambria'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D3 face=3DCambria><span style=3D'font-size=
+:12.0pt;
+font-family:Cambria'>Josh Dorner<o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D3 face=3DCambria><span style=3D'font-size=
+:12.0pt;
+font-family:Cambria'>Communications Director, Progressive Media<o:p></o:p><=
+/span></font></p>
+
+<p class=3DMsoNormal><font size=3D3 face=3DCambria><span style=3D'font-size=
+:12.0pt;
+font-family:Cambria'>tel 202.481.8153<o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D3 face=3DCambria><span style=3D'font-size=
+:12.0pt;
+font-family:Cambria'>cel 202.679.7570<o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D3 face=3DCambria><span style=3D'font-size=
+:12.0pt;
+font-family:Cambria'><o:p>&nbsp;</o:p></span></font></p>
+
+</div>
+
+</body>
+
+</html>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the &quot;big campa=
+ign&quot; group.<br />
+&nbsp;<br />
+To post to this group, send to bigcampaign@googlegroups.com<br />
+&nbsp;<br />
+To unsubscribe, send email to bigcampaign-unsubscribe@googlegroups.com<br /=
+>
+&nbsp;<br />
+E-mail dubois.sara@gmail.com with questions or concerns<br />
+ <br />
+This is a list of individuals. It is not affiliated with any group or organ=
+ization.
+--_000_A28459BA2B4D5D49BED0238513058A7F012ADC1EF58FCAPMAILBOXa_--

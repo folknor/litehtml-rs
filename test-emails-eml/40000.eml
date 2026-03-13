@@ -1,0 +1,2851 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.25.88.12 with SMTP id m12csp19014lfb;
+        Wed, 27 Jan 2016 14:06:43 -0800 (PST)
+X-Received: by 10.66.234.226 with SMTP id uh2mr45789169pac.20.1453932403268;
+        Wed, 27 Jan 2016 14:06:43 -0800 (PST)
+Return-Path: <Hotwire@e.hotwire.com>
+Received: from omp.e.hotwire.com (omp.e.hotwire.com. [12.130.136.28])
+        by mx.google.com with ESMTP id af6si11941228pad.226.2016.01.27.14.06.42
+        for <john.podesta@gmail.com>;
+        Wed, 27 Jan 2016 14:06:43 -0800 (PST)
+Received-SPF: pass (google.com: domain of Hotwire@e.hotwire.com designates 12.130.136.28 as permitted sender) client-ip=12.130.136.28;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of Hotwire@e.hotwire.com designates 12.130.136.28 as permitted sender) smtp.mailfrom=Hotwire@e.hotwire.com;
+       dkim=pass header.i=@e.hotwire.com;
+       dkim=pass header.i=@responsys.net;
+       dkim=pass header.i=@responsys.net;
+       dmarc=pass (p=NONE dis=NONE) header.from=e.hotwire.com
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=hotwire; d=e.hotwire.com;
+ h=MIME-Version:Content-Type:Content-Transfer-Encoding:Date:To:From:Reply-To:Subject:Feedback-ID:List-Unsubscribe:Message-ID; i=Hotwire@e.Hotwire.com;
+ bh=/iH/NeCRIdquR7cIWKz1xtGnn+s=;
+ b=beL/cJO0zZo3bTftdSgTQjhi4qOCfopwg96LMhScOEuFfIbnSU2rEeKnm53AlfKl/h/SuYAmoNn4
+   vfKuJxhZaVHbqkcu3RsbZi8QVJbBaUv8DpORSKBtNW5Ssc4lMWwVCjZue7WhUUyhL4rcgVFB75pO
+   BXYJrb6oR1hQlGfLZ9E=
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=oraclersys; d=responsys.net;
+ h=MIME-Version:Content-Type:Content-Transfer-Encoding:Date:To:From:Reply-To:Subject:Feedback-ID:List-Unsubscribe:Message-ID;
+ bh=/iH/NeCRIdquR7cIWKz1xtGnn+s=;
+ b=bg6VgP36ZkQYXmnXdqgZblCz0S2jrdRpb9uJst8nZVQDj4l7opl+WRdcWtF4rFgnlkDOVKYALaBl
+   b1TfY+F+u6Btlb5/DZ9f54Jw0coWwGn+61wJzJfJCfotWqbTKr4dmErUf2CK0lGO3w8+kJCGjpgF
+   GLdIqVuWpaWWn2hgJic=
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=hotwire; d=e.hotwire.com;
+ b=ktftnKmkKhSuM0FXXOwH1n01aeoI/mQV/MGzvx11cm3gRdpDq8l7bqyfXDmTl3S2sbLCpyhR4Uc0
+   Ioxp8iZkYWLcSKnabMOd9eFN7PERXqJd2QbBg7iLaqpyvrks2trCtys23TwYvJY9qCkCqc5txovc
+   9epsXtnjVj9ZKnIMK0A=;
+Received: by omp.e.hotwire.com id hl4vn616170f for <john.podesta@gmail.com>; Wed, 27 Jan 2016 13:43:39 -0800 (envelope-from <Hotwire@e.Hotwire.com>)
+X-CSA-Complaints: whitelist-complaints@eco.de
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=oraclersys; d=responsys.net;
+ h=MIME-Version:Content-Type:Content-Transfer-Encoding:Date:To:From:Reply-To:Subject:Feedback-ID:List-Unsubscribe:Message-ID;
+ bh=/iH/NeCRIdquR7cIWKz1xtGnn+s=;
+ b=bg6VgP36ZkQYXmnXdqgZblCz0S2jrdRpb9uJst8nZVQDj4l7opl+WRdcWtF4rFgnlkDOVKYALaBl
+   b1TfY+F+u6Btlb5/DZ9f54Jw0coWwGn+61wJzJfJCfotWqbTKr4dmErUf2CK0lGO3w8+kJCGjpgF
+   GLdIqVuWpaWWn2hgJic=
+Received: by omp.e.hotwire.com id hl4t0m16170a for <john.podesta@gmail.com>; Wed, 27 Jan 2016 13:43:39 -0800 (envelope-from <Hotwire@e.Hotwire.com>)
+X-CSA-Complaints: whitelist-complaints@eco.de
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 27 Jan 2016 13:43:39 -0800
+To: john.podesta@gmail.com
+From: "Hotwire Deals" <Hotwire@e.Hotwire.com>
+Reply-To: "Hotwire Deals" <reply@e.Hotwire.com>
+Subject: Hotels from $32. Book now.
+Feedback-ID: 1343:1231965:oraclersys
+List-Unsubscribe: <http://e.Hotwire.com/pub/optout/UnsubscribeOneStepConfirmAction?YES=true&_ri_=X0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIO&_ei_=Epd2ddhTOSLCf6CsJeoYowzAhOcoFigcs60LuTQODtSNIeXzwrOw1T536rwvrOV1zbKrucWtxoPm3p3eXTbLAHeksIwpuVDuvQfTgyuoGUYdB3BYYEROselRFKoduV9tmczXsw>, <mailto:unsubscribe-YQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIO@imh.rsys2.com?subject=List-Unsubscribe>
+X-sgxh1: rhogQihKLklHxnuHptQJhu
+X-rext: 5.interact2.Ek_Gu5Kxt7JMRsMpozOKZPVCimlAhae86UlaWU-5L7DFul8V8vW6QXyW2PpEbw
+X-cid: hwire.11244545
+Message-ID: <0.1.1F.998.1D1594BC8705086.0@omp.e.hotwire.com>
+
+<=21DOCTYPE html PUBLIC =22-//W3C//DTD XHTML 1=2E0 Transitional//EN=22 =22h=
+ttp://www=2Ew3=2Eorg/TR/xhtml1/DTD/xhtml1-transitional=2Edtd=22>=20
+
+<html xmlns=3D=22http://www=2Ew3=2Eorg/1999/xhtml=22>
+
+<head>
+
+<meta http-equiv=3D=22Content-Type=22 content=3D=22text/html; charset=3Dutf=
+-8=22 />
+
+<title>Hotwire</title>
+
+
+
+<style type=3D=22text/css=22>
+
+    table th =7B margin:0 =21important; padding:0 =21important; vertical-al=
+ign:top =21important; font-weight: normal =21important; =7D
+
+    body=7B padding:0; margin:0; width:100%; margin-left:0px =21important; =
+margin-right:0px =21important; =7D
+
+    html =7B -webkit-text-size-adjust:none; =7D
+
+    v=5C:* =7B behavior: url(=23default=23VML); display:block;=7D
+
+    =2EExternalClass * =7B line-height: 100%; =7D
+
+
+
+    html =7B -webkit-text-size-adjust:none; -ms-text-size-adjust:none; =7D
+
+    body =7B margin:0; padding:0; =7D
+
+
+
+    =2EReadMsgBody =7B width: 100%; =7D
+
+    =2EExternalClass =7B width: 100%; =7D
+
+    =2EExternalClass *=7Bline-height:100%; =7D
+
+
+
+    =40media screen and (max-width: 620px) =7B
+
+    /* general */
+
+    *=5Bclass=5D=2Eblock =7Bdisplay:block =21important;=7D
+
+    *=5Bclass=5D=2Eblockhead =7Bdisplay: table-header-group =21important; =
+=7D
+
+    *=5Bclass=5D=2Eblockfoot =7Bdisplay: table-footer-group =21important; =
+=7D
+
+    *=5Bclass=5D=2Ehide =7Bdisplay:none =21important;=7D
+
+    *=5Bclass=5D=2Eshow =7Bdisplay: block =21important; width: auto =21impo=
+rtant; overflow: visible =21important; float: none =21important; max-height=
+: inherit =21important; line-height: inherit =21important;=7D
+
+    *=5Bclass=5D=2Ecentertable =7Bmargin:0 auto =21important;=7D
+
+    *=5Bclass=5D=2Ealigncenter =7Btext-align:center =21important;=7D
+
+    *=5Bclass=5D=2Ealignleft =7Btext-align:left =21important;=7D
+
+	*=5Bclass=5D=2Ealignright =7Btext-align:right =21important;=7D
+
+    *=5Bclass=5D=2Ewidth320 =7Bwidth:320px =21important;=7D
+
+    *=5Bclass=5D=2Emin320 =7Bmin-width:320px =21important;=7D
+
+    *=5Bclass=5D=2Ehauto   =7Bheight:auto =21important;=7D
+
+
+
+    =2Eflagship_addressgrey a =7B color:=23888888=21important; text-decorat=
+ion:none =21important;=7D
+
+
+
+    /* mod 1=2E1 */
+
+    *=5Bclass=5D=2Ewidth15 =7Bwidth:15px =21important; =7D
+
+    *=5Bclass=5D=2Ewidth45 =7Bwidth:45px =21important; =7D
+
+    *=5Bclass=5D=2Ewidth55 =7Bwidth:55px =21important; =7D
+
+    *=5Bclass=5D=2Ewidth61 =7Bwidth:61px =21important; =7D
+
+    *=5Bclass=5D=2Ewidth125 =7Bwidth:125px =21important; =7D
+
+    *=5Bclass=5D=2Ewidth144 =7Bwidth:144px =21important; =7D
+
+    *=5Bclass=5D=2Emin320 =7Bmin-width:320px =21important; =7D
+
+
+
+    /* mod 1=2E2 */
+
+    *=5Bclass=5D=2Epl1 =7Bpadding-left:1px =21important; =7D
+
+    *=5Bclass=5D=2Epr48 =7Bpadding-right:48px =21important; =7D
+
+    *=5Bclass=5D=2Eplr15 =7Bpadding-left:15px =21important; padding-right:1=
+5px =21important; =7D
+
+    *=5Bclass=5D=2Ewidth148 =7Bwidth:148px =21important; =7D
+
+    *=5Bclass=5D=2Ewidth162 =7Bwidth:162px =21important; =7D
+
+    *=5Bclass=5D=2Eline2 =7Bline-height:2px =21important; =7D
+
+    *=5Bclass=5D=2Eline6 =7Bline-height:6px =21important; =7D
+
+    *=5Bclass=5D=2Efont10 =7Bfont-size:10px =21important; =7D
+
+
+
+    /* top deals */
+
+    *=5Bclass=5D=2Eline5 =7Bline-height:5px =21important; =7D
+
+	*=5Bclass=5D=2Eline15 =7Bline-height:15px =21important; =7D
+
+    *=5Bclass=5D=2Ewidth290 =7Bwidth:290px =21important; =7D
+
+    *=5Bclass=5D=2Eminmax290 =7Bmin-width:290px =21important; max-width:290=
+px =21important; =7D
+
+
+
+    /* find a car-flight */
+
+    *=5Bclass=5D=2Ewidth298 =7Bwidth:298px =21important; =7D
+
+    *=5Bclass=5D=2Ewidth318 =7Bwidth:318px =21important; =7D
+
+
+
+    *=5Bclass=5D=2Efeature-mobile =7B
+
+      width: 320px =21important;
+
+      min-width: 320px =21important;
+
+    =7D
+
+=7D
+
+
+</style>
+
+
+
+<=21--=5Bif gte mso 9=5D>
+
+<style type=3D=22text/css=22>
+
+    =2Elhfix =7Bmso-line-height-rule: exactly;=7D
+
+    =2Eml10 =7Bmargin-left:10px;=7D
+
+    div =7Bmso-line-height-rule: 100%;=7D
+
+</style>
+
+<=21=5Bendif=5D-->
+
+
+
+</head>
+
+<body>
+
+<=21-- module 1=2E1 -->
+
+<table cellspacing=3D=220=22 cellpadding=3D=220=22 border=3D=220=22 width=
+=3D=22100%=22 style=3D=22table-layout:fixed;=22>=20
+
+<tr>
+
+    <td width=3D=22100%=22 align=3D=22center=22 style=3D=22vertical-align:t=
+op;=22 bgcolor=3D=22=23ffffff=22>
+
+        <table cellspacing=3D=220=22 cellpadding=3D=220=22 border=3D=220=22>
+
+        <tr>
+
+            <td width=3D=22640=22 class=3D=22width320=22 align=3D=22center=
+=22>
+
+                <table cellpadding=3D=220=22 cellspacing=3D=220=22>
+
+                <tr>
+
+                    <td width=3D=22640=22 height=3D=2227=22 class=3D=22widt=
+h320=22 align=3D=22center=22 bgcolor=3D=22=23e5e5e5=22>
+
+                        <div style=3D=22font-family:Helvetica, sans-serif; =
+font-size:10px; line-height:12px; color:=23434343;=22>
+
+                            <strong>Get a sweet deal on the perfect hotel</=
+strong>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                </table>
+
+                <div style=3D=22line-height:8px;=22 class=3D=22lhfix=22>&nb=
+sp;</div>
+
+               =20
+
+                <=21-- <table cellpadding=3D=220=22 cellspacing=3D=220=22 b=
+order=3D=220=22 width=3D=22640=22 class=3D=22width320=22 bgcolor=3D=22=23ba=
+1813=22><tr><td width=3D=22640=22 height=3D=225=22 style=3D=22line-height:5=
+px; max-height:5px;=22 class=3D=22width320=22><img src=3D=22images/sp=2Egif=
+=22 width=3D=22640=22 height=3D=221=22 border=3D=220=22 style=3D=22display:=
+block; max-height:5px;=22 class=3D=22width320=22 /></td></tr></table> -->
+
+                <table cellpadding=3D=220=22 cellspacing=3D=220=22 border=
+=3D=220=22 width=3D=22640=22 class=3D=22width320=22>
+
+                <tr>
+
+                    <td width=3D=2250=22 class=3D=22width15=22></td>
+
+                    <td width=3D=22221=22 height=3D=2254=22 align=3D=22left=
+=22 valign=3D=22middle=22 style=3D=22vertical-align:middle;=22 class=3D=22w=
+idth144=22>
+
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWRTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46Sh=
+hw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_xx=
+bj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4gm=
+d0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22><img src=3D=22http://static=2Ecdn=2Erespon=
+sys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcontent/oth_hotel/2016=
+0127_oth_hotel_v2/0127_OTH_Hotel_V2/images/nav_logo=2Epng=22 width=3D=22147=
+=22 height=3D=2230=22 border=3D=220=22 style=3D=22display:block; font-famil=
+y:Helvetica, sans-serif; font-size:20px; color:=23ba1813;=22 alt=3D=22hotwi=
+re&trade;=22 class=3D=22width125 hauto=22 /></a>
+
+                    </td>
+
+                    <td width=3D=2286=22 align=3D=22left=22 valign=3D=22mid=
+dle=22 style=3D=22vertical-align:middle;=22 class=3D=22width55=22>
+
+                        <div class=3D=22lhfix=22 style=3D=22line-height:2px=
+;=22>&nbsp;</div>
+
+                        <div style=3D=22font-family:Helvetica, sans-serif; =
+font-size:14px; line-height:16px; color:=23000000;=22>
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWRWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46=
+Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_=
+xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4=
+gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22text-decoration:none; color:=
+=23d40003;=22><strong>Hotels</strong></a>
+
+                        </div>
+
+                    </td>
+
+                    <td width=3D=2280=22 align=3D=22left=22 valign=3D=22mid=
+dle=22 style=3D=22vertical-align:middle;=22 class=3D=22width45=22>
+
+                        <div class=3D=22lhfix=22 style=3D=22line-height:2px=
+;=22>&nbsp;</div>
+
+                        <div style=3D=22font-family:Helvetica, sans-serif; =
+font-size:14px; line-height:16px; color:=23000000;=22>
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWRAY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46=
+Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_=
+xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4=
+gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22text-decoration:none; color:=
+=23000000;=22><strong>Cars</strong></a>
+
+                        </div>
+
+                    </td>
+
+                    <td width=3D=2288=22 align=3D=22left=22 valign=3D=22mid=
+dle=22 style=3D=22vertical-align:middle;=22 class=3D=22width61=22>
+
+                        <div class=3D=22lhfix=22 style=3D=22line-height:2px=
+;=22>&nbsp;</div>
+
+                        <div style=3D=22font-family:Helvetica, sans-serif; =
+font-size:14px; line-height:16px; color:=23000000;=22>
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWRCY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46=
+Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_=
+xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4=
+gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22text-decoration:none; color:=
+=23000000;=22><strong>Flights</strong></a>
+
+                        </div>
+
+                    </td>
+
+                    <td width=3D=22115=22 align=3D=22left=22 valign=3D=22mi=
+ddle=22 style=3D=22vertical-align:middle;=22 class=3D=22hide=22>
+
+                        <div class=3D=22lhfix=22 style=3D=22line-height:2px=
+;=22>&nbsp;</div>
+
+                        <div style=3D=22font-family:Helvetica, sans-serif; =
+font-size:14px; line-height:16px; color:=23000000;=22>
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWSRY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46=
+Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_=
+xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4=
+gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22text-decoration:none; color:=
+=23000000;=22><strong>Vacations</strong></a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                </table>
+
+                <div style=3D=22line-height:8px;=22 class=3D=22lhfix=22>&nb=
+sp;</div>
+
+                <table cellpadding=3D=220=22 cellspacing=3D=220=22 border=
+=3D=220=22 width=3D=22640=22 class=3D=22width320=22 bgcolor=3D=22=23d2d2d2=
+=22><tr><td height=3D=221=22 style=3D=22line-height:1px;=22><img src=3D=22h=
+ttp://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrar=
+y/oldcontent/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/sp=2E=
+gif=22 width=3D=221=22 height=3D=221=22 border=3D=220=22 style=3D=22display=
+:block;=22/></td></tr></table>
+
+                <div class=3D=22lhfix=22 style=3D=22line-height:10px;=22>&n=
+bsp;</div>
+
+            </td>
+
+        </tr>
+
+        </table>
+
+    </td>
+
+</tr>
+
+</table>
+
+<=21-- /module 1=2E1 -->
+
+
+
+<=21-- content -->
+
+<table cellspacing=3D=220=22 cellpadding=3D=220=22 border=3D=220=22 width=
+=3D=22100%=22 style=3D=22table-layout:fixed;=22>=20
+
+<tr>
+
+    <td width=3D=22100%=22 align=3D=22center=22 style=3D=22vertical-align:t=
+op;=22 bgcolor=3D=22=23ffffff=22>
+
+        <table cellpadding=3D=220=22 cellspacing=3D=220=22 border=3D=220=22=
+ width=3D=22640=22 class=3D=22width320=22>
+
+        <tr>
+
+            <td align=3D=22center=22>
+
+               =20
+
+                <table cellpadding=3D=220=22 cellspacing=3D=220=22>
+
+                <tr><td height=3D=221=22 colspan=3D=223=22 bgcolor=3D=22=23=
+d1d1d1=22 style=3D=22line-height:1px;=22><img src=3D=22http://static=2Ecdn=
+=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcontent/oth_h=
+otel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/sp=2Egif=22 width=3D=22=
+1=22 height=3D=221=22 style=3D=22display:block; border:0;=22 /></td></tr>
+
+                <tr>
+
+                    <td width=3D=221=22 bgcolor=3D=22=23d1d1d1=22></td>
+
+                    <td width=3D=22638=22 align=3D=22left=22 valign=3D=22to=
+p=22 style=3D=22vertical-align:top;=22 class=3D=22width318=22>
+
+                        <table cellpadding=3D=220=22 cellspacing=3D=220=22 =
+class=3D=22hide=22>
+
+                        <tr>
+
+                            <td width=3D=22374=22 align=3D=22left=22 valign=
+=3D=22top=22 style=3D=22vertical-align:top;=22>
+
+                                <table cellpadding=3D=220=22 cellspacing=3D=
+=220=22>
+
+                                <tr>
+
+                                    <td width=3D=2225=22></td>
+
+                                    <td width=3D=22349=22 align=3D=22left=
+=22 valign=3D=22top=22 style=3D=22vertical-align:top;=22>
+
+                                        <div style=3D=22line-height:13px;=
+=22 class=3D=22lhfix=22>&nbsp;</div>
+
+                                        <div style=3D=22font-family:Arial, =
+Helvetica, sans-serif; font-size:30px; line-height:36px; color:=23333333;=
+=22><a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJ=
+lTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXt=
+pKX%3DSBTUWSTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46Shhw9mAIY5xRrLmbsy4okBc9=
+X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_xxbj3XwUDxDr6zCMgjSbvJ9u=
+16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4gmd0_hhl_C8N20Mka2Eb0OZ4=
+BXJ8=2E=22 style=3D=22color:=23333333; text-decoration:none;=22>Book now an=
+d save</a></div>
+
+                                        <div style=3D=22line-height:3px;=22=
+ class=3D=22lhfix=22>&nbsp;</div>
+
+
+
+                                        <div style=3D=22font-family:Arial, =
+Helvetica, sans-serif; font-size:19px; line-height:26px; color:=23333333;=
+=22><a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJ=
+lTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXt=
+pKX%3DSBTUWSTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46Shhw9mAIY5xRrLmbsy4okBc9=
+X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_xxbj3XwUDxDr6zCMgjSbvJ9u=
+16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4gmd0_hhl_C8N20Mka2Eb0OZ4=
+BXJ8=2E=22 style=3D=22color:=23333333; text-decoration:none;=22>Score up to=
+ 60% off Hot Rate<span style=3D=22font-size:70%; vertical-align:top; line-h=
+eight:10px;=22>&reg;</span> hotels</a></div>
+
+                                        <div style=3D=22line-height:13px;=
+=22 class=3D=22lhfix=22>&nbsp;</div>
+
+
+
+                                        <table cellpadding=3D=220=22 cellsp=
+acing=3D=220=22 bgcolor=3D=22=23cf0006=22>
+
+                                        <tr>
+
+                                            <td><img src=3D=22http://static=
+=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcontent=
+/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/ctal=2Epng=22 sty=
+le=3D=22display:block; border:0;=22 width=3D=222=22 height=3D=2244=22 /></t=
+d>
+
+                                            <td width=3D=2214=22></td>
+
+                                            <td>
+
+                                                <div style=3D=22font-family=
+:Arial, Helvetica, sans-serif; font-size:16px; line-height:20px; color:=23f=
+fffff; font-weight:bold;=22>
+
+                                                    <a href=3D=22http://e=
+=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdz=
+dyze8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWSTY&_ei_=3DEpd=
+2ddhTOSLCf6CsJeoYoww-ZzB46Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92=
+xdkO6Z2mHB_C3C36TsMfrinzf_xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE=
+6MSSTdqX3ABLf29FKUU9VGWCK4gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22col=
+or:=23ffffff; text-decoration:none;=22>Find a hotel</a>
+
+                                                </div>
+
+                                            </td>
+
+                                            <td width=3D=2214=22></td>
+
+                                            <td><img src=3D=22http://static=
+=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcontent=
+/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/ctar=2Epng=22 sty=
+le=3D=22display:block; border:0;=22 width=3D=222=22 height=3D=2244=22 /></t=
+d>
+
+                                        </tr>
+
+                                        </table>
+
+                                    </td>
+
+                                </tr>
+
+                                </table>
+
+                            </td>
+
+                            <td width=3D=22264=22><a href=3D=22http://e=2EH=
+otwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze=
+8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWSTY&_ei_=3DEpd2ddh=
+TOSLCf6CsJeoYoww-ZzB46Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO=
+6Z2mHB_C3C36TsMfrinzf_xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSS=
+TdqX3ABLf29FKUU9VGWCK4gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22><img src=3D=22http=
+://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/o=
+ldcontent/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/0127_her=
+o1=2Ejpg=22 style=3D=22display:block; border:0;=22 width=3D=22264=22 height=
+=3D=22154=22 /></a></td>
+
+                        </tr>
+
+                        </table>
+
+
+
+                        <=21--=5Bif =21mso=5D><=21-->
+
+                        <div class=3D=22show=22 style=3D=22display:none; fl=
+oat:left; overflow:hidden; width:0; max-height:0; line-height:0;=22>
+
+                            <table cellpadding=3D=220=22 cellspacing=3D=220=
+=22>
+
+                            <tr>
+
+                                <td width=3D=22164=22 align=3D=22left=22 va=
+lign=3D=22top=22 style=3D=22vertical-align:top;=22>
+
+                                    <table cellpadding=3D=220=22 cellspacin=
+g=3D=220=22>
+
+                                    <tr>
+
+                                        <td width=3D=2213=22></td>
+
+                                        <td width=3D=22151=22 align=3D=22le=
+ft=22 valign=3D=22top=22 style=3D=22vertical-align:top;=22>
+
+                                            <div style=3D=22line-height:15p=
+x;=22 class=3D=22lhfix=22>&nbsp;</div>
+
+                                            <div style=3D=22font-family:Ari=
+al, Helvetica, sans-serif; font-size:24px; line-height:28px; color:=2333333=
+3;=22><a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLj=
+HJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOV=
+XtpKX%3DSBTUWSTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46Shhw9mAIY5xRrLmbsy4okB=
+c9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_xxbj3XwUDxDr6zCMgjSbvJ=
+9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4gmd0_hhl_C8N20Mka2Eb0O=
+Z4BXJ8=2E=22 style=3D=22color:=23333333; text-decoration:none;=22>Book now =
+and save</a></div>
+
+                                            <div style=3D=22line-height:6px=
+;=22 class=3D=22lhfix=22>&nbsp;</div>
+
+
+
+                                            <div style=3D=22font-family:Ari=
+al, Helvetica, sans-serif; font-size:16px; line-height:20px; color:=2333333=
+3;=22><a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLj=
+HJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOV=
+XtpKX%3DSBTUWSTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46Shhw9mAIY5xRrLmbsy4okB=
+c9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_xxbj3XwUDxDr6zCMgjSbvJ=
+9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4gmd0_hhl_C8N20Mka2Eb0O=
+Z4BXJ8=2E=22 style=3D=22color:=23333333; text-decoration:none;=22>Score up =
+to 60% off Hot Rate<span style=3D=22font-size:70%; vertical-align:top; line=
+-height:10px;=22>&reg;</span> hotels</a></div>
+
+                                            <div style=3D=22line-height:11p=
+x;=22 class=3D=22lhfix=22>&nbsp;</div>
+
+
+
+                                            <table cellpadding=3D=220=22 ce=
+llspacing=3D=220=22 bgcolor=3D=22=23cf0006=22>
+
+                                            <tr>
+
+                                                <td><img src=3D=22http://st=
+atic=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcon=
+tent/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/ctal=2Epng=22=
+ style=3D=22display:block; border:0;=22 width=3D=222=22 height=3D=2244=22 /=
+></td>
+
+                                                <td width=3D=2214=22></td>
+
+                                                <td>
+
+                                                    <div style=3D=22font-fa=
+mily:Arial, Helvetica, sans-serif; font-size:16px; line-height:20px; color:=
+=23ffffff; font-weight:bold;=22>
+
+                                                        <a href=3D=22http:/=
+/e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFw=
+dzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWSTY&_ei_=3DE=
+pd2ddhTOSLCf6CsJeoYoww-ZzB46Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy=
+92xdkO6Z2mHB_C3C36TsMfrinzf_xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-k=
+cE6MSSTdqX3ABLf29FKUU9VGWCK4gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22c=
+olor:=23ffffff; text-decoration:none;=22>Find a hotel</a>
+
+                                                    </div>
+
+                                                </td>
+
+                                                <td width=3D=2214=22></td>
+
+                                                <td><img src=3D=22http://st=
+atic=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcon=
+tent/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/ctar=2Epng=22=
+ style=3D=22display:block; border:0;=22 width=3D=222=22 height=3D=2244=22 /=
+></td>
+
+                                            </tr>
+
+                                            </table>
+
+                                        </td>
+
+                                    </tr>
+
+                                    </table>
+
+                                </td>
+
+                                <td width=3D=22154=22><a href=3D=22http://e=
+=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdz=
+dyze8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWSTY&_ei_=3DEpd=
+2ddhTOSLCf6CsJeoYoww-ZzB46Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92=
+xdkO6Z2mHB_C3C36TsMfrinzf_xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE=
+6MSSTdqX3ABLf29FKUU9VGWCK4gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22><img src=3D=22=
+http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibra=
+ry/oldcontent/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/0127=
+_hero2=2Ejpg=22 style=3D=22display:block; border:0;=22 width=3D=22154=22 he=
+ight=3D=22192=22 /></a></td>
+
+                            </tr>
+
+                            </table>
+
+                        </div>
+
+                        <=21--<=21=5Bendif=5D-->
+
+                    </td>
+
+                    <td width=3D=221=22 bgcolor=3D=22=23d1d1d1=22></td>
+
+                </tr>
+
+                <tr><td height=3D=221=22 colspan=3D=223=22 bgcolor=3D=22=23=
+d1d1d1=22 style=3D=22line-height:1px;=22><img src=3D=22http://static=2Ecdn=
+=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcontent/oth_h=
+otel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/sp=2Egif=22 width=3D=22=
+1=22 height=3D=221=22 style=3D=22display:block; border:0;=22 /></td></tr>
+
+                </table>
+
+               =20
+
+                <div class=3D=22lhfix=22 style=3D=22line-height:10px;=22>&n=
+bsp;</div>
+
+                <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X=
+%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Azaz=
+cP4TyiGIOVXtpKX%3DSBTUWSWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46Shhw9mAIY5xR=
+rLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_xxbj3XwUDxDr=
+6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUULVBbe-lHDoUCXXRSyX_=
+WPW7K8ek88s1fT2Ygmgfql8cHVsgrOMutsZTYOtCH6W9dIw=2E=22 class=3D=22hide=22><i=
+mg src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/=
+contentlibrary/oldcontent/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2=
+/images/0127_wizard_d_2=2Epng=22 width=3D=22640=22 height=3D=2253=22 border=
+=3D=220=22 style=3D=22display:block; font-family:Helvetica, sans-serif; fon=
+t-size:20px; color:=23000000;=22 alt=3D=22Where would you like to stay? Sea=
+rch=22 /></a>
+
+                <=21--=5Bif =21mso=5D><=21-->
+
+                <div class=3D=22show=22 style=3D=22display:none; float:left=
+; overflow:hidden; width:0; max-height:0; line-height:0;=22>
+
+                    <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0G=
+zc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4=
+AzazcP4TyiGIOVXtpKX%3DSBTUWSWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46Shhw9mAI=
+Y5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_xxbj3XwU=
+DxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUULVBbe-lHDoUCXXR=
+SyX_WPW7K8ek88s1fT2Ygmgfql8cHVsgrOMutsZTYOtCH6W9dIw=2E=22><img src=3D=22htt=
+p://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/=
+oldcontent/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/0127_wi=
+zard_m_V2=2Epng=22 width=3D=22320=22 height=3D=2253=22 border=3D=220=22 sty=
+le=3D=22display:block; font-family:Helvetica, sans-serif; font-size:20px; c=
+olor:=23000000;=22 alt=3D=22Where would you like to stay? Search=22 /></a>
+
+                </div>
+
+                <=21--<=21=5Bendif=5D-->
+
+                <div class=3D=22lhfix=22 style=3D=22line-height:10px;=22>&n=
+bsp;</div>
+
+            </td>
+
+        </tr>
+
+        </table>
+
+    </td>
+
+</tr>
+
+</table>
+
+<=21-- /content -->
+
+
+
+<=21-- top deals -->
+
+<table cellspacing=3D=220=22 cellpadding=3D=220=22 border=3D=220=22 width=
+=3D=22100%=22 style=3D=22table-layout:fixed;=22>=20
+
+<tr>
+
+    <td width=3D=22100%=22 align=3D=22center=22 style=3D=22vertical-align:t=
+op;=22 bgcolor=3D=22=23ffffff=22>
+
+        <table cellpadding=3D=220=22 cellspacing=3D=220=22 border=3D=220=22=
+ width=3D=22640=22 class=3D=22width320=22>
+
+        <tr>
+
+            <td width=3D=22640=22 align=3D=22center=22 class=3D=22width320=
+=22 valign=3D=22top=22>
+
+                <table cellpadding=3D=220=22 cellspacing=3D=220=22 border=
+=3D=220=22><tr><td height=3D=2215=22 style=3D=22line-height:15px;=22><img s=
+rc=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/cont=
+entlibrary/oldcontent/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/ima=
+ges/sp=2Egif=22 width=3D=221=22 height=3D=221=22 border=3D=220=22 style=3D=
+=22display:block;=22/></td></tr></table>
+
+
+
+                =20
+
+
+ =20
+<table cellpadding=3D=220=22 cellspacing=3D=220=22 align=3D=22left=22 width=
+=3D=22312=22 class=3D=22feature-mobile=22 style=3D=22border-collapse: colla=
+pse;=22>
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23444444; border-left: 1px =
+solid =23d0d0d0; border-top: 1px solid =23d0d0d0; word-wrap:break-word; tex=
+t-wrap:normal; =22>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22><img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/re=
+sponsysimages/content/hwire/OTH-transparent-stars-40=2Epng=22 width=3D=2254=
+=22 height=3D=2211=22 style=3D=22border: none;=22/></a>
+                </p>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22>4-Star Hotels</a>
+                </p>
+               =20
+                <h4 style=3D=22font-family: Arial, Helvetica, sans-serif; f=
+ont-size: 22px; color: =23ffffff; margin-top: 0px; margin-bottom: 10px; tex=
+t-transform: uppercase; margin-left: 8px;=22>
+                  <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc=
+2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Az=
+azcP4TyiGIOVXtpKX%3DSBTUWSAY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowyp-JjUHGl0AgtOB35=
+hyMtsZg8RTABNR9vu-8W2McgXHv4KuaY0xkKwwSYQNYdjVJjjviuCoMKGyeVx39RPVstvxJYH47=
+V2ejYfQOpWvwHnLLY9szKNV145m1IQs_O4c4AgS4rJGQyWPJyI_jddt6_WaTKRRNrgq_2W5THWI=
+Dtc_sQ9bvkUAKjEUnx_CzLOwsBNFiY_TJPN8ow8sm8VCqeSJ3N4J8sYqFm7gdoeMo7BQdHjrZ0-=
+-Lo0GjpYoC50bI1ha66zgBqT4wO0V8euC5qbQ-nKs_gcyoyz4aQaV-9F_mnUqfPdh1ATkRubkxc=
+7xOu2YXzQsKGwQiGhKQnUu0Y6rDhdXAs=2E=22 style=3D=22color: =23ffffff; text-de=
+coration: none;=22>Las Vegas
+                =20
+                  </a>
+                </h4>
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23444444;=
+ border-right: 1px solid =23d0d0d0; border-top: 1px solid =23d0d0d0; font-s=
+ize: 1px; line-height: 0px;=22>
+                <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X=
+%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Azaz=
+cP4TyiGIOVXtpKX%3DSBTUWSAY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowyp-JjUHGl0AgtOB35hy=
+MtsZg8RTABNR9vu-8W2McgXHv4KuaY0xkKwwSYQNYdjVJjjviuCoMKGyeVx39RPVstvxJYH47V2=
+ejYfQOpWvwHnLLY9szKNV145m1IQs_O4c4AgS4rJGQyWPJyI_jddt6_WaTKRRNrgq_2W5THWIDt=
+c_sQ9bvkUAKjEUnx_CzLOwsBNFiY_TJPN8ow8sm8VCqeSJ3N4J8sYqFm7gdoeMo7BQdHjrZ0--L=
+o0GjpYoC50bI1ha66zgBqT4wO0V8euC5qbQ-nKs_gcyoyz4aQaV-9F_p7JAwRJ-kPP90v1UuUf6=
+0R6H0oAJ-HNE8NVKsWcoPCWeI6ThB0=2E=22> 	=09
+
+
+<img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwir=
+e/contentlibrary/oldcontent/201001_OTH_Hotel_V3/Image_Las_Vegas/Image_Las_V=
+egas=2Eimages/Las_Vegas=2Ejpg=22 width=3D=22150=22 height=3D=22125=22 borde=
+r=3D=220=22 alt=3D=22=22 style=3D=22display:block;=22></a>
+              </td>
+
+            </tr>
+
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23ffffff; border-left: 1px =
+solid =23d0d0d0; border-bottom: 1px solid =23d0d0d0;=22>
+
+                <table>
+                  <tr>
+                    <td>
+                      <table width=3D=22100%=22 border=3D=220=22 cellpaddin=
+g=3D=220=22 cellspacing=3D=220=22>
+                      =09
+                        <tr>
+                        	<td valign=3D=22top=22 style=3D=22font-family: Ari=
+al, Helvetica, sans-serif; font-size: 11px; color: =23444444; margin-top: 5=
+px; margin-bottom: 0px; margin-left: 0px; line-height:8px; line-height:90%=
+=22>
+                            	<p style=3D=22font-family: Arial, Helvetica, s=
+ans-serif; font-size: 11px; color: =23444444; margin-top: 5px; margin-botto=
+m: 5px; margin-left: 10px;=22>
+                                from
+                                </p>
+                            </td>
+                            <td>
+                      <h4 style=3D=22font-family: Arial, Helvetica, sans-se=
+rif; font-size: 34px; color: =23b90105; margin-top: 0px; margin-bottom: 0px=
+; margin-left: 2px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWSAY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowyp-JjUHGl=
+0AgtOB35hyMtsZg8RTABNR9vu-8W2McgXHv4KuaY0xkKwwSYQNYdjVJjjviuCoMKGyeVx39RPVs=
+tvxJYH47V2ejYfQOpWvwHnLLY9szKNV145m1IQs_O4c4AgS4rJGQyWPJyI_jddt6_WaTKRRNrgq=
+_2W5THWIDtc_sQ9bvkUAKjEUnx_CzLOwsBNFiY_TJPN8ow8sm8VCqeSJ3N4J8sYqFm7gdoeMo7B=
+QdHjrZ0--Lo0GjpYoC50bI1ha66zgBqT4wO0V8euC5qbQ-nKs_gcyoyz4aQaV-9F_hCUXBHL1l1=
+aEDcMhS-E9zZ-SmhMA41fz_H9HTivQbVvGjXcng8=2E=22 style=3D=22color: =23b90105;=
+ text-decoration: none;=22>=2445</a>
+                      </h4>
+                      		</td>
+                        </tr>
+                    </table>
+                    </td>
+                    <td valign=3D=22bottom=22>
+                      <p style=3D=22font-family: Arial, Helvetica, sans-ser=
+if; font-size: 11px; color: =23444444; margin-top: 0px; margin-bottom: 5px;=
+ margin-left: 0px;=22>
+                        /night<br/>
+                       =20
+                        	<span style=3D=22text-decoration:line-through; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:11px; color:=23444444=22><=
+strong>
+                             </strong>
+                            </span>
+                           =20
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23ffffff;=
+ padding-top: 8px; padding-bottom: 8px; border-right: 1px solid =23d0d0d0; =
+border-bottom: 1px solid =23d0d0d0;=22>
+                <table align=3D=22center=22 cellpadding=3D=220=22 cellspaci=
+ng=3D=220=22 border=3D=220=22 width=3D=22105=22>
+                  <tr>
+                    <td style=3D=22background-color: =23b90005; text-align:=
+ center=22>
+                      <p style=3D=22margin-bottom: 0px; margin-top: 0px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWSAY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowyp-JjUHGl=
+0AgtOB35hyMtsZg8RTABNR9vu-8W2McgXHv4KuaY0xkKwwSYQNYdjVJjjviuCoMKGyeVx39RPVs=
+tvxJYH47V2ejYfQOpWvwHnLLY9szKNV145m1IQs_O4c4AgS4rJGQyWPJyI_jddt6_WaTKRRNrgq=
+_2W5THWIDtc_sQ9bvkUAKjEUnx_CzLOwsBNFiY_TJPN8ow8sm8VCqeSJ3N4J8sYqFm7gdoeMo7B=
+QdHjrZ0--Lo0GjpYoC50bI1ha66zgBqT4wO0V8euC5qbQ-nKs_gcyoyz4aQaV-9F_svJ5UT_NJq=
+p0Zc8YjURT13AABhC4E1msdeByEW1X9CEomVEhKs=2E=22 style=3D=22font-family: Aria=
+l, Helvetica, sans-serif; font-size: 12px; line-height: 24px; color: =23fff=
+fff; text-decoration: none;=22>
+                          Show Me
+                        </a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td colspan=3D=222=22 height=3D=2210=22 style=3D=22font-size:=
+ 0px; line-height: 0px;=22>&nbsp;</td>
+            </tr>
+
+          </table>
+
+
+=20
+
+
+ =20
+<table cellpadding=3D=220=22 cellspacing=3D=220=22 align=3D=22right=22 widt=
+h=3D=22312=22 class=3D=22feature-mobile=22 style=3D=22border-collapse: coll=
+apse;=22>
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23444444; border-left: 1px =
+solid =23d0d0d0; border-top: 1px solid =23d0d0d0; word-wrap:break-word; tex=
+t-wrap:normal; =22>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22><img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/re=
+sponsysimages/content/hwire/OTH-transparent-stars-30=2Epng=22 width=3D=2254=
+=22 height=3D=2211=22 style=3D=22border: none;=22/></a>
+                </p>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22>3-Star Hotels</a>
+                </p>
+               =20
+                <h4 style=3D=22font-family: Arial, Helvetica, sans-serif; f=
+ont-size: 22px; color: =23ffffff; margin-top: 0px; margin-bottom: 10px; tex=
+t-transform: uppercase; margin-left: 8px;=22>
+                  <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc=
+2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Az=
+azcP4TyiGIOVXtpKX%3DSBTUWSCY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowy5UiuVRCuj37yC9qa=
+C5jPRZ-xKnXV_aZi2oySnpCRHhYZ0_yioyTk2eyPRR3tl2Bu4iG7CKJhfqXvQwo3cicUwzy2Nbn=
+upjLb5OF1zyfHV6izkpDiWtGyE36KfFcMdX6NWSvdYAti9aNgvcliv9OVzpWJh7Eaqe2RiI2f5d=
+2DeNjDXQr08aB1gPTA3-2-DWkaayPNEoolrSlsrItJB5eZTUSsYr1g_37iA486elpLqFPgfvUXv=
+rkcECaJRAzGCxzA9CyKXbIk3ypx3NlnJkJK4QrrCnxcZqBaBkc3gIX8CA-uBiS4sdF9zIqRXi2w=
+2p2OYhyy3dv4VL_e74VL-Vn5Yp1raEUG3eGppkWg=2E=22 style=3D=22color: =23ffffff;=
+ text-decoration: none;=22>Orlando
+                =20
+                  </a>
+                </h4>
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23444444;=
+ border-right: 1px solid =23d0d0d0; border-top: 1px solid =23d0d0d0; font-s=
+ize: 1px; line-height: 0px;=22>
+                <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X=
+%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Azaz=
+cP4TyiGIOVXtpKX%3DSBTUWSCY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowy5UiuVRCuj37yC9qaC5=
+jPRZ-xKnXV_aZi2oySnpCRHhYZ0_yioyTk2eyPRR3tl2Bu4iG7CKJhfqXvQwo3cicUwzy2Nbnup=
+jLb5OF1zyfHV6izkpDiWtGyE36KfFcMdX6NWSvdYAti9aNgvcliv9OVzpWJh7Eaqe2RiI2f5d2D=
+eNjDXQr08aB1gPTA3-2-DWkaayPNEoolrSlsrItJB5eZTUSsYr1g_37iA486elpLqFPgfvUXvrk=
+cECaJRAzGCxzA9CyKXbIk3ypx3NlnJkJK4QrrCnxcZqBaBkc3gIX8CA-uBiS4sdF9zIqRXi2w2p=
+2NQWDQTWoKetE2eqeHl_9f2qHbUJpMwtnMUMiA=2E=22> 	=09
+
+
+<img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwir=
+e/contentlibrary/oldcontent/201001_OTH_Hotel_V3/Image_Orlando/Image_Orlando=
+=2Eimages/Orlando=2Ejpg=22 width=3D=22150=22 height=3D=22125=22 border=3D=
+=220=22 alt=3D=22=22 style=3D=22display:block;=22></a>
+              </td>
+
+            </tr>
+
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23ffffff; border-left: 1px =
+solid =23d0d0d0; border-bottom: 1px solid =23d0d0d0;=22>
+
+                <table>
+                  <tr>
+                    <td>
+                      <table width=3D=22100%=22 border=3D=220=22 cellpaddin=
+g=3D=220=22 cellspacing=3D=220=22>
+                      =09
+                        <tr>
+                        	<td valign=3D=22top=22 style=3D=22font-family: Ari=
+al, Helvetica, sans-serif; font-size: 11px; color: =23444444; margin-top: 5=
+px; margin-bottom: 0px; margin-left: 0px; line-height:8px; line-height:90%=
+=22>
+                            	<p style=3D=22font-family: Arial, Helvetica, s=
+ans-serif; font-size: 11px; color: =23444444; margin-top: 5px; margin-botto=
+m: 5px; margin-left: 10px;=22>
+                                from
+                                </p>
+                            </td>
+                            <td>
+                      <h4 style=3D=22font-family: Arial, Helvetica, sans-se=
+rif; font-size: 34px; color: =23b90105; margin-top: 0px; margin-bottom: 0px=
+; margin-left: 2px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWSCY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowy5UiuVRCu=
+j37yC9qaC5jPRZ-xKnXV_aZi2oySnpCRHhYZ0_yioyTk2eyPRR3tl2Bu4iG7CKJhfqXvQwo3cic=
+Uwzy2NbnupjLb5OF1zyfHV6izkpDiWtGyE36KfFcMdX6NWSvdYAti9aNgvcliv9OVzpWJh7Eaqe=
+2RiI2f5d2DeNjDXQr08aB1gPTA3-2-DWkaayPNEoolrSlsrItJB5eZTUSsYr1g_37iA486elpLq=
+FPgfvUXvrkcECaJRAzGCxzA9CyKXbIk3ypx3NlnJkJK4QrrCnxcZqBaBkc3gIX8CA-uBiS4sdF9=
+zIqRXi2w2p2OL_j6o1Il4sttXWLCTsKd2_5Uy23FcN1VaY3Q=2E=22 style=3D=22color: =
+=23b90105; text-decoration: none;=22>=2432</a>
+                      </h4>
+                      		</td>
+                        </tr>
+                    </table>
+                    </td>
+                    <td valign=3D=22bottom=22>
+                      <p style=3D=22font-family: Arial, Helvetica, sans-ser=
+if; font-size: 11px; color: =23444444; margin-top: 0px; margin-bottom: 5px;=
+ margin-left: 0px;=22>
+                        /night<br/>
+                       =20
+                        	<span style=3D=22text-decoration:line-through; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:11px; color:=23444444=22><=
+strong>
+                             </strong>
+                            </span>
+                           =20
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23ffffff;=
+ padding-top: 8px; padding-bottom: 8px; border-right: 1px solid =23d0d0d0; =
+border-bottom: 1px solid =23d0d0d0;=22>
+                <table align=3D=22center=22 cellpadding=3D=220=22 cellspaci=
+ng=3D=220=22 border=3D=220=22 width=3D=22105=22>
+                  <tr>
+                    <td style=3D=22background-color: =23b90005; text-align:=
+ center=22>
+                      <p style=3D=22margin-bottom: 0px; margin-top: 0px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWSCY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowy5UiuVRCu=
+j37yC9qaC5jPRZ-xKnXV_aZi2oySnpCRHhYZ0_yioyTk2eyPRR3tl2Bu4iG7CKJhfqXvQwo3cic=
+Uwzy2NbnupjLb5OF1zyfHV6izkpDiWtGyE36KfFcMdX6NWSvdYAti9aNgvcliv9OVzpWJh7Eaqe=
+2RiI2f5d2DeNjDXQr08aB1gPTA3-2-DWkaayPNEoolrSlsrItJB5eZTUSsYr1g_37iA486elpLq=
+FPgfvUXvrkcECaJRAzGCxzA9CyKXbIk3ypx3NlnJkJK4QrrCnxcZqBaBkc3gIX8CA-uBiS4sdF9=
+zIqRXi2w2p2PaERcdfa3FlePLIoKK6KP45XFSwBnZM02fOLE=2E=22 style=3D=22font-fami=
+ly: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 24px; color=
+: =23ffffff; text-decoration: none;=22>
+                          Show Me
+                        </a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td colspan=3D=222=22 height=3D=2210=22 style=3D=22font-size:=
+ 0px; line-height: 0px;=22>&nbsp;</td>
+            </tr>
+
+          </table>
+</td></tr><tr><td style=3D=22min-width: 640px; max-width: 640px; border:thi=
+n=22 class=3D=22feature-mobile=22>
+
+=20
+
+
+ =20
+<table cellpadding=3D=220=22 cellspacing=3D=220=22 align=3D=22left=22 width=
+=3D=22312=22 class=3D=22feature-mobile=22 style=3D=22border-collapse: colla=
+pse;=22>
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23444444; border-left: 1px =
+solid =23d0d0d0; border-top: 1px solid =23d0d0d0; word-wrap:break-word; tex=
+t-wrap:normal; =22>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22><img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/re=
+sponsysimages/content/hwire/OTH-transparent-stars-40=2Epng=22 width=3D=2254=
+=22 height=3D=2211=22 style=3D=22border: none;=22/></a>
+                </p>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22>4-Star Hotels</a>
+                </p>
+               =20
+                <h4 style=3D=22font-family: Arial, Helvetica, sans-serif; f=
+ont-size: 18px; color: =23ffffff; margin-top: 0px; margin-bottom: 10px; tex=
+t-transform: uppercase; margin-left: 8px;=22>
+                  <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc=
+2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Az=
+azcP4TyiGIOVXtpKX%3DSBTUWTRY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowykTLyffcbiNixETW6=
+65xOF4VmukIC2QMRc6BqXz4zGo44BGSotX-0qtxcmLDtD2JE0yEtnS9HxvZdnAtT7T4UOlWK0qn=
+IOKxiXiQ67li98tOOig2o1gX7P3-k8fSDBl23ky1H786dNK6SYfkJNPpRTnr96XGdebtvVQGNSd=
+pNMqs6IZtvoUIpgG876xPIsoNyYlc_OmHNfguKAqse3qIIlAYWRYoSBnzmit43dSeid8acp7GZi=
+08FKJSk5FGK_aGvTjwu6vIKAc8IBqyIbZClzZsjLFvT29g9CbdrSJdhGltoXa6aV8iLpOKGMY-O=
+cX94_t451AdKN_fJp1Bbtx9lVbi0L_2d-jfHFv_hY9oczz0=2E=22 style=3D=22color: =23=
+ffffff; text-decoration: none;=22>Myrtle Beach
+                =20
+                  </a>
+                </h4>
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23444444;=
+ border-right: 1px solid =23d0d0d0; border-top: 1px solid =23d0d0d0; font-s=
+ize: 1px; line-height: 0px;=22>
+                <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X=
+%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Azaz=
+cP4TyiGIOVXtpKX%3DSBTUWTRY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowykTLyffcbiNixETW665=
+xOF4VmukIC2QMRc6BqXz4zGo44BGSotX-0qtxcmLDtD2JE0yEtnS9HxvZdnAtT7T4UOlWK0qnIO=
+KxiXiQ67li98tOOig2o1gX7P3-k8fSDBl23ky1H786dNK6SYfkJNPpRTnr96XGdebtvVQGNSdpN=
+Mqs6IZtvoUIpgG876xPIsoNyYlc_OmHNfguKAqse3qIIlAYWRYoSBnzmit43dSeid8acp7GZi08=
+FKJSk5FGK_aGvTjwu6vIKAc8IBqyIbZClzZsjLFvT29g9CbdrSJdhGltoXa6aV8iLpOKGMY-OcX=
+96uk66_9cIAqwv5mqo2gSSaTT9jcir2GwO_ZtdQZZ6Jj0=2E=22> 	=09
+
+
+<img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwir=
+e/contentlibrary/oldcontent/201001_OTH_Hotel_V3/Image_Myrtle_Beach/Image_My=
+rtle_Beach=2Eimages/Myrtle_Beach=2Ejpg=22 width=3D=22150=22 height=3D=22125=
+=22 border=3D=220=22 alt=3D=22=22 style=3D=22display:block;=22></a>
+              </td>
+
+            </tr>
+
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23ffffff; border-left: 1px =
+solid =23d0d0d0; border-bottom: 1px solid =23d0d0d0;=22>
+
+                <table>
+                  <tr>
+                    <td>
+                      <table width=3D=22100%=22 border=3D=220=22 cellpaddin=
+g=3D=220=22 cellspacing=3D=220=22>
+                      =09
+                        <tr>
+                        	<td valign=3D=22top=22 style=3D=22font-family: Ari=
+al, Helvetica, sans-serif; font-size: 11px; color: =23444444; margin-top: 5=
+px; margin-bottom: 0px; margin-left: 0px; line-height:8px; line-height:90%=
+=22>
+                            	<p style=3D=22font-family: Arial, Helvetica, s=
+ans-serif; font-size: 11px; color: =23444444; margin-top: 5px; margin-botto=
+m: 5px; margin-left: 10px;=22>
+                                from
+                                </p>
+                            </td>
+                            <td>
+                      <h4 style=3D=22font-family: Arial, Helvetica, sans-se=
+rif; font-size: 34px; color: =23b90105; margin-top: 0px; margin-bottom: 0px=
+; margin-left: 2px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWTRY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowykTLyffcb=
+iNixETW665xOF4VmukIC2QMRc6BqXz4zGo44BGSotX-0qtxcmLDtD2JE0yEtnS9HxvZdnAtT7T4=
+UOlWK0qnIOKxiXiQ67li98tOOig2o1gX7P3-k8fSDBl23ky1H786dNK6SYfkJNPpRTnr96XGdeb=
+tvVQGNSdpNMqs6IZtvoUIpgG876xPIsoNyYlc_OmHNfguKAqse3qIIlAYWRYoSBnzmit43dSeid=
+8acp7GZi08FKJSk5FGK_aGvTjwu6vIKAc8IBqyIbZClzZsjLFvT29g9CbdrSJdhGltoXa6aV8iL=
+pOKGMY-OcX97BigiJGa-EMOQltMJXdesG3x6gB6BVgAbhEmcLYksj-0=2E=22 style=3D=22co=
+lor: =23b90105; text-decoration: none;=22>=2435</a>
+                      </h4>
+                      		</td>
+                        </tr>
+                    </table>
+                    </td>
+                    <td valign=3D=22bottom=22>
+                      <p style=3D=22font-family: Arial, Helvetica, sans-ser=
+if; font-size: 11px; color: =23444444; margin-top: 0px; margin-bottom: 5px;=
+ margin-left: 0px;=22>
+                        /night<br/>
+                       =20
+                        	<span style=3D=22text-decoration:line-through; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:11px; color:=23444444=22><=
+strong>
+                             </strong>
+                            </span>
+                           =20
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23ffffff;=
+ padding-top: 8px; padding-bottom: 8px; border-right: 1px solid =23d0d0d0; =
+border-bottom: 1px solid =23d0d0d0;=22>
+                <table align=3D=22center=22 cellpadding=3D=220=22 cellspaci=
+ng=3D=220=22 border=3D=220=22 width=3D=22105=22>
+                  <tr>
+                    <td style=3D=22background-color: =23b90005; text-align:=
+ center=22>
+                      <p style=3D=22margin-bottom: 0px; margin-top: 0px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWTRY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowykTLyffcb=
+iNixETW665xOF4VmukIC2QMRc6BqXz4zGo44BGSotX-0qtxcmLDtD2JE0yEtnS9HxvZdnAtT7T4=
+UOlWK0qnIOKxiXiQ67li98tOOig2o1gX7P3-k8fSDBl23ky1H786dNK6SYfkJNPpRTnr96XGdeb=
+tvVQGNSdpNMqs6IZtvoUIpgG876xPIsoNyYlc_OmHNfguKAqse3qIIlAYWRYoSBnzmit43dSeid=
+8acp7GZi08FKJSk5FGK_aGvTjwu6vIKAc8IBqyIbZClzZsjLFvT29g9CbdrSJdhGltoXa6aV8iL=
+pOKGMY-OcX95dAvxbBXimtALEp6b8QCllU-eW70IzL9IDxmXzxy8Rtw=2E=22 style=3D=22fo=
+nt-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 24px=
+; color: =23ffffff; text-decoration: none;=22>
+                          Show Me
+                        </a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td colspan=3D=222=22 height=3D=2210=22 style=3D=22font-size:=
+ 0px; line-height: 0px;=22>&nbsp;</td>
+            </tr>
+
+          </table>
+
+
+=20
+
+
+ =20
+<table cellpadding=3D=220=22 cellspacing=3D=220=22 align=3D=22right=22 widt=
+h=3D=22312=22 class=3D=22feature-mobile=22 style=3D=22border-collapse: coll=
+apse;=22>
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23444444; border-left: 1px =
+solid =23d0d0d0; border-top: 1px solid =23d0d0d0; word-wrap:break-word; tex=
+t-wrap:normal; =22>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22><img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/re=
+sponsysimages/content/hwire/OTH-transparent-stars-40=2Epng=22 width=3D=2254=
+=22 height=3D=2211=22 style=3D=22border: none;=22/></a>
+                </p>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22>4-Star Hotels</a>
+                </p>
+               =20
+                <h4 style=3D=22font-family: Arial, Helvetica, sans-serif; f=
+ont-size: 22px; color: =23ffffff; margin-top: 0px; margin-bottom: 10px; tex=
+t-transform: uppercase; margin-left: 8px;=22>
+                  <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc=
+2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Az=
+azcP4TyiGIOVXtpKX%3DSBTUWTTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowy-Tvh_HQrnaciWWB0=
+cHDmGlS_W1GlsjCoDVMGpcqylX3pPkOyDNkbcezVTDaBRAMB7l2Rq8c-Z6sWYiohFWqo8KLekZ7=
+k3ri59aEE_yOiQSsQ5gc0I8d6alkkDadCBWUO1QHqzv8_nhjJ1cn_qZhBGCyT9qJRr3B7udJe5Y=
+PPWvV5TnhN1Wx1slArZsWKN4Tgce6ix05e-0HOeIfT1udWbF6UPDS6yyypMasgQqm950uNpZdIA=
+-3Mct1gwOqJm8239hwR3GpkEBH-8NQK5bNskCZ65ix-x7QVNSCYEYQpgLQyjkDIgWErCDHLsTqy=
+i7a626NhVhvNmiJGd8a2WP-nHE3CWwMG2=2E=22 style=3D=22color: =23ffffff; text-d=
+ecoration: none;=22>Washington
+                =20
+                  </a>
+                </h4>
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23444444;=
+ border-right: 1px solid =23d0d0d0; border-top: 1px solid =23d0d0d0; font-s=
+ize: 1px; line-height: 0px;=22>
+                <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X=
+%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Azaz=
+cP4TyiGIOVXtpKX%3DSBTUWTTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowy-Tvh_HQrnaciWWB0cH=
+DmGlS_W1GlsjCoDVMGpcqylX3pPkOyDNkbcezVTDaBRAMB7l2Rq8c-Z6sWYiohFWqo8KLekZ7k3=
+ri59aEE_yOiQSsQ5gc0I8d6alkkDadCBWUO1QHqzv8_nhjJ1cn_qZhBGCyT9qJRr3B7udJe5YPP=
+WvV5TnhN1Wx1slArZsWKN4Tgce6ix05e-0HOeIfT1udWbF6UPDS6yyypMasgQqm950uNpZdIA-3=
+Mct1gwOqJm8239hwR3GpkEBH-8NQK5bNskCZ65ix-x7QVNSCYEYQpgLUb76LxgHYgz91HFkRD7K=
+i05LpeG45VkkkyAgNHjk-MC6f0i-N5o=2E=22> 	=09
+
+
+<img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwir=
+e/contentlibrary/oldcontent/201001_OTH_Hotel_V3/Image_Washington/Image_Wash=
+ington=2Eimages/Washington=2Ejpg=22 width=3D=22150=22 height=3D=22125=22 bo=
+rder=3D=220=22 alt=3D=22=22 style=3D=22display:block;=22></a>
+              </td>
+
+            </tr>
+
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23ffffff; border-left: 1px =
+solid =23d0d0d0; border-bottom: 1px solid =23d0d0d0;=22>
+
+                <table>
+                  <tr>
+                    <td>
+                      <table width=3D=22100%=22 border=3D=220=22 cellpaddin=
+g=3D=220=22 cellspacing=3D=220=22>
+                      =09
+                        <tr>
+                        	<td valign=3D=22top=22 style=3D=22font-family: Ari=
+al, Helvetica, sans-serif; font-size: 11px; color: =23444444; margin-top: 5=
+px; margin-bottom: 0px; margin-left: 0px; line-height:8px; line-height:90%=
+=22>
+                            	<p style=3D=22font-family: Arial, Helvetica, s=
+ans-serif; font-size: 11px; color: =23444444; margin-top: 5px; margin-botto=
+m: 5px; margin-left: 10px;=22>
+                                from
+                                </p>
+                            </td>
+                            <td>
+                      <h4 style=3D=22font-family: Arial, Helvetica, sans-se=
+rif; font-size: 34px; color: =23b90105; margin-top: 0px; margin-bottom: 0px=
+; margin-left: 2px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWTTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowy-Tvh_HQr=
+naciWWB0cHDmGlS_W1GlsjCoDVMGpcqylX3pPkOyDNkbcezVTDaBRAMB7l2Rq8c-Z6sWYiohFWq=
+o8KLekZ7k3ri59aEE_yOiQSsQ5gc0I8d6alkkDadCBWUO1QHqzv8_nhjJ1cn_qZhBGCyT9qJRr3=
+B7udJe5YPPWvV5TnhN1Wx1slArZsWKN4Tgce6ix05e-0HOeIfT1udWbF6UPDS6yyypMasgQqm95=
+0uNpZdIA-3Mct1gwOqJm8239hwR3GpkEBH-8NQK5bNskCZ65ix-x7QVNSCYEYQpgL-KTcLZLEit=
+Zi1Nhps_lcu6XiZtstsZ9pnFKakkjIml9HNeZpXfD=2E=22 style=3D=22color: =23b90105=
+; text-decoration: none;=22>=2468</a>
+                      </h4>
+                      		</td>
+                        </tr>
+                    </table>
+                    </td>
+                    <td valign=3D=22bottom=22>
+                      <p style=3D=22font-family: Arial, Helvetica, sans-ser=
+if; font-size: 11px; color: =23444444; margin-top: 0px; margin-bottom: 5px;=
+ margin-left: 0px;=22>
+                        /night<br/>
+                       =20
+                        	<span style=3D=22text-decoration:line-through; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:11px; color:=23444444=22><=
+strong>
+                             166*</strong>
+                            </span>
+                           =20
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23ffffff;=
+ padding-top: 8px; padding-bottom: 8px; border-right: 1px solid =23d0d0d0; =
+border-bottom: 1px solid =23d0d0d0;=22>
+                <table align=3D=22center=22 cellpadding=3D=220=22 cellspaci=
+ng=3D=220=22 border=3D=220=22 width=3D=22105=22>
+                  <tr>
+                    <td style=3D=22background-color: =23b90005; text-align:=
+ center=22>
+                      <p style=3D=22margin-bottom: 0px; margin-top: 0px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWTTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowy-Tvh_HQr=
+naciWWB0cHDmGlS_W1GlsjCoDVMGpcqylX3pPkOyDNkbcezVTDaBRAMB7l2Rq8c-Z6sWYiohFWq=
+o8KLekZ7k3ri59aEE_yOiQSsQ5gc0I8d6alkkDadCBWUO1QHqzv8_nhjJ1cn_qZhBGCyT9qJRr3=
+B7udJe5YPPWvV5TnhN1Wx1slArZsWKN4Tgce6ix05e-0HOeIfT1udWbF6UPDS6yyypMasgQqm95=
+0uNpZdIA-3Mct1gwOqJm8239hwR3GpkEBH-8NQK5bNskCZ65ix-x7QVNSCYEYQpgL_AF9QBC_lA=
+e9aKQtEIwxpXqwwgqUNbZaG1vvUG7Xm4ESLLJ5ktU=2E=22 style=3D=22font-family: Ari=
+al, Helvetica, sans-serif; font-size: 12px; line-height: 24px; color: =23ff=
+ffff; text-decoration: none;=22>
+                          Show Me
+                        </a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td colspan=3D=222=22 height=3D=2210=22 style=3D=22font-size:=
+ 0px; line-height: 0px;=22>&nbsp;</td>
+            </tr>
+
+          </table>
+</td></tr><tr><td style=3D=22min-width: 640px; max-width: 640px; border:thi=
+n=22 class=3D=22feature-mobile=22>
+
+=20
+
+
+ =20
+<table cellpadding=3D=220=22 cellspacing=3D=220=22 align=3D=22left=22 width=
+=3D=22312=22 class=3D=22feature-mobile=22 style=3D=22border-collapse: colla=
+pse;=22>
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23444444; border-left: 1px =
+solid =23d0d0d0; border-top: 1px solid =23d0d0d0; word-wrap:break-word; tex=
+t-wrap:normal; =22>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22><img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/re=
+sponsysimages/content/hwire/OTH-transparent-stars-40=2Epng=22 width=3D=2254=
+=22 height=3D=2211=22 style=3D=22border: none;=22/></a>
+                </p>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22>4-Star Hotels</a>
+                </p>
+               =20
+                <h4 style=3D=22font-family: Arial, Helvetica, sans-serif; f=
+ont-size: 18px; color: =23ffffff; margin-top: 0px; margin-bottom: 10px; tex=
+t-transform: uppercase; margin-left: 8px;=22>
+                  <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc=
+2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Az=
+azcP4TyiGIOVXtpKX%3DSBTUWTWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowxN4OCeHhyR2OrwXoH=
+U32W8pGMqYBqoGmNwPODxwFUg3kZ4GHeY_PUZ3w1Nj8pcydsMbRU-K61a9yGzW8IgQcOgaHmY8T=
+w_he9l8KQFOImUoJzbm800WBwUhPiUeRotUQO1_EgFyYUPW0enOxOFWqKCRG7kTgFDwDD4JqOQj=
+0FnBZgWoX9jkulVx8_U4qdzxQ5OUkBwK5M-slVOrzIjlT6psnbzSa_EzP7Rv0jtylx095Gy5xan=
+9mR2bCinEQYe7LTB7CHjAFPWwgtbQxN4enSiMgB3n1pLchV0oJ83lxnd4rSp_bFo4yWL_9R6MqX=
+oFl4LWeQoRafoCxunD4lgUGFTJ298uBxqFEHQ=2E=22 style=3D=22color: =23ffffff; te=
+xt-decoration: none;=22>Atlantic City
+                =20
+                  </a>
+                </h4>
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23444444;=
+ border-right: 1px solid =23d0d0d0; border-top: 1px solid =23d0d0d0; font-s=
+ize: 1px; line-height: 0px;=22>
+                <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X=
+%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Azaz=
+cP4TyiGIOVXtpKX%3DSBTUWTWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowxN4OCeHhyR2OrwXoHU3=
+2W8pGMqYBqoGmNwPODxwFUg3kZ4GHeY_PUZ3w1Nj8pcydsMbRU-K61a9yGzW8IgQcOgaHmY8Tw_=
+he9l8KQFOImUoJzbm800WBwUhPiUeRotUQO1_EgFyYUPW0enOxOFWqKCRG7kTgFDwDD4JqOQj0F=
+nBZgWoX9jkulVx8_U4qdzxQ5OUkBwK5M-slVOrzIjlT6psnbzSa_EzP7Rv0jtylx095Gy5xan9m=
+R2bCinEQYe7LTB7CHjAFPWwgtbQxN4enSiMgB3n1pLchV0oJ83lxnd4oJrJZNEbr1ayc72rMMyQ=
+j7A7Is1S8-1IDD6V15CsmCTMEtSQGY5e4vC=2E=22> 	=09
+
+
+<img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwir=
+e/contentlibrary/oldcontent/201001_OTH_Hotel_V3/Image_Atlantic_City/Image_A=
+tlantic_City=2Eimages/Atlantic_City=2Ejpg=22 width=3D=22150=22 height=3D=22=
+125=22 border=3D=220=22 alt=3D=22=22 style=3D=22display:block;=22></a>
+              </td>
+
+            </tr>
+
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23ffffff; border-left: 1px =
+solid =23d0d0d0; border-bottom: 1px solid =23d0d0d0;=22>
+
+                <table>
+                  <tr>
+                    <td>
+                      <table width=3D=22100%=22 border=3D=220=22 cellpaddin=
+g=3D=220=22 cellspacing=3D=220=22>
+                      =09
+                        <tr>
+                        	<td valign=3D=22top=22 style=3D=22font-family: Ari=
+al, Helvetica, sans-serif; font-size: 11px; color: =23444444; margin-top: 5=
+px; margin-bottom: 0px; margin-left: 0px; line-height:8px; line-height:90%=
+=22>
+                            	<p style=3D=22font-family: Arial, Helvetica, s=
+ans-serif; font-size: 11px; color: =23444444; margin-top: 5px; margin-botto=
+m: 5px; margin-left: 10px;=22>
+                                from
+                                </p>
+                            </td>
+                            <td>
+                      <h4 style=3D=22font-family: Arial, Helvetica, sans-se=
+rif; font-size: 34px; color: =23b90105; margin-top: 0px; margin-bottom: 0px=
+; margin-left: 2px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWTWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowxN4OCeHhy=
+R2OrwXoHU32W8pGMqYBqoGmNwPODxwFUg3kZ4GHeY_PUZ3w1Nj8pcydsMbRU-K61a9yGzW8IgQc=
+OgaHmY8Tw_he9l8KQFOImUoJzbm800WBwUhPiUeRotUQO1_EgFyYUPW0enOxOFWqKCRG7kTgFDw=
+DD4JqOQj0FnBZgWoX9jkulVx8_U4qdzxQ5OUkBwK5M-slVOrzIjlT6psnbzSa_EzP7Rv0jtylx0=
+95Gy5xan9mR2bCinEQYe7LTB7CHjAFPWwgtbQxN4enSiMgB3n1pLchV0oJ83lxnd4rSp_bFo4yW=
+L_9R6MqXoFl5H2wo5FuJMK_D3R4gHzjyKOb3ljB1o5Q1u=2E=22 style=3D=22color: =23b9=
+0105; text-decoration: none;=22>=2444</a>
+                      </h4>
+                      		</td>
+                        </tr>
+                    </table>
+                    </td>
+                    <td valign=3D=22bottom=22>
+                      <p style=3D=22font-family: Arial, Helvetica, sans-ser=
+if; font-size: 11px; color: =23444444; margin-top: 0px; margin-bottom: 5px;=
+ margin-left: 0px;=22>
+                        /night<br/>
+                       =20
+                        	<span style=3D=22text-decoration:line-through; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:11px; color:=23444444=22><=
+strong>
+                             64*</strong>
+                            </span>
+                           =20
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23ffffff;=
+ padding-top: 8px; padding-bottom: 8px; border-right: 1px solid =23d0d0d0; =
+border-bottom: 1px solid =23d0d0d0;=22>
+                <table align=3D=22center=22 cellpadding=3D=220=22 cellspaci=
+ng=3D=220=22 border=3D=220=22 width=3D=22105=22>
+                  <tr>
+                    <td style=3D=22background-color: =23b90005; text-align:=
+ center=22>
+                      <p style=3D=22margin-bottom: 0px; margin-top: 0px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWTWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowxN4OCeHhy=
+R2OrwXoHU32W8pGMqYBqoGmNwPODxwFUg3kZ4GHeY_PUZ3w1Nj8pcydsMbRU-K61a9yGzW8IgQc=
+OgaHmY8Tw_he9l8KQFOImUoJzbm800WBwUhPiUeRotUQO1_EgFyYUPW0enOxOFWqKCRG7kTgFDw=
+DD4JqOQj0FnBZgWoX9jkulVx8_U4qdzxQ5OUkBwK5M-slVOrzIjlT6psnbzSa_EzP7Rv0jtylx0=
+95Gy5xan9mR2bCinEQYe7LTB7CHjAFPWwgtbQxN4enSiMgB3n1pLchV0oJ83lxnd4rSp_bFo4yW=
+L_9R6MqXoFl5hZa-B-VRTRH2U8M4kQ0pYdPfPpp5gXcWQ=2E=22 style=3D=22font-family:=
+ Arial, Helvetica, sans-serif; font-size: 12px; line-height: 24px; color: =
+=23ffffff; text-decoration: none;=22>
+                          Show Me
+                        </a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td colspan=3D=222=22 height=3D=2210=22 style=3D=22font-size:=
+ 0px; line-height: 0px;=22>&nbsp;</td>
+            </tr>
+
+          </table>
+
+
+=20
+
+
+ =20
+<table cellpadding=3D=220=22 cellspacing=3D=220=22 align=3D=22right=22 widt=
+h=3D=22312=22 class=3D=22feature-mobile=22 style=3D=22border-collapse: coll=
+apse;=22>
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23444444; border-left: 1px =
+solid =23d0d0d0; border-top: 1px solid =23d0d0d0; word-wrap:break-word; tex=
+t-wrap:normal; =22>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22><img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/re=
+sponsysimages/content/hwire/OTH-transparent-stars-40=2Epng=22 width=3D=2254=
+=22 height=3D=2211=22 style=3D=22border: none;=22/></a>
+                </p>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22>4-Star Hotels</a>
+                </p>
+               =20
+                <h4 style=3D=22font-family: Arial, Helvetica, sans-serif; f=
+ont-size: 22px; color: =23ffffff; margin-top: 0px; margin-bottom: 10px; tex=
+t-transform: uppercase; margin-left: 8px;=22>
+                  <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc=
+2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Az=
+azcP4TyiGIOVXtpKX%3DSBTUWTAY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowxN4OCeHhyR2OrwXoH=
+U32W8_YNTBkOymcGltiXH0a860LdSCbu8h6O_QWeaekLF0RfieObcZ3mAjI4o-gLy_fndl5Qb0y=
+LTu92bYSA4EMgqVaqLDCz8BfpciQyju9LV1b_rQnRaYBro0vaPxRVGjdPa8SUV7fstT59Re72Wl=
+gZGjXTlQhb8xjwD2h76fhoYnL6U8ozUM5jHTWUqfCeMDWGfEtNQevanlU0aAxgGS2KRjDXBuen7=
+HNPerj1QKynOqLdS9o4g04XhVvo__V2UUgISrAB3zmiWuZd8Zf_2Ut3tvEoa8XgNKYlRN8RlCFN=
+mIcZF3Ex7zsMjxbzzRyTs_n-qODicB8LzUw=2E=22 style=3D=22color: =23ffffff; text=
+-decoration: none;=22>Atlanta
+                =20
+                  </a>
+                </h4>
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23444444;=
+ border-right: 1px solid =23d0d0d0; border-top: 1px solid =23d0d0d0; font-s=
+ize: 1px; line-height: 0px;=22>
+                <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X=
+%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Azaz=
+cP4TyiGIOVXtpKX%3DSBTUWTAY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowxN4OCeHhyR2OrwXoHU3=
+2W8_YNTBkOymcGltiXH0a860LdSCbu8h6O_QWeaekLF0RfieObcZ3mAjI4o-gLy_fndl5Qb0yLT=
+u92bYSA4EMgqVaqLDCz8BfpciQyju9LV1b_rQnRaYBro0vaPxRVGjdPa8SUV7fstT59Re72WlgZ=
+GjXTlQhb8xjwD2h76fhoYnL6U8ozUM5jHTWUqfCeMDWGfEtNQevanlU0aAxgGS2KRjDXBuen7HN=
+Perj1QKynOqLdS9o4g04XhVvo__V2UUgISrAB3zmiWuZd8Zf_2Ut3tvyMP4eF8xzbRRukiUwqPd=
+ekn69aSN8fZBoR6FoNaAQ-5ad9_lsnksw=2E=22> 	=09
+
+
+<img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwir=
+e/contentlibrary/oldcontent/201001_OTH_Hotel_V3/Image_Atlanta/Image_Atlanta=
+=2Eimages/Atlanta=2Ejpg=22 width=3D=22150=22 height=3D=22125=22 border=3D=
+=220=22 alt=3D=22=22 style=3D=22display:block;=22></a>
+              </td>
+
+            </tr>
+
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23ffffff; border-left: 1px =
+solid =23d0d0d0; border-bottom: 1px solid =23d0d0d0;=22>
+
+                <table>
+                  <tr>
+                    <td>
+                      <table width=3D=22100%=22 border=3D=220=22 cellpaddin=
+g=3D=220=22 cellspacing=3D=220=22>
+                      =09
+                        <tr>
+                        	<td valign=3D=22top=22 style=3D=22font-family: Ari=
+al, Helvetica, sans-serif; font-size: 11px; color: =23444444; margin-top: 5=
+px; margin-bottom: 0px; margin-left: 0px; line-height:8px; line-height:90%=
+=22>
+                            	<p style=3D=22font-family: Arial, Helvetica, s=
+ans-serif; font-size: 11px; color: =23444444; margin-top: 5px; margin-botto=
+m: 5px; margin-left: 10px;=22>
+                                from
+                                </p>
+                            </td>
+                            <td>
+                      <h4 style=3D=22font-family: Arial, Helvetica, sans-se=
+rif; font-size: 34px; color: =23b90105; margin-top: 0px; margin-bottom: 0px=
+; margin-left: 2px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWTAY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowxN4OCeHhy=
+R2OrwXoHU32W8_YNTBkOymcGltiXH0a860LdSCbu8h6O_QWeaekLF0RfieObcZ3mAjI4o-gLy_f=
+ndl5Qb0yLTu92bYSA4EMgqVaqLDCz8BfpciQyju9LV1b_rQnRaYBro0vaPxRVGjdPa8SUV7fstT=
+59Re72WlgZGjXTlQhb8xjwD2h76fhoYnL6U8ozUM5jHTWUqfCeMDWGfEtNQevanlU0aAxgGS2KR=
+jDXBuen7HNPerj1QKynOqLdS9o4g04XhVvo__V2UUgISrAB3zmiWuZd8Zf_2Ut3tvydKrQiUbGY=
+z34t0qg6QCyh3ghBaI9J6qmBzPMl07OZr2Ls0X-8j8w=2E=22 style=3D=22color: =23b901=
+05; text-decoration: none;=22>=2472</a>
+                      </h4>
+                      		</td>
+                        </tr>
+                    </table>
+                    </td>
+                    <td valign=3D=22bottom=22>
+                      <p style=3D=22font-family: Arial, Helvetica, sans-ser=
+if; font-size: 11px; color: =23444444; margin-top: 0px; margin-bottom: 5px;=
+ margin-left: 0px;=22>
+                        /night<br/>
+                       =20
+                        	<span style=3D=22text-decoration:line-through; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:11px; color:=23444444=22><=
+strong>
+                             </strong>
+                            </span>
+                           =20
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23ffffff;=
+ padding-top: 8px; padding-bottom: 8px; border-right: 1px solid =23d0d0d0; =
+border-bottom: 1px solid =23d0d0d0;=22>
+                <table align=3D=22center=22 cellpadding=3D=220=22 cellspaci=
+ng=3D=220=22 border=3D=220=22 width=3D=22105=22>
+                  <tr>
+                    <td style=3D=22background-color: =23b90005; text-align:=
+ center=22>
+                      <p style=3D=22margin-bottom: 0px; margin-top: 0px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWTAY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowxN4OCeHhy=
+R2OrwXoHU32W8_YNTBkOymcGltiXH0a860LdSCbu8h6O_QWeaekLF0RfieObcZ3mAjI4o-gLy_f=
+ndl5Qb0yLTu92bYSA4EMgqVaqLDCz8BfpciQyju9LV1b_rQnRaYBro0vaPxRVGjdPa8SUV7fstT=
+59Re72WlgZGjXTlQhb8xjwD2h76fhoYnL6U8ozUM5jHTWUqfCeMDWGfEtNQevanlU0aAxgGS2KR=
+jDXBuen7HNPerj1QKynOqLdS9o4g04XhVvo__V2UUgISrAB3zmiWuZd8Zf_2Ut3tvLrNdXYPnWb=
+PA0vrPeo1jKhLJx8sogp4XpgECF_qaTg34_Pvh-DeAw=2E=22 style=3D=22font-family: A=
+rial, Helvetica, sans-serif; font-size: 12px; line-height: 24px; color: =23=
+ffffff; text-decoration: none;=22>
+                          Show Me
+                        </a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td colspan=3D=222=22 height=3D=2210=22 style=3D=22font-size:=
+ 0px; line-height: 0px;=22>&nbsp;</td>
+            </tr>
+
+          </table>
+</td></tr><tr><td style=3D=22min-width: 640px; max-width: 640px; border:thi=
+n=22 class=3D=22feature-mobile=22>
+
+=20
+
+
+ =20
+<table cellpadding=3D=220=22 cellspacing=3D=220=22 align=3D=22left=22 width=
+=3D=22312=22 class=3D=22feature-mobile=22 style=3D=22border-collapse: colla=
+pse;=22>
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23444444; border-left: 1px =
+solid =23d0d0d0; border-top: 1px solid =23d0d0d0; word-wrap:break-word; tex=
+t-wrap:normal; =22>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22><img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/re=
+sponsysimages/content/hwire/OTH-transparent-stars-30=2Epng=22 width=3D=2254=
+=22 height=3D=2211=22 style=3D=22border: none;=22/></a>
+                </p>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22>3-Star Hotels</a>
+                </p>
+               =20
+                <h4 style=3D=22font-family: Arial, Helvetica, sans-serif; f=
+ont-size: 18px; color: =23ffffff; margin-top: 0px; margin-bottom: 10px; tex=
+t-transform: uppercase; margin-left: 8px;=22>
+                  <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc=
+2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Az=
+azcP4TyiGIOVXtpKX%3DSBTUWTCY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowykTLyffcbiNixETW6=
+65xOFjaDmsV2QC64T3SoUKXDTAXtgtc800vM2Ph-NWXLPe2IM0NkDkEntsOekuk9MBgdYpKctpM=
+_UD6xLC3HzSgQ8BenSZAFwMR07j7GP_48NLsxT19QI010_XgSbK629VBCgo9TNw7vpQKQ05X_cN=
+u_uSKjj3SV81Pg0_FEyy7TGNqHsA9SZpPpiIe3O7_kNO38zXuGsJP1NNZEVErEn1pBwLtl4tv2D=
+lh1kJfCNGefpAnuiqHq0coxMX-dZVnTjzVaiM6tXVRzTStsK2yPZ3YKOLHX7ULEXvYuM6YOo8d5=
+F3EizaMnW4WEvdzvp_C5gd17d7g-r2sa5Ow=2E=22 style=3D=22color: =23ffffff; text=
+-decoration: none;=22>Miami Beach
+                =20
+                  </a>
+                </h4>
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23444444;=
+ border-right: 1px solid =23d0d0d0; border-top: 1px solid =23d0d0d0; font-s=
+ize: 1px; line-height: 0px;=22>
+                <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X=
+%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Azaz=
+cP4TyiGIOVXtpKX%3DSBTUWTCY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowykTLyffcbiNixETW665=
+xOFjaDmsV2QC64T3SoUKXDTAXtgtc800vM2Ph-NWXLPe2IM0NkDkEntsOekuk9MBgdYpKctpM_U=
+D6xLC3HzSgQ8BenSZAFwMR07j7GP_48NLsxT19QI010_XgSbK629VBCgo9TNw7vpQKQ05X_cNu_=
+uSKjj3SV81Pg0_FEyy7TGNqHsA9SZpPpiIe3O7_kNO38zXuGsJP1NNZEVErEn1pBwLtl4tv2Dlh=
+1kJfCNGefpAnuiqHq0coxMX-dZVnTjzVaiM6tXVRzTStsK2yPZ3YKOLGAUAYA_j2pEB4yUw2mAg=
+1bmHy1Obl9h167_FNSeavRuUjWeC5YrZM=2E=22> 	=09
+
+
+<img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwir=
+e/contentlibrary/oldcontent/201001_OTH_Hotel_V3/Image_Miami_Beach/Image_Mia=
+mi_Beach=2Eimages/Miami_Beach=2Ejpg=22 width=3D=22150=22 height=3D=22125=22=
+ border=3D=220=22 alt=3D=22=22 style=3D=22display:block;=22></a>
+              </td>
+
+            </tr>
+
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23ffffff; border-left: 1px =
+solid =23d0d0d0; border-bottom: 1px solid =23d0d0d0;=22>
+
+                <table>
+                  <tr>
+                    <td>
+                      <table width=3D=22100%=22 border=3D=220=22 cellpaddin=
+g=3D=220=22 cellspacing=3D=220=22>
+                      =09
+                        <tr>
+                        	<td valign=3D=22top=22 style=3D=22font-family: Ari=
+al, Helvetica, sans-serif; font-size: 11px; color: =23444444; margin-top: 5=
+px; margin-bottom: 0px; margin-left: 0px; line-height:8px; line-height:90%=
+=22>
+                            	<p style=3D=22font-family: Arial, Helvetica, s=
+ans-serif; font-size: 11px; color: =23444444; margin-top: 5px; margin-botto=
+m: 5px; margin-left: 10px;=22>
+                                from
+                                </p>
+                            </td>
+                            <td>
+                      <h4 style=3D=22font-family: Arial, Helvetica, sans-se=
+rif; font-size: 34px; color: =23b90105; margin-top: 0px; margin-bottom: 0px=
+; margin-left: 2px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWTCY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowykTLyffcb=
+iNixETW665xOFjaDmsV2QC64T3SoUKXDTAXtgtc800vM2Ph-NWXLPe2IM0NkDkEntsOekuk9MBg=
+dYpKctpM_UD6xLC3HzSgQ8BenSZAFwMR07j7GP_48NLsxT19QI010_XgSbK629VBCgo9TNw7vpQ=
+KQ05X_cNu_uSKjj3SV81Pg0_FEyy7TGNqHsA9SZpPpiIe3O7_kNO38zXuGsJP1NNZEVErEn1pBw=
+Ltl4tv2Dlh1kJfCNGefpAnuiqHq0coxMX-dZVnTjzVaiM6tXVRzTStsK2yPZ3YKOLw8xFhIf_-5=
+EmvmlYICWZo5ZdGQsc56P7CbyEKm5BVh4Dhghccm630=2E=22 style=3D=22color: =23b901=
+05; text-decoration: none;=22>=2480</a>
+                      </h4>
+                      		</td>
+                        </tr>
+                    </table>
+                    </td>
+                    <td valign=3D=22bottom=22>
+                      <p style=3D=22font-family: Arial, Helvetica, sans-ser=
+if; font-size: 11px; color: =23444444; margin-top: 0px; margin-bottom: 5px;=
+ margin-left: 0px;=22>
+                        /night<br/>
+                       =20
+                        	<span style=3D=22text-decoration:line-through; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:11px; color:=23444444=22><=
+strong>
+                             </strong>
+                            </span>
+                           =20
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23ffffff;=
+ padding-top: 8px; padding-bottom: 8px; border-right: 1px solid =23d0d0d0; =
+border-bottom: 1px solid =23d0d0d0;=22>
+                <table align=3D=22center=22 cellpadding=3D=220=22 cellspaci=
+ng=3D=220=22 border=3D=220=22 width=3D=22105=22>
+                  <tr>
+                    <td style=3D=22background-color: =23b90005; text-align:=
+ center=22>
+                      <p style=3D=22margin-bottom: 0px; margin-top: 0px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWTCY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowykTLyffcb=
+iNixETW665xOFjaDmsV2QC64T3SoUKXDTAXtgtc800vM2Ph-NWXLPe2IM0NkDkEntsOekuk9MBg=
+dYpKctpM_UD6xLC3HzSgQ8BenSZAFwMR07j7GP_48NLsxT19QI010_XgSbK629VBCgo9TNw7vpQ=
+KQ05X_cNu_uSKjj3SV81Pg0_FEyy7TGNqHsA9SZpPpiIe3O7_kNO38zXuGsJP1NNZEVErEn1pBw=
+Ltl4tv2Dlh1kJfCNGefpAnuiqHq0coxMX-dZVnTjzVaiM6tXVRzTStsK2yPZ3YKOLKqimYrHkQ1=
+DaYCoGkMMibgBFjAHQIlzCB5JZcVxc6SssNPFK2WE20=2E=22 style=3D=22font-family: A=
+rial, Helvetica, sans-serif; font-size: 12px; line-height: 24px; color: =23=
+ffffff; text-decoration: none;=22>
+                          Show Me
+                        </a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td colspan=3D=222=22 height=3D=2210=22 style=3D=22font-size:=
+ 0px; line-height: 0px;=22>&nbsp;</td>
+            </tr>
+
+          </table>
+
+
+=20
+
+
+ =20
+<table cellpadding=3D=220=22 cellspacing=3D=220=22 align=3D=22right=22 widt=
+h=3D=22312=22 class=3D=22feature-mobile=22 style=3D=22border-collapse: coll=
+apse;=22>
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23444444; border-left: 1px =
+solid =23d0d0d0; border-top: 1px solid =23d0d0d0; word-wrap:break-word; tex=
+t-wrap:normal; =22>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22><img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/re=
+sponsysimages/content/hwire/OTH-transparent-stars-40=2Epng=22 width=3D=2254=
+=22 height=3D=2211=22 style=3D=22border: none;=22/></a>
+                </p>
+                <p style=3D=22font-family: Arial, Helvetica, sans-serif; fo=
+nt-size: 13px; color: =23ffffff; margin-top: 0px; margin-bottom: 0px; margi=
+n-left: 8px;=22>
+                  <a href=3D=22=23=22 style=3D=22color: =23ffffff; text-dec=
+oration: none;=22>4-Star Hotels</a>
+                </p>
+               =20
+                <h4 style=3D=22font-family: Arial, Helvetica, sans-serif; f=
+ont-size: 22px; color: =23ffffff; margin-top: 0px; margin-bottom: 10px; tex=
+t-transform: uppercase; margin-left: 8px;=22>
+                  <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc=
+2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Az=
+azcP4TyiGIOVXtpKX%3DSBTUWURY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowwrL8V0h4k0MVo2T6A=
+khMgu4GJRfw4mVqyjY5NkljuxMtFZL9dj3QwE9s784ABUFtJcaX5kA1n-FWV_k2WeZWpLteAqRI=
+OF-AkaDRXoLSgNScCXIqt6L1_cf0F1AWca1Z_qCsLtppsgqQMW11Bby4N9ZI5nUJSJkbX611Tmb=
+Szf712j_fZ4o22NOFixkPL_4UiqjcI4-fVuB-JVLE7p2H1lMAvJo2aYW7OHAl7f5dai73Fog6Bu=
+05oJHft-M7ZSMepCh4U4Fj1pVbTsBv-q33V-J4Xq4G61ejc3S0srwdKfn-Jd9e4yzGKpFKPoC38=
+65fKE_gn2L6j2ZkdvBBK_fh53hDdPaGC1G2mnRSrj2w=2E=22 style=3D=22color: =23ffff=
+ff; text-decoration: none;=22>Baltimore
+                =20
+                  </a>
+                </h4>
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23444444;=
+ border-right: 1px solid =23d0d0d0; border-top: 1px solid =23d0d0d0; font-s=
+ize: 1px; line-height: 0px;=22>
+                <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X=
+%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4Azaz=
+cP4TyiGIOVXtpKX%3DSBTUWURY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowwrL8V0h4k0MVo2T6Akh=
+Mgu4GJRfw4mVqyjY5NkljuxMtFZL9dj3QwE9s784ABUFtJcaX5kA1n-FWV_k2WeZWpLteAqRIOF=
+-AkaDRXoLSgNScCXIqt6L1_cf0F1AWca1Z_qCsLtppsgqQMW11Bby4N9ZI5nUJSJkbX611TmbSz=
+f712j_fZ4o22NOFixkPL_4UiqjcI4-fVuB-JVLE7p2H1lMAvJo2aYW7OHAl7f5dai73Fog6Bu05=
+oJHft-M7ZSMepCh4U4Fj1pVbTsBv-q33V-J4Xq4G61ejc3S0srwdKfn-Jd9e4yzGKpFKPoC3865=
+fK7Ylz15OVYR0vcLaMDz-O4bF_vDvffpY6lxdqjXM=2E=22> 	=09
+
+
+<img src=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwir=
+e/contentlibrary/oldcontent/201001_OTH_Hotel_V3/Image_Baltimore/Image_Balti=
+more=2Eimages/Baltimore=2Ejpg=22 width=3D=22150=22 height=3D=22125=22 borde=
+r=3D=220=22 alt=3D=22=22 style=3D=22display:block;=22></a>
+              </td>
+
+            </tr>
+
+            <tr valign=3D=22middle=22>
+
+              <td style=3D=22background-color: =23ffffff; border-left: 1px =
+solid =23d0d0d0; border-bottom: 1px solid =23d0d0d0;=22>
+
+                <table>
+                  <tr>
+                    <td>
+                      <table width=3D=22100%=22 border=3D=220=22 cellpaddin=
+g=3D=220=22 cellspacing=3D=220=22>
+                      =09
+                        <tr>
+                        	<td valign=3D=22top=22 style=3D=22font-family: Ari=
+al, Helvetica, sans-serif; font-size: 11px; color: =23444444; margin-top: 5=
+px; margin-bottom: 0px; margin-left: 0px; line-height:8px; line-height:90%=
+=22>
+                            	<p style=3D=22font-family: Arial, Helvetica, s=
+ans-serif; font-size: 11px; color: =23444444; margin-top: 5px; margin-botto=
+m: 5px; margin-left: 10px;=22>
+                                from
+                                </p>
+                            </td>
+                            <td>
+                      <h4 style=3D=22font-family: Arial, Helvetica, sans-se=
+rif; font-size: 34px; color: =23b90105; margin-top: 0px; margin-bottom: 0px=
+; margin-left: 2px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWURY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowwrL8V0h4k=
+0MVo2T6AkhMgu4GJRfw4mVqyjY5NkljuxMtFZL9dj3QwE9s784ABUFtJcaX5kA1n-FWV_k2WeZW=
+pLteAqRIOF-AkaDRXoLSgNScCXIqt6L1_cf0F1AWca1Z_qCsLtppsgqQMW11Bby4N9ZI5nUJSJk=
+bX611TmbSzf712j_fZ4o22NOFixkPL_4UiqjcI4-fVuB-JVLE7p2H1lMAvJo2aYW7OHAl7f5dai=
+73Fog6Bu05oJHft-M7ZSMepCh4U4Fj1pVbTsBv-q33V-J4Xq4G61ejc3S0srwdKfn-Jd9e4yzGK=
+pFKPoC3865fIbspigVG_ItYF6k5LJVUErKMPCJY8DqR0eLV-vjM=2E=22 style=3D=22color:=
+ =23b90105; text-decoration: none;=22>=2453</a>
+                      </h4>
+                      		</td>
+                        </tr>
+                    </table>
+                    </td>
+                    <td valign=3D=22bottom=22>
+                      <p style=3D=22font-family: Arial, Helvetica, sans-ser=
+if; font-size: 11px; color: =23444444; margin-top: 0px; margin-bottom: 5px;=
+ margin-left: 0px;=22>
+                        /night<br/>
+                       =20
+                        	<span style=3D=22text-decoration:line-through; fon=
+t-family:Arial, Helvetica, sans-serif; font-size:11px; color:=23444444=22><=
+strong>
+                             141*</strong>
+                            </span>
+                           =20
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+
+              <td width=3D=22150=22 style=3D=22background-color: =23ffffff;=
+ padding-top: 8px; padding-bottom: 8px; border-right: 1px solid =23d0d0d0; =
+border-bottom: 1px solid =23d0d0d0;=22>
+                <table align=3D=22center=22 cellpadding=3D=220=22 cellspaci=
+ng=3D=220=22 border=3D=220=22 width=3D=22105=22>
+                  <tr>
+                    <td style=3D=22background-color: =23b90005; text-align:=
+ center=22>
+                      <p style=3D=22margin-bottom: 0px; margin-top: 0px;=22>
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWURY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowwrL8V0h4k=
+0MVo2T6AkhMgu4GJRfw4mVqyjY5NkljuxMtFZL9dj3QwE9s784ABUFtJcaX5kA1n-FWV_k2WeZW=
+pLteAqRIOF-AkaDRXoLSgNScCXIqt6L1_cf0F1AWca1Z_qCsLtppsgqQMW11Bby4N9ZI5nUJSJk=
+bX611TmbSzf712j_fZ4o22NOFixkPL_4UiqjcI4-fVuB-JVLE7p2H1lMAvJo2aYW7OHAl7f5dai=
+73Fog6Bu05oJHft-M7ZSMepCh4U4Fj1pVbTsBv-q33V-J4Xq4G61ejc3S0srwdKfn-Jd9e4yzGK=
+pFKPoC3865fL2ghGmvi9QSHruRABGZRoJjRuvowgEe9dfcKzUwg=2E=22 style=3D=22font-f=
+amily: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 24px; co=
+lor: =23ffffff; text-decoration: none;=22>
+                          Show Me
+                        </a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+            </tr>
+
+            <tr>
+              <td colspan=3D=222=22 height=3D=2210=22 style=3D=22font-size:=
+ 0px; line-height: 0px;=22>&nbsp;</td>
+            </tr>
+
+          </table>
+</td></tr><tr><td style=3D=22min-width: 640px; max-width: 640px; border:thi=
+n=22 class=3D=22feature-mobile=22>
+
+=20
+
+
+
+=20
+
+
+
+=20
+
+
+
+=20
+
+
+
+=20
+
+
+
+=20
+
+
+
+=20
+
+
+
+=20
+
+
+
+=20
+
+
+
+=20
+
+
+
+
+                <table cellpadding=3D=220=22 cellspacing=3D=220=22 border=
+=3D=220=22><tr><td height=3D=225=22 style=3D=22line-height:5px;=22><img src=
+=3D=22http://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/conten=
+tlibrary/oldcontent/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/image=
+s/sp=2Egif=22 width=3D=221=22 height=3D=221=22 border=3D=220=22 style=3D=22=
+display:block;=22/></td></tr></table>
+
+            </td>
+
+        </tr>
+
+        </table>
+
+    </td>
+
+</tr>
+
+</table>
+
+<=21-- /top deals -->
+
+<div style=3D=22line-height:10px;=22 class=3D=22lhfix=22>&nbsp;</div>
+
+
+
+<=21-- banner -->
+
+<=21-- /banner -->
+
+
+
+
+
+<=21-- find a car -->
+
+<table cellspacing=3D=220=22 cellpadding=3D=220=22 border=3D=220=22 width=
+=3D=22100%=22 style=3D=22table-layout:fixed;=22>=20
+
+<tr>
+
+    <td width=3D=22100%=22 align=3D=22center=22 style=3D=22vertical-align:t=
+op;=22 bgcolor=3D=22=23ffffff=22>
+
+        <table cellpadding=3D=220=22 cellspacing=3D=220=22 border=3D=220=22=
+ width=3D=22640=22 class=3D=22width320=22>
+
+        <tr><td colspan=3D=223=22 height=3D=221=22 style=3D=22line-height:1=
+px;=22 bgcolor=3D=22=23d0d0d0=22><img src=3D=22http://static=2Ecdn=2Erespon=
+sys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcontent/oth_hotel/2016=
+0127_oth_hotel_v2/0127_OTH_Hotel_V2/images/sp=2Egif=22 width=3D=221=22 heig=
+ht=3D=221=22 border=3D=220=22 style=3D=22display:block;=22/></td></tr>
+
+        <tr>
+
+            <td width=3D=221=22 bgcolor=3D=22=23d0d0d0=22></td>
+
+            <td width=3D=22638=22 class=3D=22width318=22>
+
+                <table cellpadding=3D=220=22 cellspacing=3D=220=22 border=
+=3D=220=22>
+
+                <tr>
+
+                    <td width=3D=22319=22 class=3D=22hide=22>
+
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWUTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46Sh=
+hw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_xx=
+bj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4gm=
+d0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22><img src=3D=22http://static=2Ecdn=2Erespon=
+sys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcontent/oth_hotel/2016=
+0127_oth_hotel_v2/0127_OTH_Hotel_V2/images/find_a_car=2Ejpg=22 width=3D=223=
+19=22 height=3D=22128=22 border=3D=220=22 style=3D=22display:block;=22 /></=
+a>
+
+                    </td>
+
+                    <td width=3D=2220=22></td>
+
+                    <td width=3D=22299=22 height=3D=22128=22 align=3D=22lef=
+t=22 valign=3D=22middle=22 style=3D=22vertical-align:middle;=22 class=3D=22=
+width298=22>
+
+                        <div style=3D=22font-family:Helvetica, sans-serif; =
+font-size:21px; line-height:23px; color:=23b6222a;=22>
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWUTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46=
+Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_=
+xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4=
+gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22text-decoration:none; color:=
+=23b6222a;=22><strong>Did someone say road trip?</strong></a>
+
+                        </div>
+
+                        <div class=3D=22lhfix=22 style=3D=22line-height:7px=
+;=22>&nbsp;</div>
+
+                        <div style=3D=22font-family:Helvetica, sans-serif; =
+font-size:14px; line-height:16px; color:=23333333;=22>
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWUTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46=
+Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_=
+xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4=
+gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22text-decoration:none; color:=
+=23333333;=22>Save on cars with our incredible deals=2E</a>
+
+                        </div>
+
+                        <div class=3D=22lhfix=22 style=3D=22line-height:10p=
+x;=22>&nbsp;</div>
+
+                        <table cellpadding=3D=220=22 cellspacing=3D=220=22 =
+border=3D=220=22 bgcolor=3D=22=23c10015=22>
+
+                        <tr>
+
+                            <td width=3D=22108=22 height=3D=2227=22 align=
+=3D=22center=22 valign=3D=22middle=22 style=3D=22vertical-align:middle;=22>
+
+                                <div style=3D=22font-family:Helvetica, sans=
+-serif; font-size:15px; line-height:17px; color:=23ffffff;=22>
+
+                                    <a href=3D=22http://e=2EHotwire=2Ecom/p=
+ub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH4=
+3qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWUTY&_ei_=3DEpd2ddhTOSLCf6CsJeoYo=
+ww-ZzB46Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36Ts=
+Mfrinzf_xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKU=
+U9VGWCK4gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22color:=23ffffff; text=
+-decoration:none;=22>Find a car</a>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+
+                </table>
+
+            </td>
+
+            <td width=3D=221=22 bgcolor=3D=22=23d0d0d0=22></td>
+
+        </tr>
+
+        <tr><td colspan=3D=223=22 height=3D=221=22 style=3D=22line-height:1=
+px;=22 bgcolor=3D=22=23d0d0d0=22><img src=3D=22http://static=2Ecdn=2Erespon=
+sys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcontent/oth_hotel/2016=
+0127_oth_hotel_v2/0127_OTH_Hotel_V2/images/sp=2Egif=22 width=3D=221=22 heig=
+ht=3D=221=22 border=3D=220=22 style=3D=22display:block;=22/></td></tr>
+
+        </table>
+
+        <div class=3D=22lhfix=22 style=3D=22line-height:10px;=22>&nbsp;</di=
+v>
+
+        <div class=3D=22lhfix hide=22 style=3D=22line-height:5px;=22>&nbsp;=
+</div>
+
+    </td>
+
+</tr>
+
+</table>
+
+<=21-- /find a car -->
+
+
+
+<=21-- find a flight -->
+
+<table cellspacing=3D=220=22 cellpadding=3D=220=22 border=3D=220=22 width=
+=3D=22100%=22 style=3D=22table-layout:fixed;=22>=20
+
+<tr>
+
+    <td width=3D=22100%=22 align=3D=22center=22 style=3D=22vertical-align:t=
+op;=22 bgcolor=3D=22=23ffffff=22>
+
+        <table cellpadding=3D=220=22 cellspacing=3D=220=22 border=3D=220=22=
+ width=3D=22640=22 class=3D=22width320=22>
+
+        <tr><td colspan=3D=223=22 height=3D=221=22 style=3D=22line-height:1=
+px;=22 bgcolor=3D=22=23d0d0d0=22><img src=3D=22http://static=2Ecdn=2Erespon=
+sys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcontent/oth_hotel/2016=
+0127_oth_hotel_v2/0127_OTH_Hotel_V2/images/sp=2Egif=22 width=3D=221=22 heig=
+ht=3D=221=22 border=3D=220=22 style=3D=22display:block;=22/></td></tr>
+
+        <tr>
+
+            <td width=3D=221=22 bgcolor=3D=22=23d0d0d0=22></td>
+
+            <td width=3D=22638=22 class=3D=22width318=22>
+
+                <table cellpadding=3D=220=22 cellspacing=3D=220=22 border=
+=3D=220=22>
+
+                <tr>
+
+                    <td width=3D=22319=22 class=3D=22hide=22>
+
+                        <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_ri_=
+=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmt=
+CzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWUWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46Sh=
+hw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_xx=
+bj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4gm=
+d0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22><img src=3D=22http://static=2Ecdn=2Erespon=
+sys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcontent/oth_hotel/2016=
+0127_oth_hotel_v2/0127_OTH_Hotel_V2/images/find_a_flight=2Ejpg=22 width=3D=
+=22319=22 height=3D=22128=22 border=3D=220=22 style=3D=22display:block;=22 =
+/></a>
+
+                    </td>
+
+                    <td width=3D=2220=22></td>
+
+                    <td width=3D=22299=22 height=3D=22128=22 align=3D=22lef=
+t=22 valign=3D=22middle=22 style=3D=22vertical-align:middle;=22 class=3D=22=
+width298=22>
+
+                        <div style=3D=22font-family:Helvetica, sans-serif; =
+font-size:21px; line-height:23px; color:=23b6222a;=22>
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWUWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46=
+Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_=
+xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4=
+gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22text-decoration:none; color:=
+=23b6222a;=22><strong>The sky&rsquo;s the limit=2E</strong></a>
+
+                        </div>
+
+                        <div class=3D=22lhfix=22 style=3D=22line-height:7px=
+;=22>&nbsp;</div>
+
+                        <div style=3D=22font-family:Helvetica, sans-serif; =
+font-size:14px; line-height:16px; color:=23333333;=22>
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWUWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46=
+Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_=
+xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4=
+gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22text-decoration:none; color:=
+=23333333;=22>Pay less for flights with these deals=2E</a>
+
+                        </div>
+
+                        <div class=3D=22lhfix=22 style=3D=22line-height:10p=
+x;=22>&nbsp;</div>
+
+                        <table cellpadding=3D=220=22 cellspacing=3D=220=22 =
+border=3D=220=22 bgcolor=3D=22=23c10015=22>
+
+                        <tr>
+
+                            <td width=3D=22108=22 height=3D=2227=22 align=
+=3D=22center=22 valign=3D=22middle=22 style=3D=22vertical-align:middle;=22>
+
+                                <div style=3D=22font-family:Helvetica, sans=
+-serif; font-size:15px; line-height:17px; color:=23ffffff;=22>
+
+                                    <a href=3D=22http://e=2EHotwire=2Ecom/p=
+ub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH4=
+3qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWUWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYo=
+ww-ZzB46Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36Ts=
+Mfrinzf_xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKU=
+U9VGWCK4gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22color:=23ffffff; text=
+-decoration:none;=22>Find a flight</a>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+
+                </table>
+
+            </td>
+
+            <td width=3D=221=22 bgcolor=3D=22=23d0d0d0=22></td>
+
+        </tr>
+
+        <tr><td colspan=3D=223=22 height=3D=221=22 style=3D=22line-height:1=
+px;=22 bgcolor=3D=22=23d0d0d0=22><img src=3D=22http://static=2Ecdn=2Erespon=
+sys=2Enet/i2/responsysimages/hwire/contentlibrary/oldcontent/oth_hotel/2016=
+0127_oth_hotel_v2/0127_OTH_Hotel_V2/images/sp=2Egif=22 width=3D=221=22 heig=
+ht=3D=221=22 border=3D=220=22 style=3D=22display:block;=22/></td></tr>
+
+        </table>
+
+        <div class=3D=22lhfix=22 style=3D=22line-height:10px;=22>&nbsp;</di=
+v>
+
+        <div class=3D=22lhfix hide=22 style=3D=22line-height:5px;=22>&nbsp;=
+</div>
+
+    </td>
+
+</tr>
+
+</table>
+
+<=21-- /find a flight -->
+
+
+
+<=21-- module 1=2E2 -->
+
+<table cellspacing=3D=220=22 cellpadding=3D=220=22 border=3D=220=22 width=
+=3D=22100%=22 style=3D=22table-layout:fixed;=22>=20
+
+<tr>
+
+    <td width=3D=22100%=22 align=3D=22center=22 style=3D=22vertical-align:t=
+op;=22 bgcolor=3D=22=23ffffff=22>
+
+        <table cellspacing=3D=220=22 cellpadding=3D=220=22 border=3D=220=22>
+
+        <tr>
+
+            <td width=3D=22640=22 class=3D=22width320=22 align=3D=22center=
+=22>
+
+                <table cellspacing=3D=220=22 cellpadding=3D=220=22 border=
+=3D=220=22 bgcolor=3D=22=23eaeaea=22 width=3D=22640=22 class=3D=22width320=
+=22>
+
+                <tr>
+
+                    <th width=3D=22368=22 align=3D=22center=22 style=3D=22f=
+ont-weight:normal;=22 class=3D=22block width320=22>
+
+                        <table cellpadding=3D=220=22 cellspacing=3D=220=22 =
+border=3D=220=22 width=3D=22368=22 class=3D=22width320=22>
+
+                        <tr>
+
+                            <td align=3D=22center=22>
+
+                                <div class=3D=22lhfix=22 style=3D=22line-he=
+ight:20px;=22>&nbsp;</div>
+
+                                <div style=3D=22font-family:Helvetica, sans=
+-serif; font-size:14px; line-height:16px; color:=23000000; padding-left:10p=
+x;=22 class=3D=22ml10 pl1=22>
+
+                                    <strong>Download the free app</strong>
+
+                                </div>
+
+                                <div class=3D=22lhfix=22 style=3D=22line-he=
+ight:7px;=22>&nbsp;</div>
+
+                                <table cellpadding=3D=220=22 cellspacing=3D=
+=220=22 border=3D=220=22 width=3D=22368=22 class=3D=22width320=22>
+
+                                <tr>
+
+                                    <td align=3D=22right=22 class=3D=22widt=
+h162=22>
+
+                                        <a href=3D=22http://e=2EHotwire=2Ec=
+om/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA=
+3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWUAY&_ei_=3DEpd2ddhTOSLCf6CsJ=
+eoYowzAhOcoFigcs60LuTQODtSNIeXzwrOw1T536rwvrOV1zbKrucWtxoPm3p3eXTbLAHeksIwp=
+uVDuvQfTgyuoGUYdB3BYYEROselRFKoduV9tmczXsw=2E=22><img src=3D=22http://stati=
+c=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldconten=
+t/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/apple_store=2Epn=
+g=22 width=3D=22115=22 height=3D=2236=22 border=3D=220=22 style=3D=22displa=
+y:block; font-family:Helvetica, sans-serif; font-size:20px; color:=23000000=
+;=22 alt=3D=22Download on the App Store=22 /></a>
+
+                                    </td>
+
+                                    <td width=3D=2210=22></td>
+
+                                    <td align=3D=22left=22 class=3D=22width=
+148=22>
+
+                                        <a href=3D=22http://e=2EHotwire=2Ec=
+om/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA=
+3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWUCY&_ei_=3DEpd2ddhTOSLCf6CsJ=
+eoYowzAhOcoFigcs60LuTQODtSNIeXzwrOw1T536rwvrOV1zbKrucWtxoPm3p3eXTbLAHeksIwp=
+uVDuvQfTgyuoGUYdB3BYYEROselRFKoduV9tmczXsw=2E=22><img src=3D=22http://stati=
+c=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldconten=
+t/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/google_play_cta=
+=2Epng=22 width=3D=22102=22 height=3D=2236=22 border=3D=220=22 style=3D=22d=
+isplay:block; font-family:Helvetica, sans-serif; font-size:20px; color:=230=
+00000;=22 alt=3D=22GET IT ON Google play=22 /></a>
+
+                                    </td>
+
+                                </tr>
+
+                                </table>
+
+                                <div class=3D=22lhfix line6=22 style=3D=22l=
+ine-height:26px;=22>&nbsp;</div>
+
+                            </td>
+
+                        </tr>
+
+                        </table>
+
+                    </th>
+
+                    <th width=3D=22252=22 align=3D=22left=22 style=3D=22fon=
+t-weight:normal;=22 class=3D=22block width320 aligncenter=22>
+
+                        <table cellpadding=3D=220=22 cellspacing=3D=220=22 =
+border=3D=220=22 width=3D=22252=22 class=3D=22width320=22>
+
+                        <tr>
+
+                            <td align=3D=22center=22>
+
+                                <div class=3D=22lhfix=22 style=3D=22line-he=
+ight:20px;=22>&nbsp;</div>
+
+                                <div style=3D=22font-family:Helvetica, sans=
+-serif; font-size:14px; line-height:16px; color:=23000000;=22>
+
+                                    <strong>Connect with us</strong>
+
+                                </div>
+
+                                <div class=3D=22lhfix=22 style=3D=22line-he=
+ight:7px;=22>&nbsp;</div>
+
+                                <table cellpadding=3D=220=22 cellspacing=3D=
+=220=22 border=3D=220=22>
+
+                                <tr>
+
+                                    <td align=3D=22right=22 valign=3D=22top=
+=22>
+
+                                        <a href=3D=22http://e=2EHotwire=2Ec=
+om/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA=
+3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWWRY&_ei_=3DEpd2ddhTOSLCf6CsJ=
+eoYowzAhOcoFigcs60LuTQODtSNIeXzwrOw1T536rwvrOV1zbKrucWtxoPm3p3eXTbLAHeksIwp=
+uVDuvQfTgyuoGUYdB3BYYEROselRFKoduV9tmczXsw=2E=22><img src=3D=22http://stati=
+c=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldconten=
+t/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/twitter2=2Epng=
+=22 width=3D=2235=22 height=3D=2237=22 border=3D=220=22 style=3D=22display:=
+block; font-family:Helvetica, sans-serif; font-size:20px; color:=23000000;=
+=22 alt=3D=22Twitter=22 /></a>
+
+                                    </td>
+
+                                    <td width=3D=2215=22></td>
+
+                                    <td width=3D=2226=22 valign=3D=22top=22>
+
+                                        <a href=3D=22http://e=2EHotwire=2Ec=
+om/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA=
+3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWWTY&_ei_=3DEpd2ddhTOSLCf6CsJ=
+eoYowzAhOcoFigcs60LuTQODtSNIeXzwrOw1T536rwvrOV1zbKrucWtxoPm3p3eXTbLAHeksIwp=
+uVDuvQfTgyuoGUYdB3BYYEROselRFKoduV9tmczXsw=2E=22><img src=3D=22http://stati=
+c=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldconten=
+t/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/facebook2=2Epng=
+=22 width=3D=2235=22 height=3D=2237=22 border=3D=220=22 style=3D=22display:=
+block; font-family:Helvetica, sans-serif; font-size:20px; color:=23000000;=
+=22 alt=3D=22Facebook=22 /></a>
+
+                                    </td>
+
+                                    <td width=3D=2215=22></td>
+
+                                    <td align=3D=22left=22 valign=3D=22top=
+=22>
+
+                                        <a href=3D=22http://e=2EHotwire=2Ec=
+om/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA=
+3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWWWY&_ei_=3DEpd2ddhTOSLCf6CsJ=
+eoYowzAhOcoFigcs60LuTQODtSNIeXzwrOw1T536rwvrOV1zbKrucWtxoPm3p3eXTbLAHeksIwp=
+uVDuvQfTgyuoGUYdB3BYYEROselRFKoduV9tmczXsw=2E=22><img src=3D=22http://stati=
+c=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldconten=
+t/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/pinterest2=2Epng=
+=22 width=3D=2237=22 height=3D=2237=22 border=3D=220=22 style=3D=22display:=
+block; font-family:Helvetica, sans-serif; font-size:20px; color:=23000000;=
+=22 alt=3D=22Pinterest=22 /></a>
+
+                                    </td>
+
+                                    <td width=3D=2215=22></td>
+
+                                    <td align=3D=22left=22 valign=3D=22top=
+=22>
+
+                                        <a href=3D=22http://e=2EHotwire=2Ec=
+om/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA=
+3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUAUTY&_ei_=3DEpd2ddhTOSLCf6CsJ=
+eoYowzAhOcoFigcs60LuTQODtSNIeXzwrOw1T536rwvrOV1zbKrucWtxoPm3p3eXTbLAHeksIwp=
+uVDuvQfTgyuoGUYdB3BYYEROselRFKoduV9tmczXsw=2E=22><img src=3D=22http://stati=
+c=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/oldconten=
+t/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/instagram2=2Epng=
+=22 width=3D=2235=22 height=3D=2237=22 border=3D=220=22 style=3D=22display:=
+block; font-family:Helvetica, sans-serif; font-size:20px; color:=23000000;=
+=22 alt=3D=22Instagram=22 /></a>
+
+                                    </td>
+
+                                </tr>
+
+                                </table>
+
+                                <div class=3D=22lhfix=22 style=3D=22line-he=
+ight:18px;=22>&nbsp;</div>
+
+                            </td>
+
+                        </tr>
+
+                        </table>
+
+                    </th>
+
+                    <td width=3D=2220=22 class=3D=22hide=22></td>
+
+                </tr>
+
+                </table>
+
+                <table cellpadding=3D=220=22 cellspacing=3D=220=22 border=
+=3D=220=22 width=3D=22640=22 class=3D=22width320=22>
+
+                <tr>
+
+                    <td align=3D=22center=22>
+
+                        <div class=3D=22lhfix line2=22 style=3D=22line-heig=
+ht:8px;=22>&nbsp;</div>
+
+                        <div style=3D=22font-family:Helvetica, sans-serif; =
+font-size:11px; line-height:30px; color:=23000000;=22 class=3D=22font10=22>
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWWAY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46=
+Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_=
+xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4=
+gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22text-decoration:underline; co=
+lor:=23000000;=22>Customer Care</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=3D=22hide=22>&nbsp;&nbsp=
+;</span>
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWWCY&_ei_=3DEpd2ddhTOSLCf6CsJeoYowxAjtwFz=
+q4hX81mo_OMwrhX1Yy2mHUynkOT59Vn3MiyrT4pj8kDNAVhS49SH3NeOd1kr2vH90maZxq4BJ8-=
+WMs_ea9yg3I3GwoN5Whs_l5eFr9oTx9eHhkC0o8Jl1b1lDxwJp-JOhRlEFdPZSj7iPVXUwV_MrR=
+kCMJuxJP9vTDCuRPQi9NlJxja_e4=2E=22 style=3D=22text-decoration:underline; co=
+lor:=23000000;=22>Terms of Use</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=3D=22hide=22>&nbsp;&nbsp;=
+</span>
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWYRY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46=
+Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_=
+xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4=
+gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22text-decoration:underline; co=
+lor:=23000000;=22>Update Zip Code</a> <span class=3D=22hide=22>&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+                            <span class=3D=22block=22><a href=3D=22http://e=
+=2EHotwire=2Ecom/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdz=
+dyze8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWYTY&_ei_=3DEpd=
+2ddhTOSLCf6CsJeoYowxAjtwFzq4hX81mo_OMwrhX1Yy2mHUynkOT59Vn3MiyrT4pj8kDNAVhS4=
+9SH3NeOd1kr2vH90maZxq4BJ8-WMs_ea9yg3I3GwoN5Whs_l5eFr9oTx9eHhkC0o8Jl1b1lDxwJ=
+p-JOhRlEFdPZSj7iPVXUwV_MrRkCMJuxJP9vTDCuRPQi9NlJxja_e4=2E=22 style=3D=22tex=
+t-decoration:underline; color:=23000000;=22 class=3D=22pr48=22>Privacy Poli=
+cy</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;
+
+                            <a href=3D=22http://e=2EHotwire=2Ecom/pub/cc?_r=
+i_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zg=
+mtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWYWY&_ei_=3DEpd2ddhTOSLCf6CsJeoYoww-ZzB46=
+Shhw9mAIY5xRrLmbsy4okBc9X-K0J3q4ko-0OrQkHJ8_OKy92xdkO6Z2mHB_C3C36TsMfrinzf_=
+xxbj3XwUDxDr6zCMgjSbvJ9u16lt6Jtqh6TzCdRDUjWOV-kcE6MSSTdqX3ABLf29FKUU9VGWCK4=
+gmd0_hhl_C8N20Mka2Eb0OZ4BXJ8=2E=22 style=3D=22text-decoration:underline; co=
+lor:=23000000;=22>Unsubscribe</a></span>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td align=3D=22left=22>
+
+                        <div class=3D=22lhfix=22 style=3D=22line-height:10p=
+x;=22>&nbsp;</div>
+
+                        <div style=3D=22font-family:Helvetica, sans-serif; =
+font-size:11px; line-height:13px; color:=23888888;=22 class=3D=22plr15=22>
+
+                            *Hotel savings are based on actual Hotwire Hot =
+Rate<span style=3D=22font-size:70%; vertical-align:top; line-height:10px;=
+=22>&reg;</span> bookings made in the previous 12 months as compared with t=
+he lowest published rates found on leading retail travel sites=2E Prices ar=
+e dynamic and vary based on booking date and length of stay=2E There is no =
+guarantee these savings or rates will be in effect at the time of your sear=
+ch=2E Availability is limited=2E Hot Rates are different from retail rates=
+=2E With Hot Rates you enter the date, location and star rating=2E Hotel re=
+vealed only after booking=2E All bookings final=2E<br /><br />
+
+
+
+
+
+                            This commercial message is from Hotwire, Inc=2E=
+ Please do not reply to this message, as we cannot respond to messages sent=
+ to this address=2E You may reach Hotwire at <a href=3D=22http://e=2EHotwir=
+e=2Ecom/pub/cc?_ri_=3DX0Gzc2X%3DYQpglLjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6=
+oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGIOVXtpKX%3DSBTUWYAY&_ei_=3DEpd2ddhTOSLC=
+f6CsJeoYowzAhOcoFigcs60LuTQODtSNIeXzwrOw1T536rwvrOV1zbKrucWtxoPm3p3eXTbLAHe=
+ksIwpuVDuvQfTgyuoGUYdB3BYYEROselRFKoduV9tmczXsw=2E=22 style=3D=22font-famil=
+y: Arial; font-size: 8pt; color: =23888888; text-decoration: underline;=22>=
+Contact Us</a> or via postal mail at: Hotwire, <a style=3D=22color:=2388888=
+8; text-decoration:none; cursor:auto=22><span class=3D=22flagship_addressgr=
+ey=22>PO Box 26285, San Francisco, CA 94126</span></a><br /><br />
+
+                            &copy; 2016 Hotwire, Inc=2E All rights reserved=
+=2E Hotwire, the Hotwire logo, Hot Fare, and Hot Rate are either registered=
+ trademarks or trademarks of Hotwire, Inc=2E Other product and company name=
+s shown may be trademarks of their respective owners=2E<br />
+
+                            CST 2053390-40; NST 20003-0209=2E
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td style=3D=22-webkit-text-size-adjust:none;font-famil=
+y:sans-serif;font-size:8pt;color:=23FFFFFF;=22>(NID: N-OTH-012716) (VID: V-=
+OTH-012716-V2) (HWID: <a href=3D=22=23=22 style=3D=22color:=23FFFFFF; text-=
+decoration:none;=22>2389661922)</a> (MD: <a href=3D=22=23=22 style=3D=22col=
+or:=23FFFFFF; text-decoration:none;=22>1/27/2016</a>)</td>
+
+                </tr>
+
+                </table>
+
+            </td>
+
+        </tr>
+
+        </table>
+
+    </td>
+
+</tr>
+
+</table>
+
+<=21-- gmail app fix -->
+
+<table cellpadding=3D=220=22 cellspacing=3D=220=22 border=3D=220=22 width=
+=3D=22640=22 class=3D=22width320=22><tr><td width=3D=22640=22 height=3D=221=
+=22 style=3D=22line-height:1px;=22 class=3D=22width320=22><img src=3D=22htt=
+p://static=2Ecdn=2Eresponsys=2Enet/i2/responsysimages/hwire/contentlibrary/=
+oldcontent/oth_hotel/20160127_oth_hotel_v2/0127_OTH_Hotel_V2/images/sp=2Egi=
+f=22 width=3D=22640=22 height=3D=221=22 border=3D=220=22 style=3D=22display=
+:block; min-width:640px;=22 class=3D=22width320 min320=22 /></td></tr></tab=
+le>
+
+<=21-- /gmail app fix -->
+
+<=21-- /module 1=2E2 --><br><br><img border=3D=220=22 width=3D=221=22 heigh=
+t=3D=221=22 src=3D=22http://e=2EHotwire=2Ecom/pub/as?_ri_=3DX0Gzc2X%3DYQpgl=
+LjHJlTQGsXEmYdzflBcf0kfihFwdzdyze8put6oHLCA3tH43qYeB9zgmtCzeCN4AzazcP4TyiGI=
+OVXHkMX%3Dw&_ei_=3DEpd2ddhTOSLCf6CsJeoYowzAhOcoFigcs60LuTQODtSNIeXzwrOw1T53=
+6rwvrOV1zbKrucWtxoPm3p3eXTbLAHeksIwpuVDuvQfTgyuoGUYdB3BYYEROselRFKoduV9tmcz=
+Xsw=2E=22>
+
+</body>
+
+</html>
+
+

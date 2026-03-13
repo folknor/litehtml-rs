@@ -1,0 +1,605 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.25.43.136 with SMTP id r130csp1428884lfr;
+        Sun, 23 Aug 2015 14:09:36 -0700 (PDT)
+X-Received: by 10.55.16.3 with SMTP id a3mr45803356qkh.65.1440364175910;
+        Sun, 23 Aug 2015 14:09:35 -0700 (PDT)
+Return-Path: <nbudzinski@hillaryclinton.com>
+Received: from mail-qk0-x233.google.com (mail-qk0-x233.google.com. [2607:f8b0:400d:c09::233])
+        by mx.google.com with ESMTPS id x3si24695242qkx.74.2015.08.23.14.09.35
+        for <john.podesta@gmail.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 23 Aug 2015 14:09:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nbudzinski@hillaryclinton.com designates 2607:f8b0:400d:c09::233 as permitted sender) client-ip=2607:f8b0:400d:c09::233;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of nbudzinski@hillaryclinton.com designates 2607:f8b0:400d:c09::233 as permitted sender) smtp.mailfrom=nbudzinski@hillaryclinton.com;
+       dkim=pass header.i=@hillaryclinton.com;
+       dmarc=pass (p=NONE dis=NONE) header.from=hillaryclinton.com
+Received: by mail-qk0-x233.google.com with SMTP id h127so57489371qkf.1
+        for <john.podesta@gmail.com>; Sun, 23 Aug 2015 14:09:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hillaryclinton.com; s=google;
+        h=from:mime-version:references:in-reply-to:date:message-id:subject:to
+         :cc:content-type;
+        bh=wgykOdv32rVj8MjXCAkg/yzaLPCtcGVd4OUi1I05464=;
+        b=OXOppMidvFBGMIVYScQ+cENmCEIbdgoHBXP3n+7Lvd38nV2TzNm2eL5/D6gHzStWfI
+         /bqxMGJci1nH3tDHHHaXCS7GGBS70lUK681mVJczrvIRtq8sPot2YXwD+0HfmM7GhpmI
+         zG3/ttxXbhP/ykLFz7Fs6gu8XQfpt+fzz9EuY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:from:mime-version:references:in-reply-to:date
+         :message-id:subject:to:cc:content-type;
+        bh=wgykOdv32rVj8MjXCAkg/yzaLPCtcGVd4OUi1I05464=;
+        b=JZ7r7w/Lv/oxKXn61jiT+4XMWJiv9Uo2NecQlboGLiKYSY301ZdVE23OtfrZBVY25z
+         oxlrQbGqrdYLQOXTJeza1Uxg9iGpS96Zn+S8B3t0Q1hMvPIiBVUn7RAOnvVRzT6ARQ68
+         IbISqY6W9xTbFLOs9zJ2efJiM01oIY752RaHJSUhBU8Uin+o+g7nmF8K7PUbQ5I/iOg7
+         Q9q1wNcJHMmU1GbaF3VS3toNrNEPI50zSU8QgDgtfJh7bhfQik5Pk5mqRS32qHJglBHr
+         vZWNhC4GxZMhGkGKq9BFbmBJCCSOy4usNjtu9aYBRBVPKa0hH51f2gCEvMf8ajADxqFT
+         I71Q==
+X-Gm-Message-State: ALoCoQncgkNO5FboUDEONRLlRvsoQskcpa0ZLY+QdFT4P67eteroiKAW+cH0DhMXjs8xX10pzWeP
+X-Received: by 10.55.18.214 with SMTP id 83mr45369087qks.60.1440364175197;
+ Sun, 23 Aug 2015 14:09:35 -0700 (PDT)
+From: Nikki Budzinski <nbudzinski@hillaryclinton.com>
+Mime-Version: 1.0 (1.0)
+References: <CA+Z3wa03PX5VtUZPD=Pxaq3E=XVpZ9=dnmV7yubpL9pqTA25Xw@mail.gmail.com>
+ <CAE6FiQ-UZ7QOiYAwj1MM-rfdqvV5oLM4rJ7j=QJNQLu07jZrHg@mail.gmail.com>
+ <7705464916089431123@unknownmsgid> <00b501d0dd22$b70e7930$252b6b90$@gmail.com>
+ <2169600740965411171@unknownmsgid> <305DA801-5FA9-4F22-86BC-9F0F0C30971E@gmail.com>
+ <-7920473788812298244@unknownmsgid> <-1115512025478974738@unknownmsgid>
+ <24656FD7-4DE0-4E93-9A22-083B1CB9602E@gmail.com> <1399772263148069844@unknownmsgid>
+ <CA+Z3wa0yg7G7KqbekXykE7q_wLVTyG8WYjeSDooLvbHpnSLeKA@mail.gmail.com> <3EE82E4A-7A9A-4501-B623-7C6F14FFB7AE@gmail.com>
+In-Reply-To: <3EE82E4A-7A9A-4501-B623-7C6F14FFB7AE@gmail.com>
+Date: Sun, 23 Aug 2015 17:09:34 -0400
+Message-ID: <6326561093911636002@unknownmsgid>
+Subject: Re: KXL
+To: Trevor Houser <tghouser.hrc@gmail.com>
+CC: Pete Ogden <progden@gmail.com>, Jake Sullivan <jsullivan@hillaryclinton.com>, 
+ Amanda Renteria <arenteria@hillaryclinton.com>, 
+ Maya Harris <mharris@hillaryclinton.com>, 
+ John Podesta <john.podesta@gmail.com>, 
+ Jennifer Palmieri <jpalmieri@hillaryclinton.com>, 
+ Ben Kobren <benkobren@gmail.com>
+Content-Type: multipart/alternative; boundary=001a1135bfb002a01c051e00ebb8
+
+--001a1135bfb002a01c051e00ebb8
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Sounds good.  Thanks again.
+
+Sent from my iPhone
+
+On Aug 23, 2015, at 5:07 PM, Trevor Houser <tghouser.hrc@gmail.com> wrote:
+
+Thanks Nikki, we'll huddle and get back to you.
+
+
+
+On Aug 23, 2015, at 1:58 PM, Nikki Budzinski <nbudzinski@hillaryclinton.com=
+>
+wrote:
+
+Hi guys
+Ok, some feedback for your consideration regarding the Op Ed and fact
+sheet.  Would you be willing to let me know if any of these suggestions you
+think are possible?  I'd appreciate knowing where you finally land.  I
+think with the trades one of the most important things is to provide them a
+heads up, even if we're going to be in different places.  I'd like to be
+able to do that when appropriate.
+
+Not surprising I know, but the trades are going to go nuclear (so to speak)
+on the Administration once this announcement comes out.  They will likely
+attack around the argument that this decision will lead to increased energy
+prices for those on fixed incomes.  They will also point out that if his
+rationale is increased CO2 exposure, HRC's State Department said there will
+negligible traces.  Just a fyi.
+
+1.  Thank you Trevor for breaking it down, that was really helpful.  I do
+think the grid piece and the pipeline infrastructure piece will be liked.
+2.  Could we include the terminology around "current baseload needs" in the
+current energy economy in both the fact sheet and Op Ed?  This will at
+least tip the hat to where we are today with the acknowledgement that we
+are transitioning to green.
+3.  When we talk about infrastructure standards, could we please mention
+prevailing wage and project labor agreements as one good set of standards?
+4.  Could we beef up the mentioning jobs?  O'Malley made the mistake with
+the trades of stating that energy jobs are temporary.  They really bristle
+at that.  Could we mention that these are "jobs and careers" for many
+workers and as we transition HRC wants to create more careers within the
+new energy economy?  Careers is their buzz word.
+5.  As I mention above, the Trades will attack Obama on raising energy
+prices, could HRC's OpEd and Fact sheet mention that she wants to see
+protections for consumers for those potential rising prices?
+
+The Op Ed will be read as very celebratory, and maybe that's it.  But I
+think if we could incorporate a little of these suggestions above and tone,
+it could be helpful.
+
+I'd love to hear what you think and if anything is possible.  Thank you
+again for the heads up.  I appreciate it.
+
+Thanks
+Nikki
+
+On Sun, Aug 23, 2015 at 4:06 PM, Nikki Budzinski <
+nbudzinski@hillaryclinton.com> wrote:
+
+> Ideally to get passed the Sept 9 meeting with the Building trades would b=
+e
+> a personal god-send.
+>
+> Will we move forward with the op Ed and fact sheet with or with Obama KXL
+> action?
+>
+> Sent from my iPhone
+>
+> On Aug 23, 2015, at 3:52 PM, Pete Ogden <progden@gmail.com> wrote:
+>
+> Good to know. Maybe they decided to push it until after the Canadian
+> election on 10/19.
+>
+> On Aug 23, 2015, at 3:47 PM, Jake Sullivan <jsullivan@hillaryclinton.com>
+> wrote:
+>
+> Now I am hearing it's back to late October.  So this may again end up as
+> just an HRC answer to a q.  John, you hearing otherwise?
+>
+>
+>
+> On Aug 22, 2015, at 5:46 PM, Nikki Budzinski <
+> nbudzinski@hillaryclinton.com> wrote:
+>
+> Got it.  Will do.
+>
+> Sent from my iPhone
+>
+> On Aug 22, 2015, at 5:43 PM, Trevor Houser <tghouser.hrc@gmail.com> wrote=
+:
+>
+> That should work for us. Earlier in the evening is better if possible.
+>
+>
+>
+> On Aug 22, 2015, at 2:42 PM, Nikki Budzinski <
+> nbudzinski@hillaryclinton.com> wrote:
+>
+> Thank you Trevor.  Very much appreciated.  Is feedback by tomorrow evenin=
+g
+> ok for you?  Or are you moving on a quicker timeline?
+>
+> Sent from my iPhone
+>
+> On Aug 22, 2015, at 5:37 PM, Trevor Houser <tghouser.hrc@gmail.com> wrote=
+:
+>
+> Amanda and Nikki,
+>
+>
+>
+> Attached is the current draft of an op-ed on KXL and our overall energy
+> infrastructure package and a detailed fact sheet on the latter. Remains t=
+o
+> be seen whether the op-ed will be released before or after the President
+> decides on the pipeline so it=E2=80=99s been drafted both ways.
+>
+>
+>
+> A few things to flag from the fact sheet that should help soften the blow
+> to the Building Trades of the KXL decision:
+>
+>
+>
+> 1.       *National Infrastructure Bank* =E2=80=93 HRC mentioned this in h=
+er
+> launch speech but it=E2=80=99s called out more specifically here (positiv=
+e for all
+> the trades).
+>
+> 2.       *Modernizing our Pipeline System =E2=80=93 *A pledge to repair o=
+r
+> replace thousands of miles of outdated pipeline by the end of her first
+> term, through a new =E2=80=9CPipeline Partnership=E2=80=9D that supports =
+rate relief for
+> states, cities and rural communities that accelerate replacement of
+> outdated pipes (good for LiUNA and UA).
+>
+> 3.       *Increase Rail Safety *=E2=80=93 Accelerate the phase-out of out=
+dated
+> tank cars and repair track defects (will create jobs for affiliates with
+> exposure on the tank car manufacturing and track repair fronts, though th=
+e
+> Teamsters may be negative if they see it as slowing oil-by-rail volumes).
+>
+> 4.       *Enhance Grid Security* - Provide new tools and resources to
+> states, cities and rural communities to make the investments necessary to
+> improve grid resilience to both cyber-attack and extreme weather events
+> (positive for IBEW).
+>
+> 5.       *Expanding Consumer Choice:* Offer financing tools for grid
+> investments that support the integration of distributed energy resources
+> and for gas pipeline investments that enable households and businesses to
+> switch away from heating oil and other petroleum products (the trades won=
+=E2=80=99t
+> love the distributed energy piece but the expanded natural gas pipeline
+> network to enable replacement of old fuel oil furnaces with natural gas
+> furnaces is positive for LiUNA, UA and the Boilermakers) .
+>
+> 6.       *Transmission Investment:* Ensure the federal government is a
+> partner in getting low-cost wind and other renewable energy to market
+> through improved federal coordination and cooperation with local
+> governments and power companies (positive for IBEW).
+>
+>
+>
+> 7.       *Transportation Funding: *Work with Congress to close corporate
+> tax loopholes and increase invest investment in transportation solutions
+> that expand transit access and reduce congestion, commute times, oil
+> consumption, and pollution (positive for IBEW, ironworkers and other publ=
+ic
+> transit-exposed trades).
+>
+> More broadly, we are calling for a North American Climate Compact that
+> would provide a coordinate, continent-wide energy and climate framework s=
+o
+> we don=E2=80=99t have to keep battling it our pipeline-by-pipeline and ca=
+n provides
+> infrastructure investment certainty. That section of the factsheet includ=
+es
+> the following line, which the trades should like:
+>
+> =C2=B7       *Infrastructure Standards:* Develop common, world-class stan=
+dards
+> for North American infrastructure that create good jobs and ensure energy
+> transportation across the continent is clean, safe, reliable and
+> affordable.
+>
+> Happy to discuss this weekend if you=E2=80=99d like. I=E2=80=99m at 917-7=
+55-5446.
+>
+>
+>
+> Best,
+>
+>
+>
+> Trevor
+>
+>
+>
+> *From:* Amanda Renteria [mailto:arenteria@hillaryclinton.com
+> <arenteria@hillaryclinton.com>]
+> *Sent:* Thursday, August 20, 2015 8:09 PM
+> *To:* John Podesta <john.podesta@gmail.com>; Maya Harris <
+> mharris@hillaryclinton.com>; Jennifer Palmieri <
+> jpalmieri@hillaryclinton.com>
+> *Cc:* Nikki Budzinski <nbudzinski@hillaryclinton.com>; Trevor Houser <
+> tghouser.hrc@gmail.com>; Jake Sullivan <jsullivan@hillaryclinton.com>
+> *Subject:* Re: KXL
+>
+>
+>
+> Can we make sure that Nikki sees the statement before it goes out? Just
+> want to make sure we don't catch anyone by surprise.  We are so close to
+> getting bldg trades and if we do this right, it will be ok even though th=
+ey
+> won't like it.
+>
+> Sent from my iPhone
+>
+>
+> On Aug 20, 2015, at 6:02 PM, John Podesta <john.podesta@gmail.com> wrote:
+>
+> Your in trouble, girl. Seriously, doubt we'll say we "encouraged" but
+> assume we'll support if it goes that way.
+>
+> On Thursday, August 20, 2015, Nikki Budzinski <
+> nbudzinski@hillaryclinton.com> wrote:
+>
+> Hi guys
+>
+> The Building Trades are flagging for me that they hear the Obama
+> Administration will deny KXL on Monday.  I just wanted to try to
+> politically get ahead of this and where we are on the issue if this in fa=
+ct
+> happens.  The trades are also hearing that HRC will put out a statement
+> stating that she encouraged Obama to take this position.  Politically wit=
+h
+> the building trades, this would be a very dangerous posture.  Just curiou=
+s
+> what your thoughts will be if the situation goes this way on Monday.
+>
+>
+>
+> Appreciate it.
+>
+>
+>
+> --
+>
+> Nikki Budzinski
+>
+> Labor Outreach Director
+>
+> Hillary for America
+>
+> 646-854-1442 (direct)
+>
+> <08.21 Modernizing infrastructure fact sheet - 3pm.docx>
+>
+> <08.21 KXL oped draft - 3pm.docx>
+>
+>
+
+
+--=20
+Nikki Budzinski
+Labor Outreach Director
+Hillary for America
+646-854-1442 (direct)
+
+--001a1135bfb002a01c051e00ebb8
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=
+=3Dutf-8"></head><body dir=3D"auto"><div>Sounds good.=C2=A0 Thanks again.<b=
+r><br>Sent from my iPhone</div><div><br>On Aug 23, 2015, at 5:07 PM, Trevor=
+ Houser &lt;<a href=3D"mailto:tghouser.hrc@gmail.com">tghouser.hrc@gmail.co=
+m</a>&gt; wrote:<br><br></div><blockquote type=3D"cite"><div><meta http-equ=
+iv=3D"content-type" content=3D"text/html; charset=3Dutf-8"><div>Thanks Nikk=
+i, we&#39;ll huddle and get back to you.=C2=A0<br><br><br></div><div><br>On=
+ Aug 23, 2015, at 1:58 PM, Nikki Budzinski &lt;<a href=3D"mailto:nbudzinski=
+@hillaryclinton.com">nbudzinski@hillaryclinton.com</a>&gt; wrote:<br><br></=
+div><blockquote type=3D"cite"><div><div dir=3D"ltr">Hi guys<div>Ok, some fe=
+edback for your consideration regarding the Op Ed and fact sheet.=C2=A0 Wou=
+ld you be willing to let me know if any of these suggestions you think are =
+possible?=C2=A0 I&#39;d appreciate knowing where you finally land.=C2=A0 I =
+think with the trades one of the most important things is to provide them a=
+ heads up, even if we&#39;re going to be in different places.=C2=A0 I&#39;d=
+ like to be able to do that when appropriate. =C2=A0</div><div><br></div><d=
+iv>Not surprising I know, but the trades are going to go nuclear (so to spe=
+ak) on the Administration once this announcement comes out.=C2=A0 They will=
+ likely attack around the argument that this decision will lead to increase=
+d energy prices for those on fixed incomes.=C2=A0 They will also point out =
+that if his rationale is increased CO2 exposure, HRC&#39;s State Department=
+ said there will negligible traces.=C2=A0 Just a fyi.</div><div><br></div><=
+div>1.=C2=A0 Thank you Trevor for breaking it down, that was really helpful=
+.=C2=A0 I do think the grid piece and the pipeline infrastructure piece wil=
+l be liked.</div><div>2.=C2=A0 Could we include the terminology around &quo=
+t;current baseload needs&quot; in the current energy economy in both the fa=
+ct sheet and Op Ed?=C2=A0 This will at least tip the hat to where we are to=
+day with the acknowledgement that we are transitioning to green. =C2=A0</di=
+v><div>3.=C2=A0 When we talk about infrastructure standards, could we pleas=
+e mention prevailing wage and project labor agreements as one good set of s=
+tandards?</div><div>4.=C2=A0 Could we beef up the mentioning jobs?=C2=A0 O&=
+#39;Malley made the mistake with the trades of stating that energy jobs are=
+ temporary.=C2=A0 They really bristle at that.=C2=A0 Could we mention that =
+these are &quot;jobs and careers&quot; for many workers and as we transitio=
+n HRC wants to create more careers within the new energy economy?=C2=A0 Car=
+eers is their buzz word.</div><div>5.=C2=A0 As I mention above, the Trades =
+will attack Obama on raising energy prices, could HRC&#39;s OpEd and Fact s=
+heet mention that she wants to see protections for consumers for those pote=
+ntial rising prices? =C2=A0</div><div><br></div><div>The Op Ed will be read=
+ as very celebratory, and maybe that&#39;s it.=C2=A0 But I think if we coul=
+d incorporate a little of these suggestions above and tone, it could be hel=
+pful.</div><div><br></div><div>I&#39;d love to hear what you think and if a=
+nything is possible.=C2=A0 Thank you again for the heads up.=C2=A0 I apprec=
+iate it.</div><div><br></div><div>Thanks</div><div>Nikki</div></div><div cl=
+ass=3D"gmail_extra"><br><div class=3D"gmail_quote">On Sun, Aug 23, 2015 at =
+4:06 PM, Nikki Budzinski <span dir=3D"ltr">&lt;<a href=3D"mailto:nbudzinski=
+@hillaryclinton.com" target=3D"_blank">nbudzinski@hillaryclinton.com</a>&gt=
+;</span> wrote:<br><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 =
+.8ex;border-left:1px #ccc solid;padding-left:1ex"><div dir=3D"auto"><div>Id=
+eally to get passed the Sept 9 meeting with the Building trades would be a =
+personal god-send. =C2=A0</div><div><br></div><div>Will we move forward wit=
+h the op Ed and fact sheet with or with Obama KXL action?<br><br>Sent from =
+my iPhone</div><div><div class=3D"h5"><div><br>On Aug 23, 2015, at 3:52 PM,=
+ Pete Ogden &lt;<a href=3D"mailto:progden@gmail.com" target=3D"_blank">prog=
+den@gmail.com</a>&gt; wrote:<br><br></div><blockquote type=3D"cite"><div><d=
+iv><span></span></div><div><div></div><div>Good to know. Maybe they decided=
+ to push it until after the Canadian election on 10/19.=C2=A0</div><div><br=
+>On Aug 23, 2015, at 3:47 PM, Jake Sullivan &lt;<a href=3D"mailto:jsullivan=
+@hillaryclinton.com" target=3D"_blank">jsullivan@hillaryclinton.com</a>&gt;=
+ wrote:<br><br></div><div><div>Now I am hearing it&#39;s back to late Octob=
+er.=C2=A0 So this may again end up as just an HRC answer to a q.=C2=A0 John=
+, you hearing otherwise?<br><br><br></div><div><br>On Aug 22, 2015, at 5:46=
+ PM, Nikki Budzinski &lt;<a href=3D"mailto:nbudzinski@hillaryclinton.com" t=
+arget=3D"_blank">nbudzinski@hillaryclinton.com</a>&gt; wrote:<br><br></div>=
+<blockquote type=3D"cite"><div><div>Got it.=C2=A0 Will do.<br><br>Sent from=
+ my iPhone</div><div><br>On Aug 22, 2015, at 5:43 PM, Trevor Houser &lt;<a =
+href=3D"mailto:tghouser.hrc@gmail.com" target=3D"_blank">tghouser.hrc@gmail=
+.com</a>&gt; wrote:<br><br></div><blockquote type=3D"cite"><div><div>That s=
+hould work for us. Earlier in the evening is better if possible.=C2=A0<br><=
+br><br></div><div><br>On Aug 22, 2015, at 2:42 PM, Nikki Budzinski &lt;<a h=
+ref=3D"mailto:nbudzinski@hillaryclinton.com" target=3D"_blank">nbudzinski@h=
+illaryclinton.com</a>&gt; wrote:<br><br></div><blockquote type=3D"cite"><di=
+v><div>Thank you Trevor.=C2=A0 Very much appreciated.=C2=A0 Is feedback by =
+tomorrow evening ok for you?=C2=A0 Or are you moving on a quicker timeline?=
+<br><br>Sent from my iPhone</div><div><br>On Aug 22, 2015, at 5:37 PM, Trev=
+or Houser &lt;<a href=3D"mailto:tghouser.hrc@gmail.com" target=3D"_blank">t=
+ghouser.hrc@gmail.com</a>&gt; wrote:<br><br></div><blockquote type=3D"cite"=
+><div><div><p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-fami=
+ly:&quot;Calibri&quot;,sans-serif;color:#1f497d">Amanda and Nikki,</span></=
+p><p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;=
+Calibri&quot;,sans-serif;color:#1f497d">=C2=A0</span></p><p class=3D"MsoNor=
+mal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-s=
+erif;color:#1f497d">Attached is the current draft of an op-ed on KXL and ou=
+r overall energy infrastructure package and a detailed fact sheet on the la=
+tter. Remains to be seen whether the op-ed will be released before or after=
+ the President decides on the pipeline so it=E2=80=99s been drafted both wa=
+ys. </span></p><p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-=
+family:&quot;Calibri&quot;,sans-serif;color:#1f497d">=C2=A0</span></p><p cl=
+ass=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-family:&quot;Calibri=
+&quot;,sans-serif;color:#1f497d">A few things to flag from the fact sheet t=
+hat should help soften the blow to the Building Trades of the KXL decision:=
+</span></p><p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;font-fami=
+ly:&quot;Calibri&quot;,sans-serif;color:#1f497d">=C2=A0</span></p><p><span =
+style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:=
+#1f497d"><span>1.<span style=3D"font:7.0pt &quot;Times New Roman&quot;">=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 </span></span></span><b><span style=3D"fo=
+nt-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f497d">Na=
+tional Infrastructure Bank</span></b><span style=3D"font-size:11.0pt;font-f=
+amily:&quot;Calibri&quot;,sans-serif;color:#1f497d"> =E2=80=93 HRC mentione=
+d this in her launch speech but it=E2=80=99s called out more specifically h=
+ere (positive for all the trades). <br><br></span></p><p><span style=3D"fon=
+t-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f497d"><sp=
+an>2.<span style=3D"font:7.0pt &quot;Times New Roman&quot;">=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 </span></span></span><b><span style=3D"font-size:11.0=
+pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f497d">Modernizing ou=
+r Pipeline System =E2=80=93 </span></b><span style=3D"font-size:11.0pt;font=
+-family:&quot;Calibri&quot;,sans-serif;color:#1f497d">A pledge to repair or=
+ replace thousands of miles of outdated pipeline by the end of her first te=
+rm, through a new =E2=80=9CPipeline Partnership=E2=80=9D that supports rate=
+ relief for states, cities and rural communities that accelerate replacemen=
+t of outdated pipes (good for LiUNA and UA). <br><br></span></p><p><span st=
+yle=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1=
+f497d"><span>3.<span style=3D"font:7.0pt &quot;Times New Roman&quot;">=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 </span></span></span><b><span style=3D"fo=
+nt-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f497d">In=
+crease Rail Safety </span></b><span style=3D"font-size:11.0pt;font-family:&=
+quot;Calibri&quot;,sans-serif;color:#1f497d">=E2=80=93 Accelerate the phase=
+-out of outdated tank cars and repair track defects (will create jobs for a=
+ffiliates with exposure on the tank car manufacturing and track repair fron=
+ts, though the Teamsters may be negative if they see it as slowing oil-by-r=
+ail volumes). <br><br></span></p><p><span style=3D"font-size:11.0pt;font-fa=
+mily:&quot;Calibri&quot;,sans-serif;color:#1f497d"><span>4.<span style=3D"f=
+ont:7.0pt &quot;Times New Roman&quot;">=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ </span></span></span><b><span style=3D"font-size:11.0pt;font-family:&quot;=
+Calibri&quot;,sans-serif;color:#1f4e79">Enhance Grid Security</span></b><sp=
+an style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;col=
+or:#1f4e79"> - </span><span style=3D"font-size:11.0pt;font-family:&quot;Cal=
+ibri&quot;,sans-serif;color:#1f4e79">Provide new tools and resources to sta=
+tes, cities and rural communities to make the investments necessary to impr=
+ove grid resilience to both cyber-attack and extreme weather events (positi=
+ve for IBEW).</span><span style=3D"font-size:11.0pt;font-family:&quot;Calib=
+ri&quot;,sans-serif;color:#1f497d"><br><br></span></p><p><span style=3D"fon=
+t-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f4e79"><sp=
+an>5.<span style=3D"font:7.0pt &quot;Times New Roman&quot;">=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 </span></span></span><b><span style=3D"font-size:11.0=
+pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f4e79">Expanding Cons=
+umer Choice:</span></b><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif;color:#1f4e79"> Offer financing tools for grid inves=
+tments that support the integration of distributed energy resources and for=
+ gas pipeline investments that enable households and businesses to switch a=
+way from heating oil and other petroleum products (the trades won=E2=80=99t=
+ love the distributed energy piece but the expanded natural gas pipeline ne=
+twork to enable replacement of old fuel oil furnaces with natural gas furna=
+ces is positive for LiUNA, UA and the Boilermakers) . <br><br></span><span =
+style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:=
+#1f4e79"></span></p><p style=3D"margin-bottom:9.0pt;background:white"><span=
+ style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color=
+:#1f4e79"><span>6.<span style=3D"font:7.0pt &quot;Times New Roman&quot;">=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 </span></span></span><b><span style=3D=
+"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f4e79"=
+>Transmission Investment:</span></b><span style=3D"font-size:11.0pt;font-fa=
+mily:&quot;Calibri&quot;,sans-serif;color:#1f4e79"> Ensure the federal gove=
+rnment is a partner in getting low-cost wind and other renewable energy to =
+market through improved federal coordination and cooperation with local gov=
+ernments and power companies (positive for IBEW).</span><span style=3D"font=
+-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f4e79"></sp=
+an></p><p style=3D"margin-bottom:9.0pt;background:white"><span style=3D"fon=
+t-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f4e79">=C2=
+=A0</span></p><p style=3D"margin-bottom:9.0pt;background:white"><span style=
+=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f4e=
+79"><span>7.<span style=3D"font:7.0pt &quot;Times New Roman&quot;">=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 </span></span></span><b><span style=3D"font-=
+size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f4e79">Trans=
+portation Funding: </span></b><span style=3D"font-size:11.0pt;font-family:&=
+quot;Calibri&quot;,sans-serif;color:#1f4e79">Work with<b> </b>Congress to c=
+lose corporate tax loopholes and increase invest investment in transportati=
+on solutions that expand transit access and reduce congestion, commute time=
+s, oil consumption, and pollution (positive for IBEW, ironworkers and other=
+ public transit-exposed trades).=C2=A0=C2=A0 </span><span style=3D"font-siz=
+e:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1f4e79"></span><=
+/p><p class=3D"MsoNormal" style=3D"margin-bottom:9.0pt;background:white"><s=
+pan style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;co=
+lor:#1f4e79">More broadly, we are calling for a North American Climate Comp=
+act that would provide a coordinate, continent-wide energy and climate fram=
+ework so we don=E2=80=99t have to keep battling it our pipeline-by-pipeline=
+ and can provides infrastructure investment certainty. That section of the =
+factsheet includes the following line, which the trades should like:</span>=
+</p><p style=3D"margin-bottom:9.0pt;background:white"><span style=3D"font-s=
+ize:11.0pt;font-family:Symbol;color:#1f4e79"><span>=C2=B7<span style=3D"fon=
+t:7.0pt &quot;Times New Roman&quot;">=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 <=
+/span></span></span><b><span style=3D"font-size:11.0pt;font-family:&quot;Ca=
+libri&quot;,sans-serif;color:#1f4e79">Infrastructure Standards:</span></b><=
+span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;c=
+olor:#1f4e79"> Develop common, world-class standards for North American inf=
+rastructure that create good jobs and ensure energy transportation across t=
+he continent is clean, safe, reliable and affordable.=C2=A0 </span><span st=
+yle=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1=
+f4e79"></span></p><p style=3D"margin-bottom:9.0pt;background:white"><span s=
+tyle=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#=
+1f4e79">Happy to discuss this weekend if you=E2=80=99d like. I=E2=80=99m at=
+ <a href=3D"tel:917-755-5446" value=3D"+19177555446" target=3D"_blank">917-=
+755-5446</a>. </span></p><p style=3D"margin-bottom:9.0pt;background:white">=
+<span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;=
+color:#1f4e79">=C2=A0</span></p><p style=3D"margin-bottom:9.0pt;background:=
+white"><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans=
+-serif;color:#1f4e79">Best,</span></p><p style=3D"margin-bottom:9.0pt;backg=
+round:white"><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot=
+;,sans-serif;color:#1f4e79">=C2=A0</span></p><p style=3D"margin-bottom:9.0p=
+t;background:white"><span style=3D"font-size:11.0pt;font-family:&quot;Calib=
+ri&quot;,sans-serif;color:#1f4e79">Trevor</span></p><p class=3D"MsoNormal">=
+<span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;=
+color:#1f497d">=C2=A0</span></p><div><div style=3D"border:none;border-top:s=
+olid #e1e1e1 1.0pt;padding:3.0pt 0in 0in 0in"><p class=3D"MsoNormal"><b><sp=
+an style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif">Fr=
+om:</span></b><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quo=
+t;,sans-serif"> Amanda Renteria [<a href=3D"mailto:arenteria@hillaryclinton=
+.com" target=3D"_blank">mailto:arenteria@hillaryclinton.com</a>] <br><b>Sen=
+t:</b> Thursday, August 20, 2015 8:09 PM<br><b>To:</b> John Podesta &lt;<a =
+href=3D"mailto:john.podesta@gmail.com" target=3D"_blank">john.podesta@gmail=
+.com</a>&gt;; Maya Harris &lt;<a href=3D"mailto:mharris@hillaryclinton.com"=
+ target=3D"_blank">mharris@hillaryclinton.com</a>&gt;; Jennifer Palmieri &l=
+t;<a href=3D"mailto:jpalmieri@hillaryclinton.com" target=3D"_blank">jpalmie=
+ri@hillaryclinton.com</a>&gt;<br><b>Cc:</b> Nikki Budzinski &lt;<a href=3D"=
+mailto:nbudzinski@hillaryclinton.com" target=3D"_blank">nbudzinski@hillaryc=
+linton.com</a>&gt;; Trevor Houser &lt;<a href=3D"mailto:tghouser.hrc@gmail.=
+com" target=3D"_blank">tghouser.hrc@gmail.com</a>&gt;; Jake Sullivan &lt;<a=
+ href=3D"mailto:jsullivan@hillaryclinton.com" target=3D"_blank">jsullivan@h=
+illaryclinton.com</a>&gt;<br><b>Subject:</b> Re: KXL</span></p></div></div>=
+<p class=3D"MsoNormal">=C2=A0</p><div><p class=3D"MsoNormal">Can we make su=
+re that Nikki sees the statement before it goes out? Just want to make sure=
+ we don&#39;t catch anyone by surprise.=C2=A0 We are so close to getting bl=
+dg trades and if we do this right, it will be ok even though they won&#39;t=
+ like it.=C2=A0<br><br>Sent from my iPhone</p></div><div><p class=3D"MsoNor=
+mal" style=3D"margin-bottom:12.0pt"><br>On Aug 20, 2015, at 6:02 PM, John P=
+odesta &lt;<a href=3D"mailto:john.podesta@gmail.com" target=3D"_blank">john=
+.podesta@gmail.com</a>&gt; wrote:</p></div><blockquote style=3D"margin-top:=
+5.0pt;margin-bottom:5.0pt"><div><p class=3D"MsoNormal">Your in trouble, gir=
+l. Seriously, doubt we&#39;ll say we &quot;encouraged&quot; but assume=C2=
+=A0we&#39;ll support if it goes that way.<br><br>On Thursday, August 20, 20=
+15, Nikki Budzinski &lt;<a href=3D"mailto:nbudzinski@hillaryclinton.com" ta=
+rget=3D"_blank">nbudzinski@hillaryclinton.com</a>&gt; wrote:</p><blockquote=
+ style=3D"border:none;border-left:solid #cccccc 1.0pt;padding:0in 0in 0in 6=
+.0pt;margin-left:4.8pt;margin-right:0in"><div><p class=3D"MsoNormal">Hi guy=
+s</p><div><p class=3D"MsoNormal">The Building Trades are flagging for me th=
+at they hear the Obama Administration will deny KXL on Monday.=C2=A0 I just=
+ wanted to try to politically get ahead of this and where we are on the iss=
+ue if this in fact happens.=C2=A0 The trades are also hearing that HRC will=
+ put out a statement stating that she encouraged Obama to take this positio=
+n.=C2=A0 Politically with the building trades, this would be a very dangero=
+us posture.=C2=A0 Just curious what your thoughts will be if the situation =
+goes this way on Monday. =C2=A0</p></div><div><p class=3D"MsoNormal">=C2=A0=
+</p></div><div><p class=3D"MsoNormal">Appreciate it.<br clear=3D"all"></p><=
+div><p class=3D"MsoNormal">=C2=A0</p></div><p class=3D"MsoNormal">-- </p><d=
+iv><div><div><div><div><p class=3D"MsoNormal">Nikki Budzinski</p></div><div=
+><p class=3D"MsoNormal">Labor Outreach Director</p></div><div><p class=3D"M=
+soNormal">Hillary for America</p></div><div><p class=3D"MsoNormal"><a href=
+=3D"tel:646-854-1442" value=3D"+16468541442" target=3D"_blank">646-854-1442=
+</a> (direct)</p></div></div></div></div></div></div></div></blockquote></d=
+iv></blockquote></div></div></blockquote><blockquote type=3D"cite"><div>&lt=
+;08.21 Modernizing infrastructure fact sheet - 3pm.docx&gt;</div></blockquo=
+te><blockquote type=3D"cite"><div>&lt;08.21 KXL oped draft - 3pm.docx&gt;</=
+div></blockquote>
+</div></blockquote></div></blockquote>
+</div></blockquote>
+</div></div></div></blockquote></div></div></div>
+</blockquote></div><br><br clear=3D"all"><div><br></div>-- <br><div class=
+=3D"gmail_signature"><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Nikki Budz=
+inski</div><div>Labor Outreach Director</div><div>Hillary for America</div>=
+<div>646-854-1442 (direct)</div></div></div></div></div>
+</div>
+</div></blockquote></div></blockquote></body></html>
+
+--001a1135bfb002a01c051e00ebb8--

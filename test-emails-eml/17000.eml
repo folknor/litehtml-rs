@@ -1,0 +1,231 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.205.118.144 with SMTP id fq16csp60246bkc;
+        Mon, 24 Jun 2013 08:04:50 -0700 (PDT)
+X-Received: by 10.58.219.232 with SMTP id pr8mr11884893vec.80.1372086289722;
+        Mon, 24 Jun 2013 08:04:49 -0700 (PDT)
+Return-Path: <CAZXQA8NAFIAOgYCCFUAV1ZfA1EHVARRAVs7CVlcW0oVClJQEBAHdAJeUVxdS1AODg@bounce.bluestatedigital.com>
+Received: from mta-inap22.bluestatedigital.com (mta-inap22.bluestatedigital.com. [70.42.57.86])
+        by mx.google.com with ESMTP id to9si4980418vdc.19.2013.06.24.08.04.48
+        for <john.podesta@gmail.com>;
+        Mon, 24 Jun 2013 08:04:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of CAZXQA8NAFIAOgYCCFUAV1ZfA1EHVARRAVs7CVlcW0oVClJQEBAHdAJeUVxdS1AODg@bounce.bluestatedigital.com designates 70.42.57.86 as permitted sender) client-ip=70.42.57.86;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of CAZXQA8NAFIAOgYCCFUAV1ZfA1EHVARRAVs7CVlcW0oVClJQEBAHdAJeUVxdS1AODg@bounce.bluestatedigital.com designates 70.42.57.86 as permitted sender) smtp.mail=CAZXQA8NAFIAOgYCCFUAV1ZfA1EHVARRAVs7CVlcW0oVClJQEBAHdAJeUVxdS1AODg@bounce.bluestatedigital.com;
+       dkim=pass header.i=@bounce.bluestatedigital.com
+Received: from bounce.bluestatedigital.com (localhost [127.0.0.1])
+	by mta-inap22.bluestatedigital.com (Postfix) with ESMTP id 3bfDLm3ysMz2ckQb
+	for <john.podesta@gmail.com>; Mon, 24 Jun 2013 11:04:48 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=bounce.bluestatedigital.com; s=bsdkey; t=1372086288;
+	bh=6hxQM2dn5wC4b57LgISMlqq4JnpO27W9/vjPwsPHbTg=;
+	h=Date:To:From:Reply-to:Subject:Message-ID:List-Unsubscribe:
+	 MIME-Version:Content-Type;
+	b=ofEkvezzdurHmyx4P4T09DzlJbkmddjX2Ar6/UT0a9gUIhIaYucyaIEqMOtUnUrK9
+	 peHuYSnWdCzzmGUSjPcZJSE9/dXDcEOCFDZN4wTP5QCYgQo44YNdMjrdSQ/gQ0vHe5
+	 7oKQ4Rv22VvsorTaG1FDj09dd3uGcz8vf5nzKa4o=
+Received: from maillist-a 
+	by bounce.bluestatedigital.com with local (PHPMailer);
+	Mon, 24 Jun 2013 15:04:48 +0000
+Date: Mon, 24 Jun 2013 15:04:48 +0000
+To: john.podesta@gmail.com
+From: Terry McAuliffe <info@terrymcauliffe.com>
+Reply-to: info@terrymcauliffe.com
+Subject: They're nervous
+Message-ID: <014bf7dc08afc4f88e6d352cdbb80293@bounce.bluestatedigital.com>
+X-Priority: 3
+X-Mailer: PHPMailer [version 1.71-blue_mailer]
+X-maillist-id: 6790365f3c3cabcb
+X-rpcampaign: rp_2647
+X-CampaignID: xgreenarrow:CAZXQA8NAFIAOgIBAg
+X-maillist-guid: CAZXQA8NAFIAOgYCCFUAV1ZfA1EHVARRAVs7CVlcW0oVClJQEBAHdAJeUVxdS1AODg
+List-Unsubscribe: <http://mcauliffe.bluestatedigital.com/unsubscribe?email=john.podesta@gmail.com>, <mailto:CAZXQA8NAFIAOgYCCFUAV1ZfA1EHVARRAVs7CVlcW0oVClJQEBAHdAJeUVxdS1AODg@bounce.bluestatedigital.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="b1_014bf7dc08afc4f88e6d352cdbb80293"
+
+--b1_014bf7dc08afc4f88e6d352cdbb80293
+Content-Type: text/plain; charset = "utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Friend,
+
+I think my opponent's campaign might be a little bit
+nervous.
+
+After you helped outraise them last fundraising deadline,
+they've been on the attack -- slinging mud at me and trying to tear
+down the movement we're building together.
+
+I'm tough. I can take the attacks.
+
+But this week I'm facing something I can't take on myself --
+Sunday night is our next important fundraising deadline and
+we need to raise $100,000 before midnight to prove that my
+opponent's attacks aren't changing minds.
+
+Will you donate $5 to help me hit that goal -- and prove Ken
+Cuccinelli's attacks just won't stick?
+
+http://action.terrymcauliffe.com/prove-him-wrong
+
+My opponent's campaign is throwing attack after attack so
+that everyone's too distracted to take a real look at his
+record.
+
+That's a smart strategy -- if you don't think you can win on
+the issues.
+
+But I know Virginia voters are smarter. And I have no doubt
+we'll come out on top on Election Day because they'll see
+the very clear contrast on education, transportation, and
+women's health care -- and they want a Governor who'll put
+jobs first.
+
+Let's show Ken Cuccinelli that we see through his attacks --
+and together we're going to make sure voters do too. Donate
+$5 to help us raise $100,000 before Sunday's fundraising
+deadline:
+
+http://action.terrymcauliffe.com/prove-him-wrong
+
+Thank you,
+
+Terry
+
+
+
+DONATE: http://action.terrymcauliffe.com/prove-him-wrong
+
+
+
+---
+Paid for by Terry McAuliffe for Governor
+---
+
+Unsubscribe: http://action.terrymcauliffe.com/page/unsubscribe?email=3Djoh=
+n.podesta@gmail.com
+
+
+--b1_014bf7dc08afc4f88e6d352cdbb80293
+Content-Type: text/html; charset = "utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" =
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><title></title><meta http-equiv=3D"Content-Type" =
+content=3D"text/html; charset=3Dutf-8" /><style type=3D"text/css">
+	body { background-color: #FFFFFF; margin: 0; padding: 0; width: 100% =
+!important; font-family: Arial, Helvetica, sans-serif; }
+	img { outline: none; text-decoration: none; display: block;}
+	br, strong br, b br, em br, i br { line-height:100%; }
+	h1, h2, h3, h4, h5, h6 { line-height: 100% !important; =
+-webkit-font-smoothing: antialiased; }
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: blue !important; }
+	h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 =
+a:active {	color: red !important; }
+	h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 =
+a:visited { color: purple !important; }
+	table td, table tr { border-collapse: collapse; }
+<!--	table { width: 100%; padding: 20px; font-size: .9em; } taking out for =
+testing-->
+</style></head><body>
+<table width=3D"100%"><tr><td><p>
+	Friend,<br /><br />
+	I think my opponent's campaign might be a little bit nervous.</p>
+<p>
+	<a href=3D"http://action.terrymcauliffe.com/page/m/6a1a6ff6/325db705/6b3e=
+5589/46f6eb2f/3398073239/VEsH/" =
+title=3D"http://action.terrymcauliffe.com/prove-him-wrong"><img =
+align=3D"right" alt=3D" Prove Cuccinelli&#039;s Attacks Aren&#039;t =
+Sticking | Goal: $100,000 | Deadline: Sunday, June 30 | DONATE NOW" =
+height=3D"" src=3D"http://action.terrymcauliffe.com/page/-/email/buttons/e=
+mail_20130624b.png" width=3D"210" /></a></p>
+<p>
+	After you helped outraise them last fundraising deadline, they've been on =
+the attack &mdash; slinging mud at me and trying to tear down the movement =
+we're building together.<br /><br />
+	I'm tough. I can take the attacks.<br /><br />
+	But this week I'm facing something I can't take on myself &mdash; Sunday =
+night is our next important fundraising deadline and we need to raise =
+$100,000 before midnight to prove that my opponent's attacks aren't =
+changing minds.<br /><br /><b><a href=3D"http://action.terrymcauliffe.com/=
+page/m/6a1a6ff6/325db705/6b3e5589/46f6eb2f/3398073239/VEsE/" =
+title=3D"http://action.terrymcauliffe.com/prove-him-wrong">Will you donate =
+$5 to help me hit that goal &mdash; and prove Ken Cuccinelli's attacks =
+just won't stick?</a></b><a><br /><br />
+	My opponent's campaign is throwing attack after attack so that everyone's =
+too distracted to take a real look at his record.<br /><br />
+	That's a smart strategy &mdash; if you don't think you can win on the =
+issues.<br /><br />
+	But I know Virginia voters are smarter. And I have no doubt we'll come =
+out on top on Election Day because they'll see the very clear contrast on =
+education, transportation, and women's health care &mdash; and they want a =
+Governor who'll put jobs first.<br /><br /><b>Let's show Ken Cuccinelli =
+that we see through his attacks &mdash; and together we're going to make =
+sure voters do too. Donate $5 to help us raise $100,000 before Sunday's =
+fundraising deadline:</b><br /><br /></a><b><a href=3D"http://action.terry=
+mcauliffe.com/page/m/6a1a6ff6/325db705/6b3e5589/46f6eb2f/3398073239/VEsF/" =
+title=3D"http://action.terrymcauliffe.com/prove-him-wrong">https://donate.=
+terrymcauliffe.com/tough</a></b><br /><br />
+	Thank you,<br /><br />
+	Terry</p>
+<p>
+	&nbsp;</p>
+<p align=3D"center">
+	<a href=3D"http://action.terrymcauliffe.com/page/m/6a1a6ff6/325db705/6b3e=
+5589/46f6eb2f/3398073239/VEsC/" =
+title=3D"http://action.terrymcauliffe.com/prove-him-wrong"><img =
+alt=3D"contribute" height=3D"46" =
+src=3D"https://donate.terrymcauliffe.com/page/-/email/contribute.jpg" =
+width=3D"271" /></a></p>
+<p align=3D"center">
+	<a href=3D"http://action.terrymcauliffe.com/page/m/6a1a6ff6/325db705/6b3e=
+5589/46f6eb2e/3398073239/VEsD/" title=3D"http://action.terrymcauliffe.com/=
+page/signup/volunteer?source=3D20130634_email_eoq&amp;utm_medium=3Demail&a=
+mp;utm_source=3Dmcauliffe&amp;utm_campaign=3D20130624_eoq"><img =
+alt=3D"volunteer" height=3D"46" =
+src=3D"https://donate.terrymcauliffe.com/page/-/email/volunteer.jpg" =
+width=3D"271" /></a></p><table style=3D"width:100px;padding: =
+0;border-spacing:0;text-align:center" align=3D"center"><tr><td><a =
+href=3D"http://action.terrymcauliffe.com/page/m/6a1a6ff6/325db705/6b3e5589=
+/46f6eb2d/3398073239/VEsA/" style=3D"float:left" =
+title=3D"https://twitter.com/terrymcauliffe"><img =
+src=3D"https://donate.terrymcauliffe.com/page/-/email/twitter.jpg" =
+style=3D"float:left" alt=3D"Twitter" width=3D"49" height=3D"46" /></a><a =
+href=3D"http://action.terrymcauliffe.com/page/m/6a1a6ff6/325db705/6b3e5589=
+/46f6eb2c/3398073239/VEsB/" style=3D"float:left" =
+title=3D"https://facebook.com/terrymcauliffe"><img =
+src=3D"https://donate.terrymcauliffe.com/page/-/email/facebook.jpg" =
+style=3D"float:left" alt=3D"Facebook" width=3D"49" height=3D"46" =
+/></a></td></tr></table><div =
+style=3D"text-align:center;width:248px;margin:0 auto 10px"><a =
+href=3D"http://action.terrymcauliffe.com/page/m/6a1a6ff6/325db705/6b3e5589=
+/46f6eb2b/3398073239/VEsO/" title=3D"http://terrymcauliffe.com/"><img =
+src=3D"https://donate.terrymcauliffe.com/page/-/email/logo.jpg" =
+width=3D"248" height=3D"180" /></a></div>
+</td>
+</tr></table><div style=3D"text-align:center;border:1px solid =
+#333333;font-size:11px;display:block;width:260px;margin:0 auto;padding:5px =
+10px">Paid for by Terry McAuliffe for Governor</div>
+<table style=3D"color: #999;font-size: 12px" width=3D"100%"><tr><td>
+			You're receiving this because you signed up for emails from Terry =
+McAuliffe for Governor.<br /><a href=3D"http://action.terrymcauliffe.com/p=
+age/m/6a1a6ff6/325db705/6b3e5589/46f6eb2a/3398073239/VEsP/p/eyJKU1ZGVFVGSl=
+RDVWwiOiJqb2huLnBvZGVzdGFAZ21haWwuY29tIn0=3D/" style=3D"color:#999" =
+title=3D"http://action.terrymcauliffe.com/page/unsubscribe?email=3Djohn.po=
+desta@gmail.com">Unsubscribe</a>
+		</td>
+		<td width=3D"155" style=3D"text-align:right">
+			PO Box 13881<br />
+			Arlington, VA 22219<br />
+			(703) 822-7604
+		</td>
+	</tr></table><img =
+src=3D"http://ads.bluelithium.com/pixel?id=3D2353885&amp;t=3D2" =
+width=3D"1" height=3D"1" /><img src=3D"http://action.terrymcauliffe.com/pa=
+ge/o/6a1a6ff6/325db705/6b3e5589/46f6eb29/3398073239/open.gif" width=3D"1" =
+height=3D"1" /></body></html>
+
+
+
+--b1_014bf7dc08afc4f88e6d352cdbb80293--

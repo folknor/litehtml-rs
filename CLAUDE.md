@@ -25,8 +25,8 @@ Table layout is the critical missing piece — taffy doesn't support it (issue #
 
 ## Key files
 
-- `pipeline/src/main.rs` — The rendering pipeline
-- `pipeline/Cargo.toml` — Dependencies: scraper, taffy, tiny-skia, cosmic-text, ego-tree
+- `src/main.rs` — The rendering pipeline
+- `Cargo.toml` — Dependencies: scraper, taffy, tiny-skia, cosmic-text, ego-tree
 - `docs/RENDERING-RESEARCH.md` — Performance analysis, ecosystem survey, benchmarks
 - `docs/PIPELINE-PLAN.md` — Implementation plan and work items
 - `test-emails/` — HTML test corpus (numbered by complexity + real Gmail emails)
@@ -35,10 +35,10 @@ Table layout is the critical missing piece — taffy doesn't support it (issue #
 ## Commands
 
 ```bash
-cd pipeline
 cargo build                                              # build
-cargo run -- ../test-emails/1.html                       # run on test email
-cargo run --release -- ../test-emails/1.html             # release benchmark
+cargo run -- test-emails/1.html                          # run on test email
+cargo run --release -- test-emails/1.html                # release benchmark
+cargo run --features profile -- test-emails/1.html       # with hotpath profiling
 ```
 
 ## Dependencies

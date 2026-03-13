@@ -1,0 +1,173 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.25.24.103 with SMTP id o100csp236978lfi;
+        Fri, 22 May 2015 17:27:56 -0700 (PDT)
+X-Received: by 10.112.118.49 with SMTP id kj17mr8554289lbb.62.1432340876387;
+        Fri, 22 May 2015 17:27:56 -0700 (PDT)
+Return-Path: <nbudzinski@hillaryclinton.com>
+Received: from mail-la0-x22f.google.com (mail-la0-x22f.google.com. [2a00:1450:4010:c03::22f])
+        by mx.google.com with ESMTPS id k5si2344139lbd.83.2015.05.22.17.27.56
+        for <john.podesta@gmail.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 22 May 2015 17:27:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nbudzinski@hillaryclinton.com designates 2a00:1450:4010:c03::22f as permitted sender) client-ip=2a00:1450:4010:c03::22f;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of nbudzinski@hillaryclinton.com designates 2a00:1450:4010:c03::22f as permitted sender) smtp.mail=nbudzinski@hillaryclinton.com;
+       dkim=pass header.i=@hillaryclinton.com;
+       dmarc=pass (p=NONE dis=NONE) header.from=hillaryclinton.com
+Received: by mail-la0-x22f.google.com with SMTP id i4so21290366lam.0
+        for <john.podesta@gmail.com>; Fri, 22 May 2015 17:27:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hillaryclinton.com; s=google;
+        h=from:mime-version:references:in-reply-to:date:message-id:subject:to
+         :cc:content-type;
+        bh=WJZgpbQEO+2mQYaFNbhUCZSdAIh04cbRvh47mGvu5WI=;
+        b=X68MD1MLllPv92JOUwpINAhOy/VxRuktpT6uoDMhprcMtLtdvg8NsTLEaZmJ3fTNwl
+         8+b5Ing29Cce6PwrF+67e3wNj+ZnL+gPzYbRL+aOPmw5EJJTcRi4MyTm9s3goITC0p+M
+         J4Dk/Yj/f3iRGrL0Qcyhfp4ZGXhdpWHYMVI7M=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:from:mime-version:references:in-reply-to:date
+         :message-id:subject:to:cc:content-type;
+        bh=WJZgpbQEO+2mQYaFNbhUCZSdAIh04cbRvh47mGvu5WI=;
+        b=Qf4et1K8dSk2KcbsHZ5JWY95roSzWGGrAgvs65mo9p+ISQyhTS+8iHBrn1Y1qgrFmT
+         WrtutlaJxoQWunvsxD1u5Z1OH7/NMY1g0izzezwvuXqoTJ32SRXaLFfnYNSidV/nopOs
+         5pZs4aEvq/WDOnMwjtcQnfrjV8drOowFfR3oxweZF3c1UJNhcZyHX2CK6iYGiK05gZE0
+         z3oBSPAEJylGl94s9jQmCBE/496Vdl2yKz9FWS2ABXd6ljrLOPLxCXQ+uErUJm9sL+m9
+         cult6oat7quVeLN6/3NEvS1B/Kbz79TJUiIrH5qDXjBWA8hyUFYqlOP/WV9Qj+MXQGOT
+         YkBQ==
+X-Gm-Message-State: ALoCoQm3vspekS0qcC9PUg4HcOkRTzWow00Lpjqsvi2qPuKl5ZQPbUWaMkbPNIF/yEPNp93dIhmI
+X-Received: by 10.152.204.40 with SMTP id kv8mr8347866lac.113.1432340876250;
+ Fri, 22 May 2015 17:27:56 -0700 (PDT)
+From: Nikki Budzinski <nbudzinski@hillaryclinton.com>
+Mime-Version: 1.0 (1.0)
+References: <-4297858841546104292@unknownmsgid> <CAE6FiQ9NAXMoZov9UHtSOE8MCfppM+uHM9EaQCQM-ZeR=r-Usw@mail.gmail.com>
+ <-2149293966832874588@unknownmsgid> <CAE6FiQ97HHtftnL81GrW9f5xn+E-0gh+PC8wZ=nrHOxqcO6gZg@mail.gmail.com>
+ <CAMhPeA-KZKDs9tsYziESU6kXZBfBGrjxYhxp+-kRZ6qunEno3A@mail.gmail.com>
+In-Reply-To: <CAMhPeA-KZKDs9tsYziESU6kXZBfBGrjxYhxp+-kRZ6qunEno3A@mail.gmail.com>
+Date: Fri, 22 May 2015 20:27:54 -0400
+Message-ID: <-7870004661887574902@unknownmsgid>
+Subject: Re: Good to C U!
+To: Robby Mook <re47@hillaryclinton.com>
+CC: John Podesta <john.podesta@gmail.com>, 
+ Marlon Marshall <mmarshall@hillaryclinton.com>, 
+ Amanda Renteria <arenteria@hillaryclinton.com>
+Content-Type: multipart/alternative; boundary=001a11347da6206feb0516b4d9a8
+
+--001a11347da6206feb0516b4d9a8
+Content-Type: text/plain; charset=UTF-8
+
+My quick two cents, I think there will be sensitivities on this, but as
+long as we stay open to other requests I think it'll be ok.
+
+Sent from my iPhone
+
+On May 22, 2015, at 8:04 PM, Robby Mook <re47@hillaryclinton.com> wrote:
+
+I really like the idea of joining by video because it's SO easy and will
+get so many brownie points.  What worries me is that other unions will ask
+why we haven't done their stuff.  But maybe this won't be regarded as
+"their" event.
+
+On Fri, May 22, 2015 at 8:01 PM, John Podesta <john.podesta@gmail.com>
+wrote:
+
+> ---------- Forwarded message ----------
+> From: "Peter Colavito" <peter.colavito@seiu.org>
+> Date: May 22, 2015 5:46 PM
+> Subject: Re: Good to C U!
+> To: "John Podesta" <john.podesta@gmail.com>
+> Cc: "Mary Kay Henry" <marykay.henry@seiu.org>
+>
+>
+>> It won't be branded as SEIU but we are driving it.  There will be
+>> partners there too - will try to get you more.
+>>
+>> Sent from my iPhone
+>>
+>> On May 22, 2015, at 4:44 PM, John Podesta <john.podesta@gmail.com> wrote:
+>>
+>> Testing to see if possible.  Is this an SEIU event or are there other
+>> sponsors as well?
+>> On May 22, 2015 11:56 AM, "Mary Kay Henry" <marykay.henry@seiu.org>
+>> wrote:
+>>
+>>> I wanted to drop a quick note on 2 possible options for HRC with Fast
+>>> Food worker leadership convention.
+>>> I so appreciate your effort to help make this connection happen.
+>>>
+>>> Sunday June 7th 9:00a- 4:30p
+>>> (Lunch break 1-2p- we can change)
+>>> #1 - live Feed - video conference - or technology that allows the
+>>> leadership to see her - since its most powerful
+>>>
+>>> #2 - phone call - that will be the
+>>> "Voice of Secretary" in the convention hall
+>>>
+>>> Sunday
+>>>
+>>> Sent from my iPhone
+>>>
+>>
+
+--001a11347da6206feb0516b4d9a8
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=
+=3Dutf-8"></head><body dir=3D"auto"><div>My quick two cents, I think there =
+will be sensitivities on this, but as long as we stay open to other request=
+s I think it&#39;ll be ok. =C2=A0<br><br>Sent from my iPhone</div><div><br>=
+On May 22, 2015, at 8:04 PM, Robby Mook &lt;<a href=3D"mailto:re47@hillaryc=
+linton.com">re47@hillaryclinton.com</a>&gt; wrote:<br><br></div><blockquote=
+ type=3D"cite"><div><div dir=3D"ltr">I really like the idea of joining by v=
+ideo because it&#39;s SO easy and will get so many brownie points.=C2=A0 Wh=
+at worries me is that other unions will ask why we haven&#39;t done their s=
+tuff.=C2=A0 But maybe this won&#39;t be regarded as &quot;their&quot; event=
+.</div><div class=3D"gmail_extra"><br><div class=3D"gmail_quote">On Fri, Ma=
+y 22, 2015 at 8:01 PM, John Podesta <span dir=3D"ltr">&lt;<a href=3D"mailto=
+:john.podesta@gmail.com" target=3D"_blank">john.podesta@gmail.com</a>&gt;</=
+span> wrote:<br><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8e=
+x;border-left:1px #ccc solid;padding-left:1ex"><div class=3D"gmail_quote">-=
+--------- Forwarded message ----------<br>From: &quot;Peter Colavito&quot; =
+&lt;<a href=3D"mailto:peter.colavito@seiu.org" target=3D"_blank">peter.cola=
+vito@seiu.org</a>&gt;<br>Date: May 22, 2015 5:46 PM<br>Subject: Re: Good to=
+ C U!<br>To: &quot;John Podesta&quot; &lt;<a href=3D"mailto:john.podesta@gm=
+ail.com" target=3D"_blank">john.podesta@gmail.com</a>&gt;<br>Cc: &quot;Mary=
+ Kay Henry&quot; &lt;<a href=3D"mailto:marykay.henry@seiu.org" target=3D"_b=
+lank">marykay.henry@seiu.org</a>&gt;<br><br type=3D"attribution"><blockquot=
+e class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc sol=
+id;padding-left:1ex"><div dir=3D"auto"><div><br></div><div>It won&#39;t be =
+branded as SEIU but we are driving it.=C2=A0 There will be partners there t=
+oo - will try to get you more.=C2=A0<br><br>Sent from my iPhone</div><div><=
+br>On May 22, 2015, at 4:44 PM, John Podesta &lt;<a href=3D"mailto:john.pod=
+esta@gmail.com" target=3D"_blank">john.podesta@gmail.com</a>&gt; wrote:<br>=
+<br></div><blockquote type=3D"cite"><div><p dir=3D"ltr">Testing to see if p=
+ossible.=C2=A0 Is this an SEIU event or are there other sponsors as well? <=
+/p>
+<div class=3D"gmail_quote">On May 22, 2015 11:56 AM, &quot;Mary Kay Henry&q=
+uot; &lt;<a href=3D"mailto:marykay.henry@seiu.org" target=3D"_blank">maryka=
+y.henry@seiu.org</a>&gt; wrote:<br type=3D"attribution"><blockquote class=
+=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padd=
+ing-left:1ex">I wanted to drop a quick note on 2 possible options for HRC w=
+ith Fast<br>
+Food worker leadership convention.<br>
+I so appreciate your effort to help make this connection happen.<br>
+<br>
+Sunday June 7th 9:00a- 4:30p<br>
+(Lunch break 1-2p- we can change)<br>
+#1 - live Feed - video conference - or technology that allows the<br>
+leadership to see her - since its most powerful<br>
+<br>
+#2 - phone call - that will be the<br>
+&quot;Voice of Secretary&quot; in the convention hall<br>
+<br>
+Sunday<br>
+<br>
+Sent from my iPhone<br>
+</blockquote></div>
+</div></blockquote></div>
+</blockquote></div>
+</blockquote></div><br></div>
+</div></blockquote></body></html>
+
+--001a11347da6206feb0516b4d9a8--

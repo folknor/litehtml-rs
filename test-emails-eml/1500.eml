@@ -1,0 +1,143 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.25.43.68 with SMTP id r65csp78865lfr;
+        Fri, 25 Sep 2015 11:45:04 -0700 (PDT)
+X-Received: by 10.60.99.7 with SMTP id em7mr3818894oeb.63.1443206704635;
+        Fri, 25 Sep 2015 11:45:04 -0700 (PDT)
+Return-Path: <mfisher@hillaryclinton.com>
+Received: from mail-oi0-x232.google.com (mail-oi0-x232.google.com. [2607:f8b0:4003:c06::232])
+        by mx.google.com with ESMTPS id mx10si126296obc.76.2015.09.25.11.45.04
+        for <john.podesta@gmail.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 25 Sep 2015 11:45:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mfisher@hillaryclinton.com designates 2607:f8b0:4003:c06::232 as permitted sender) client-ip=2607:f8b0:4003:c06::232;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of mfisher@hillaryclinton.com designates 2607:f8b0:4003:c06::232 as permitted sender) smtp.mailfrom=mfisher@hillaryclinton.com;
+       dkim=pass header.i=@hillaryclinton.com;
+       dmarc=pass (p=NONE dis=NONE) header.from=hillaryclinton.com
+Received: by mail-oi0-x232.google.com with SMTP id x17so48891318oix.0
+        for <john.podesta@gmail.com>; Fri, 25 Sep 2015 11:45:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hillaryclinton.com; s=google;
+        h=mime-version:in-reply-to:references:date:message-id:subject:from:to
+         :content-type;
+        bh=WIQ0zeQomCbVSRfY8d71Ag3IQMaYteMp2abwOO5lt2w=;
+        b=OERoIRXXNgBIiCXqCQFol7ktWeoHi1GrP/cJwdRNnt0HXaTBq+G47bBE74QS9T+2oU
+         tVKpZ5AtCT/DSWODXxkJ+iQLkQRNG6LOrnGQKOPxjuF6IsbpNuiN67/CafBVU3kA+bc9
+         QaEpru8hwjCoUsf2nDmSh+/h88jCTPtiyPnTI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:mime-version:in-reply-to:references:date
+         :message-id:subject:from:to:content-type;
+        bh=WIQ0zeQomCbVSRfY8d71Ag3IQMaYteMp2abwOO5lt2w=;
+        b=UfYLWfdtYFqFveteTNaiXfrkqvttyNTXS2ufgTFIT/eR3hwB4TWoeh/kTE10Hsm36C
+         B9VRKRteZf3OBlx6ndWB2ImzEp7QPK9LnFQ9ua1bUsWBrnja8fwivmrHuFyCy+XONkQ9
+         9onPSSEGQbaN76wbhmz8gjiMZkYTProv6S7ASbhYBBaXjoyCncSIMutdsvlH7uDLHDCe
+         sOCVr58NMjx80az9WBeJAx9OWi58rxzetq+DM9LZ9PpFCThfeOzqlbYKgoUKO/DBTLIq
+         8sEVCTESL8DDEl7ZSyKb3YIbxqG+J+li1Ur7vtYdJ/kCgRMKAnYTCeAc616sitShFwY/
+         e3uw==
+X-Gm-Message-State: ALoCoQlLD7XmaiaqdBaRXI6M3a+i3hX5kIpMGOj6uHabwEb4XXf5B8D6cvhy9p5oYcttUubgtNBp
+MIME-Version: 1.0
+X-Received: by 10.202.72.196 with SMTP id v187mr3777212oia.134.1443206704238;
+ Fri, 25 Sep 2015 11:45:04 -0700 (PDT)
+Received: by 10.202.183.135 with HTTP; Fri, 25 Sep 2015 11:45:04 -0700 (PDT)
+In-Reply-To: <CAE6FiQ-hLAPF36N3OF-1RDbtXVYyyTbSSb9z9rASwPb=kUKzXw@mail.gmail.com>
+References: <CAEMn5Q=YF5BnQYeWSLBaoyQ-w=tQWQKeo+hX+8J5O1T_faEkzQ@mail.gmail.com>
+	<CAE6FiQ-hLAPF36N3OF-1RDbtXVYyyTbSSb9z9rASwPb=kUKzXw@mail.gmail.com>
+Date: Fri, 25 Sep 2015 14:45:04 -0400
+Message-ID: <CAEMn5Q=8WkmDyaGkgCCTGgNaY08+d044AUFd_wXptOo5mw_4Yw@mail.gmail.com>
+Subject: Re: TWEETS: US-China Announcement
+From: Milia Fisher <mfisher@hillaryclinton.com>
+To: John Podesta <john.podesta@gmail.com>
+Content-Type: multipart/alternative; boundary=001a113dc94cf1ad1f052096be7b
+
+--001a113dc94cf1ad1f052096be7b
+Content-Type: text/plain; charset=UTF-8
+
+Great will schedule.
+
+On Fri, Sep 25, 2015 at 2:39 PM, John Podesta <john.podesta@gmail.com>
+wrote:
+
+> Ok
+>
+>
+> On Friday, September 25, 2015, Milia Fisher <mfisher@hillaryclinton.com>
+> wrote:
+>
+>> These with input from Kristina and the Climate guys.
+>>
+>> *TWEETS:*
+>>
+>> The US and China are following up their joint announcement last November
+>> with domestic policy action (1/3)
+>>
+>> The US has adopted the first-ever carbon pollution standards for power
+>> plants and new efficiency standards for trucks and appliances (2/3)
+>>
+>> China has added more than 55 GW of wind, solar & nuclear since last
+>> November = 800 wind turbines or 1 nuclear plant every week (3/3)
+>>
+>> Read my statement on US-China climate announcements on @TheBriefing2016:
+>> https://www.hillaryclinton.com/p/briefing/factsheets/2015/09/25/republicans-get-it-wrong-on-china-and-climate-change/
+>>
+>> --
+>> Milia Fisher
+>> Special Assistant to the Chair
+>> Hillary for America
+>> mfisher@hillaryclinton.com
+>> c: 858.395.1741
+>>
+>
+
+
+-- 
+Milia Fisher
+Special Assistant to the Chair
+Hillary for America
+mfisher@hillaryclinton.com
+c: 858.395.1741
+
+--001a113dc94cf1ad1f052096be7b
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Great will schedule.=C2=A0</div><div class=3D"gmail_extra"=
+><br><div class=3D"gmail_quote">On Fri, Sep 25, 2015 at 2:39 PM, John Podes=
+ta <span dir=3D"ltr">&lt;<a href=3D"mailto:john.podesta@gmail.com" target=
+=3D"_blank">john.podesta@gmail.com</a>&gt;</span> wrote:<br><blockquote cla=
+ss=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;pa=
+dding-left:1ex">Ok<div class=3D"HOEnZb"><div class=3D"h5"><br><br>On Friday=
+, September 25, 2015, Milia Fisher &lt;<a href=3D"mailto:mfisher@hillarycli=
+nton.com" target=3D"_blank">mfisher@hillaryclinton.com</a>&gt; wrote:<br><b=
+lockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px =
+#ccc solid;padding-left:1ex"><div dir=3D"ltr"><div><div>These with input fr=
+om Kristina and the Climate guys.</div><div><br></div><div><b>TWEETS:</b></=
+div><div><br></div><div>The US and China are following up their joint annou=
+ncement last November with domestic policy action (1/3)</div><div>=C2=A0</d=
+iv><div>The US has adopted the first-ever carbon pollution standards for po=
+wer plants and new efficiency standards for trucks and appliances (2/3)</di=
+v><div>=C2=A0</div><div>China has added more than 55 GW of wind, solar &amp=
+; nuclear since last November =3D 800 wind turbines or 1 nuclear plant ever=
+y week (3/3)</div></div><div><br></div><div>Read my statement on US-China c=
+limate announcements on @TheBriefing2016:=C2=A0<a href=3D"https://www.hilla=
+ryclinton.com/p/briefing/factsheets/2015/09/25/republicans-get-it-wrong-on-=
+china-and-climate-change/" target=3D"_blank">https://www.hillaryclinton.com=
+/p/briefing/factsheets/2015/09/25/republicans-get-it-wrong-on-china-and-cli=
+mate-change/</a></div><div><br></div>-- <br><div><div dir=3D"ltr"><div><div=
+ dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr">Milia Fisher<div>S=
+pecial Assistant to the Chair</div><div>Hillary for America</div><div><a>mf=
+isher@hillaryclinton.com</a>=C2=A0</div><div>c: <a href=3D"tel:858.395.1741=
+" value=3D"+18583951741" target=3D"_blank">858.395.1741</a></div></div></di=
+v></div></div></div></div></div></div>
+</div>
+</blockquote>
+</div></div></blockquote></div><br><br clear=3D"all"><div><br></div>-- <br>=
+<div class=3D"gmail_signature"><div dir=3D"ltr"><div><div dir=3D"ltr"><div>=
+<div dir=3D"ltr"><div><div dir=3D"ltr">Milia Fisher<div>Special Assistant t=
+o the Chair</div><div>Hillary for America</div><div><a href=3D"mailto:mfish=
+er@hillaryclinton.com" target=3D"_blank">mfisher@hillaryclinton.com</a>=C2=
+=A0</div><div>c: 858.395.1741</div></div></div></div></div></div></div></di=
+v></div>
+</div>
+
+--001a113dc94cf1ad1f052096be7b--

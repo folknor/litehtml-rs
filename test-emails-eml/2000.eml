@@ -1,0 +1,114 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.25.24.94 with SMTP id o91csp1442040lfi;
+        Sun, 3 May 2015 15:48:17 -0700 (PDT)
+X-Received: by 10.236.30.10 with SMTP id j10mr12126198yha.105.1430693295758;
+        Sun, 03 May 2015 15:48:15 -0700 (PDT)
+Return-Path: <kschake@hillaryclinton.com>
+Received: from mail-yk0-f179.google.com (mail-yk0-f179.google.com. [209.85.160.179])
+        by mx.google.com with ESMTPS id o100si6202994yhp.170.2015.05.03.15.48.15
+        for <john.podesta@gmail.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 03 May 2015 15:48:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kschake@hillaryclinton.com designates 209.85.160.179 as permitted sender) client-ip=209.85.160.179;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of kschake@hillaryclinton.com designates 209.85.160.179 as permitted sender) smtp.mail=kschake@hillaryclinton.com;
+       dmarc=pass (p=NONE dis=NONE) header.from=hillaryclinton.com
+Received: by mail-yk0-f179.google.com with SMTP id o186so29113648yke.0
+        for <john.podesta@gmail.com>; Sun, 03 May 2015 15:48:15 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:mime-version:date:message-id:subject:from:to
+         :content-type;
+        bh=LAJSxtgA9eMx+4FmAX+zOYnNvi/9HxIaVcwZhniLFc8=;
+        b=IHM/BLspgMgv8SwUlQaqaOyMLcfQsaqcrCBZTdODjYft897OiR6wDQgI4ZAfXM1VC4
+         NToIohw5gBGl/CXXzyiVqo0hNt1tDRrwHbwS4gqR/+0EjIWfvxG3f9zY/TE1QPURgMst
+         GzWWEEVJg80LXsDJ1b92Vd1NUPKQzKhhmBI9o3mimzjmb5QtVgKytNFxF/5vlOSrAcoj
+         4Twc4753zQ7UvMGqHDVVFXFNZ37/SSewVGCTiRkYKnjHLwPc7kCaJ/gehtOUE+OSKOx1
+         8qJsbvnLkCillWeePUeyyWxmALdsMn9FKP5rzQdOkcBoBoMSsKJjqHajHgFjdlDliDra
+         EWPQ==
+X-Gm-Message-State: ALoCoQkO7CiN5iC1NcWysemH/BAatU9Ltjdx3kJVwey8xDWEDk7lD1FXWH3Ct3mqT8kENKxu7n68
+MIME-Version: 1.0
+X-Received: by 10.236.109.36 with SMTP id r24mr12100872yhg.113.1430693295115;
+ Sun, 03 May 2015 15:48:15 -0700 (PDT)
+Received: by 10.13.196.66 with HTTP; Sun, 3 May 2015 15:48:15 -0700 (PDT)
+Date: Sun, 3 May 2015 18:48:15 -0400
+Message-ID: <CAOLO1-=ZjrbMmXM9bU=BE=EzTfqT+3kRJh800m5EZ7-gSYPV2g@mail.gmail.com>
+Subject: 8 am Agenda & Standing Meetings / Calls
+From: Kristina Schake <kschake@hillaryclinton.com>
+To: Robby Mook <re47@hillaryclinton.com>, Huma Abedin <ha16@hillaryclinton.com>, 
+ Jennifer Palmieri <jpalmieri@hillaryclinton.com>, 
+ John Podesta <john.podesta@gmail.com>, 
+ Brian Fallon <bfallon@hillaryclinton.com>, 
+ "Margolis, Jim" <Jim.Margolis@gmmb.com>, 
+ Joel Benenson <jbenenson@bsgco.com>, Mandy Grunwald <gruncom@aol.com>, 
+ John Anzalone <john@algpolling.com>, David Binder <David@db-research.com>, 
+ Dan Schwerin <dschwerin@hillaryclinton.com>, 
+ Jake Sullivan <jake.sullivan@gmail.com>, 
+ Marissa Astor <mastor@hillaryclinton.com>, 
+ Teddy Goff <tgoff@hillaryclinton.com>, Oren Shur <oshur@hillaryclinton.com>, 
+ Tony Carrk <tcarrk@hillaryclinton.com>
+Content-Type: multipart/alternative; boundary=001a11c2d13aa366920515353dfc
+
+--001a11c2d13aa366920515353dfc
+Content-Type: text/plain; charset=UTF-8
+
+Our agenda for tomorrow's 8 am is:
+
+- Immigration plan
+- Clinton Cash update
+
+Just to remind everyone that these are our standing meetings/calls going
+forward:
+
+*Monday, Wednesday, Friday 8 am Call*
+
+*Week & Month Look Ahead - Thursdays*
+Normally this call will be every Thursday, but due to scheduling conflicts
+this week it will be Friday at 1 pm.  It will be a one hour call and then
+every other week it will be a 2 hour in-person meeting.   The first
+in-person meeting will be on May 14.  Marissa is scheduling it with your
+offices.
+
+
+
+
+-- 
+Kristina Schake
+Hillary for America
+
+--001a11c2d13aa366920515353dfc
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div class=3D"gmail_default" style=3D"font-family:garamond=
+,serif;font-size:small">Our agenda for tomorrow&#39;s 8 am is:</div><div cl=
+ass=3D"gmail_default" style=3D"font-family:garamond,serif;font-size:small">=
+<br></div><div class=3D"gmail_default" style=3D"font-family:garamond,serif;=
+font-size:small">- Immigration plan</div><div class=3D"gmail_default" style=
+=3D"font-family:garamond,serif;font-size:small">- Clinton Cash update</div>=
+<div class=3D"gmail_default" style=3D"font-family:garamond,serif;font-size:=
+small"><br></div><div class=3D"gmail_default" style=3D"font-family:garamond=
+,serif;font-size:small">Just to remind everyone that these are our standing=
+ meetings/calls going forward:</div><div class=3D"gmail_default" style=3D"f=
+ont-family:garamond,serif;font-size:small"><br></div><div class=3D"gmail_de=
+fault" style=3D"font-family:garamond,serif;font-size:small"><b>Monday, Wedn=
+esday, Friday 8 am Call</b></div><div class=3D"gmail_default" style=3D"font=
+-family:garamond,serif;font-size:small"><br></div><div class=3D"gmail_defau=
+lt" style=3D"font-family:garamond,serif;font-size:small"><b>Week &amp; Mont=
+h Look Ahead - Thursdays</b></div><div class=3D"gmail_default" style=3D"fon=
+t-family:garamond,serif;font-size:small">Normally this call will be every T=
+hursday, but due to scheduling conflicts this week it will be Friday at 1 p=
+m.=C2=A0 It will be a one hour call and then every other week it will be a =
+2 hour in-person meeting. =C2=A0 The first in-person meeting will be on May=
+ 14.=C2=A0 Marissa is scheduling it with your offices. =C2=A0</div><div cla=
+ss=3D"gmail_default" style=3D"font-family:garamond,serif;font-size:small"><=
+br></div><div class=3D"gmail_default" style=3D"font-family:garamond,serif;f=
+ont-size:small"><br></div><div class=3D"gmail_default" style=3D"font-family=
+:garamond,serif;font-size:small"><br></div><div><br></div>-- <br><div><div =
+dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div><span style=3D=
+"font-family:garamond,serif;font-size:small"><span></span><span></span>Kris=
+tina Schake</span><br></div><div><font face=3D"garamond, serif" size=3D"2">=
+Hillary for America</font></div><br></div></div></div></div></div></div>
+</div>
+
+--001a11c2d13aa366920515353dfc--

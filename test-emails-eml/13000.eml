@@ -1,0 +1,157 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.25.43.10 with SMTP id r10csp30947lfr;
+        Fri, 17 Jul 2015 14:47:49 -0700 (PDT)
+X-Received: by 10.194.77.97 with SMTP id r1mr31703410wjw.98.1437169669151;
+        Fri, 17 Jul 2015 14:47:49 -0700 (PDT)
+Return-Path: <nbudzinski@hillaryclinton.com>
+Received: from mail-wi0-x234.google.com (mail-wi0-x234.google.com. [2a00:1450:400c:c05::234])
+        by mx.google.com with ESMTPS id hg7si11167836wib.66.2015.07.17.14.47.48
+        for <john.podesta@gmail.com>
+        (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 17 Jul 2015 14:47:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nbudzinski@hillaryclinton.com designates 2a00:1450:400c:c05::234 as permitted sender) client-ip=2a00:1450:400c:c05::234;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of nbudzinski@hillaryclinton.com designates 2a00:1450:400c:c05::234 as permitted sender) smtp.mail=nbudzinski@hillaryclinton.com;
+       dkim=pass header.i=@hillaryclinton.com;
+       dmarc=pass (p=NONE dis=NONE) header.from=hillaryclinton.com
+Received: by mail-wi0-x234.google.com with SMTP id jy10so50372905wid.1
+        for <john.podesta@gmail.com>; Fri, 17 Jul 2015 14:47:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hillaryclinton.com; s=google;
+        h=mime-version:from:date:message-id:subject:to:content-type;
+        bh=fLeRlPfkkJTdoFCnXxqvRWrw1lXOlDnxQhr8jxokt7o=;
+        b=OvKMr2qowu2SZk9HZjBVjV41fqOuXcafU9Le0G2Giv2J9bcE/QeDSq0hCJ+TTf39gb
+         J8S8Z96BR+Rd4yx+8FdTYUqXf8SVUFvPaPBMmA2bdvxTefgrfjf+vU6V45mNAqx4GYa4
+         z4cn2OEXLQTGcroj8aYQ9rRPmUvBY/h32GceM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to
+         :content-type;
+        bh=fLeRlPfkkJTdoFCnXxqvRWrw1lXOlDnxQhr8jxokt7o=;
+        b=G3d6rw/uIDJ777ErRp+RnDgIUEivNE02vfsn10LaFS8LhzD0DeZHMpfcLbkCRnIPRc
+         +N4bUe3ZWlfNXGbpKW1Tt68c2+GyU/BKr2sX7l9PEFVlFysJiwspNainij+uWIeT+ddz
+         vQLLgJ3nS6ICByawMDbcZvWBeM2p6XgzAKLXlQphGshr1C9ekJULesTRWUKaqe+r2L/F
+         zmF5s3TtTrboa6F/D363UWFHpe20p1nAmBYtsBWDXwye0MGQ9hbBDwAplmSWDE8IeVco
+         f/dPNCFUFavW4LSwa4tTCsmHbz43whYot7NxcaDH5OQ6plDvOfTFv4DciX1InEh3XKSO
+         8jfQ==
+X-Gm-Message-State: ALoCoQlwvpS3knjKETDH1I0MAYqThxfJuTikqIk/mWC6u/7fY+yDiKthh+1ypWtlNJzSrE/+kXex
+X-Received: by 10.194.238.233 with SMTP id vn9mr35468285wjc.24.1437169668829;
+ Fri, 17 Jul 2015 14:47:48 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 10.27.101.14 with HTTP; Fri, 17 Jul 2015 14:47:29 -0700 (PDT)
+From: Nikki Budzinski <nbudzinski@hillaryclinton.com>
+Date: Fri, 17 Jul 2015 17:47:29 -0400
+Message-ID: <CA+Z3wa1zmt0SZyqoNkH-eAWaRMtWyQ18tSBa9Hygv6FJRVbOWA@mail.gmail.com>
+Subject: Nightly Labor Update
+To: John Podesta <john.podesta@gmail.com>, Robby Mook <re47@hillaryclinton.com>, 
+ Huma Abedin <ha16@hillaryclinton.com>, 
+ Marlon Marshall <mmarshall@hillaryclinton.com>, 
+ Amanda Renteria <arenteria@hillaryclinton.com>, 
+ Brynne Craig <bcraig@hillaryclinton.com>, 
+ Lona Valmoro <lvalmoro@hillaryclinton.com>
+Content-Type: multipart/alternative; boundary=001a11c36b5697d04f051b1923e3
+
+--001a11c36b5697d04f051b1923e3
+Content-Type: text/plain; charset=UTF-8
+
+Hi everyone
+A quick labor update tonight.
+
+1.  Lots of AFL-CIO internal drama around the AFT endorsement this week.
+AFSCME, IAM, IAFF holding strong.  The contingent of unions upset with AFT
+include:  ATU, APWU, CWA and Nurses (these unions are on my Sanders watch
+list).
+
+2.  Need to lock down IAM and AFSCME for endorsement.  There are two events
+we need to schedule to secure their endorsement.
+
+*IAM Executive Board Meeting*
+IAM is letting me know if August 13th is a option for HRC.  Their request
+was August 14th.  I will know Monday.  This event would be HRC accepting
+their endorsement.
+
+*AFSCME Small Member Roundtable-Iowa*
+The last step in AFSCME's endorsement process, we need to lock down.
+AFSCME's board meets to endorse HRC on September 10-11th.  In order for the
+endorsement to happen I need 60 minutes in Iowa with AFSCME members and HRC
+in August.  Can this be scheduled around another Iowa trip in August?
+AFSCME is after me for the date.
+
+3.  Next week AFT and IAFF-I have scheduled two days of in person meetings
+with the H4A team next week.
+Tuesday, July 21st 11-3pm  AFT Senior Staff
+Wednesday, July 22nd 1-5pm IAFF Senior staff
+
+Please stop by if you can!  Both days I have scheduled for them to meet
+with Communications/Digital, Policy, Political, States and Delegate
+Selection.  IAFF also requested a meeting with Advance.  (*Robby please
+note dinner with IAFF on 7/22)
+
+4.  AFL-CIO Executive Council Prep-Please let me know if I can do anything
+to assist.  I flagged some issues for your attention around TPP (Malaysia),
+Cadillac Tax and HRC statement yesterday $15 in NH.  Those are issues areas
+I think will come up.
+
+5.  SEIU-I've touched base with Peter Colavito with SEIU Intl.  They would
+like to know about California dates for their home care event.  In order to
+circle back with Local 1199, John would you be willing to touch base with
+George?  I'm trying to think of a creative way to keep them with us while
+we move the home care event with HRC to California.  Advice is welcomed!
+
+6.  NEA New Hampshire-I've kept in touch with our New Hampshire team and
+HRC is still on track to receive the NH NEA State endorsement, likely
+August 4th.  This will be the first endorsement after AFT.
+
+-- 
+Nikki Budzinski
+Labor Outreach Director
+Hillary for America
+646-854-1442 (direct)
+
+--001a11c36b5697d04f051b1923e3
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hi everyone<div>A quick labor update tonight.</div><div><b=
+r></div><div>1.=C2=A0 Lots of AFL-CIO internal drama around the AFT endorse=
+ment this week.=C2=A0 AFSCME, IAM, IAFF holding strong.=C2=A0 The contingen=
+t of unions upset with AFT include: =C2=A0ATU, APWU, CWA and Nurses (these =
+unions are on my Sanders watch list).</div><div><br></div><div>2.=C2=A0 Nee=
+d to lock down IAM and AFSCME for endorsement.=C2=A0 There are two events w=
+e need to schedule to secure their endorsement.</div><div><br></div><div><b=
+><u>IAM Executive Board Meeting</u></b></div><div>IAM is letting me know if=
+ August 13th is a option for HRC.=C2=A0 Their request was August 14th.=C2=
+=A0 I will know Monday.=C2=A0 This event would be HRC accepting their endor=
+sement.</div><div><br></div><div><b><u>AFSCME Small Member Roundtable-Iowa<=
+/u></b></div><div>The last step in AFSCME&#39;s endorsement process, we nee=
+d to lock down.=C2=A0 AFSCME&#39;s board meets to endorse HRC on September =
+10-11th.=C2=A0 In order for the endorsement to happen I need 60 minutes in =
+Iowa with AFSCME members and HRC in August.=C2=A0 Can this be scheduled aro=
+und another Iowa trip in August?=C2=A0 AFSCME is after me for the date.</di=
+v><div><br></div><div>3.=C2=A0 Next week AFT and IAFF-I have scheduled two =
+days of in person meetings with the H4A team next week. =C2=A0</div><div>Tu=
+esday, July 21st 11-3pm =C2=A0AFT Senior Staff =C2=A0=C2=A0</div><div>Wedne=
+sday, July 22nd 1-5pm IAFF Senior staff =C2=A0</div><div><br></div><div>Ple=
+ase stop by if you can!=C2=A0 Both days I have scheduled for them to meet w=
+ith Communications/Digital, Policy, Political, States and Delegate Selectio=
+n.=C2=A0 IAFF also requested a meeting with Advance. =C2=A0(*Robby please n=
+ote dinner with IAFF on 7/22)</div><div><br></div><div>4.=C2=A0 AFL-CIO Exe=
+cutive Council Prep-Please let me know if I can do anything to assist.=C2=
+=A0 I flagged some issues for your attention around TPP (Malaysia), Cadilla=
+c Tax and HRC statement yesterday $15 in NH.=C2=A0 Those are issues areas I=
+ think will come up. =C2=A0</div><div><br></div><div>5.=C2=A0 SEIU-I&#39;ve=
+ touched base with Peter Colavito with SEIU Intl.=C2=A0 They would like to =
+know about California dates for their home care event.=C2=A0 In order to ci=
+rcle back with Local 1199, John would you be willing to touch base with Geo=
+rge?=C2=A0 I&#39;m trying to think of a creative way to keep them with us w=
+hile we move the home care event with HRC to California.=C2=A0 Advice is we=
+lcomed!</div><div><br></div><div>6.=C2=A0 NEA New Hampshire-I&#39;ve kept i=
+n touch with our New Hampshire team and HRC is still on track to receive th=
+e NH NEA State endorsement, likely August 4th.=C2=A0 This will be the first=
+ endorsement after AFT.=C2=A0<br clear=3D"all"><div><br></div>-- <br><div c=
+lass=3D"gmail_signature"><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Nikki =
+Budzinski</div><div>Labor Outreach Director</div><div>Hillary for America</=
+div><div>646-854-1442 (direct)</div></div></div></div></div>
+</div></div>
+
+--001a11c36b5697d04f051b1923e3--

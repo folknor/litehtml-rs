@@ -1,0 +1,281 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.25.80.66 with SMTP id e63csp133123lfb;
+        Sun, 30 Nov 2014 06:30:18 -0800 (PST)
+X-Received: by 10.224.43.2 with SMTP id u2mr64164285qae.36.1417357818475;
+        Sun, 30 Nov 2014 06:30:18 -0800 (PST)
+Return-Path: <podesta@law.georgetown.edu>
+Received: from mail1.bemta12.messagelabs.com ([216.82.251.2])
+        by mx.google.com with ESMTPS id j35si17688829qge.86.2014.11.30.06.30.17
+        for <john.podesta@gmail.com>
+        (version=TLSv1.2 cipher=RC4-SHA bits=128/128);
+        Sun, 30 Nov 2014 06:30:18 -0800 (PST)
+Received-SPF: none (google.com: podesta@law.georgetown.edu does not designate permitted sender hosts) client-ip=216.82.251.2;
+Authentication-Results: mx.google.com;
+       spf=none (google.com: podesta@law.georgetown.edu does not designate permitted sender hosts) smtp.mail=podesta@law.georgetown.edu;
+       dkim=neutral (body hash did not verify) header.i=@
+Return-Path: <podesta@law.georgetown.edu>
+Received: from [216.82.249.211] by server-2.bemta-12.messagelabs.com id 23/45-02960-7F92B745; Sun, 30 Nov 2014 14:30:15 +0000
+X-Env-Sender: podesta@law.georgetown.edu
+X-Msg-Ref: server-11.tower-53.messagelabs.com!1417357814!10167176!1
+X-Originating-IP: [141.161.191.74]
+X-StarScan-Received:
+X-StarScan-Version: 6.12.4; banners=-,-,-
+X-VirusChecked: Checked
+Received: (qmail 16193 invoked from network); 30 Nov 2014 14:30:14 -0000
+Received: from unknown (HELO LAW-CAS1.law.georgetown.edu) (141.161.191.74)
+  by server-11.tower-53.messagelabs.com with AES256-SHA encrypted SMTP; 30 Nov 2014 14:30:14 -0000
+Resent-From: <podesta@law.georgetown.edu>
+Received: from mail6.bemta12.messagelabs.com (216.82.250.247) by
+ LAW-CAS1.law.georgetown.edu (141.161.191.74) with Microsoft SMTP Server id
+ 14.3.210.2; Sun, 30 Nov 2014 09:30:13 -0500
+Received: from [216.82.249.211] by server-2.bemta-12.messagelabs.com id
+ C7/35-02960-5F92B745; Sun, 30 Nov 2014 14:30:13 +0000
+X-Env-Sender: bounces-15b1d40531-124b1fcc8c@b.cts.vresp.com
+X-Msg-Ref: server-3.tower-53.messagelabs.com!1417357812!10156483!1
+X-Originating-IP: [74.116.89.131]
+X-SpamWhitelisted: domain whitelist
+X-StarScan-Received:
+X-StarScan-Version: 6.12.4; banners=-,-,-
+X-VirusChecked: Checked
+Received: (qmail 6175 invoked from network); 30 Nov 2014 14:30:12 -0000
+Received: from mkt24-sc.verticalresponse.com (HELO
+ mkt24-sc.verticalresponse.com) (74.116.89.131)  by
+ server-3.tower-53.messagelabs.com with SMTP; 30 Nov 2014 14:30:12 -0000
+DKIM-Signature: v=1; a=rsa-sha1; d=vresp.com; s=dkim; c=simple/simple;
+	q=dns/txt; i=@vresp.com; t=1417357812;
+	h=From:Subject:Date:To:MIME-Version:Content-Type;
+	bh=S+BHaYVzNm2Uis12KM9IlEsodnI=;
+	b=W0PiWhk8G3dMf7c9GWr9L9PddvWCs7XJIa8l8Mm0HPecBAVZLSNmO4cn9jEO1eKV
+	KcMMW5NFxtiDvFR7lFLKFBT8MIPb6MMWsJaPSHiK66fBxPeRGZhknUt9xnvAYqWB
+	W1FgPQnHulh0EAxPKMAjKcAc15My9kYV3MaDuqo7+fY=;
+DomainKey-Signature: q=dns; a=rsa-sha1; c=nofws;
+	s=mkt; d=vresp.com;
+	h=Received:From:Reply-To:To:Subject:Date:Message-ID:List-Unsubscribe:MIME-Version:X-Company_ID:X-vrfbldomain:X-vrpod:X-CTS-Enabled:X-Campaign:X-vrrpmm:X-Feedback-ID:Content-Type;
+	b=IaUI+W92nVGgP1tRSlWVw4FqLPvb0p9YcTD6n5fNbDZAEqt/QihMgGFOwC+Yki4e
+	5W1v1khSSo/kvnjPGTtSNFq52tz2gXTknEf6L38uhI3FzlA6GmxhhavXNJCtE+CW
+	Jk9uADnfB9cX01fqqFMSfAnKMD59czdeAAAVmTt2KVs=
+Received: from [10.4.33.146] ([10.4.33.146:33916]
+ helo=vm-mailer08.sf.verticalresponse.com)	by demosthenes (envelope-from
+ <bounces-15b1d40531-124b1fcc8c@b.cts.vresp.com>)	(ecelerity 3.0.28.38595
+ r(38597)) with ESMTP	id 97/DB-09139-4F92B745; Sun, 30 Nov 2014 06:30:12 -0800
+From: John Catsimatidis Radio Roundtable
+	<John_Catsimatidis_Radio_Roundtab@mail.vresp.com>
+Reply-To: John Catsimatidis Radio Roundtable
+	<reply-15b1d40531-124b1fcc8c-5b68@u.cts.vresp.com>
+To: podesta@law.georgetown.edu
+Subject: I am talking to Hillary's pollster on the radio now Tune in on 970 AM Radio
+Date: Sun, 30 Nov 2014 14:30:12 +0000
+Message-ID: <15b1d40531-podesta=law.georgetown.edu@mail.vresp.com>
+List-Unsubscribe: <mailto:reply-15b1d40531-124b1fcc8c-5b68@u.cts.vresp.com?subject=unsubscribe>
+MIME-Version: 1.0
+X-Company_ID: 892154
+X-vrfbldomain: fbl.p0.verticalresponse.com
+X-vrpod: p0
+X-CTS-Enabled: 15b1d40531-124b1fcc8c
+X-Campaign: 15b1d40531
+X-vrrpmm: 892154-15b1d40531
+X-Feedback-ID: 15b1d40531:892154:vr1
+Content-Type: multipart/alternative;
+	boundary="__________MIMEboundary__________"; charset="UTF-8"
+
+--__________MIMEboundary__________
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Is Hillary the one?  Is it going to be a cake walk for HRC?   Tune in
+to 970AM on your radio dial or
+http://cts.vresp.com/c/?RedAppleGroup/15b1d40531/124b1fcc8c/9b89962428  on =
+your computer or smartphone.   Forward this message to a friend -
+http://oi.vresp.com/f2af/v4/send_to_friend.html?ch=3D15b1d40531&lid=3D57275=
+7429&ldh=3D124b1fcc8c    Previous programs here -
+http://cts.vresp.com/c/?RedAppleGroup/15b1d40531/124b1fcc8c/5dc21468d3/RedA=
+ppleGroup/c3a4b10fc4/TEST/ca788565d4=20
+http://cts.vresp.com/c/?RedAppleGroup/15b1d40531/124b1fcc8c/e4a14b6351 -
+http://cts.vresp.com/c/?RedAppleGroup/15b1d40531/124b1fcc8c/353cd7bcd3 cats=
+roundtable
+
+______________________________________________________________________
+Click to view this email in a browser
+http://hosted.verticalresponse.com/1431953/15b1d40531/572757429/124b1fcc8c/
+
+If you no longer wish to receive these emails, please reply to this
+message with "Unsubscribe" in the subject line or simply click on the
+following link:=20
+
+http://cts.vresp.com/u?15b1d40531/124b1fcc8c/mlpftw
+
+______________________________________________________________________
+This message was sent by John Catsimatidis Radio Roundtable using
+VerticalResponse
+
+
+Red Apple Group
+823 11th ave
+New York, New York 10019
+US
+
+
+Read the VerticalResponse marketing policy:=20
+http://www.verticalresponse.com/content/pm_policy.html
+
+
+--__________MIMEboundary__________
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+  <table cellpadding=3D"5" cellspacing=3D"0" border=3D"0" align=3D"center">
+    <tr>
+      <td>
+        <a href=3D"http://cts.vresp.com/fbl?15b1d40531/124b1fcc8c/http%3A%2=
+F%2Fhosted-p0.vresp.com%2F1431953%2F15b1d40531%2FARCHIVE%23like"><img borde=
+r=3D"0" src=3D"http://img-ak.verticalresponse.com/social_sharing/social_sha=
+ring.placeholder.facebook.png" border=3D"0" /></a>
+      </td>
+      <td>
+        <a href=3D"http://cts.vresp.com/ts?15b1d40531/124b1fcc8c/http%3A%2F=
+%2Fapi.addthis.com%2Foexchange%2F0.8%2Fforward%2Ftwitter%2Foffer%3Ftemplate=
+%3D%257B%257Btitle%257D%257D%2B%257B%257Burl%257D%257D%26url%3Dhttp%253A%25=
+2F%252Fhosted-p0.vresp.com%252F1431953%252F15b1d40531%252FARCHIVE%26shorten=
+er%3Dbitly%26title%3DI%2Bam%2Btalking%2Bto%2BHillary%2527s%2Bpollster%2Bon%=
+2Bthe%2Bradio%2Bnow%2BTune%2Bin%2Bon%2B970%2BAM%2BRadio"><img border=3D"0" =
+src=3D"http://img-ak.verticalresponse.com/social_sharing/social_sharing.pla=
+ceholder.twitter.png" border=3D"0" /></a>
+      </td>
+      <td>
+        <a href=3D"http://cts.vresp.com/ls?15b1d40531/124b1fcc8c/http%3A%2F=
+%2Fapi.addthis.com%2Foexchange%2F0.8%2Fforward%2Flinkedin%2Foffer%3Ftemplat=
+e%3D%257B%257Btitle%257D%257D%2B%257B%257Burl%257D%257D%26url%3Dhttp%253A%2=
+52F%252Fhosted-p0.vresp.com%252F1431953%252F15b1d40531%252FARCHIVE%26shorte=
+ner%3Dbitly%26title%3DI%2Bam%2Btalking%2Bto%2BHillary%2527s%2Bpollster%2Bon=
+%2Bthe%2Bradio%2Bnow%2BTune%2Bin%2Bon%2B970%2BAM%2BRadio"><img border=3D"0"=
+ src=3D"http://img-ak.verticalresponse.com/social_sharing/social_sharing.pl=
+aceholder.linkedin.png" border=3D"0" /></a>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+ =20
+ =20
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://ww=
+w=2Ew3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta content=3D"text/html;charset=3DUTF-8" http-equiv=3D"content-type" />
+	<title>I am talking to Hillary's pollster on the radio now Tune in on 970 =
+AM Radio</title>
+</head>
+<body>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 600=
+px;">
+	<tbody>
+		<tr>
+			<td style=3D"text-align: center;"><font face=3D"georgia, serif">Is Hilla=
+ry the one? &nbsp;Is it going to be a cake walk for HRC?</font></td>
+		</tr>
+		<tr>
+			<td style=3D"text-align: center;"><span style=3D"font-family: georgia,se=
+rif;"><span style=3D"font-size: 12pt;">Tune in to 970AM on your radio dial =
+or&nbsp;<br />
+			<strong><a href=3D"http://cts.vresp.com/c/?RedAppleGroup/15b1d40531/124b=
+1fcc8c/756bb8ae5b">http://am970theanswer.com/</a>&nbsp;</strong>on your com=
+puter or smartphone.</span></span></td>
+		</tr>
+		<tr>
+			<td style=3D"text-align: center;"><span style=3D"font-family: georgia,se=
+rif;"><strong><a href=3D"http://oi.vresp.com/f2af/v4/send_to_friend.html?ch=
+=3D15b1d40531&lid=3D572757429&ldh=3D124b1fcc8c">Forward this message to a f=
+riend</a></strong></span></td>
+		</tr>
+		<tr>
+			<td style=3D"text-align: center;"><span style=3D"text-align: center; fon=
+t-family: georgia, serif; font-size: 14pt; background-color: rgb(255, 255, =
+255);"><a href=3D"http://cts.vresp.com/c/?RedAppleGroup/15b1d40531/124b1fcc=
+8c/a9c1fd9819/RedAppleGroup/c3a4b10fc4/TEST/ca788565d4" style=3D"color: rgb=
+(17, 85, 204);" target=3D"_blank">Previous programs here</a></span><br styl=
+e=3D"text-align: center; font-family: georgia, serif; font-size: 12.72px; b=
+ackground-color: rgb(255, 255, 255);" />
+			<a href=3D"http://cts.vresp.com/c/?RedAppleGroup/15b1d40531/124b1fcc8c/2=
+1b9c53b94" style=3D"text-align: center; color: rgb(17, 85, 204); font-famil=
+y: georgia, serif; font-size: 12.72px; background-color: rgb(255, 255, 255)=
+;" target=3D"_blank">https://soundcloud.com/<wbr />catsroundtable</a></td>
+		</tr>
+	</tbody>
+</table>
+=20
+
+
+</p>
+<br>
+<br style=3D"clear: both;">
+
+<hr>
+<table border=3D"0" cellspacing=3D"0" width=3D"100%" cellpadding=3D"5">
+  <tr>
+    <td>
+      <font face=3D"arial,verdana" size=3D"1">
+       =20
+           <a href=3D"http://hosted.verticalresponse.com/1431953/15b1d40531=
+/572757429/124b1fcc8c/">Click to view this email in a browser</a>
+           <br/><br/>
+        =20
+       If you no longer wish to receive these emails, please reply to this =
+message with "Unsubscribe" in the subject line or simply click on the follo=
+wing link:=20
+=20
+<a href=3D"http://cts.vresp.com/u?15b1d40531/124b1fcc8c/mlpftw">Unsubscribe=
+</a>
+
+
+</font>
+    </td>
+  </tr>
+</table>
+
+<hr>
+
+<table border=3D"0" cellpadding=3D"5" cellspacing=3D"0" width=3D"100%">
+  <tr>
+    <td>
+      <font face=3D"arial,verdana" size=3D"1">
+                  Red Apple Group<br/>
+        823 11th ave<br/>
+                New York, New York 10019<br/>
+                  US<br/>
+       =20
+       <p>
+         =20
+<a href=3D"http://www.verticalresponse.com/content/pm_policy.html" target=
+=3D"_blank">Read</a> the VerticalResponse marketing policy.
+
+
+        </p>
+      </font>
+    </td>
+    <td align=3D"right">
+      <a href=3D"http://www.verticalresponse.com/landing/ef/?mm/15b1d40531&=
+utm_campaign=3Dfooter&utm_medium=3Dreferral&utm_source=3Dfooter" target=3D"=
+_blank">
+<img border=3D"0" alt=3D"Try Email Marketing with VerticalResponse!" src=3D=
+"http://img-ak.verticalresponse.com/pwrby_vr_logo_120.gif">
+</a>
+
+    </td>
+  </tr>
+</table>
+
+  <img alt=3D"" src=3D"http://cts.vresp.com/o.gif?15b1d40531/124b1fcc8c/mlp=
+ftw"/>
+
+
+</body>
+</html>
+
+
+
+--__________MIMEboundary__________--

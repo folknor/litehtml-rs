@@ -1,0 +1,2078 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.140.48.99 with SMTP id n90csp24546qga;
+        Fri, 1 Aug 2014 07:06:44 -0700 (PDT)
+X-Received: by 10.224.163.83 with SMTP id z19mr9636488qax.68.1406902004863;
+        Fri, 01 Aug 2014 07:06:44 -0700 (PDT)
+Return-Path: <podesta@law.georgetown.edu>
+Received: from mail1.bemta7.messagelabs.com (mail1.bemta7.messagelabs.com. [216.82.254.108])
+        by mx.google.com with ESMTPS id n5si15681470qac.122.2014.08.01.07.06.44
+        for <john.podesta@gmail.com>
+        (version=TLSv1.2 cipher=RC4-SHA bits=128/128);
+        Fri, 01 Aug 2014 07:06:44 -0700 (PDT)
+Received-SPF: none (google.com: podesta@law.georgetown.edu does not designate permitted sender hosts) client-ip=216.82.254.108;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: podesta@law.georgetown.edu does not designate permitted sender hosts) smtp.mail=podesta@law.georgetown.edu;
+       dkim=neutral (body hash did not verify) header.i=@
+Return-Path: <podesta@law.georgetown.edu>
+Received: from [216.82.254.83:44156] by server-12.bemta-7.messagelabs.com id 09/E9-05501-1FE9BD35; Fri, 01 Aug 2014 14:06:41 +0000
+X-Env-Sender: podesta@law.georgetown.edu
+X-Msg-Ref: server-3.tower-197.messagelabs.com!1406901998!5630292!2
+X-Originating-IP: [141.161.191.74]
+X-StarScan-Received:
+X-StarScan-Version: 6.11.3; banners=-,-,-
+X-VirusChecked: Checked
+Received: (qmail 14792 invoked from network); 1 Aug 2014 14:06:40 -0000
+Received: from unknown (HELO LAW-CAS1.law.georgetown.edu) (141.161.191.74)
+  by server-3.tower-197.messagelabs.com with AES128-SHA encrypted SMTP; 1 Aug 2014 14:06:40 -0000
+Resent-From: <podesta@law.georgetown.edu>
+Received: from mail6.bemta12.messagelabs.com (216.82.250.247) by
+ LAW-CAS1.law.georgetown.edu (141.161.191.74) with Microsoft SMTP Server id
+ 14.3.181.6; Fri, 1 Aug 2014 10:06:39 -0400
+Received: from [216.82.249.211:44396] by server-6.bemta-12.messagelabs.com id
+ 87/40-24671-EEE9BD35; Fri, 01 Aug 2014 14:06:38 +0000
+X-Env-Sender: bounce-mc.us7_20316088.749053-podesta=law.georgetown.edu@ma
+  il66.atl31.mcdlv.net
+X-Msg-Ref: server-2.tower-53.messagelabs.com!1406901993!7732699!2
+X-Originating-IP: [205.201.134.66]
+X-SpamReason: No, hits=0.7 required=7.0 tests=BODY_RANDOM_LONG,
+  FROM_EXCESS_QP,HTML_MESSAGE,MIME_QP_LONG_LINE,SUBJECT_EXCESS_QP,
+  UNPARSEABLE_RELAY
+X-StarScan-Received:
+X-StarScan-Version: 6.11.3; banners=-,-,-
+X-VirusChecked: Checked
+Received: (qmail 21285 invoked from network); 1 Aug 2014 14:06:34 -0000
+Received: from mail66.atl31.mcdlv.net (HELO mail66.atl31.mcdlv.net)
+ (205.201.134.66)  by server-2.tower-53.messagelabs.com with SMTP; 1 Aug 2014
+ 14:06:34 -0000
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=k1; d=mail66.atl31.mcdlv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-Unsubscribe:Sender:Content-Type:MIME-Version; i=info=3Dcenterpeace.org@mail66.atl31.mcdlv.net;
+ bh=KMuOtocTTHL7z5SHIVCa6edq8Vw=;
+ b=wyXebrqhZNhi0D1loHJ9Y0mGIn5Uqwr7EJWh6Qor3K2JvQJV1il2pnpneJgYkcKIvse657NNwq+r
+   J6IZJXpFmLhoF5Lg+wzHW5h/PD8LkXFWJe/hcQ84RXMYCIFPLYsvG8OBAzO0fDbhl6IU4Bvf9Hb4
+   ELOWLHwBODOpiUTOi8c=
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=k1; d=mail66.atl31.mcdlv.net;
+ b=VYq+S3+2qUxLEAcQc30JH31At6m9T0gypRXo3+2+43YM8h1ZxZcLj227G/oJeXrrHf0u/AFn9H24
+   Bn2rO2AEZdCCQS8yfiXWfHmjfVR9hPwFLBUmeb/Ldx7FnvW6eQCpyAYQ81Syh3VlN4EU7RIX4Lvq
+   Em1JMr3KqVZpBkJmyxw=;
+Received: from (127.0.0.1) by mail66.atl31.mcdlv.net id hrefem1mqrot for
+ <podesta@law.georgetown.edu>; Fri, 1 Aug 2014 14:06:33 +0000 (envelope-from
+ <bounce-mc.us7_20316088.749053-podesta=law.georgetown.edu@mail66.atl31.mcdlv.net>)
+Subject: =?utf-8?Q?News=20Update=20=2D=20Friday=2C=20August=201?=
+From: =?utf-8?Q?S.=20Daniel=20Abraham=20Center=20for=20Middle=20East=20Peace?=
+	<info@centerpeace.org>
+Reply-To:
+	=?utf-8?Q?S.=20Daniel=20Abraham=20Center=20for=20Middle=20East=20Peace?=
+	<info@centerpeace.org>
+To: podesta@law.georgetown.edu
+Date: Fri, 1 Aug 2014 14:06:33 +0000
+Message-ID: <232a4a45176fccacab865e520a7f9100a75.20140801140256@mail66.atl31.mcdlv.net>
+X-Mailer: MailChimp Mailer - **CID5c0dd2e955a7f9100a75**
+X-Campaign: mailchimp232a4a45176fccacab865e520.5c0dd2e955
+X-campaignid: mailchimp232a4a45176fccacab865e520.5c0dd2e955
+X-Report-Abuse: Please report abuse for this campaign here: http://www.mailchimp.com/abuse/abuse.phtml?u=232a4a45176fccacab865e520&id=5c0dd2e955&e=a7f9100a75
+X-MC-User: 232a4a45176fccacab865e520
+X-Feedback-ID: 20316088:20316088.749053:us7:mc
+X-Accounttype: pd
+List-Unsubscribe: <mailto:unsubscribe-232a4a45176fccacab865e520-5c0dd2e955-a7f9100a75@mailin1.us2.mcsv.net?subject=unsubscribe>, <http://centerpeace.us7.list-manage.com/unsubscribe?u=232a4a45176fccacab865e520&id=929d521884&e=a7f9100a75&c=5c0dd2e955>
+Sender: "S. Daniel Abraham Center for Middle East Peace"
+	<info=centerpeace.org@mail66.atl31.mcdlv.net>
+x-mcda: FALSE
+Content-Type: multipart/alternative;
+	boundary="_----------=_MCPart_695498641"
+MIME-Version: 1.0
+
+--_----------=_MCPart_695498641
+Content-Type: text/plain; charset="utf-8"; format=fixed
+Content-Transfer-Encoding: quoted-printable
+
+** Israel and the Middle East
+News Update
+------------------------------------------------------------
+
+
+**
+Friday=2C August 1
+------------------------------------------------------------
+
+Headlines:
+* Israel Declares Gaza Truce Over=2C 50 Die in Gaza Shelling
+* IDF Soldier Feared Kidnapped=2C 2 Other Soldiers Killed
+* US Envoy Seeks Extension of Gaza Truce
+* Netanyahu Reprimands Cabinet Ministers for Politicking During War
+* Abbas Seeks Broad Support for War Crimes Charges
+* Under Fire and Out of Cash=2C U.N. Overwhelmed by Gaza Crisis
+* Israel Has to Keep Hamas from Rebuilding once Gaza Fighting Ends
+* Islamist Surge Threatens Mideast Powers
+
+Commentary:
+* The Economist: =E2=80=9CIsrael - Winning the Battle=2C Losing the War"
+- Editorial
+* LA Times: =E2=80=9CIsrael's Doctrine of Proportionality in Gaza=E2=80=9D
+- By Dore Gold
+
+
+** Reuters
+------------------------------------------------------------
+
+
+** Israel Declares Gaza Truce Over=2C 50 Die in Gaza Shelling (http://news=
+=2Eyahoo.com/israel-palestinian-militant-groups-agree-three-day-gaza-0044457=
+08.html)
+------------------------------------------------------------
+
+Israel declared a Gaza ceasefire over on Friday and killed more than 50 Pa=
+lestinians in renewed shelling=2C saying militants had breached the truce=
+ shortly after it began and apparently captured an Israeli soldier. The 72=
+-hour break announced by U.S. Secretary of State John Kerry and U.N. Secre=
+tary-General Ban Ki-moon was the most ambitious attempt so far to end more=
+ than three weeks of fighting=2C and followed mounting international alarm=
+ over a rising Palestinian civilian death toll. The ceasefire was to be fo=
+llowed by Israeli-Palestinian negotiations in Cairo on a longer-term solut=
+ion.
+See also=2C =E2=80=9CIDF: Hamas used ceasefire to kidnap soldier; ceasefir=
+e over=E2=80=9D (Ynet News) (http://www.ynetnews.com/articles/0=2C7340=2CL=
+-4553302=2C00.html?elq=3Da771a83474c74311864523a9a3a6830b&elqCampaignId=3D=
+2128)
+
+
+** Jerusalem Post
+------------------------------------------------------------
+
+
+** IDF Soldier Feared Kidnapped=2C 2 Other Soldiers Killed (http://www.jpo=
+st.com/Operation-Protective-Edge/IDF-soldier-feared-kidnapped-369720)
+------------------------------------------------------------
+
+A Hamas attack on IDF soldiers in southern Gaza=2C which occurred an hour=
+ and a half after the start of a humanitarian truce=2C ended with the susp=
+ected kidnapping of a soldier=2C the IDF said Friday. Second Lt. Hadar Gol=
+din=2C a 23-year-old Givati officer from Kfar Saba=2C was named as the IDF=
+ soldier presumed to be abducted by Hamas. His family has been notified. T=
+wo other soldiers were killed during the incident. Their families have bee=
+n notified. Terrorists emerged from a tunnel shaft=2C and a suicide bomber=
+ detonated himself in the vicinity of soldiers. Heavy exchanges of fire en=
+sued=2C before one of the IDF soldiers was kidnapped=2C a senior army sour=
+ce said.
+See also=2C "Israel's tunnel vision" (Share Harris=2C Foreign Policy) (htt=
+p://thecable.foreignpolicy.com/posts/2014/07/31/extensive_hamas_tunnel_net=
+work_points_to_israeli_intelligence_failure_harris)
+
+
+** Agence France Presse
+------------------------------------------------------------
+
+
+** US Envoy Seeks Extension of Gaza Truce
+------------------------------------------------------------
+
+The No. 2 US diplomat will head to Cairo and seek to extend beyond 72 hour=
+s a truce agreed upon by Israel and Hamas=2C a senior US official said Fri=
+day. Deputy Secretary of State William Burns =E2=80=94 a veteran career di=
+plomat frequently tasked with delicate missions =E2=80=94 will travel to E=
+gypt this weekend to take part in talks as part of the three-day truce tha=
+t took effect Friday=2C the official said. The official said Burns would l=
+ook to see if the two sides can extend the truce in the deadly conflict=2C=
+ especially as negotiators need time to travel to Cairo. Israeli officials=
+ rarely meet during the Jewish Sabbath that starts at sundown on Friday.
+
+
+** Jerusalem Post
+------------------------------------------------------------
+
+
+** Netanyahu Reprimands Cabinet Ministers for Politicking During War (http=
+://www.jpost.com/Operation-Protective-Edge/Netanyahu-reprimands-cabinet-mi=
+nisters-for-politicking-during-war-369695)
+------------------------------------------------------------
+
+Prime Minister Binyamin Netanyahu lashed out at his ministers for playing=
+ politics during Operation Protective Edge at Thursday=E2=80=99s cabinet m=
+eeting. =E2=80=9CI call upon you not to harm the special unity that there=
+ is among us right now=2C=E2=80=9D Netanyahu said. =E2=80=9CWatch your wor=
+ds=2C be careful with your actions. Above all=2C cabinet ministers must pr=
+esent a personal example to the entire public. At this time=2C the nation=
+ expects all of us=2C especially cabinet ministers=2C to unite behind a co=
+mmon goal.=E2=80=9D The prime minister referred to a book by his brother=
+=2C the late Entebbe commander Yonatan Netanyahu=2C who wrote that the war=
+s of the Jews started after the fighting=2C not before it was over.
+
+
+** Associated Press
+------------------------------------------------------------
+
+
+** Abbas Seeks Broad Support for War Crimes Charges (http://news.yahoo.com=
+/abbas-seeks-broad-support-war-crimes-charges-203727977.html;_ylt=3DAwrBJS=
+DufttTIH4AxBXQtDMD?elq=3Da771a83474c74311864523a9a3a6830b&elqCampaignId=3D=
+2128)
+------------------------------------------------------------
+
+Nearly a month into Israel's fierce assault on Hamas in Gaza=2C Palestinia=
+n President Mahmoud Abbas is facing mounting domestic pressure to seek war=
+ crimes charges against Israel at the International Criminal Court. He has=
+ hesitated in the past because such a move would instantly put the Palesti=
+nians on a risky collision course with Israel. But with about 1=2C400 Pale=
+stinians killed in Gaza=2C according to health officials=2C Abbas has sign=
+aled he might move ahead =E2=80=94 cautiously. Palestinian officials said=
+ Thursday that Abbas asked all Palestinian political factions=2C including=
+ Hamas and the smaller group Islamic Jihad=2C to give their written consen=
+t to such a move. Different PLO factions signed up in a meeting in the Wes=
+t Bank earlier this week=2C while Abbas is still waiting for a response fr=
+om Hamas and Islamic Jihad=2C they said.
+
+
+** Reuters
+------------------------------------------------------------
+
+
+** Under Fire and Out of Cash=2C U.N. Overwhelmed by Gaza Crisis (http://w=
+ww.reuters.com/article/2014/07/31/us-mideast-gaza-un-idUSKBN0G01DL20140731=
+?elq=3Da771a83474c74311864523a9a3a6830b&elqCampaignId=3D2128)
+------------------------------------------------------------
+
+The United Nations in Gaza is struggling to withstand a flood of almost a=
+ quarter of a million refugees into shelters that have repeatedly come und=
+er Israeli fire. Out of cash=2C the United Nations Relief and Works Agency=
+ (UNRWA)=2C the main U.N. body in the impoverished enclave of 1.8 million=
+ Palestinians=2C says it can barely handle the humanitarian crisis unleash=
+ed by more than three weeks of fighting between militants and Israel. Aske=
+d to explain the scale of the civilian suffering to an Arab news station=
+=2C an UNRWA spokesman simply burst into tears.
+
+
+** LA Times
+------------------------------------------------------------
+
+
+** Israel Has to Keep Hamas from Rebuilding once Gaza Fighting Ends (http:=
+//www.latimes.com/world/middleeast/la-fg-gaza-disarm-20140801-story.html#p=
+age=3D1)
+------------------------------------------------------------
+
+Determined to avoid a repeat of the fighting in the Gaza Strip=2C Israel i=
+s seeking to build support for having an international force take charge o=
+f preventing the Palestinian militant group Hamas from rearming once the c=
+onflict is over. One sticking point remains: finding countries willing to=
+ take on the job. The idea=2C floated repeatedly by top Israeli officials=
+ in recent days=2C comes at what could be a key point in the 3-week-old co=
+nflict. With the announcement of a 72-hour cease-fire starting Friday morn=
+ing=2C the Israelis apparently believe they are close to destroying the bu=
+lk of the tunnels that Hamas=2C which controls Gaza=2C has spent years dig=
+ging and fortifying=2C and a significant portion of the group's arsenal of=
+ rockets.
+
+
+** Wall Street Journal
+------------------------------------------------------------
+
+
+** Islamist Surge Threatens Mideast Powers (http://online.wsj.com/articles=
+/islamist-surge-threatens-mideast-powers-1406859723)
+------------------------------------------------------------
+
+The eruptions of Islamist violence in the Gaza Strip=2C Syria and Iraq hav=
+e begun shaking the Middle East to its core=2C increasing the likelihood t=
+hat a new order will emerge when the dust starts to settle. The region's t=
+raditional power centers=E2=80=94Egypt=2C Saudi Arabia=2C Iraq and Israel=
+=E2=80=94are all threatened by the surge of Islamist forces that aim to di=
+srupt the status quo. Even Shiite Iran=2C which often stokes Islamist move=
+ments=2C is finding that the surge of Sunni extremism is threatening its p=
+osition in the region. The hope among U.S. officials and U.S. allies is th=
+at=2C in the long run=2C those traditional powers=E2=80=94which are more o=
+ften rivals than partners=E2=80=94will find common interest in curbing the=
+ extremist forces.
+
+
+** The Economist =E2=80=93 July 31=2C 2014
+------------------------------------------------------------
+
+
+** Israel - Winning the Battle=2C Losing the War
+------------------------------------------------------------
+
+Editorial
+HAMAS has ruled Gaza since 2007 and there is not much to admire. The Islam=
+ist party is harsh=2C narrow-minded and intolerant of dissent. Its charter=
+ is anti-Semitic. It fires rockets into Israeli territory and builds tunne=
+ls under it to kill or kidnap Israeli soldiers. It knows that the Israeli=
+ attacks it provokes will kill hundreds of Palestinian civilians=2C which=
+ will garner sympathy around the world. It is also weaker than it was=2C f=
+or it is now losing the military battle against Israel.
+
+By contrast Israel is the most successful state in the Middle East. It is=
+ the region=E2=80=99s only true democracy=E2=80=94a hub of invention=2C en=
+terprise and creativity. Israel has overwhelming firepower in the fight in=
+ Gaza. Most of its people are united behind their soldiers and have the fi=
+rm backing of America=E2=80=99s Congress. Yet=2C though Israel is winning=
+ the battle=2C it is struggling in the war for world opinion (see article)=
+=2E That matters in part because Israel is a cosmopolitan trading country th=
+at looks to its American ally for security=2C but also because Israel need=
+s to hear some of what its critics are saying.
+
+Anti-Semitism: a very light sleeper
+
+A generation ago=2C Israel had the best of the argument with Yasser Arafat=
+=E2=80=99s Palestine Liberation Organisation=2C in many ways a less vile o=
+utfit than Hamas. Young Europeans spent their gap years on kibbutzim. The=
+ Western world cheered when Israeli commandos rescued Jewish hostages from=
+ the terminal building in Uganda=E2=80=99s Entebbe airport in 1976.
+
+But as the occupation of Palestinian territory has dragged on=2C sympathy=
+ has seeped away. In a poll published in June=2C before the destruction of=
+ Gaza=2C the citizens of 23 countries put the balance of those who think I=
+srael is a good or bad influence on the world at minus 26%=2C ranking it b=
+elow Russia and above only North Korea=2C Pakistan and Iran. A growing num=
+ber of Europeans call Israel racist (with the sinister flourish that Israe=
+lis=2C of all people=2C should know better). And even in America=2C where=
+ a solid majority backs Israel=2C the share that thinks its actions agains=
+t the Palestinians are unjustified has risen since 2002 by five percentage=
+ points=2C to 39%. Among 18- to 29-year-olds=2C Israel is backed by just a=
+ quarter.
+
+Many Israelis=2C and their most fervent supporters in Congress=2C see toda=
+y=E2=80=99s hostility as the culmination of a long process of demonisation=
+=2C double standards and delegitimisation. They have a point. Holding a co=
+untry to high standards=2C as Israel=E2=80=99s critics do=2C can be a comp=
+liment=E2=80=94yet against Israel=2C morality is often used as a cudgel. T=
+he common slur that Israel is an apartheid state ignores the fact that Isr=
+ael=E2=80=99s minorities=2C such as the Druze=2C Arabs and Bahais=2C are p=
+rotected by the country=E2=80=99s independent courts=E2=80=94including the=
+ highest=2C which has a sitting Arab Israeli judge. The =E2=80=9CBDS=E2=80=
+=9D campaign to impose boycotts=2C encourage divestment and introduce sanc=
+tions calls not just for an end to the occupation of the West Bank and for=
+ equal rights=2C but also for the right of return of all Palestinian refug=
+ees=E2=80=94in other words=2C for the erosion of Israel as a Jewish homela=
+nd. Protests in France against the fighting in Gaza led to attacks on syna=
+gogues and Jewish-owned businesses.
+
+No wonder that many Israelis feel that the world is against them=2C and be=
+lieve that criticism of Israel is often a mask for antipathy towards Jews.=
+ But they would be wrong to ignore it entirely. That is partly because pub=
+lic opinion matters. For a trading nation built on the idea of liberty=2C=
+ delegitimisation is=2C in the words of an Israeli think-tank=2C =E2=80=9C=
+a strategic threat=E2=80=9D. But it is also because some of the foreign cr=
+iticism is right.
+
+Please=2C hear them
+
+That begins with the scale of the violence in Gaza. Some 1=2C400 Palestini=
+ans have died in the past few weeks=2C compared with 56 Israeli soldiers a=
+nd four civilians. Even allowing for Hamas=E2=80=99s brutality=2C no democ=
+racy should be happy with a military strategy that results in the death of=
+ so many children (let alone the crass claim from Israel=E2=80=99s ambassa=
+dor to Washington that its soldiers deserve a Nobel peace prize). The dest=
+ruction is driving support towards Hamas and away from the moderate Palest=
+inians who are Israel=E2=80=99s best chance for peace.
+
+But more than that=2C Israel needs to hear what its critics say about the=
+ need for a two-state solution=2C which remains the only one that will wor=
+k. Time is not on Israel=E2=80=99s side. Palestinians may already outnumbe=
+r Israelis in the lands they share. Without two states=2C Israelis and Pal=
+estinians will be left with one that contains them both. The risk for Isra=
+el is of either a permanent=2C non-democratic occupation that disenfranchi=
+ses Palestinians=2C or a democracy in which Jews are in a minority. Neithe=
+r would be the Jewish homeland with equal rights for all that Israel=E2=80=
+=99s founding fathers intended.
+
+America=E2=80=99s secretary of state=2C John Kerry=2C has made a Herculean=
+ effort to forge peace between the Israelis and the Palestinians along the=
+ lines of two states for two peoples. When the talks broke down=2C a few m=
+onths ago=2C he blamed Israel=E2=80=99s settler lobby. That outraged right=
+-wing Israelis. And now the left has joined in the derision because he pro=
+posed a ceasefire in Gaza that Israelis thought favoured Hamas. But Mr Ker=
+ry is right. If Israel continues to build settlements in the occupied terr=
+itory=2C it will gobble up land that would belong to an independent Palest=
+inian state=2C making peace harder to reach.
+
+The same goes for what appears to be Israel=E2=80=99s strategy towards bot=
+h Gaza and the West Bank. Having created a huge open-air prison in Gaza=2C=
+ Israel remains committed to a blockade that contains Hamas=E2=80=94but al=
+so ensures that ever more Palestinians grow up angry. On the West Bank=2C=
+ Israel=E2=80=99s prime minister=2C Binyamin Netanyahu=2C has gone backwar=
+ds: he has said that Israel cannot relinquish security control of the West=
+ Bank for fear of Islamist attack. That implies an intention to consolidat=
+e the occupation=2C thus withdrawing all hope from Palestinian moderates.=
+ The West Bank would be likely to explode too=2C then=2C while the demogra=
+phic clock ticked on.
+
+For all the blood and misery in Gaza=2C Mr Netanyahu will soon have a chan=
+ce to show he has heard the critics. Having won his battle=2C he could ret=
+urn to the negotiating table=2C this time with a genuine offer of peace. E=
+very true friend of Israel should press him to do so.
+
+
+** LA Times =E2=80=93 July 31=2C 2014
+------------------------------------------------------------
+
+
+** Israel's Doctrine of Proportionality in Gaza (http://www.latimes.com/op=
+inion/op-ed/la-oe-gold-israel-gaza-proportional-force-20140801-story.html?=
+elq=3Da771a83474c74311864523a9a3a6830b&elqCampaignId=3D2128)
+------------------------------------------------------------
+
+By Dore Gold
+The images of destruction after the battle between the Israel Defense Forc=
+es and Hamas that began July 20 in the Shajaiya neighborhood in the Gaza S=
+trip have caused many to declare=2C in a now-frequent refrain=2C that the=
+ IDF is behaving =E2=80=9Cdisproportionately.=E2=80=9D Some commentators a=
+re simply dressing up in sophisticated language their belief that Israel i=
+s using excessive force=2C but others clearly mean to accuse Israel of vio=
+lating the laws of war =E2=80=94 specifically=2C of violating the doctrine=
+ of proportionality. These accusations have no merit.
+
+Shajaiya was not just another neighborhood in Gaza=2C but rather a crown j=
+ewel of Hamas' effort to intertwine civilians and terrorists to complicate=
+ Israel's ability to defend itself. Shajaiya was crisscrossed with an elab=
+orate network of underground bunkers and tunnels containing equipment for=
+ the manufacture of rockets=2C storage facilities for rockets and other we=
+apons=2C and launching sites from which the rockets were fired at Israeli=
+ towns. It was a civilian area where Hamas embedded its most important mil=
+itary capabilities=2C precisely to encourage condemnation of Israel should=
+ the IDF be forced to fight there.
+
+Moreover=2C multiple attack tunnels whose exit points are in Israel had en=
+trance points in Shajaiya. These tunnels allow Hamas to cross under the bo=
+rder fence and penetrate Israeli territory to carry out attacks on civilia=
+ns. Mothers in Israeli villages near the Gaza border feared that terrorist=
+s would emerge from the tunnels=2C kidnap their children and drag them bac=
+k as hostages to the Gaza Strip=2C a concern that became more terrifying w=
+hen handcuffs and tranquilizers were found in the tunnel system.
+
+Shajaiya encapsulates the challenge Israel faces in the Gaza conflict: How=
+ can Israel defend itself without being accused of violating the principle=
+ of proportionality?
+
+Israel had three choices in how to deal with Shajaiya. First=2C it could h=
+ave decided that it had every right to use overwhelming force to neutraliz=
+e the neighborhood with air power=2C ignoring the question of collateral d=
+amage to civilians=2C much like the Allied bombing campaigns of World War=
+ II=2C or NATO's three-month campaign against Yugoslavia in 1999=2C in whi=
+ch 40=2C000 homes were destroyed. This option was not even a consideration=
+ for the IDF.
+
+Second=2C looking at how Hamas had embedded its military capabilities with=
+in civilian neighborhoods=2C Israel could have decided there was nothing i=
+t could do=2C thus allowing Hamas to strike at Israeli population centers=
+ with impunity. Such a decision would have granted Hamas a license to kill=
+ Israelis=2C something no Israeli government =E2=80=94 or=2C indeed=2C any=
+ accountable democracy =E2=80=94 could do.
+
+Finally=2C there was the decision that Israel ultimately made: Separate=2C=
+ as much as possible=2C the civilian population from the Hamas fighters an=
+d arms in their midst. This required getting the Palestinian population to=
+ evacuate potential target areas by multiple means: dropping leaflets with=
+ evacuation routes=2C breaking into Hamas radio broadcasts with warnings a=
+bout specific areas=2C Arabic-language telephone calls to homes and text m=
+essages to cellphones. While the notification process was underway=2C an I=
+sraeli drone would hover over the area that was to be cleared to ensure th=
+at residents had left.
+
+Against this Israeli effort=2C Hamas employed a counter-strategy of trying=
+ to prevent civilians from heeding Israeli warnings. On July 8=2C Hamas sp=
+okesman Sami Abu Zuhri appeared on local television and called on Gazans t=
+o serve as human shields against Israeli air attacks. Hamas enforcers soug=
+ht to dissuade civilians from fleeing. And=2C anticipating a ground incurs=
+ion into neighborhoods like Shajaiya=2C Hamas booby-trapped whole rows of=
+ homes=2C hoping to collapse them on Israeli soldiers. This only magnified=
+ the scale of the destruction.
+
+It should be recalled that proportionality in international law has a very=
+ specific meaning: It is the calculation a military commander must make as=
+ to whether the military advantage to be gained by the use of force is gre=
+ater than the probable harm that may be inflicted on the surrounding civil=
+ian population. Anyone who complains about =E2=80=9Cdisproportionality=E2=
+=80=9D must explain exactly what the IDF should have done to neutralize th=
+e terrorist threat from Shajaiya while causing less destruction than what=
+ occurred.
+
+War between an embattled democracy=2C like Israel=2C and a terrorist organ=
+ization=2C like Hamas=2C inevitably produces certain asymmetries. Israel h=
+eavily invested in the defense of its population=2C including air raid she=
+lters as well as a missile defense system=2C known as Iron Dome. Where did=
+ Hamas put the billions of dollars it obtained from supporters like Qatar?=
+ It built the system of attack tunnels and an arsenal of missiles. Yet the=
+re are those who wrongly infer Israeli intent to cause civilian casualties=
+ from the greater damage suffered by Hamas=2C which resulted from a war Ha=
+mas imposed=2C and from its readiness to sacrifice the lives of its people=
+ to advance its extremist goals.
+
+Dore Gold served as Israel's permanent representative to the United Nation=
+s from 1997 to 1999. He is an advisor to Prime Minister Benjamin Netanyahu=
+ and president of the Jerusalem Center for Public Affairs.
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+S. Daniel Abraham Center for Middle East Peace
+633 Pennsylvania Ave. NW=2C 5th Floor=2C Washington=2C DC 20004
+** www.centerpeace.org (http://www.centerpeace.org)
+
+2014 S. Daniel Abraham Center for Middle East Peace=2C All rights reserved=
+=2E
+ YOU ARE RECEIVING THIS EMAIL BECAUSE YOU SIGNED UP FOR OUR NEWS UPDATES.
+
+** unsubscribe from this list (http://centerpeace.us7.list-manage.com/unsu=
+bscribe?u=3D232a4a45176fccacab865e520&id=3D929d521884&e=3Da7f9100a75&c=3D5c0=
+dd2e955)
+** update subscription preferences (http://centerpeace.us7.list-manage.com=
+/profile?u=3D232a4a45176fccacab865e520&id=3D929d521884&e=3Da7f9100a75)
+
+--_----------=_MCPart_695498641
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or=
+g/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+    <head>
+    =09<!-- NAME: 1 COLUMN -->
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3D=
+UTF-8">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial=
+-scale=3D1.0">
+        <title>News Update - Friday=2C August 1</title>
+
+    <style type=3D"text/css">
+=09=09body=2C#bodyTable=2C#bodyCell{
+=09=09=09height:100% !important;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100% !important;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09img=2Ca img{
+=09=09=09border:0;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09h1=2Ch2=2Ch3=2Ch4=2Ch5=2Ch6{
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09.p1{
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09.s1=2C.s1 a{
+=09=09=09font-size:15px!important;
+=09=09}
+=09=09p{
+=09=09=09margin:1em 0;
+=09=09=09padding:0;
+=09=09}
+=09=09a{
+=09=09=09word-wrap:break-word;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass=2C.ExternalClass p=2C.ExternalClass span=2C.ExternalC=
+lass font=2C.ExternalClass td=2C.ExternalClass div{
+=09=09=09line-height:100%;
+=09=09}
+=09=09table=2Ctd{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09#bodyCell{
+=09=09=09padding:20px;
+=09=09}
+=09=09.mcnImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09body=2C#bodyTable{
+=09=09=09background-color:#ffffff;
+=09=09}
+=09=09#bodyCell{
+=09=09=09border-top:0;
+=09=09}
+=09=09#templateContainer{
+=09=09=09border:0;
+=09=09}
+=09=09h1{
+=09=09=09color:#000000 !important;
+=09=09=09display:block;
+=09=09=09font-family:"Arial Narrow"=2C Arial=2C sans-serif;
+=09=09=09font-size:36px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:100%;
+=09=09=09letter-spacing:-1px;
+=09=09=09margin:0;
+=09=09=09text-align:center;
+=09=09}
+=09=09h2{
+=09=09=09color:#000000 !important;
+=09=09=09display:block;
+=09=09=09font-family:"Arial Narrow"=2C Arial=2C sans-serif;
+=09=09=09font-size:26px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:100%;
+=09=09=09letter-spacing:normal;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09=09background-color:#FFFF4D;
+=09=09}
+=09=09h2 a{
+=09=09=09color:#000000!important;
+=09=09=09text-decoration:none!important;
+=09=09}
+=09=09h3{
+=09=09=09color:#000000 !important;
+=09=09=09display:block;
+=09=09=09font-family:"Arial Narrow"=2C Arial=2C sans-serif;
+=09=09=09font-size:22px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:normal;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-.5px;
+=09=09=09margin:0;
+=09=09=09text-align:center;
+=09=09}
+=09=09h4{
+=09=09=09color:#000000 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica=2C Arial=2C sans-serif;
+=09=09=09text-decoration:underline;
+=09=09=09font-size:16px;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent=2C.preheaderContainer .mcnTextCo=
+ntent p{
+=09=09=09color:#000000;
+=09=09=09font-family:"Arial Narrow"=2C Arial=2C sans-serif;
+=09=09=09font-size:11px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent a{
+=09=09=09color:#000000;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateHeader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.headerContainer .mcnTextContent=2C.headerContainer .mcnTextContent=
+ p{
+=09=09=09color:#000000;
+=09=09=09font-family:"Arial Narrow"=2C Arial=2C sans-serif;
+=09=09=09font-size:16px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.headerContainer .mcnTextContent a{
+=09=09=09color:#000000;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateBody{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.bodyContainer .mcnTextContent=2C.bodyContainer .mcnTextContent p{
+=09=09=09color:#000000;
+=09=09=09font-family:"Arial Narrow"=2C Arial=2C sans-serif;
+=09=09=09font-size:17px;
+=09=09=09font-weight:bold;
+=09=09=09line-height:120%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.bodyContainer .mcnTextContent a{
+=09=09=09color:#0000cd;
+=09=09=09font-weight:bold;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateFooter{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09text-align:center;
+=09=09}
+=09=09.footerContainer .mcnTextContent=2C.footerContainer .mcnTextContent=
+ p{
+=09=09=09color:#000;
+=09=09=09font-family:"Arial Narrow"=2C Arial=2C sans-serif;
+=09=09=09font-size:14px;
+=09=09=09line-height:125%;
+=09=09=09text-align:center;
+=09=09}
+=09=09.impressum{
+=09=09=09font-family:Helvetica=2C Arial=2C sans-serif;
+=09=09}
+=09=09.footerContainer .mcnTextContent a{
+=09=09=09color:#606060;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09@media only screen and (max-width: 480px){
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[id=3DbodyCell]{
+=09=09=09padding:10px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnTextContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnBoxedTextContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3Dmcpreview-image-uploader]{
+=09=09=09width:100% !important;
+=09=09=09display:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09img[class=3DmcnImage]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnImageGroupContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupContent]{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupBlockInner]{
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-top:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09tbody[class=3DmcnImageGroupBlockOuter]{
+=09=09=09padding-bottom:9px !important;
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionTopContent]=2Ctable[class=3DmcnCaptionBott=
+omContent]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftTextContentContainer]=2Ctable[class=3D=
+mcnCaptionRightTextContentContainer]=2Ctable[class=3DmcnCaptionLeftImageC=
+ontentContainer]=2Ctable[class=3DmcnCaptionRightImageContentContainer]=2C=
+table[class=3DmcnImageCardLeftTextContentContainer]=2Ctable[class=3DmcnI=
+mageCardRightTextContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftContentOuter] td[class=3DmcnTextConten=
+t]=2Ctable[class=3DmcnCaptionRightContentOuter] td[class=3DmcnTextConten=
+t]{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnCaptionBlockInner] table[class=3DmcnCaptionTopConten=
+t]:last-child td[class=3DmcnTextContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnBoxedTextContentColumn]{
+=09=09=09padding-left:18px !important;
+=09=09=09padding-right:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnTextContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplateContainer]=2Ctable[id=3DtemplatePreheader]=2Cta=
+ble[id=3DtemplateHeader]=2Ctable[id=3DtemplateBody]=2Ctable[id=3Dtempla=
+teFooter]{
+=09=09=09max-width:600px !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h1{
+=09=09=09font-size:24px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h2{
+=09=09=09font-size:20px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h3{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h4{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextCont=
+ent]=2Ctd[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextConten=
+t] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplatePreheader]{
+=09=09=09display:block !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DpreheaderContainer] td[class=3DmcnTextContent]=2Ctd[cl=
+ass=3DpreheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DheaderContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DbodyContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DbodyContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DfooterContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] a[class=3DutilityLink]{
+=09=09=09display:block !important;
+=09=09}
+
+}</style></head>
+    <body leftmargin=3D"0" marginwidth=3D"0" topmargin=3D"0" marginheight=
+=3D"0" offset=3D"0" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;background-color: #ffffff;height: 100% !=
+important;width: 100% !important;">
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;backg=
+round-color: #ffffff;height: 100% !important;width: 100% !important;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" st=
+yle=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;margin: 0;padding: 20px;border-top: 0;h=
+eight: 100% !important;width: 100% !important;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"600" id=3D"templateContainer" style=3D"border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;border: 0;">
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN PREHEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templatePreheader" style=3D"border-=
+collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #FFFFFF;b=
+order-top: 0;border-bottom: 0;">
+                                        <tr>
+                                        =09<td valign=3D"top" class=3D"pre=
+headerContainer" style=3D"padding-top: 9px;mso-table-lspace: 0pt;mso-table=
+-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnImageBlock" style=3D"border-collapse: collapse;mso-table-lspace: 0=
+pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 9px;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;" class=3D"mcnImageBlockInner">
+                    <table align=3D"left" width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mcnImageContentContainer" style=
+=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;=
+-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" valign=3D"top" s=
+tyle=3D"padding-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom=
+: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+
+
+                                        <img align=3D"left" alt=3D"" src=
+=3D"http://gallery.mailchimp.com/232a4a45176fccacab865e520/images/c171fb0c=
+-f9f6-4117-806c-3a8b4730f760.jpg" width=3D"555" style=3D"max-width: 555px;=
+padding-bottom: 0;display: inline !important;vertical-align: bottom;border=
+: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;"=
+ class=3D"mcnImage">
+
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END PREHEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN HEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateHeader" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #FFFFFF;bord=
+er-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"he=
+aderContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock"=
+ style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace=
+: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bord=
+er-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 40px;padding-bottom: 9px;padding-left:=
+ 40px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 16px;line-height: 150%;tex=
+t-align: left;"><h1 style=3D"text-align: center;margin: 0;padding: 0;displ=
+ay: block;font-family: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;fon=
+t-size: 36px;font-style: normal;font-weight: bold;line-height: 100%;letter=
+-spacing: -1px;color: #000000 !important;">Israel and the Middle East<br>
+News Update</h1>
+
+<h3 style=3D"text-align: center;margin: 0;padding: 0;display: block;font-f=
+amily: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;font-size: 22px;fon=
+t-style: normal;font-weight: normal;line-height: 125%;letter-spacing: -.5p=
+x;color: #000000 !important;"><br>
+<em>Friday=2C August 1</em></h3>
+
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #000000;font-family: &quot;Arial Narrow&quot;=
+=2C Arial=2C sans-serif;font-size: 16px;line-height: 150%;text-align: left=
+;"><strong><u>Headlines:</u></strong></p>
+
+<ul>
+=09<li class=3D"p1" style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;margin: 0;padding: 0;"><strong>Israel Declares Gaza Truce Ove=
+r=2C 50 Die in Gaza Shelling</strong></li>
+=09<li class=3D"p1" style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;margin: 0;padding: 0;"><strong>IDF Soldier Feared Kidnapped=
+=2C 2 Other Soldiers Killed</strong></li>
+=09<li class=3D"p1" style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;margin: 0;padding: 0;"><strong>US Envoy Seeks Extension of Ga=
+za Truce</strong></li>
+=09<li class=3D"p1" style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;margin: 0;padding: 0;"><strong>Netanyahu Reprimands Cabinet M=
+inisters for Politicking During War</strong></li>
+=09<li class=3D"p1" style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;margin: 0;padding: 0;"><strong>Abbas Seeks Broad Support for=
+ War Crimes Charges</strong></li>
+=09<li class=3D"p1" style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;margin: 0;padding: 0;"><strong>Under Fire and Out of Cash=2C=
+ U.N. Overwhelmed by Gaza Crisis</strong></li>
+=09<li class=3D"p1" style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;margin: 0;padding: 0;"><strong>Israel Has to Keep Hamas from=
+ Rebuilding once Gaza Fighting Ends</strong></li>
+=09<li class=3D"p1" style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;margin: 0;padding: 0;"><strong>Islamist Surge Threatens Midea=
+st Powers</strong></li>
+</ul>
+
+<p class=3D"p2" style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 16px;line-height: 150%;tex=
+t-align: left;"><br>
+<u><strong>Commentary:</strong></u></p>
+
+<ul>
+=09<li class=3D"p2" style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;"><strong style=3D"line-height:1.6em">The Economist: &ldquo;<=
+/strong><strong>Israel - Winning the Battle=2C Losing the War&quot;</stron=
+g><br>
+=09<span style=3D"line-height:1.6em">- Editorial</span></li>
+=09<li class=3D"p2" style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;"><strong>LA Times: &ldquo;Israel&#39;s Doctrine of Proportio=
+nality in Gaza&rdquo;</strong><br>
+=09<span style=3D"line-height:1.6em">- By Dore Gold</span></li>
+</ul>
+</td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END HEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN BODY // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateBody" style=3D"border-colla=
+pse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;background-color: #FFFFFF;border=
+-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"bo=
+dyContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnDividerBlock"=
+ style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace=
+: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;mso-=
+table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-top-width: 1px;bo=
+rder-top-style: solid;border-top-color: #999999;border-collapse: collapse;=
+mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-we=
+bkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+                        <td style=3D"mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"border-collapse: collapse;mso-table-l=
+space: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bord=
+er-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left:=
+ 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;lin=
+e-height: 120%;text-align: left;"><h4 class=3D"null" style=3D"margin: 0;pa=
+dding: 0;display: block;font-family: Helvetica=2C Arial=2C sans-serif;text=
+-decoration: underline;font-size: 16px;line-height: 125%;letter-spacing: n=
+ormal;text-align: left;color: #000000 !important;">Reuters</h4>
+
+<h2 class=3D"null" style=3D"margin: 0;padding: 0;display: block;font-famil=
+y: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;font-size: 26px;font-st=
+yle: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;tex=
+t-align: left;background-color: #FFFF4D;color: #000000 !important;"><a hre=
+f=3D"http://centerpeace.us7.list-manage1.com/track/click?u=3D232a4a45176fc=
+cacab865e520&id=3D3a11d99e44&e=3Da7f9100a75" style=3D"word-wrap: break-wo=
+rd;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #00000=
+0!important;font-weight: bold;text-decoration: none!important;">Israel Dec=
+lares Gaza Truce Over=2C 50 Die in Gaza Shelling</a></h2>
+
+<p class=3D"p1" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial Narr=
+ow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;line-hei=
+ght: 120%;text-align: left;"><strong>Israel declared a Gaza ceasefire over=
+ on Friday and killed more than 50 Palestinians in renewed shelling=2C say=
+ing militants had breached the truce shortly after it began and apparently=
+ captured an Israeli soldier. The 72-hour break announced by U.S. Secretar=
+y of State John Kerry and U.N. Secretary-General Ban Ki-moon was the most=
+ ambitious attempt so far to end more than three weeks of fighting=2C and=
+ followed mounting international alarm over a rising Palestinian civilian=
+ death toll. The ceasefire was to be followed by Israeli-Palestinian negot=
+iations in Cairo on a longer-term solution.</strong><br>
+<strong><em>See also=2C <a href=3D"http://centerpeace.us7.list-manage1.com=
+/track/click?u=3D232a4a45176fccacab865e520&id=3Dcb9a902222&e=3Da7f9100a75=
+" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;color: #0000cd;font-weight: bold;text-decoration: underli=
+ne;">&ldquo;IDF: Hamas used ceasefire to kidnap soldier; ceasefire over&rd=
+quo; (Ynet News)</a></em></strong></p>
+</td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"border-collapse: collapse;mso-table-l=
+space: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bord=
+er-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left:=
+ 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;lin=
+e-height: 120%;text-align: left;"><h4 class=3D"null" style=3D"margin: 0;pa=
+dding: 0;display: block;font-family: Helvetica=2C Arial=2C sans-serif;text=
+-decoration: underline;font-size: 16px;line-height: 125%;letter-spacing: n=
+ormal;text-align: left;color: #000000 !important;">Jerusalem Post</h4>
+
+<h2 class=3D"null" style=3D"margin: 0;padding: 0;display: block;font-famil=
+y: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;font-size: 26px;font-st=
+yle: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;tex=
+t-align: left;background-color: #FFFF4D;color: #000000 !important;"><a hre=
+f=3D"http://centerpeace.us7.list-manage.com/track/click?u=3D232a4a45176fcc=
+acab865e520&id=3Df8dbdabbc6&e=3Da7f9100a75" style=3D"word-wrap: break-wor=
+d;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #000000=
+!important;font-weight: bold;text-decoration: none!important;">IDF Soldier=
+ Feared Kidnapped=2C 2 Other Soldiers Killed</a></h2>
+
+<p class=3D"p1" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial Narr=
+ow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;line-hei=
+ght: 120%;text-align: left;"><strong>A Hamas attack on IDF soldiers in sou=
+thern Gaza=2C which occurred an hour and a half after the start of a human=
+itarian truce=2C ended with the suspected kidnapping of a soldier=2C the I=
+DF said Friday. Second Lt. Hadar Goldin=2C a 23-year-old Givati officer fr=
+om Kfar Saba=2C was named as the IDF soldier presumed to be abducted by Ha=
+mas. His family has been notified. Two other soldiers were killed during t=
+he incident. Their families have been notified. Terrorists emerged from a=
+ tunnel shaft=2C and a suicide bomber detonated himself in the vicinity of=
+ soldiers. Heavy exchanges of fire ensued=2C before one of the IDF soldier=
+s was kidnapped=2C a senior army source said.</strong><br>
+<strong><em>See also=2C <a href=3D"http://centerpeace.us7.list-manage.com/=
+track/click?u=3D232a4a45176fccacab865e520&id=3Dbdd1d426e6&e=3Da7f9100a75"=
+ style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-si=
+ze-adjust: 100%;color: #0000cd;font-weight: bold;text-decoration: underlin=
+e;">&quot;Israel&#39;s tunnel vision&quot; (Share Harris=2C Foreign Policy=
+)</a></em></strong></p>
+</td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"border-collapse: collapse;mso-table-l=
+space: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bord=
+er-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left:=
+ 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;lin=
+e-height: 120%;text-align: left;"><h4 class=3D"null" style=3D"margin: 0;pa=
+dding: 0;display: block;font-family: Helvetica=2C Arial=2C sans-serif;text=
+-decoration: underline;font-size: 16px;line-height: 125%;letter-spacing: n=
+ormal;text-align: left;color: #000000 !important;">Agence France Presse</h=
+4>
+
+<h2 class=3D"null" style=3D"margin: 0;padding: 0;display: block;font-famil=
+y: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;font-size: 26px;font-st=
+yle: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;tex=
+t-align: left;background-color: #FFFF4D;color: #000000 !important;">US Env=
+oy Seeks Extension of Gaza Truce</h2>
+
+<p class=3D"p1" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial Narr=
+ow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;line-hei=
+ght: 120%;text-align: left;"><strong>The No. 2 US diplomat will head to Ca=
+iro and seek to extend beyond 72 hours a truce agreed upon by Israel and H=
+amas=2C a senior US official said Friday. Deputy Secretary of State Willia=
+m Burns &mdash; a veteran career diplomat frequently tasked with delicate=
+ missions &mdash; will travel to Egypt this weekend to take part in talks=
+ as part of the three-day truce that took effect Friday=2C the official sa=
+id. The official said Burns would look to see if the two sides can extend=
+ the truce in the deadly conflict=2C especially as negotiators need time t=
+o travel to Cairo. Israeli officials rarely meet during the Jewish Sabbath=
+ that starts at sundown on Friday.</strong></p>
+</td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"border-collapse: collapse;mso-table-l=
+space: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bord=
+er-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left:=
+ 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;lin=
+e-height: 120%;text-align: left;"><h4 class=3D"null" style=3D"margin: 0;pa=
+dding: 0;display: block;font-family: Helvetica=2C Arial=2C sans-serif;text=
+-decoration: underline;font-size: 16px;line-height: 125%;letter-spacing: n=
+ormal;text-align: left;color: #000000 !important;">Jerusalem Post</h4>
+
+<h2 class=3D"null" style=3D"margin: 0;padding: 0;display: block;font-famil=
+y: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;font-size: 26px;font-st=
+yle: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;tex=
+t-align: left;background-color: #FFFF4D;color: #000000 !important;"><a hre=
+f=3D"http://centerpeace.us7.list-manage.com/track/click?u=3D232a4a45176fcc=
+acab865e520&id=3D17b306a5d1&e=3Da7f9100a75" style=3D"word-wrap: break-wor=
+d;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #000000=
+!important;font-weight: bold;text-decoration: none!important;">Netanyahu R=
+eprimands Cabinet Ministers for Politicking During War</a></h2>
+
+<p class=3D"p1" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial Narr=
+ow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;line-hei=
+ght: 120%;text-align: left;"><strong>Prime Minister Binyamin Netanyahu las=
+hed out at his ministers for playing politics during Operation Protective=
+ Edge at Thursday&rsquo;s cabinet meeting. &ldquo;I call upon you not to h=
+arm the special unity that there is among us right now=2C&rdquo; Netanyahu=
+ said. &ldquo;Watch your words=2C be careful with your actions. Above all=
+=2C cabinet ministers must present a personal example to the entire public=
+=2E At this time=2C the nation expects all of us=2C especially cabinet minis=
+ters=2C to unite behind a common goal.&rdquo; The prime minister referred=
+ to a book by his brother=2C the late Entebbe commander Yonatan Netanyahu=
+=2C who wrote that the wars of the Jews started after the fighting=2C not=
+ before it was over.</strong></p>
+</td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"border-collapse: collapse;mso-table-l=
+space: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bord=
+er-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left:=
+ 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;lin=
+e-height: 120%;text-align: left;"><h4 class=3D"null" style=3D"margin: 0;pa=
+dding: 0;display: block;font-family: Helvetica=2C Arial=2C sans-serif;text=
+-decoration: underline;font-size: 16px;line-height: 125%;letter-spacing: n=
+ormal;text-align: left;color: #000000 !important;">Associated Press</h4>
+
+<h2 class=3D"null" style=3D"margin: 0;padding: 0;display: block;font-famil=
+y: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;font-size: 26px;font-st=
+yle: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;tex=
+t-align: left;background-color: #FFFF4D;color: #000000 !important;"><a hre=
+f=3D"http://centerpeace.us7.list-manage2.com/track/click?u=3D232a4a45176fc=
+cacab865e520&id=3D4a8a2dd578&e=3Da7f9100a75" style=3D"word-wrap: break-wo=
+rd;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #00000=
+0!important;font-weight: bold;text-decoration: none!important;">Abbas Seek=
+s Broad Support for War Crimes Charges</a></h2>
+
+<p class=3D"p1" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial Narr=
+ow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;line-hei=
+ght: 120%;text-align: left;"><strong>Nearly a month into Israel&#39;s fier=
+ce assault on Hamas in Gaza=2C Palestinian President Mahmoud Abbas is faci=
+ng mounting domestic pressure to seek war crimes charges against Israel at=
+ the International Criminal Court. He has hesitated in the past because su=
+ch a move would instantly put the Palestinians on a risky collision course=
+ with Israel. But with about 1=2C400 Palestinians killed in Gaza=2C accord=
+ing to health officials=2C Abbas has signaled he might move ahead &mdash;=
+ cautiously. Palestinian officials said Thursday that Abbas asked all Pale=
+stinian political factions=2C including Hamas and the smaller group Islami=
+c Jihad=2C to give their written consent to such a move. Different PLO fac=
+tions signed up in a meeting in the West Bank earlier this week=2C while A=
+bbas is still waiting for a response from Hamas and Islamic Jihad=2C they=
+ said.</strong></p>
+</td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"border-collapse: collapse;mso-table-l=
+space: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bord=
+er-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left:=
+ 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;lin=
+e-height: 120%;text-align: left;"><h4 class=3D"null" style=3D"margin: 0;pa=
+dding: 0;display: block;font-family: Helvetica=2C Arial=2C sans-serif;text=
+-decoration: underline;font-size: 16px;line-height: 125%;letter-spacing: n=
+ormal;text-align: left;color: #000000 !important;">Reuters</h4>
+
+<h2 class=3D"null" style=3D"margin: 0;padding: 0;display: block;font-famil=
+y: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;font-size: 26px;font-st=
+yle: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;tex=
+t-align: left;background-color: #FFFF4D;color: #000000 !important;"><a hre=
+f=3D"http://centerpeace.us7.list-manage.com/track/click?u=3D232a4a45176fcc=
+acab865e520&id=3D7897cfe816&e=3Da7f9100a75" style=3D"word-wrap: break-wor=
+d;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #000000=
+!important;font-weight: bold;text-decoration: none!important;">Under Fire=
+ and Out of Cash=2C U.N. Overwhelmed by Gaza Crisis</a></h2>
+
+<p class=3D"p1" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial Narr=
+ow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;line-hei=
+ght: 120%;text-align: left;">The United Nations in Gaza is struggling to w=
+ithstand a flood of almost a quarter of a million refugees into shelters t=
+hat have repeatedly come under Israeli fire. Out of cash=2C the United Nat=
+ions Relief and Works Agency (UNRWA)=2C the main U.N. body in the impoveri=
+shed enclave of 1.8 million Palestinians=2C says it can barely handle the=
+ humanitarian crisis unleashed by more than three weeks of fighting betwee=
+n militants and Israel. Asked to explain the scale of the civilian sufferi=
+ng to an Arab news station=2C an UNRWA spokesman simply burst into tears.<=
+/p>
+</td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"border-collapse: collapse;mso-table-l=
+space: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bord=
+er-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left:=
+ 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;lin=
+e-height: 120%;text-align: left;"><h4 class=3D"null" style=3D"margin: 0;pa=
+dding: 0;display: block;font-family: Helvetica=2C Arial=2C sans-serif;text=
+-decoration: underline;font-size: 16px;line-height: 125%;letter-spacing: n=
+ormal;text-align: left;color: #000000 !important;">LA Times</h4>
+
+<h2 class=3D"null" style=3D"margin: 0;padding: 0;display: block;font-famil=
+y: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;font-size: 26px;font-st=
+yle: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;tex=
+t-align: left;background-color: #FFFF4D;color: #000000 !important;"><a hre=
+f=3D"http://centerpeace.us7.list-manage.com/track/click?u=3D232a4a45176fcc=
+acab865e520&id=3D30e855af09&e=3Da7f9100a75" style=3D"word-wrap: break-wor=
+d;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #000000=
+!important;font-weight: bold;text-decoration: none!important;">Israel Has=
+ to Keep Hamas from Rebuilding once Gaza Fighting Ends</a></h2>
+
+<p class=3D"p1" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial Narr=
+ow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;line-hei=
+ght: 120%;text-align: left;">Determined to avoid a repeat of the fighting=
+ in the Gaza Strip=2C Israel is seeking to build support for having an int=
+ernational force take charge of preventing the Palestinian militant group=
+ Hamas from rearming once the conflict is over. One sticking point remains=
+: finding countries willing to take on the job. The idea=2C floated repeat=
+edly by top Israeli officials in recent days=2C comes at what could be a k=
+ey point in the 3-week-old conflict. With the announcement of a 72-hour ce=
+ase-fire starting Friday morning=2C the Israelis apparently believe they a=
+re close to destroying the bulk of the tunnels that Hamas=2C which control=
+s Gaza=2C has spent years digging and fortifying=2C and a significant port=
+ion of the group&#39;s arsenal of rockets.</p>
+</td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"border-collapse: collapse;mso-table-l=
+space: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bord=
+er-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left:=
+ 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;lin=
+e-height: 120%;text-align: left;"><h4 class=3D"null" style=3D"margin: 0;pa=
+dding: 0;display: block;font-family: Helvetica=2C Arial=2C sans-serif;text=
+-decoration: underline;font-size: 16px;line-height: 125%;letter-spacing: n=
+ormal;text-align: left;color: #000000 !important;">Wall Street Journal</h4=
+>
+
+<h2 class=3D"null" style=3D"margin: 0;padding: 0;display: block;font-famil=
+y: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;font-size: 26px;font-st=
+yle: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;tex=
+t-align: left;background-color: #FFFF4D;color: #000000 !important;"><a hre=
+f=3D"http://centerpeace.us7.list-manage.com/track/click?u=3D232a4a45176fcc=
+acab865e520&id=3D99acc969d5&e=3Da7f9100a75" style=3D"word-wrap: break-wor=
+d;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #000000=
+!important;font-weight: bold;text-decoration: none!important;">Islamist Su=
+rge Threatens Mideast Powers</a></h2>
+
+<p class=3D"p1" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial Narr=
+ow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;line-hei=
+ght: 120%;text-align: left;"><strong>The eruptions of Islamist violence in=
+ the Gaza Strip=2C Syria and Iraq have begun shaking the Middle East to it=
+s core=2C increasing the likelihood that a new order will emerge when the=
+ dust starts to settle. The region&#39;s traditional power centers&mdash;E=
+gypt=2C Saudi Arabia=2C Iraq and Israel&mdash;are all threatened by the su=
+rge of Islamist forces that aim to disrupt the status quo. Even Shiite Ira=
+n=2C which often stokes Islamist movements=2C is finding that the surge of=
+ Sunni extremism is threatening its position in the region. The hope among=
+ U.S. officials and U.S. allies is that=2C in the long run=2C those tradit=
+ional powers&mdash;which are more often rivals than partners&mdash;will fi=
+nd common interest in curbing the extremist forces.</strong></p>
+</td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"border-collapse: collapse;mso-tabl=
+e-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-tex=
+t-size-adjust: 100%;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;mso-=
+table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-top-width: 1px;bo=
+rder-top-style: solid;border-top-color: #999999;border-collapse: collapse;=
+mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-we=
+bkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+                        <td style=3D"mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"border-collapse: collapse;mso-table-l=
+space: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bord=
+er-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left:=
+ 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;lin=
+e-height: 120%;text-align: left;"><h4 class=3D"null" style=3D"line-height:=
+ 20px;margin: 0;padding: 0;display: block;font-family: Helvetica=2C Arial=
+=2C sans-serif;text-decoration: underline;font-size: 16px;letter-spacing:=
+ normal;text-align: left;color: #000000 !important;"><strong>The Economist=
+ &ndash; July&nbsp;31=2C 2014</strong></h4>
+
+<h2 class=3D"null" style=3D"line-height: 26px;margin: 0;padding: 0;display=
+: block;font-family: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;font-=
+size: 26px;font-style: normal;font-weight: bold;letter-spacing: normal;tex=
+t-align: left;background-color: #FFFF4D;color: #000000 !important;">Israel=
+ - Winning the Battle=2C Losing the War</h2>
+
+<p class=3D"p1" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial Narr=
+ow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;line-hei=
+ght: 120%;text-align: left;">Editorial</p>
+
+<div class=3D"p1" style=3D"margin: 0;padding: 0;"><br>
+HAMAS has ruled Gaza since 2007 and there is not much to admire. The Islam=
+ist party is harsh=2C narrow-minded and intolerant of dissent. Its charter=
+ is anti-Semitic. It fires rockets into Israeli territory and builds tunne=
+ls under it to kill or kidnap Israeli soldiers. It knows that the Israeli=
+ attacks it provokes will kill hundreds of Palestinian civilians=2C which=
+ will garner sympathy around the world. It is also weaker than it was=2C f=
+or it is now losing the military battle against Israel.<br>
+<br>
+By contrast Israel is the most successful state in the Middle East. It is=
+ the region&rsquo;s only true democracy&mdash;a hub of invention=2C enterp=
+rise and creativity. Israel has overwhelming firepower in the fight in Gaz=
+a. Most of its people are united behind their soldiers and have the firm b=
+acking of America&rsquo;s Congress. Yet=2C though Israel is winning the ba=
+ttle=2C it is struggling in the war for world opinion (see article). That=
+ matters in part because Israel is a cosmopolitan trading country that loo=
+ks to its American ally for security=2C but also because Israel needs to h=
+ear some of what its critics are saying.<br>
+&nbsp;<br>
+<u>Anti-Semitism: a very light sleeper</u><br>
+&nbsp;<br>
+A generation ago=2C Israel had the best of the argument with Yasser Arafat=
+&rsquo;s Palestine Liberation Organisation=2C in many ways a less vile out=
+fit than Hamas. Young Europeans spent their gap years on kibbutzim. The We=
+stern world cheered when Israeli commandos rescued Jewish hostages from th=
+e terminal building in Uganda&rsquo;s Entebbe airport in 1976.<br>
+<br>
+But as the occupation of Palestinian territory has dragged on=2C sympathy=
+ has seeped away. In a poll published in June=2C before the destruction of=
+ Gaza=2C the citizens of 23 countries put the balance of those who think I=
+srael is a good or bad influence on the world at minus 26%=2C ranking it b=
+elow Russia and above only North Korea=2C Pakistan and Iran. A growing num=
+ber of Europeans call Israel racist (with the sinister flourish that Israe=
+lis=2C of all people=2C should know better). And even in America=2C where=
+ a solid majority backs Israel=2C the share that thinks its actions agains=
+t the Palestinians are unjustified has risen since 2002 by five percentage=
+ points=2C to 39%. Among 18- to 29-year-olds=2C Israel is backed by just a=
+ quarter.<br>
+&nbsp;<br>
+Many Israelis=2C and their most fervent supporters in Congress=2C see toda=
+y&rsquo;s hostility as the culmination of a long process of demonisation=
+=2C double standards and delegitimisation. They have a point. Holding a co=
+untry to high standards=2C as Israel&rsquo;s critics do=2C can be a compli=
+ment&mdash;yet against Israel=2C morality is often used as a cudgel. The c=
+ommon slur that Israel is an apartheid state ignores the fact that Israel&=
+rsquo;s minorities=2C such as the Druze=2C Arabs and Bahais=2C are protect=
+ed by the country&rsquo;s independent courts&mdash;including the highest=
+=2C which has a sitting Arab Israeli judge. The &ldquo;BDS&rdquo; campaign=
+ to impose boycotts=2C encourage divestment and introduce sanctions calls=
+ not just for an end to the occupation of the West Bank and for equal righ=
+ts=2C but also for the right of return of all Palestinian refugees&mdash;i=
+n other words=2C for the erosion of Israel as a Jewish homeland. Protests=
+ in France against the fighting in Gaza led to attacks on synagogues and J=
+ewish-owned businesses.<br>
+&nbsp;<br>
+No wonder that many Israelis feel that the world is against them=2C and be=
+lieve that criticism of Israel is often a mask for antipathy towards Jews.=
+ But they would be wrong to ignore it entirely. That is partly because pub=
+lic opinion matters. For a trading nation built on the idea of liberty=2C=
+ delegitimisation is=2C in the words of an Israeli think-tank=2C &ldquo;a=
+ strategic threat&rdquo;. But it is also because some of the foreign criti=
+cism is right.<br>
+&nbsp;<br>
+<u>Please=2C hear them</u><br>
+&nbsp;<br>
+That begins with the scale of the violence in Gaza. Some 1=2C400 Palestini=
+ans have died in the past few weeks=2C compared with 56 Israeli soldiers a=
+nd four civilians. Even allowing for Hamas&rsquo;s brutality=2C no democra=
+cy should be happy with a military strategy that results in the death of s=
+o many children (let alone the crass claim from Israel&rsquo;s ambassador=
+ to Washington that its soldiers deserve a Nobel peace prize). The destruc=
+tion is driving support towards Hamas and away from the moderate Palestini=
+ans who are Israel&rsquo;s best chance for peace.<br>
+&nbsp;<br>
+But more than that=2C Israel needs to hear what its critics say about the=
+ need for a two-state solution=2C which remains the only one that will wor=
+k. Time is not on Israel&rsquo;s side. Palestinians may already outnumber=
+ Israelis in the lands they share. Without two states=2C Israelis and Pale=
+stinians will be left with one that contains them both. The risk for Israe=
+l is of either a permanent=2C non-democratic occupation that disenfranchis=
+es Palestinians=2C or a democracy in which Jews are in a minority. Neither=
+ would be the Jewish homeland with equal rights for all that Israel&rsquo;=
+s founding fathers intended.<br>
+&nbsp;<br>
+America&rsquo;s secretary of state=2C John Kerry=2C has made a Herculean e=
+ffort to forge peace between the Israelis and the Palestinians along the l=
+ines of two states for two peoples. When the talks broke down=2C a few mon=
+ths ago=2C he blamed Israel&rsquo;s settler lobby. That outraged right-win=
+g Israelis. And now the left has joined in the derision because he propose=
+d a ceasefire in Gaza that Israelis thought favoured Hamas. But Mr Kerry i=
+s right. If Israel continues to build settlements in the occupied territor=
+y=2C it will gobble up land that would belong to an independent Palestinia=
+n state=2C making peace harder to reach.<br>
+&nbsp;<br>
+The same goes for what appears to be Israel&rsquo;s strategy towards both=
+ Gaza and the West Bank. Having created a huge open-air prison in Gaza=2C=
+ Israel remains committed to a blockade that contains Hamas&mdash;but also=
+ ensures that ever more Palestinians grow up angry. On the West Bank=2C Is=
+rael&rsquo;s prime minister=2C Binyamin Netanyahu=2C has gone backwards: h=
+e has said that Israel cannot relinquish security control of the West Bank=
+ for fear of Islamist attack. That implies an intention to consolidate the=
+ occupation=2C thus withdrawing all hope from Palestinian moderates. The W=
+est Bank would be likely to explode too=2C then=2C while the demographic c=
+lock ticked on.<br>
+&nbsp;<br>
+For all the blood and misery in Gaza=2C Mr Netanyahu will soon have a chan=
+ce to show he has heard the critics. Having won his battle=2C he could ret=
+urn to the negotiating table=2C this time with a genuine offer of peace. E=
+very true friend of Israel should press him to do so.</div>
+</td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"border-collapse: collapse;mso-table-l=
+space: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bord=
+er-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left:=
+ 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial=
+ Narrow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;lin=
+e-height: 120%;text-align: left;"><h4 class=3D"null" style=3D"line-height:=
+ 20px;margin: 0;padding: 0;display: block;font-family: Helvetica=2C Arial=
+=2C sans-serif;text-decoration: underline;font-size: 16px;letter-spacing:=
+ normal;text-align: left;color: #000000 !important;"><strong>LA Times &nda=
+sh; July&nbsp;31=2C 2014</strong></h4>
+
+<h2 class=3D"null" style=3D"line-height: 26px;margin: 0;padding: 0;display=
+: block;font-family: &quot;Arial Narrow&quot;=2C Arial=2C sans-serif;font-=
+size: 26px;font-style: normal;font-weight: bold;letter-spacing: normal;tex=
+t-align: left;background-color: #FFFF4D;color: #000000 !important;"><a hre=
+f=3D"http://centerpeace.us7.list-manage.com/track/click?u=3D232a4a45176fcc=
+acab865e520&id=3Dcd39f0643a&e=3Da7f9100a75" style=3D"word-wrap: break-wor=
+d;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #000000=
+!important;font-weight: bold;text-decoration: none!important;">Israel&#39;=
+s Doctrine of Proportionality in Gaza</a></h2>
+
+<p class=3D"p1" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #000000;font-family: &quot;Arial Narr=
+ow&quot;=2C Arial=2C sans-serif;font-size: 17px;font-weight: bold;line-hei=
+ght: 120%;text-align: left;">By Dore Gold</p>
+
+<div class=3D"p1" style=3D"margin: 0;padding: 0;"><br>
+The images of destruction after the battle between the Israel Defense Forc=
+es and Hamas that began July 20 in the Shajaiya neighborhood in the Gaza S=
+trip have caused many to declare=2C in a now-frequent refrain=2C that the=
+ IDF is behaving &ldquo;disproportionately.&rdquo; Some commentators are s=
+imply dressing up in sophisticated language their belief that Israel is us=
+ing excessive force=2C but others clearly mean to accuse Israel of violati=
+ng the laws of war &mdash; specifically=2C of violating the doctrine of pr=
+oportionality. These accusations have no merit.<br>
+&nbsp;<br>
+Shajaiya was not just another neighborhood in Gaza=2C but rather a crown j=
+ewel of Hamas&#39; effort to intertwine civilians and terrorists to compli=
+cate Israel&#39;s ability to defend itself. Shajaiya was crisscrossed with=
+ an elaborate network of underground bunkers and tunnels containing equipm=
+ent for the manufacture of rockets=2C storage facilities for rockets and o=
+ther weapons=2C and launching sites from which the rockets were fired at I=
+sraeli towns. It was a civilian area where Hamas embedded its most importa=
+nt military capabilities=2C precisely to encourage condemnation of Israel=
+ should the IDF be forced to fight there.<br>
+&nbsp;<br>
+Moreover=2C multiple attack tunnels whose exit points are in Israel had en=
+trance points in Shajaiya. These tunnels allow Hamas to cross under the bo=
+rder fence and penetrate Israeli territory to carry out attacks on civilia=
+ns. Mothers in Israeli villages near the Gaza border feared that terrorist=
+s would emerge from the tunnels=2C kidnap their children and drag them bac=
+k as hostages to the Gaza Strip=2C a concern that became more terrifying w=
+hen handcuffs and tranquilizers were found in the tunnel system.<br>
+&nbsp;<br>
+Shajaiya encapsulates the challenge Israel faces in the Gaza conflict: How=
+ can Israel defend itself without being accused of violating the principle=
+ of proportionality?<br>
+&nbsp;<br>
+Israel had three choices in how to deal with Shajaiya. First=2C it could h=
+ave decided that it had every right to use overwhelming force to neutraliz=
+e the neighborhood with air power=2C ignoring the question of collateral d=
+amage to civilians=2C much like the Allied bombing campaigns of World War=
+ II=2C or NATO&#39;s three-month campaign against Yugoslavia in 1999=2C in=
+ which 40=2C000 homes were destroyed. This option was not even a considera=
+tion for the IDF.<br>
+&nbsp;<br>
+Second=2C looking at how Hamas had embedded its military capabilities with=
+in civilian neighborhoods=2C Israel could have decided there was nothing i=
+t could do=2C thus allowing Hamas to strike at Israeli population centers=
+ with impunity. Such a decision would have granted Hamas a license to kill=
+ Israelis=2C something no Israeli government &mdash; or=2C indeed=2C any a=
+ccountable democracy &mdash; could do.<br>
+&nbsp;<br>
+Finally=2C there was the decision that Israel ultimately made: Separate=2C=
+ as much as possible=2C the civilian population from the Hamas fighters an=
+d arms in their midst. This required getting the Palestinian population to=
+ evacuate potential target areas by multiple means: dropping leaflets with=
+ evacuation routes=2C breaking into Hamas radio broadcasts with warnings a=
+bout specific areas=2C Arabic-language telephone calls to homes and text m=
+essages to cellphones. While the notification process was underway=2C an I=
+sraeli drone would hover over the area that was to be cleared to ensure th=
+at residents had left.<br>
+&nbsp;<br>
+Against this Israeli effort=2C Hamas employed a counter-strategy of trying=
+ to prevent civilians from heeding Israeli warnings. On July 8=2C Hamas sp=
+okesman Sami Abu Zuhri appeared on local television and called on Gazans t=
+o serve as human shields against Israeli air attacks. Hamas enforcers soug=
+ht to dissuade civilians from fleeing. And=2C anticipating a ground incurs=
+ion into neighborhoods like Shajaiya=2C Hamas booby-trapped whole rows of=
+ homes=2C hoping to collapse them on Israeli soldiers. This only magnified=
+ the scale of the destruction.<br>
+&nbsp;<br>
+It should be recalled that proportionality in international law has a very=
+ specific meaning: It is the calculation a military commander must make as=
+ to whether the military advantage to be gained by the use of force is gre=
+ater than the probable harm that may be inflicted on the surrounding civil=
+ian population. Anyone who complains about &ldquo;disproportionality&rdquo=
+; must explain exactly what the IDF should have done to neutralize the ter=
+rorist threat from Shajaiya while causing less destruction than what occur=
+red.<br>
+&nbsp;<br>
+War between an embattled democracy=2C like Israel=2C and a terrorist organ=
+ization=2C like Hamas=2C inevitably produces certain asymmetries. Israel h=
+eavily invested in the defense of its population=2C including air raid she=
+lters as well as a missile defense system=2C known as Iron Dome. Where did=
+ Hamas put the billions of dollars it obtained from supporters like Qatar?=
+ It built the system of attack tunnels and an arsenal of missiles. Yet the=
+re are those who wrongly infer Israeli intent to cause civilian casualties=
+ from the greater damage suffered by Hamas=2C which resulted from a war Ha=
+mas imposed=2C and from its readiness to sacrifice the lives of its people=
+ to advance its extremist goals.<br>
+&nbsp;<br>
+<em><strong>Dore Gold served as Israel&#39;s permanent representative to t=
+he United Nations from 1997 to 1999. He is an advisor to Prime Minister Be=
+njamin Netanyahu and president of the Jerusalem Center for Public Affairs.=
+</strong></em></div>
+</td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"100%" class=3D"mcnDividerBlock" style=3D"borde=
+r-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-=
+size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                        <tbody class=3D"mcnDividerBlockOut=
+er">
+                                            <tr>
+                                                <td class=3D"mcnDividerBlo=
+ckInner" style=3D"padding: 18px;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                    <table class=3D"mcnDiv=
+iderContent" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100=
+%" style=3D"border-top-width: 1px;border-top-style: solid;border-top-color=
+: #999999;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace=
+: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                        <tbody><tr>
+                                                            <td style=3D"m=
+so-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;">
+                                                                <span></sp=
+an>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- // END BODY -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN FOOTER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateFooter" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #FFFFFF;bord=
+er-top: 0;border-bottom: 0;text-align: center;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"fo=
+oterContainer" style=3D"padding-bottom: 9px;mso-table-lspace: 0pt;mso-tabl=
+e-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" cla=
+ss=3D"mcnTextBlock" style=3D"border-collapse: collapse;mso-table-lspace: 0=
+pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-ta=
+ble-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;">
+
+                <table align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"600" class=3D"mcnTextContentContainer" style=3D"bo=
+rder-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left:=
+ 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;color: #000;font-family: &quot;Arial Nar=
+row&quot;=2C Arial=2C sans-serif;font-size: 14px;line-height: 125%;text-al=
+ign: center;">
+
+                        <div class=3D"impressum" align=3D"center" style=3D=
+"font-family: Helvetica=2C Arial=2C sans-serif;">
+                       S. Daniel Abraham Center for Middle East Peace
+                       <br>633 Pennsylvania Ave. NW=2C 5th Floor=2C Washin=
+gton=2C DC 20004
+                      <br><a href=3D"http://centerpeace.us7.list-manage.co=
+m/track/click?u=3D232a4a45176fccacab865e520&id=3D1c5dd93b60&e=3D=
+a7f9100a75" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;color: #606060;font-weight: normal;text-decoration: unde=
+rline;">www.centerpeace.org</a>
+                        </div>
+
+                        <br>
+                        <br>
+
+                            <em> 2014 S. Daniel Abraham Center for Middle=
+ East Peace=2C All rights reserved.</em>
+<br>
+    YOU ARE RECEIVING THIS EMAIL BECAUSE YOU SIGNED UP FOR OUR NEWS UPDATE=
+S.
+    <br>
+    <br>
+     <a href=3D"http://centerpeace.us7.list-manage.com/unsubscribe?u=3D232=
+a4a45176fccacab865e520&id=3D929d521884&e=3Da7f9100a75&c=3D5c0dd2e955" class=
+=3D"utilityLink" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-weight: normal;text-de=
+coration: underline;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;
+    <a href=3D"http://centerpeace.us7.list-manage.com/profile?u=3D232a4a45=
+176fccacab865e520&id=3D929d521884&e=3Da7f9100a75" class=3D"utilityLink" styl=
+e=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;color: #606060;font-weight: normal;text-decoration: underline;"=
+>update subscription preferences</a>&nbsp;
+    <br>
+    <br>
+                        </td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END FOOTER -->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"http://centerpeace.us7.list-manage.com/track/open.php?u=3D=
+232a4a45176fccacab865e520&id=3D5c0dd2e955&e=3Da7f9100a75" height=3D"1" wi=
+dth=3D"1"></body>
+</html>
+--_----------=_MCPart_695498641--

@@ -1,0 +1,91 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.25.43.10 with SMTP id r10csp487263lfr;
+        Sat, 25 Jul 2015 06:29:18 -0700 (PDT)
+X-Received: by 10.70.126.133 with SMTP id my5mr44122780pdb.14.1437830957368;
+        Sat, 25 Jul 2015 06:29:17 -0700 (PDT)
+Return-Path: <gruncom@aol.com>
+Received: from omr-m3.mx.aol.com (omr-m3.mx.aol.com. [64.12.183.210])
+        by mx.google.com with ESMTPS id di10si28993407pdb.34.2015.07.25.06.29.16
+        for <john.podesta@gmail.com>
+        (version=TLS1 cipher=RC4-SHA bits=128/128);
+        Sat, 25 Jul 2015 06:29:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gruncom@aol.com designates 64.12.183.210 as permitted sender) client-ip=64.12.183.210;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of gruncom@aol.com designates 64.12.183.210 as permitted sender) smtp.mail=gruncom@aol.com;
+       dkim=pass header.i=@mx.aol.com;
+       dmarc=pass (p=REJECT dis=NONE) header.from=aol.com
+Received: from mtaout-mbc02.mx.aol.com (mtaout-mbc02.mx.aol.com [172.26.221.142])
+	by omr-m3.mx.aol.com (Outbound Mail Relay) with ESMTP id DDCF2380000A0;
+	Sat, 25 Jul 2015 09:29:15 -0400 (EDT)
+Received: from [192.168.1.158] (c-73-200-105-233.hsd1.dc.comcast.net [73.200.105.233])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mtaout-mbc02.mx.aol.com (MUA/Third Party Client Interface) with ESMTPSA id 9B89D38000091;
+	Sat, 25 Jul 2015 09:29:15 -0400 (EDT)
+Content-Type: text/plain;
+	charset=us-ascii
+Mime-Version: 1.0 (1.0)
+Subject: Re: Remarks at Iowa AFSCME convention
+From: Mandy Grunwald <gruncom@aol.com>
+X-Mailer: iPad Mail (12F69)
+In-Reply-To: <CAAEwKfwrcrKQqGxP3vj3iBNpo1RcmTGhmXsH7-+N1oDwqaAnhA@mail.gmail.com>
+Date: Sat, 25 Jul 2015 09:29:15 -0400
+CC: Brian Fallon <bfallon@hillaryclinton.com>, Jim <Jim.Margolis@gmmb.com>, 
+ Christina Reynolds <creynolds@hillaryclinton.com>, 
+ Joel Benenson <jbenenson@bsgco.com>, 
+ Kristina Schake <kschake@hillaryclinton.com>, 
+ Robby Mook <re47@hillaryclinton.com>, Huma Abedin <ha16@hillaryclinton.com>, 
+ Tony Carrk <tcarrk@hillaryclinton.com>, 
+ David Binder <David@db-research.com>, John Podesta <john.podesta@gmail.com>, 
+ John Anzalone <john@algpolling.com>, 
+ Jennifer Palmieri <jpalmieri@hillaryclinton.com>, 
+ Marlon Marshall <mmarshall@hillaryclinton.com>, 
+ Jake Sullivan <jsullivan@hillaryclinton.com>, 
+ Amanda Renteria <arenteria@hillaryclinton.com>, 
+ Oren Shur <oshur@hillaryclinton.com>, Matt Paul <mpaul@hillaryclinton.com>, 
+ Lily Adams <ladams@hillaryclinton.com>, 
+ Maya Harris <mharris@hillaryclinton.com>, 
+ Brynne Craig <bcraig@hillaryclinton.com>, 
+ Nikki Budzinski <nbudzinski@hillaryclinton.com>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <95806B80-03EF-44D9-AA6E-A593293E7FDB@aol.com>
+References: <CAAEwKfwrcrKQqGxP3vj3iBNpo1RcmTGhmXsH7-+N1oDwqaAnhA@mail.gmail.com>
+To: Dan Schwerin <dschwerin@hillaryclinton.com>
+x-aol-global-disposition: G
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mx.aol.com;
+	s=20150623; t=1437830955;
+	bh=hSYLhILz87m/HM7bu8rvFUYTyifAHbWI88PRpENa1h4=;
+	h=From:To:Subject:Message-Id:Date:Mime-Version:Content-Type;
+	b=fpVe6vkOgJGSbDlkFncuALU+ncdgTy7dNV4FDIk/F6ZKxScUybwH55znfi7CKc26g
+	 gs4zb8ek0tUXejycK+QN1tUPCurgekDW0M3riB3VSOtRTSDprz5aejG0qwYLpw++f0
+	 +SwUlHIER/EAmEJRdErFfzC4+3dk2ac5ABjO68JY=
+x-aol-sid: 3039ac1add8e55b38f2b69cf
+X-AOL-IP: 73.200.105.233
+
+
+Two things. =20
+
+It feels like a pretty retro view of unions vs. the private sector.  There a=
+re so many people in the union movement today trying to innovate to be relev=
+ant for the future -- is there anything we can say about that?
+
+Second, the complete assault on privatization seems off. I understand why it=
+'s popular here, but she did so many public-private partnerships at State, t=
+hat I think this goes too far in demonizing all private involvement in gover=
+nment.
+
+Thanks
+
+Mandy Grunwald
+Grunwald Communications
+202 973-9400
+
+
+> On Jul 25, 2015, at 12:57 AM, Dan Schwerin <dschwerin@hillaryclinton.com> w=
+rote:
+>=20
+> I believe the AFSCME convention on Saturday evening is still closed press,=
+ but flagging these draft remarks for everyone.
+>=20
+> Dan
+> <2015-07-24 AFSCME Iowa - 11pm.docx>

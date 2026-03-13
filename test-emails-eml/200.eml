@@ -1,0 +1,1194 @@
+Delivered-To: john.podesta@gmail.com
+Received: by 10.140.128.2 with SMTP id a2cs130586rvd;
+        Fri, 6 Jun 2008 18:50:54 -0700 (PDT)
+Received: by 10.143.12.19 with SMTP id p19mr278520wfi.171.1212803453209;
+        Fri, 06 Jun 2008 18:50:53 -0700 (PDT)
+Return-Path: <grbounce-4WpGdQUAAABX6aJFW9GviX2Fxj-sPCbK=john.podesta=gmail.com@googlegroups.com>
+Received: from wa-out-0708.google.com (wa-out-0708.google.com [209.85.146.247])
+        by mx.google.com with ESMTP id 30si1983790wfa.17.2008.06.06.18.50.50;
+        Fri, 06 Jun 2008 18:50:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of grbounce-4WpGdQUAAABX6aJFW9GviX2Fxj-sPCbK=john.podesta=gmail.com@googlegroups.com designates 209.85.146.247 as permitted sender) client-ip=209.85.146.247;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of grbounce-4WpGdQUAAABX6aJFW9GviX2Fxj-sPCbK=john.podesta=gmail.com@googlegroups.com designates 209.85.146.247 as permitted sender) smtp.mail=grbounce-4WpGdQUAAABX6aJFW9GviX2Fxj-sPCbK=john.podesta=gmail.com@googlegroups.com; dkim=pass (test mode) header.i=@googlegroups.com
+Received: by wa-out-0708.google.com with SMTP id m33so2888431waf.21
+        for <john.podesta@gmail.com>; Fri, 06 Jun 2008 18:50:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=beta;
+        h=domainkey-signature:received:received:x-sender:x-apparently-to
+         :received:received:received-spf:authentication-results:received
+         :received:received:message-id:date:from:to:subject:in-reply-to
+         :mime-version:content-type:references:sender:precedence
+         :x-google-loop:mailing-list:list-id:list-post:list-help
+         :list-unsubscribe;
+        bh=o8sgH9RclbnN/077TVIGkKML11GaQ72FVep9BY/LipA=;
+        b=S3OB0c6kwviWNgLZZleZ5N3r7D7apeZpp8JQEXqHYCrgCMswBnNtfXAYCoNvWh8tFQ
+         hc1BXwaNiSytYfzxZbNPKMJG53Ko2vrh1pYG9c9QpYkEe4D9eFyLPfenza2Uh5vPzYsV
+         N+tVevmH/CFC9u3qp+K3Yq7BwvEIQTL5P464I=
+DomainKey-Signature: a=rsa-sha1; c=nofws;
+        d=googlegroups.com; s=beta;
+        h=x-sender:x-apparently-to:received-spf:authentication-results
+         :message-id:date:from:to:subject:in-reply-to:mime-version
+         :content-type:references:sender:precedence:x-google-loop
+         :mailing-list:list-id:list-post:list-help:list-unsubscribe;
+        b=aXf/LEPhoqqItF/Whah+/CAMscxQxVCwVpjSgxvCrUV42meq2YZgpEUyNEh1saioDA
+         7McV8moxvXba1ttRXNbtz/Bvvt0b4fGAt8mT0QNKzczEhzrNKgUKKqCdvBjefD3VTC0A
+         lL8wkKgrrJ9j5BJRycjbxSKNqD1Qy3zIVsfPI=
+Received: by 10.114.176.1 with SMTP id y1mr54026wae.4.1212803444797;
+        Fri, 06 Jun 2008 18:50:44 -0700 (PDT)
+Received: by 10.107.113.4 with SMTP id q4gr802prm.0;
+	Fri, 06 Jun 2008 18:50:38 -0700 (PDT)
+X-Sender: grosalsky@progressivemediausa.org
+X-Apparently-To: bigcampaign@googlegroups.com
+Received: by 10.114.37.1 with SMTP id k1mr535488wak.7.1212803438320; Fri, 06 Jun 2008 18:50:38 -0700 (PDT)
+Return-Path: <grosalsky@progressivemediausa.org>
+Received: from wf-out-1314.google.com (wf-out-1314.google.com [209.85.200.170]) by mx.google.com with ESMTP id k36si2036827waf.0.2008.06.06.18.50.37; Fri, 06 Jun 2008 18:50:38 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.200.170 is neither permitted nor denied by best guess record for domain of grosalsky@progressivemediausa.org) client-ip=209.85.200.170;
+Authentication-Results: mx.google.com; spf=neutral (google.com: 209.85.200.170 is neither permitted nor denied by best guess record for domain of grosalsky@progressivemediausa.org) smtp.mail=grosalsky@progressivemediausa.org
+Received: by wf-out-1314.google.com with SMTP id 23so1164964wfg.30 for <bigcampaign@googlegroups.com>; Fri, 06 Jun 2008 18:50:37 -0700 (PDT)
+Received: by 10.143.43.7 with SMTP id v7mr272297wfj.234.1212803436934; Fri, 06 Jun 2008 18:50:36 -0700 (PDT)
+Received: by 10.143.8.2 with HTTP; Fri, 6 Jun 2008 18:50:36 -0700 (PDT)
+Message-ID: <4569b3c70806061850ie0e8fd1yc82e9251c20386b4@mail.gmail.com>
+Date: Fri, 6 Jun 2008 21:50:36 -0400
+From: "Gregory Rosalsky" <grosalsky@progressivemediausa.org>
+To: bigcampaign@googlegroups.com
+Subject: [big campaign] Media Monitoring Report - Evening 06/06/08
+In-Reply-To: <4F0E7974-6D0C-4D52-B38B-9015CACA327C@progressivemediausa.org>
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_Part_13563_2850208.1212803436917"
+References: <4F0E7974-6D0C-4D52-B38B-9015CACA327C@progressivemediausa.org>
+Sender: bigcampaign@googlegroups.com
+Precedence: bulk
+X-Google-Loop: groups
+Mailing-List: list bigcampaign@googlegroups.com;
+	contact bigcampaign-owner@googlegroups.com
+List-Id: <bigcampaign.googlegroups.com>
+List-Post: <mailto:bigcampaign@googlegroups.com>
+List-Help: <mailto:bigcampaign-help@googlegroups.com>
+List-Unsubscribe: <http://googlegroups.com/group/bigcampaign/subscribe>,
+	<mailto:bigcampaign-unsubscribe@googlegroups.com>
+
+------=_Part_13563_2850208.1212803436917
+Content-Type: text/plain; charset=WINDOWS-1252
+Content-Transfer-Encoding: quoted-printable
+
+*Main Topics: *McCain's New Ad, McCain and the Everglades, *McSame*
+
+*Summary of Shift:* Obama and Clinton's 'secret meeting' and the future for
+Hillary consumed significant analysis this evening. Senator Diane Feinstein
+had a positive impression of the meeting, who hosted the event at her house.
+Clinton is expected to endorse Obama tomorrow. The Obama campaign is
+planning a 50 state strategy for the fall campaign. John McCain toured the
+everglades in Florida and released his first general election ad today. The
+cable networks continued to discuss the legacy of RFK, in the wake of his
+assassination anniversary yesterday.
+            Today was a bad day for the economy. The Dow dropped close to
+400 points and unemployment numbers are up. There were riots in India in
+over gas prices.
+
+Highlights:
+1)    McCain releases new general election ad
+a.     "CBS Evening News" plays ad, Couric says the it "portrays himself as
+a reluctant warrior"
+b.     On Fox News: New McCain ad tries to paint McCain as un-hawkish war
+hero
+2)    McCain toured the everglades in Florida, defended vote against
+protecting them
+3)    Paul Begala: Comically analyzes McCain's oratory skills, jokes McCain
+will bomb "all the I countries, we have already had war with Iraq, next will
+be Iran, Indonesia, Iceland, Italy, probably Indiana"
+4)    "Hardball Big Number": McCain voted with George Bush 95% of the time
+in 2007
+5)    *McSame* as Bush on wiretapping, on "Countdown"
+6)    McCain appropriates Obama's messaging and atheistic on campaign
+website
+7)    President Bush announces appointment of a new Housing Secretary and
+talks about our sluggish economy
+8)    Rachel Maddow says "John McCain had a tough week", mentions his Iran
+divestment proposal that Obama already proposed last year and embarrassingly
+he voted against
+9)    Lieberman discusses why as a Democrat he supports McCain on Fox News
+10) Congressman Walker claims McCain is best at understanding economy
+11) On Fox News, Israeli Minister Shaul Mofaz: "Sanctions are Ineffective,
+Attacking Iran to Hault Nuclear Plans Will Be Unavoidable" (no clip)
+
+Clips:
+
+Highlight #1
+*"CBS Evening News" Plays McCain's New Ad, Couric Says the "New Ad Portrayed
+Himself as a Reluctant Warrior"* (CBS 06/06/06 6:30pm)
+KATIE COURIC: The presidential candidates used the dismal economic news
+today to take jabs at each other [...] Barack Obama blamed the big jump in
+unemployment on the "the failed Bush economic policies that John McCain
+wants to continue for another four years." McCain said Obama favors high
+spending and high taxes that will only hurt the economy.
+
+MCCAIN: Senator Obama seems to want to go back to the failed policies of the
+'60s and '70s.
+
+COURIC: McCain campaigned in Florida, a key battleground state, toured the
+everglades. And he put out a new ad that portrayed himself as a reluctant
+warrior [...]
+
+*New McCain Ad Tries to Paint McCain as UnHawkish War Hero* (FNC 06/06/08
+1:29pm)
+MARTHA MACCULLUM: Let's talk about John McCain for a moment and I want to
+get the rest of the panel's reaction to his new ad, as he looks at his own
+campaign, head to head against Barack Obama. Take a look.
+
+[=85Plays John McCain's new ad=85]
+
+MACCULLUM: Peter, what's your reaction to that?
+
+PETER JOHNSON: Well, it's a superb ad. I think he's done similar ads before
+in the primaries. And what it's saying is that he's a leader. Although he
+has a distaste for war, he's certainly committed to keeping the country
+safe. And so that's going to be his calling card for this election. Are you
+going to value someone who has no experience in foreign policy on the
+democratic side, or are you going to value republican candidate who has 5 =
+=BD
+years torture in a prison camp and is committed to keeping America safe.
+That will be the hallmark of his campaign.
+
+MACCULLUM: He's clearly trying to say I'm not a hawk. I'm a military man and
+I have a great deal of experience, but I'm not a hawk.
+
+
+Highlight #2
+*McCain Toured the Everglades in Florida, Defended Vote Against Protecting
+Them* (CNN 06/06/08 5:27)
+WOLF BLITZER: An old vote coming back to haunt the presumptive Republican
+presidential nominee, John McCain, just as he is touring the battleground
+state of Florida. Florida could be decisive come November [=85]
+
+SUSAN CANDIOTTI: [=85] In trying to prove that he is the greener of the two
+candidates Senator John McCain in fact made a visit to the Florida
+everglades and took an airboat ride to try and make that point.
+[=85]
+
+CANDIOTTI: [=85] Senator McCain is under fire by Democrats for opposing a 23
+billion dollar water resources development act that includes a 2 billion
+dollar everglades restoration project.
+
+[Clip of McCain media availability]
+
+JOHN MCCAIN: They don't get it, they don't get it that the American people
+are fed up, they are fed up with the waste of their dollars and the out of
+control spending that is going to come to a halt when I am a president of
+the United States
+
+CANDIOTTI: McCain says the bill also contains pork barrel projects.
+Democrats countered that McCain doesn't get it. Saying the bill only
+authorized the everglades project it didn't include the funding for it. The
+presumptive GOP nominee also reported for FISA, the foreign intelligence
+surveillance act. Allowing wiretapping phone calls without court
+authorization to prevent terrorism. President Bush so far has been unable to
+win reauthorization from congress.
+[=85]
+
+
+Highlight #3
+*Paul Begala: Comically Analyzes McCain's Oratory Skills, Jokes McCain Will
+Bomb "**All the I countries, we have already had war with Iraq, next will be
+Iran, Indonesia, Iceland, Italy, probably Indiana"* (CNN 06/06/08 5:34pm)
+PAUL BEGALA: Barack Obama has that silver tongue and that golden voice and
+Senator McCain has lead. He is dreadful speaker frankly, reading off
+prepared text. He is pretty good in town hall meetings, he is excellent in
+the interviews. He is the king of Sunday morning. You know, he is great in
+those. I don't think that is particularly useful for a president actually.
+To be a good interviewer on Sunday mornings. But he is really bad, I don't
+mean to be insulting but he was, and he stood. President Bush is also a
+terrible speaker, but he
+
+WOLF BLITZER: Didn't hurt him he got elected twice.
+
+BEGALA: Well he got elected once. The Supreme Court stole it the first time
+and he won the second time. But the Bush team always had great advance they
+had guys like Alex who cared about the pictures. The governor of Texas and
+then President Bush looked great at all his events. Poor McCain Tuesday
+night he had the green monster out there from Fenway Park. You know it
+looked pathetic.
+
+BLITZER: I think you will agree Alex, he needs some help
+
+ALEX CASTELLANOS Senator McCain's great strength is he is real, and acting
+the part is not certainly his strength but at the end of the day it is not
+about the packaging it is about the package. The substance is there. Look,
+no denying that Barack Obama is a remarkable, remarkable presenter and
+inspiring and that I think is a great strength in this election. But also a
+great strength is security, somebody you can trust, somebody solid. And
+McCain's strength is that.
+
+BLITZER: I don't think there is any doubt, there is no doubt in my mind that
+maybe since Ronald Regan no American politician has been able to read
+teleprompter, a speech, and make it look so natural that the viewers out
+there have no idea he is actually reading his speech.
+
+CASTELLANOS: He is the guy who can stand on top of the mountaintop and say
+we are going to go over here. And he lifts people that way. I think
+Republicans; we do ourselves a disservice when we say that that is
+unimportant. It's a big part of the job. But also a big part of the job is
+reassuring people that you can keep the country safe, that you're solid,
+you're reliable. If this is about the future, Obama has got an advantage.
+
+BEGALA: This is exactly the case George W Bush made. This is why John McCain
+is a third term of Bush. He is essentially saying, I know I can't inspire
+you I know I have no vision but I'll bomb a whole bunch of countries. Well
+we tried that, we have seen that movie, it didn't work out very well. I
+think people are very hungry for the sort of leadership that Barack Obama is
+offering.
+
+CASTELLANOS: Where, I missed that, he is going to bomb a whole bunch of
+countries
+
+BEGALA: All the I countries, we have already had war with Iraq, next will be
+Iran, Indonesia, Iceland, Italy, probably Indiana, I'm joking, I'm joking
+
+CASTELLANOS: Republicans have even kept democrats like you safe for six
+years.
+
+
+Highlight #4
+"Hardball Big Number": McCain voted with George Bush 95% of the time in 2007
+CHRIS MATTHEWS: So how are the Democrats gonna run against John McCain this
+Fall? By seizing on things like his 100 years statement about the Iraq war
+and by nailing his candidacy as George Bush's third term. McCain has made a
+point of touting of course his Maverick credentials, his actual Senate
+record may indicate otherwise. According to Congressional Quarterly voting
+tally from last year, what percentage of the time did John McCain cast votes
+in support of Bush's policies? 95. John McCain voted with Bush 95% of the
+time, last year at least. A statistic that could haunt him right up to
+election day. That is tonight's big number.
+
+
+Highlight #5
+*McSame as Bush on Wiretapping* (MSNBC 06/06/08 8:30pm)
+KEITH OLBERMANN: As with so many positions that Senator McCain hues closely
+and often precisely with the Bush Administration, the Senator has tried to
+finesse the issue of warrentless wiretaps [...] The McCain camp now clearly
+saying the Senator believes what the current president believes, that the
+president of the United States may claim authority to wiretap Americans even
+where that might directly contravene federal statute. In other words, the
+president may break the law using amorphous constitutional power as an
+excuse. The top adviser to Senator McCain set the record straight. In a
+letter by the Conservative National Review this week, Douglas Holtz-Eaken
+wrote that McCain believes the constitution gave President Bush the power to
+order the national security agency to monitor America's international phone
+calls and emails without a warrent [...] Do you see any daylight between
+President Bush's position on this and Senator McCain's?
+
+JOHN DEAN: No daylight whatsoever [...]
+
+
+Highlight #6
+McCain Appropriates Obama's Messaging and Atheistic on Campaign Website
+CHRIS MATTHEWS: By now, we've all gotten familiar with Obama's campaign
+slogan, it's 'Change we can believe in.' Well apparently that message is so
+popular, even John McCain is a fan, check out the first page of McCain's new
+website, 'A leader we can believe in.' John McCain and his people may have
+seen the success Obama's had with his strong claim of authenticity, McCain
+too wants to be someone we can believe in.
+
+
+Highlight #7
+*President Bush Announces Appointment of a New Housing Secretary and Talks
+About the Economy* (FNC 06/06/08 1:45pm)
+THE PRESIDENT: Welcome. Thank you. It's -- so glad to be here at the
+Department of Housing and Urban Development. And I've come to introduce you
+to your new boss -- Secretary Steve Preston. I want to thank Steve's wife,
+Molly, five children -- (applause) -- and his mom and dad, Lee and Ursula.
+
+Mr. Secretary, thanks for coming -- Secretary Kempthorne. And Director John
+Walters. It's good to see two of your predecessors here, Steve -- Alphonso
+Jackson and Jack Kemp. Thank you all for coming. (Applause.)
+
+This is a time of turbulence in the housing market and slow growth for our
+overall economy. This morning, the Labor Department reported that our
+economy lost 49,000 jobs in May, and the unemployment rate rose to 5.5
+percent. This rise was caused, in part, by a surge of new young entrants
+into the job market. But it's clearly a sign that is consistent with slow
+economic growth.
+
+To help keep this economy growing, we did pass an economic stimulus package
+that provides tax rebates for American families and incentives for
+businesses to invest in new equipment. We're beginning to see the signs that
+the stimulus may be working. And now the Congress needs to take the next
+steps. At a time when Americans are concerned about higher gas prices,
+Congress needs to pass legislation that expands -- that will allow for the
+expansion of American energy production.
+
+In this period of economic uncertainty, the last thing Americans need is a
+massive tax increase -- so Congress needs to send a clear message that the
+tax relief that we passed will be made permanent. (Applause.)
+
+Unfortunately, these policies are being blocked by the Democratic Congress.
+So I call on congressional leaders to put partisanship aside, and work with
+me to enact these important initiatives for the American people.
+
+This department is also critical to meeting the challenges we face in our
+economy. We need strong leadership in the Secretary's office. Steve Preston
+is the right man for the job. He's a financial expert who understands how
+the housing market impacts our broader economy. He's a skilled manager. He's
+a person of character and integrity.
+
+Secretary Preston will work to strengthen home ownership with the same
+dedication he brought to his previous job of strengthening American small
+business community. As the head of the SBA, Steve presided over loan
+guarantee programs that are similar in structure to those run by the Federal
+Housing Administration. And just as entrepreneurs across our nation found a
+trusted friend in Steve Preston, so will America's homeowners.
+
+Before coming to the SBA, Steve gained valuable financial and leadership
+experience in the private sector. His impressive career has taken him from
+investment banking to senior financial posts at major corporations. Wherever
+he's gone, Steve has earned the admiration of his colleagues. He takes on
+this new challenge with my full confidence and my trust.
+
+Steve takes over for a good man, my longtime buddy, Secretary Alphonso
+Jackson. (Applause.) I thank you for your compassion and your hard work. You
+helped change a lot of lives. And I wish you and Marcia all the very best.
+See you back in Texas. (Laughter.)
+
+I also want to thank Deputy Secretary Roy Bernardi for his service. He
+filled in as the Acting Secretary during this transition. He spent nearly
+seven years of his life here at this department. And I appreciate your hard
+work on behalf of all Americans. (Applause.)
+
+As Steve takes office, his first priority will [be] to help lead my
+administration's response to the challenges in the housing market. We've
+taken aggressive action to help responsible homeowners to keep their homes
+by giving the FHA greater flexibility to offer refinancing options. We're
+also helping to bring together what's now called the HOPE NOW Alliance. By
+working together, participants in the mortgage industry have helped more
+than one and a half million families stay in their homes. HOPE NOW is
+working. But we've got more to do.
+
+Yesterday, we learned that the foreclosure rates continued to rise in the
+first quarter. So Steve will work with Democrats and Republicans in Congress
+to address this challenge. We need to pass legislation to reform Fannie Mae
+and Freddie Mac. We need to pass legislation to modernize the Federal
+Housing Administration, and allow state housing agencies to issue tax-free
+bonds to help homeowners refinance their mortgages. By taking these steps
+we'll help more responsible homeowners weather this rough patch -- and, at
+the same time, strengthen the dream of homeownership for generations to
+come.
+
+I've got confidence that we're going to meet these challenges, and I've got
+confidence in the people who work in this department. I appreciate what you
+do every day to expand the dream of home ownership. I thank you for your
+efforts to provide low-income Americans with access to affordable housing.
+You work hard to make our communities more vibrant and hopeful. The United
+States is fortunate to have such devoted public servants at this department.
+I'm grateful for your service.
+
+You're going to have a worthy leader in Steve Preston. I thank the Senate
+for confirming Steve as your new Secretary. And now I ask the Senate to
+confirm the three remaining HUD nominees to help him lead this department.
+
+Steve, I appreciate your stepping forward to serve your country once again.
+I congratulate you. Now I ask my Chief of Staff, Josh Bolten, to administer
+the oath of office.
+
+(The oath of office is administered.) (Applause.)
+
+SECRETARY PRESTON: Great. Thank you very much. Mr. President, Chief of Staff
+Bolten, Molly, my children, my parents. Current and former members of the
+Cabinet, thank you for coming. My new partners at HUD, my friends --
+(applause) -- and the many other distinguished guests here. Thank you for
+being here today. This is truly very humbling to see you all here to
+celebrate this event.
+
+It is a profound privilege to serve our country as the Secretary for Housing
+and Urban Development, and to be a voice for the people that we serve. Thank
+you, Mr. President, for that confidence, for that trust. I also want to
+thank Senators Dodd and Shelby for their role in expediting the nomination
+process.
+
+Ladies and gentlemen, it's appropriate that we gather here in this building.
+It's named for Robert C. Weaver, who was the first Secretary for HUD. And
+Dr. Weaver cautioned against treating people like statistics or data. In
+fact, he asked instead that we look behind the data to see the values and
+the concerns and the hopes and the lives of the people that we all serve.
+
+We assist the homeless find shelter here at HUD. We help provide millions of
+Americans with affordable and public housing. Families who want to buy a
+home often turn to us. And increasingly, those we -- who are currently in
+homes come to us to keep them.
+
+We know that home ownership can be a source of pride. It can be a place to
+grow up and grow old together. It can be a source for wealth creation. And
+it is a source of -- it is a stake in our communities. And also at HUD, we
+have a role of building and rebuilding many of those communities.
+
+At the moment, there are difficulties in the housing market, and this is a
+decisive moment in our nation's economic history. HUD will be central to
+restoring stability in our markets and in the lives of many Americans. In
+fact, just in the last year, thanks to changes made by you, Mr. President,
+FHA is increasingly a pathway for hundreds of thousands of families to a
+more affordable, secure mortgage. And thank you. (Applause.)
+
+And while we're all committed to addressing the immediate challenges in the
+housing market, we must also show the same kind of commitment to our future.
+We must provide a longer-term foundation for reform in the institutions that
+give homeowners access to capital to make that American Dream possible,
+while also generating enduring confidence in our financial markets.
+
+As we confront these challenges, we're blessed with talented and committed
+employees at HUD. You understand that we can make a difference. In the next
+few months, we will need the best efforts of every one of you in the path
+ahead.
+
+So, Mr. President, I look forward to working with you. I look forward to
+working with my partners in the administration. I'm committed to
+collaborating in a bipartisan fashion with members of Congress on the path
+ahead. So, ladies and gentlemen, let's roll up our sleeves, let's lock our
+arms. We have a lot of work to do we can do together as a team. So thank you
+very much. (Applause.)
+
+
+Highlight #8
+*Rachel Maddow Says "John McCain Had a Tough Week", Mentions his Iran
+Divestment Proposal That Obama Already Proposed Last Year and Embarrassingly
+He Voted Against*  (MSNBC 06/06/08 6:30pm)
+RACHEL MADDOW: I think that John McCain had a tough week. He had some
+unforced errors, that is my headline tonight. He's making these errors, not
+because he's taken any big hits from the Democrats, he's doing it to
+himself. On Monday proposed a divestment campaign on Iran. His campaign
+seemed caught off guard by the revelation that Obama proposed that idea last
+year without McCain supporting it. On Tuesday, McCain's green backdrop
+speech in Lousiana was about as well received as a Derek Jeeter Jersey in
+downtown Boston. On that same trip McCain was also apparently caught off
+guard by questions about his own record on investigating Hurricane Katrina.
+Then it was off to the Everglades where McCain had to spend his time
+defending his votes against protecting the everglades, instead of what he
+wanted to do which was to promote his environmental credentials. I think
+it's been a week of unforced errors for the McCain campaign. And I think
+it's making people wonder whether or not he didn't take advantage of the
+three month head-start he got in this General Election by sort of working
+the kinks out of his campaign [...]
+
+
+Highlight #9
+*Lieberman Discusses Why As a Democrat He Supports McCain on Fox News* (Fox
+News Live, 06/06/08 12:41pm)
+JOE LIEBERMAN: There are two main reasons why last December I decided to
+cross party lines and support the Republican candidate John McCain. Overall,
+because I think he's the best prepared, over anyone who ran this year to be
+the president we need. One, he's ready to be commander and chief. Not just
+to lead our effort in Iraq and Afghanistan but to protect us around the
+world from the terrorists who attacked us on 9/11. But I've traveled around
+the world with John McCain over the last 20 years and he is well regarded
+and trusted by leaders all over the world and he knows the world. Secondly,
+the biggest problem our government has in it today, is us. It's
+partisanship, it's tribalism that divides us. Senator McCain has been unique
+in this place for just reaching across party lines, working with people he
+may not agree with on nine other issues, but the one he agrees with to move
+on, why because he wants to get something done for our country and that's
+the kind of person we need as president. So I'm proud to be a supporter and
+I'm going to help him all I can because I think he's best for America.
+
+
+Highlight #10
+*Congressman Walker Claims McCain is Best at Understanding Economy* (Fox
+News 06/06/08 11:27am)
+JON SCOTT: What do you see transpiring in a John McCain administration,
+should he win?
+
+BOB WALKER: John McCain understands that you have to strengthen the weakest
+parts of your economy and you have to use the strong parts of your economy
+to your advantage. John McCain recognizes that a tax increase at this time
+would not be the right policy, and Barack Obama, across the board, is
+talking about a tax increase. John McCain wants to actually lower taxes, in
+particular make smaller businesses more productive. Secondly, John McCain
+recognizes that the strongest part of our economy is in our exports at the
+present time. He will expand the ability to sell American products overseas
+by expanding our free trade agreements. None like Barack Obama, who actually
+wants to back out of our trade agreements that we now have.
+
+SCOTT: Should we listen to either one of these guys?
+
+KELLY BINGEL: With all due respect to the congressman, I do have to say,
+Barack Obama is not talking about tax increases across the board. He's
+talking about a tax decrease of a thousand dollars for middle class
+families. And he's not talking about renegotiating all our trade agreements,
+he's talking about fair and free trade and looking at some of the
+environmental and labor agreements. That's what he's talking about, he's not
+talking about renegotiation all our trade agreements.
+
+WALKER: He is talking about a unilateral renegotiation of the NAFTA
+agreement. Our biggest trading partners at the present time are Canada and
+Mexico. We are a huge beneficiary of that agreement. By putting that
+agreement into jeopardy, he is in fact causing some of the problems that are
+now on Wall Street, because they have a great deal of concern about that. As
+for tax increases, his tax increase will go directly to small business.
+Small business owners are people who use the individual income taxes to pay
+the taxes on their business. The tax increase that he is proposing will have
+a devastating effect on small business.
+
+SCOTT: Let me ask you this, Kelly, on the day that Barack Obama wrapped up
+the nomination, when he locked it up, the DOW pushed lower. I that a
+coincidence?
+
+BINGEL: No, I mean, yes it is a coincidence. It has nothing to do with
+Senator Obama, it has to do with the price per barrel of oil which continues
+to go up. That's what it has to do with, it has nothing to do with Senator
+Obama. And I think that most Americans recognize that what we need is change
+for our economy, and Senator McCain will give us four more years of this
+Bush administration. There's nothing different from President Bush's
+economic plans than from Senator McCain's economic plan. And Americans'
+don't want four more years of a Bush White House.
+
+WALKER: Those are slogans that have absolutely nothing to do with securing
+the ills of the economy. You need to have somebody who understands the
+economy like John McCain.
+
+--=20
+Gregory E. Rosalsky
+Progressive Media USA
+202-609-7691 (office)
+707-484-3796 (cell)
+GRosalsky@progressivemediausa.org
+
+--~--~---------~--~----~------------~-------~--~----~
+You received this message because you are subscribed to the "big campaign" g=
+roup.
+
+To post to this group, send to bigcampaign@googlegroups.com
+
+To unsubscribe, send email to bigcampaign-unsubscribe@googlegroups.com
+
+E-mail ryan@campaigntodefendamerica.org with questions or concerns
+ 
+This is a list of individuals. It is not affiliated with any group or organi=
+zation.
+-~----------~----~----~----~------~----~------~--~---
+
+
+------=_Part_13563_2850208.1212803436917
+Content-Type: text/html; charset=WINDOWS-1252
+Content-Transfer-Encoding: quoted-printable
+
+<b style=3D"font-family: times new roman,serif;">Main Topics:&nbsp;</b><font=
+ style=3D"font-family: times new roman,serif;" face=3D"&#39;Times New Roman&=
+#39;">McCain&#39;s New Ad, McCain and the Everglades, <i>McSame</i></font><b=
+r style=3D"font-family: times new roman,serif;">
+<div style=3D"font-family: times new roman,serif;" class=3D"gmail_quote"><di=
+v style=3D""><br><b>Summary of Shift:</b> Obama and Clinton's
+'secret meeting' and the future for Hillary consumed significant analysis th=
+is
+evening. Senator Diane Feinstein had a positive impression of the meeting, w=
+ho
+hosted the event at her house. Clinton is expected to endorse Obama tomorrow=
+.
+The Obama campaign is planning a 50 state strategy for the fall campaign. Jo=
+hn
+McCain toured the everglades in Florida and released his first general elect=
+ion
+ad today. The cable networks continued to discuss the legacy of RFK, in the
+wake of his assassination anniversary yesterday.<br><span>&nbsp;&nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp;</span>Today
+was a bad day for the economy. The Dow dropped close to 400 points and
+unemployment numbers are up. There were riots in India in over gas prices.<b=
+r><span>&nbsp;</span><br><span style=3D"font-weight: bold;">Highlights:</spa=
+n><br><span><span>1)<span><font size=3D"3">&nbsp;&nbsp;&nbsp; </font></span>=
+</span></span><span>McCain releases new general election ad</span><br>
+<span><span><span style=3D"white-space: pre;">	</span>a.<span><font size=3D"=
+3">&nbsp;&nbsp;&nbsp;&nbsp; </font></span></span></span><span>"CBS Evening N=
+ews" plays ad, Couric says the
+it "portrays himself as a reluctant warrior"</span><br><span><span><span sty=
+le=3D"white-space: pre;">	</span>b.<span><font size=3D"3">&nbsp;&nbsp;&nbsp;=
+&nbsp; </font></span></span></span><span style=3D"color: black;">On Fox News=
+: New McCain ad tries to paint McCain as
+un-hawkish war hero</span><br><span><span>2)<span><font size=3D"3">&nbsp;&nb=
+sp;&nbsp; </font></span></span></span>McCain
+toured the everglades in Florida, defended vote against protecting them<br><=
+span><span>3)<span><font size=3D"3">&nbsp;&nbsp;&nbsp; </font></span></span>=
+</span>Paul
+Begala: Comically analyzes McCain's oratory skills, jokes McCain will bomb "=
+<span style=3D"color: black;">all the I countries, we have already had war w=
+ith Iraq, next will
+be Iran, Indonesia, Iceland, Italy, probably Indiana"</span><br><span><span>=
+4)<span><font size=3D"3">&nbsp;&nbsp;&nbsp; </font></span></span></span><spa=
+n>"Hardball Big Number": McCain voted with
+George Bush 95% of the time in 2007</span><br><span><span>5)<span><font size=
+=3D"3">&nbsp;&nbsp;&nbsp; </font></span></span></span><i><span style=3D"colo=
+r: black;">McSame</span></i><span style=3D"color: black;"> as Bush on wireta=
+pping, on "Countdown"</span><br>
+<span><span>6)<span><font size=3D"3">&nbsp;&nbsp;&nbsp; </font></span></span=
+></span><span>McCain appropriates Obama's messaging and
+atheistic on campaign website</span><br><span><span>7)<span><font size=3D"3"=
+>&nbsp;&nbsp;&nbsp; </font></span></span></span><span>President Bush announc=
+es appointment of a new
+Housing Secretary and talks about our sluggish economy</span><br><span><span=
+>8)<span><font size=3D"3">&nbsp;&nbsp;&nbsp; </font></span></span></span><sp=
+an>Rachel Maddow says "John McCain had a tough
+week", mentions his Iran divestment proposal that Obama already proposed las=
+t year
+and embarrassingly he voted against</span><br><span><span>9)<span><font size=
+=3D"3">&nbsp;&nbsp;&nbsp; </font></span></span></span><span style=3D"color: =
+black;">Lieberman discusses why as a Democrat he supports McCain on
+Fox News</span><br><span><span>10)<span><font size=3D"3"> </font></span></sp=
+an></span>Congressman
+Walker claims McCain is best at understanding economy<br><span><span>11)<spa=
+n><font size=3D"3"> </font></span></span></span><span style=3D"color: black;=
+">On Fox News, Israeli Minister Shaul Mofaz: "Sanctions are
+Ineffective, Attacking Iran to Hault Nuclear Plans Will Be Unavoidable" (no
+clip)</span><br><span style=3D"font-weight: bold;">&nbsp;</span><br><span st=
+yle=3D"font-weight: bold;">Clips:</span><br><span>&nbsp;</span><br><span><sp=
+an style=3D"text-decoration: underline;">Highlight #1</span></span><br><b><i=
+>"CBS
+Evening News" Plays McCain's New Ad, Couric Says the "New Ad Portrayed Himse=
+lf
+as a Reluctant Warrior"</i></b><span> (CBS
+06/06/06 6:30pm)</span><br><span>KATIE COURIC: The presidential
+candidates used the dismal economic news today to take jabs at each other [.=
+..]
+Barack Obama blamed the big jump in unemployment on the &quot;the failed Bus=
+h
+economic policies that John McCain wants to continue for another four
+years.&quot; McCain said Obama favors high spending and high taxes that will
+only hurt the economy.</span><br><span>&nbsp;</span><br><span>MCCAIN: Senato=
+r Obama seems to want
+to go back to the failed policies of the &#39;60s and &#39;70s.</span><br><s=
+pan>&nbsp;</span><br><span>COURIC: McCain campaigned in
+Florida, a key battleground state, toured the everglades. And he put out a n=
+ew
+ad that portrayed himself as a reluctant warrior [...]</span><br><span style=
+=3D"font-weight: bold;">&nbsp;</span><br><b><i><span style=3D"color: black;"=
+>New McCain Ad
+Tries to Paint McCain as UnHawkish War Hero</span></i></b><span style=3D"col=
+or: black;"> (FNC 06/06/08 1:29pm)</span><br><span>MARTHA MACCULLUM: Let's
+talk about John McCain for a moment and I want to get the rest of the panel'=
+s
+reaction to his new ad, as he looks at his own campaign, head to head agains=
+t
+Barack Obama. Take a look.</span><br><span>&nbsp;</span><br><span style=3D"f=
+ont-style: italic;">[=85Plays John McCain's new ad=85]</span><br><span>&nbsp=
+;</span><br><span>MACCULLUM: Peter, what's
+your reaction to that?</span><br><span>&nbsp;</span><br><span>PETER JOHNSON:=
+ Well,
+it's a superb ad. I think he's done similar ads before in the primaries. And
+what it's saying is that he's a leader. Although he has a distaste for war,
+he's certainly committed to keeping the country safe. And so that's going to=
+ be
+his calling card for this election. Are you going to value someone who has n=
+o
+experience in foreign policy on the democratic side, or are you going to val=
+ue
+republican candidate who has 5 =BD years torture in a prison camp and is
+committed to keeping America safe. That will be the hallmark of his campaign=
+.</span><br><span>&nbsp;</span><br><span>MACCULLUM: He's clearly
+trying to say I'm not a hawk. I'm a military man and I have a great deal of
+experience, but I'm not a hawk.</span><br><span>&nbsp;</span><br><span style=
+=3D"font-weight: bold;">&nbsp;</span><br><span><span style=3D"text-decoratio=
+n: underline;">Highlight #2</span></span><br><b><i>McCain Toured the Evergla=
+des in Florida,
+Defended Vote Against Protecting Them</i></b> (CNN 06/06/08 5:27)<br><span>W=
+OLF BLITZER: An old vote coming back to haunt the
+presumptive Republican presidential nominee, John McCain, just as he is tour=
+ing
+the battleground state of Florida. Florida could be decisive come November [=
+=85]</span><br><span>&nbsp;</span><br><span>SUSAN CANDIOTTI: [=85] In trying=
+ to prove that he is
+the greener of the two candidates Senator John McCain in fact made a visit t=
+o
+the Florida everglades and took an airboat ride to try and make that point.<=
+/span><br><span>[=85]</span><br><span>&nbsp;</span><br><span>CANDIOTTI: [=85=
+] Senator McCain is under fire by
+Democrats for opposing a 23 billion dollar water resources development act t=
+hat
+includes a 2 billion dollar everglades restoration project.</span><br><span>=
+&nbsp;</span><br><span style=3D"font-style: italic;">[Clip of
+McCain media availability]</span><br><span>&nbsp;</span><br><span>JOHN MCCAI=
+N: They don't get it, they don't get it
+that the American people are fed up, they are fed up with the waste of their
+dollars and the out of control spending that is going to come to a halt when=
+ I
+am a president of the United States</span><br><span>&nbsp;</span><br><span>C=
+ANDIOTTI: McCain says the bill also contains pork
+barrel projects. Democrats countered that McCain doesn't get it. Saying the
+bill only authorized the everglades project it didn't include the funding fo=
+r
+it. The presumptive GOP nominee also reported for FISA, the foreign
+intelligence surveillance act. Allowing wiretapping phone calls without cour=
+t
+authorization to prevent terrorism. President Bush so far has been unable to
+win reauthorization from congress.</span><br><span>[=85]</span><br><span>&nb=
+sp;</span><br><span>&nbsp;</span><br><span><span style=3D"text-decoration: u=
+nderline;">Highlight #3</span></span><br><b><i>Paul Begala: Comically Analyz=
+es McCain's
+Oratory Skills, Jokes McCain Will Bomb "</i></b><b><i><span style=3D"color: =
+black;">All the I
+countries, we have already had war with Iraq, next will be Iran, Indonesia,
+Iceland, Italy, probably Indiana"</span></i></b> (CNN 06/06/08 5:34pm)<br><s=
+pan>PAUL BEGALA: Barack Obama has that
+silver tongue and that golden voice and Senator McCain has lead. He is dread=
+ful
+speaker frankly, reading off prepared text. He is pretty good in town hall
+meetings, he is excellent in the interviews. He is the king of Sunday mornin=
+g.
+You know, he is great in those. I don't think that is particularly useful fo=
+r a
+president actually. To be a good interviewer on Sunday mornings. But he is
+really bad, I don't mean to be insulting but he was, and he stood. President
+Bush is also a terrible speaker, but he</span><br><span>&nbsp;</span><br><sp=
+an>WOLF BLITZER: Didn't hurt him he
+got elected twice.</span><br><span>&nbsp;</span><br><span>BEGALA: Well he go=
+t elected once.
+The Supreme Court stole it the first time and he won the second time. But th=
+e
+Bush team always had great advance they had guys like Alex who cared about t=
+he
+pictures. The governor of Texas and then President Bush looked great at all =
+his
+events. Poor McCain Tuesday night he had the green monster out there from
+Fenway Park. You know it looked pathetic.</span><br><span>&nbsp;</span><br><=
+span>BLITZER: I think you will agree
+Alex, he needs some help</span><br><span>&nbsp;</span><br><span>ALEX CASTELL=
+ANOS Senator McCain's
+great strength is he is real, and acting the part is not certainly his stren=
+gth
+but at the end of the day it is not about the packaging it is about the
+package. The substance is there. Look, no denying that Barack Obama is a
+remarkable, remarkable presenter and inspiring and that I think is a great
+strength in this election. But also a great strength is security, somebody y=
+ou
+can trust, somebody solid. And McCain's strength is that.</span><br><span>&n=
+bsp;</span><br><span>BLITZER: I don't think there is any
+doubt, there is no doubt in my mind that maybe since Ronald Regan no America=
+n
+politician has been able to read teleprompter, a speech, and make it look so
+natural that the viewers out there have no idea he is actually reading his
+speech.</span><br><span>&nbsp;</span><br>CASTELLANOS: He is the guy who can
+stand on top of the mountaintop and say we are going to go over here. And he
+lifts people that way. I think Republicans; we do ourselves a disservice whe=
+n
+we say that that is unimportant. It's a big part of the job. But also a big
+part of the job is reassuring people that you can keep the country safe, tha=
+t
+you're solid, you're reliable. If this is about the future, Obama has got an
+advantage.<span>&nbsp;&nbsp;</span><br><span>&nbsp;</span><br><span>BEGALA: =
+This is exactly the case
+George W Bush made. This is why John McCain is a third term of Bush. He is
+essentially saying, I know I can't inspire you I know I have no vision but I=
+'ll
+bomb a whole bunch of countries. Well we tried that, we have seen that movie=
+,
+it didn't work out very well. I think people are very hungry for the sort of
+leadership that Barack Obama is offering.</span><br><span>&nbsp;</span><br><=
+span>CASTELLANOS: Where, I missed that,
+he is going to bomb a whole bunch of countries</span><br><span>&nbsp;</span>=
+<br><span>BEGALA: All the I countries, we
+have already had war with Iraq, next will be Iran, Indonesia, Iceland, Italy=
+,
+probably Indiana, I'm joking, I'm joking</span><br><span>&nbsp;</span><br><s=
+pan>CASTELLANOS: Republicans have even
+kept democrats like you safe for six years.</span><br><span>&nbsp;</span><br=
+><span>&nbsp;</span><br><span><span style=3D"text-decoration: underline;">Hi=
+ghlight #4</span></span><br><span style=3D"font-style: italic; font-weight: =
+bold;">"Hardball
+Big Number": McCain voted with George Bush 95% of the time in 2007</span><br=
+><span>CHRIS MATTHEWS: So how are the
+Democrats gonna run against John McCain this Fall? By seizing on things like
+his 100 years statement about the Iraq war and by nailing his candidacy as
+George Bush&#39;s third term. McCain has made a point of touting of course h=
+is
+Maverick credentials, his actual Senate record may indicate otherwise.
+According to Congressional Quarterly voting tally from last year, what
+percentage of the time did John McCain cast votes in support of Bush&#39;s
+policies? 95. John McCain voted with Bush 95% of the time, last year at leas=
+t.
+A statistic that could haunt him right up to election day. That is tonight&#=
+39;s
+big number.</span><br><span>&nbsp;</span><br><span style=3D"font-weight: bol=
+d;">&nbsp;</span><br><span><span style=3D"text-decoration: underline;">Highl=
+ight #5</span></span><br><b><i><span style=3D"color: black;">McSame as Bush =
+on Wiretapping</span></i></b><span style=3D"color: black;"> (MSNBC 06/06/08 =
+8:30pm)</span><br>
+<span>KEITH OLBERMANN: As with so many
+positions that Senator McCain hues closely and often precisely with the Bush
+Administration, the Senator has tried to finesse the issue of warrentless
+wiretaps [...] The McCain camp now clearly saying the Senator believes what =
+the
+current president believes, that the president of the United States may clai=
+m
+authority to wiretap Americans even where that might directly contravene
+federal statute. In other words, the president may break the law using
+amorphous constitutional power as an excuse. The top adviser to Senator McCa=
+in
+set the record straight. In a letter by the Conservative National Review thi=
+s
+week, Douglas Holtz-Eaken wrote that McCain believes the constitution gave
+President Bush the power to order the national security agency to monitor
+America&#39;s international phone calls and emails without a warrent [...] D=
+o you
+see any daylight between President Bush&#39;s position on this and Senator
+McCain&#39;s?</span><br><span>&nbsp;</span><br><span>JOHN DEAN: No daylight =
+whatsoever
+[...]</span><br><span>&nbsp;</span><br><span style=3D"font-weight: bold;">&n=
+bsp;</span><br><span><span style=3D"text-decoration: underline;">Highlight #=
+6</span></span><br><span style=3D"font-style: italic; font-weight: bold;">Mc=
+Cain
+Appropriates Obama's Messaging and Atheistic on Campaign Website<span>&nbsp;=
+</span></span><br><span>CHRIS MATTHEWS: By now,
+we&#39;ve all gotten familiar with Obama&#39;s campaign slogan, it&#39;s &#3=
+9;Change we can
+believe in.&#39; Well apparently that message is so popular, even John McCai=
+n is a
+fan, check out the first page of McCain&#39;s new website, &#39;A leader we =
+can believe
+in.&#39; John McCain and his people may have seen the success Obama&#39;s ha=
+d with his
+strong claim of authenticity, McCain too wants to be someone we can believe =
+in.</span><br><span>&nbsp;</span><br><span>&nbsp;</span><br><span><span styl=
+e=3D"text-decoration: underline;">Highlight #7</span></span><br><b><i>Presid=
+ent
+Bush Announces Appointment of a New Housing Secretary and Talks About the Ec=
+onomy</i></b><span> (FNC 06/06/08 1:45pm)</span><br><span>THE PRESIDENT: Wel=
+come.
+Thank you. It&#39;s -- so glad to be here at the Department of Housing and U=
+rban
+Development. And I&#39;ve come to introduce you to your new boss -- Secretar=
+y Steve
+Preston. I want to thank Steve&#39;s wife, Molly, five children -- (applause=
+) --
+and his mom and dad, Lee and Ursula.</span><br><span>&nbsp;</span><br><span>=
+Mr. Secretary, thanks for coming --
+Secretary Kempthorne. And Director John Walters. It&#39;s good to see two of=
+ your
+predecessors here, Steve -- Alphonso Jackson and Jack Kemp. Thank you all fo=
+r
+coming. (Applause.)</span><br><span>&nbsp;</span><br><span>This is a time of=
+ turbulence in the
+housing market and slow growth for our overall economy. This morning, the La=
+bor
+Department reported that our economy lost 49,000 jobs in May, and the
+unemployment rate rose to 5.5 percent. This rise was caused, in part, by a
+surge of new young entrants into the job market. But it&#39;s clearly a sign=
+ that
+is consistent with slow economic growth.</span><br><span>&nbsp;</span><br><s=
+pan>To help keep this economy growing,
+we did pass an economic stimulus package that provides tax rebates for Ameri=
+can
+families and incentives for businesses to invest in new equipment. We&#39;re
+beginning to see the signs that the stimulus may be working. And now the
+Congress needs to take the next steps. At a time when Americans are concerne=
+d
+about higher gas prices, Congress needs to pass legislation that expands --
+that will allow for the expansion of American energy production.</span><br><=
+span>&nbsp;</span><br><span>In this period of economic
+uncertainty, the last thing Americans need is a massive tax increase -- so
+Congress needs to send a clear message that the tax relief that we passed wi=
+ll
+be made permanent. (Applause.)</span><br><span>&nbsp;</span><br><span>Unfort=
+unately, these policies are
+being blocked by the Democratic Congress. So I call on congressional leaders=
+ to
+put partisanship aside, and work with me to enact these important initiative=
+s
+for the American people.</span><br><span>&nbsp;</span><br><span>This departm=
+ent is also critical to
+meeting the challenges we face in our economy. We need strong leadership in =
+the
+Secretary&#39;s office. Steve Preston is the right man for the job. He&#39;s=
+ a
+financial expert who understands how the housing market impacts our broader
+economy. He&#39;s a skilled manager. He&#39;s a person of character and inte=
+grity.</span><br><span>&nbsp;</span><br><span>Secretary Preston will work to
+strengthen home ownership with the same dedication he brought to his previou=
+s
+job of strengthening American small business community. As the head of the S=
+BA,
+Steve presided over loan guarantee programs that are similar in structure to
+those run by the Federal Housing Administration. And just as entrepreneurs
+across our nation found a trusted friend in Steve Preston, so will America&#=
+39;s
+homeowners.</span><br><span>&nbsp;</span><br><span>Before coming to the SBA,=
+ Steve
+gained valuable financial and leadership experience in the private sector. H=
+is
+impressive career has taken him from investment banking to senior financial
+posts at major corporations. Wherever he&#39;s gone, Steve has earned the
+admiration of his colleagues. He takes on this new challenge with my full
+confidence and my trust.</span><br><span>&nbsp;</span><br><span>Steve takes =
+over for a good man, my
+longtime buddy, Secretary Alphonso Jackson. (Applause.) I thank you for your
+compassion and your hard work. You helped change a lot of lives. And I wish =
+you
+and Marcia all the very best. See you back in Texas. (Laughter.)</span><br><=
+span>&nbsp;</span><br><span>I also want to thank Deputy
+Secretary Roy Bernardi for his service. He filled in as the Acting Secretary
+during this transition. He spent nearly seven years of his life here at this
+department. And I appreciate your hard work on behalf of all Americans.
+(Applause.)</span><br><span>&nbsp;</span><br><span>As Steve takes office, hi=
+s first
+priority will [be] to help lead my administration&#39;s response to the chal=
+lenges
+in the housing market. We&#39;ve taken aggressive action to help responsible
+homeowners to keep their homes by giving the FHA greater flexibility to offe=
+r
+refinancing options. We&#39;re also helping to bring together what&#39;s now=
+ called the
+HOPE NOW Alliance. By working together, participants in the mortgage industr=
+y
+have helped more than one and a half million families stay in their homes. H=
+OPE
+NOW is working. But we&#39;ve got more to do.</span><br><span>&nbsp;</span><=
+br><span>Yesterday, we learned that the
+foreclosure rates continued to rise in the first quarter. So Steve will work
+with Democrats and Republicans in Congress to address this challenge. We nee=
+d
+to pass legislation to reform Fannie Mae and Freddie Mac. We need to pass
+legislation to modernize the Federal Housing Administration, and allow state
+housing agencies to issue tax-free bonds to help homeowners refinance their
+mortgages. By taking these steps we&#39;ll help more responsible homeowners =
+weather
+this rough patch -- and, at the same time, strengthen the dream of
+homeownership for generations to come.</span><br><span>&nbsp;</span><br><spa=
+n>I&#39;ve got confidence that we&#39;re
+going to meet these challenges, and I&#39;ve got confidence in the people wh=
+o work
+in this department. I appreciate what you do every day to expand the dream o=
+f
+home ownership. I thank you for your efforts to provide low-income Americans
+with access to affordable housing. You work hard to make our communities mor=
+e
+vibrant and hopeful. The United States is fortunate to have such devoted pub=
+lic
+servants at this department. I&#39;m grateful for your service.</span><br><s=
+pan>&nbsp;</span><br><span>You&#39;re going to have a worthy
+leader in Steve Preston. I thank the Senate for confirming Steve as your new
+Secretary. And now I ask the Senate to confirm the three remaining HUD nomin=
+ees
+to help him lead this department.</span><br><span>&nbsp;</span><br><span>Ste=
+ve, I appreciate your stepping
+forward to serve your country once again. I congratulate you. Now I ask my
+Chief of Staff, Josh Bolten, to administer the oath of office.</span><br><sp=
+an>&nbsp;</span><br><span>(The oath of office is
+administered.) (Applause.)</span><br><span>&nbsp;</span><br><span>SECRETARY =
+PRESTON: Great. Thank you
+very much. Mr. President, Chief of Staff Bolten, Molly, my children, my
+parents. Current and former members of the Cabinet, thank you for coming. My
+new partners at HUD, my friends -- (applause) -- and the many other
+distinguished guests here. Thank you for being here today. This is truly ver=
+y humbling
+to see you all here to celebrate this event.</span><br><span>&nbsp;</span><b=
+r><span>It is a profound privilege to serve
+our country as the Secretary for Housing and Urban Development, and to be a
+voice for the people that we serve. Thank you, Mr. President, for that
+confidence, for that trust. I also want to thank Senators Dodd and Shelby fo=
+r
+their role in expediting the nomination process.</span><br><span>&nbsp;</spa=
+n><br><span>Ladies and gentlemen, it&#39;s
+appropriate that we gather here in this building. It&#39;s named for Robert =
+C.
+Weaver, who was the first Secretary for HUD. And Dr. Weaver cautioned agains=
+t
+treating people like statistics or data. In fact, he asked instead that we l=
+ook
+behind the data to see the values and the concerns and the hopes and the liv=
+es
+of the people that we all serve.</span><br><span>&nbsp;</span><br><span>We a=
+ssist the homeless find shelter
+here at HUD. We help provide millions of Americans with affordable and publi=
+c
+housing. Families who want to buy a home often turn to us. And increasingly,
+those we -- who are currently in homes come to us to keep them.</span><br><s=
+pan>&nbsp;</span><br><span>We know that home ownership can be
+a source of pride. It can be a place to grow up and grow old together. It ca=
+n
+be a source for wealth creation. And it is a source of -- it is a stake in o=
+ur
+communities. And also at HUD, we have a role of building and rebuilding many=
+ of
+those communities.</span><br><span>&nbsp;</span><br><span>At the moment, the=
+re are
+difficulties in the housing market, and this is a decisive moment in our
+nation&#39;s economic history. HUD will be central to restoring stability in=
+ our
+markets and in the lives of many Americans. In fact, just in the last year,
+thanks to changes made by you, Mr. President, FHA is increasingly a pathway =
+for
+hundreds of thousands of families to a more affordable, secure mortgage. And
+thank you. (Applause.)</span><br><span>&nbsp;</span><br><span>And while we&#=
+39;re all committed to
+addressing the immediate challenges in the housing market, we must also show
+the same kind of commitment to our future. We must provide a longer-term
+foundation for reform in the institutions that give homeowners access to
+capital to make that American Dream possible, while also generating enduring
+confidence in our financial markets.</span><br><span>&nbsp;</span><br><span>=
+As we confront these challenges,
+we&#39;re blessed with talented and committed employees at HUD. You understa=
+nd that
+we can make a difference. In the next few months, we will need the best effo=
+rts
+of every one of you in the path ahead.</span><br><span>&nbsp;</span><br><spa=
+n>So, Mr. President, I look forward
+to working with you. I look forward to working with my partners in the
+administration. I&#39;m committed to collaborating in a bipartisan fashion w=
+ith
+members of Congress on the path ahead. So, ladies and gentlemen, let&#39;s r=
+oll up
+our sleeves, let&#39;s lock our arms. We have a lot of work to do we can do
+together as a team. So thank you very much. (Applause.)</span><br><span>&nbs=
+p;</span><br><span>&nbsp;</span><br><span><span style=3D"text-decoration: un=
+derline;">Highlight #8</span></span><br><b><i>Rachel
+Maddow Says "John McCain Had a Tough Week", Mentions his Iran Divestment Pro=
+posal
+That Obama Already Proposed Last Year and Embarrassingly He Voted Against</i=
+></b><span><span>&nbsp;
+</span>(MSNBC 06/06/08 6:30pm)</span><br><span>RACHEL MADDOW: I think that J=
+ohn
+McCain had a tough week. He had some unforced errors, that is my headline
+tonight. He&#39;s making these errors, not because he&#39;s taken any big hi=
+ts from the
+Democrats, he&#39;s doing it to himself. On Monday proposed a divestment cam=
+paign
+on Iran. His campaign seemed caught off guard by the revelation that Obama
+proposed that idea last year without McCain supporting it. On Tuesday, McCai=
+n&#39;s
+green backdrop speech in Lousiana was about as well received as a Derek Jeet=
+er
+Jersey in downtown Boston. On that same trip McCain was also apparently caug=
+ht
+off guard by questions about his own record on investigating Hurricane Katri=
+na.
+Then it was off to the Everglades where McCain had to spend his time defendi=
+ng
+his votes against protecting the everglades, instead of what he wanted to do
+which was to promote his environmental credentials. I think it&#39;s been a =
+week of
+unforced errors for the McCain campaign. And I think it&#39;s making people =
+wonder
+whether or not he didn&#39;t take advantage of the three month head-start he=
+ got in
+this General Election by sort of working the kinks out of his campaign [...]=
+</span><br><span>&nbsp;</span><br><span>&nbsp;</span><br><span><span style=
+=3D"text-decoration: underline;">Highlight #9</span></span><br><b><i><span s=
+tyle=3D"color: black;">Lieberman Discusses
+Why As a Democrat He Supports McCain on Fox News</span></i></b><span style=
+=3D"color: black;"> (Fox News Live, 06/06/08 12:41pm)</span><br><span>JOE LI=
+EBERMAN: There are
+two main reasons why last December I decided to cross party lines and suppor=
+t
+the Republican candidate John McCain. Overall, because I think he's the best
+prepared, over anyone who ran this year to be the president we need. One, he=
+'s
+ready to be commander and chief. Not just to lead our effort in Iraq and
+Afghanistan but to protect us around the world from the terrorists who attac=
+ked
+us on 9/11. But I've traveled around the world with John McCain over the las=
+t
+20 years and he is well regarded and trusted by leaders all over the world a=
+nd
+he knows the world. Secondly, the biggest problem our government has in it
+today, is us. It's partisanship, it's tribalism that divides us. Senator McC=
+ain
+has been unique in this place for just reaching across party lines, working
+with people he may not agree with on nine other issues, but the one he agree=
+s
+with to move on, why because he wants to get something done for our country =
+and
+that's the kind of person we need as president. So I'm proud to be a support=
+er
+and I'm going to help him all I can because I think he's best for America.</=
+span><br><span>&nbsp;</span><br><span>&nbsp;</span><br><span><span style=3D"=
+text-decoration: underline;">Highlight #10</span></span><br><b><i>Congressma=
+n Walker Claims McCain is Best at
+Understanding Economy</i></b> (Fox News 06/06/08 11:27am)<br><span>JON SCOTT=
+: What do you see transpiring in a John
+McCain administration, should he win?</span><br><span>&nbsp;</span><br><span=
+>BOB WALKER: John McCain understands that you have
+to strengthen the weakest parts of your economy and you have to use the stro=
+ng
+parts of your economy to your advantage. John McCain recognizes that a tax
+increase at this time would not be the right policy, and Barack Obama, acros=
+s
+the board, is talking about a tax increase. John McCain wants to actually lo=
+wer
+taxes, in particular make smaller businesses more productive. Secondly, John
+McCain recognizes that the strongest part of our economy is in our exports a=
+t
+the present time. He will expand the ability to sell American products overs=
+eas
+by expanding our free trade agreements. None like Barack Obama, who actually
+wants to back out of our trade agreements that we now have.</span><br><span>=
+&nbsp;</span><br><span>SCOTT: Should we listen to either one of these
+guys?</span><br><span>&nbsp;</span><br><span>KELLY BINGEL: With all due resp=
+ect to the
+congressman, I do have to say, Barack Obama is not talking about tax increas=
+es
+across the board. He's talking about a tax decrease of a thousand dollars fo=
+r
+middle class families. And he's not talking about renegotiating all our trad=
+e
+agreements, he's talking about fair and free trade and looking at some of th=
+e environmental
+and labor agreements. That's what he's talking about, he's not talking about
+renegotiation all our trade agreements.</span><br><span>&nbsp;</span><br><sp=
+an>WALKER: He is talking about a unilateral
+renegotiation of the NAFTA agreement. Our biggest trading partners at the
+present time are Canada and Mexico. We are a huge beneficiary of that
+agreement. By putting that agreement into jeopardy, he is in fact causing so=
+me
+of the problems that are now on Wall Street, because they have a great deal =
+of
+concern about that. As for tax increases, his tax increase will go directly =
+to
+small business. Small business owners are people who use the individual inco=
+me
+taxes to pay the taxes on their business. The tax increase that he is propos=
+ing
+will have a devastating effect on small business.</span><br><span>&nbsp;</sp=
+an><br>SCOTT: Let me ask you this, Kelly, on the day that
+Barack Obama wrapped up the nomination, when he locked it up, the DOW pushed
+lower. I that a coincidence?<span>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&n=
+bsp;</span><br><span>&nbsp;</span><br><span>BINGEL: No, I mean, yes it is a =
+coincidence. It
+has nothing to do with Senator Obama, it has to do with the price per barrel=
+ of
+oil which continues to go up. That's what it has to do with, it has nothing =
+to
+do with Senator Obama. And I think that most Americans recognize that what w=
+e
+need is change for our economy, and Senator McCain will give us four more ye=
+ars
+of this Bush administration. There's nothing different from President Bush's
+economic plans than from Senator McCain's economic plan. And Americans' don'=
+t
+want four more years of a Bush White House.</span><br><span>&nbsp;</span><br=
+>WALKER: Those are slogans that have absolutely nothing
+to do with securing the ills of the economy. You need to have somebody who
+understands the economy like John McCain.<div>
+
+
+
+
+
+</div></div></div><br style=3D"font-family: times new roman,serif;"><span st=
+yle=3D"font-family: times new roman,serif;">-- </span><br style=3D"font-fami=
+ly: times new roman,serif;"><span style=3D"font-family: times new roman,seri=
+f;">Gregory E. Rosalsky</span><br style=3D"font-family: times new roman,seri=
+f;">
+<span style=3D"font-family: times new roman,serif;">Progressive Media USA</s=
+pan><br style=3D"font-family: times new roman,serif;"><span style=3D"font-fa=
+mily: times new roman,serif;">202-609-7691 (office)</span><br style=3D"font-=
+family: times new roman,serif;">
+<span style=3D"font-family: times new roman,serif;">707-484-3796 (cell)</spa=
+n><br style=3D"font-family: times new roman,serif;"><span style=3D"font-fami=
+ly: times new roman,serif;"><a href=3D"mailto:GRosalsky@progressivemediausa.=
+org">GRosalsky@progressivemediausa.org</a>
+</span><br>
+--~--~---------~--~----~------------~-------~--~----~<br>
+You received this message because you are subscribed to the &quot;big campai=
+gn&quot; group.
+ <br> <p>To post to this group, send to bigcampaign@googlegr=
+oups.com
+ <br> <p>To unsubscribe, send email to bigcampaign-unsubscribe@goog=
+legroups.com
+ <br> <p>E-mail ryan@campaigntodefendamerica.org with questions=
+ or concerns
+ <br> <p>This is a list of individuals. It is not affiliated wi=
+th any group or organization. <br> -~----------~----~----~----~------~----~-=
+-----~--~---<br>
+<br>
+
+------=_Part_13563_2850208.1212803436917--

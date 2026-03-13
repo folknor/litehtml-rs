@@ -53,6 +53,8 @@ brokkr history                                           # browse command histor
 
 `brokkr bench` requires a clean git tree to store results, but ignores dirty markdown files and `results.db` itself.
 
+**Always commit `.brokkr/`**. The `results.db` inside it is the benchmark history and must be tracked in git.
+
 ## Dependencies
 
 - **scraper** 0.25 (html5ever + ego-tree DOM)

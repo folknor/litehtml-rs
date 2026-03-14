@@ -1697,16 +1697,18 @@ fn element_style(tag: &str, el: &scraper::node::Element, css: &ComputedStyle) ->
         "img" => {
             let w = el
                 .attr("width")
-                .and_then(|v| v.parse::<f32>().ok())
-                .unwrap_or(100.0);
+                .and_then(|v| v.parse::<f32>().ok());
             let h = el
                 .attr("height")
-                .and_then(|v| v.parse::<f32>().ok())
-                .unwrap_or(100.0);
+                .and_then(|v| v.parse::<f32>().ok());
+            // Without an actual image source, use width as height if no height attr
+            // (most email images are roughly square placeholders)
+            let default_h = w.unwrap_or(100.0).min(32.0);
             Style {
+                display: Display::Block,
                 size: Size {
-                    width: length(w),
-                    height: length(h),
+                    width: w.map_or(length(100.0), length),
+                    height: h.map_or(length(default_h), length),
                 },
                 ..Default::default()
             }

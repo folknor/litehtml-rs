@@ -398,7 +398,7 @@ impl Default for NodeData {
             background_color: None,
             text: None,
             text_color: (0, 0, 0, 255),
-            font_size: 14.0,
+            font_size: 16.0,
             font_family: "sans-serif".to_string(),
             font_weight: 400,
             font_italic: false,
@@ -610,8 +610,10 @@ impl StyleIndex {
                         }
                     }
                 }
-                CssRule::Media(media_rule) => {
-                    Self::collect_rules(&media_rule.rules.0, out);
+                CssRule::Media(_) => {
+                    // Skip @media blocks — we render at a fixed 800px viewport
+                    // and email @media queries are typically max-width:600px responsive
+                    // overrides that shouldn't apply at desktop width.
                 }
                 _ => {}
             }
@@ -702,7 +704,7 @@ fn main() {
     let mut node_data: HashMap<taffy::NodeId, NodeData> = HashMap::new();
     let inherited = InheritedStyle::default();
     let root_el = document.root_element();
-    let root = build_node(
+    let roots = build_nodes(
         root_el.id(),
         &document.tree,
         &mut taffy,
@@ -713,6 +715,7 @@ fn main() {
         0,
         "",
     );
+    let root = roots.into_iter().next().expect("No root element found");
     let tree_build_time = t1.elapsed();
 
     // Compute layout
@@ -889,7 +892,7 @@ impl Default for InheritedStyle {
     fn default() -> Self {
         Self {
             color: (0, 0, 0, 255),
-            font_size: 14.0,
+            font_size: 16.0,
             font_family: "sans-serif".to_string(),
             font_weight: 400,
             font_italic: false,
@@ -954,7 +957,21 @@ impl InheritedStyle {
     }
 }
 
-fn build_node(
+/// Tags that are CSS inline elements — they don't create layout boxes,
+/// they just apply styling to their children.
+fn is_inline_tag(tag: &str) -> bool {
+    matches!(
+        tag,
+        "span" | "a" | "strong" | "em" | "b" | "i" | "u" | "small" | "big" | "sub" | "sup"
+        | "code" | "kbd" | "samp" | "var" | "cite" | "abbr" | "mark" | "del" | "ins" | "s"
+        | "q" | "dfn" | "ruby" | "rt" | "rp" | "bdi" | "bdo" | "wbr" | "time" | "data"
+        | "output" | "font"
+    )
+}
+
+/// Build taffy nodes for a DOM node. Returns a Vec because inline elements
+/// are flattened — their children become direct children of the parent.
+fn build_nodes(
     node_id: ego_tree::NodeId,
     tree: &ego_tree::Tree<Node>,
     taffy: &mut TaffyTree<TextMeasure>,
@@ -964,7 +981,7 @@ fn build_node(
     cellpadding: Option<f32>,
     depth: usize,
     parent_path: &str,
-) -> taffy::NodeId {
+) -> Vec<taffy::NodeId> {
     let node_ref = tree.get(node_id).unwrap();
 
     match node_ref.value() {
@@ -1012,6 +1029,18 @@ fn build_node(
             let computed = apply_html_attrs(computed, el);
 
             let child_inherited = inherited.with_overrides(&computed, tag);
+
+            // Inline elements don't create layout boxes — flatten their children
+            // into the parent so they don't stretch to fill width.
+            if is_inline_tag(tag) && !computed.display_none {
+                let child_cellpadding = cellpadding;
+                let mut children = Vec::new();
+                for child in node_ref.children() {
+                    children.extend(build_nodes(child.id(), tree, taffy, node_data, &child_inherited, style_index, child_cellpadding, depth + 1, &node_path));
+                }
+                return children;
+            }
+
             let mut style = element_style(tag, el, &computed);
 
             // Check align attr for text-align (common in email HTML)
@@ -1088,21 +1117,19 @@ fn build_node(
 
             let children: Vec<taffy::NodeId> = node_ref
                 .children()
-                .map(|child| {
-                    build_node(child.id(), tree, taffy, node_data, &child_inherited, style_index, child_cellpadding, depth + 1, &node_path)
+                .flat_map(|child| {
+                    build_nodes(child.id(), tree, taffy, node_data, &child_inherited, style_index, child_cellpadding, depth + 1, &node_path)
                 })
                 .collect();
 
             let id = taffy.new_with_children(style, &children).unwrap();
             node_data.insert(id, data);
-            id
+            vec![id]
         }
         Node::Text(text) => {
             let text_str = text.text.trim();
             if text_str.is_empty() {
-                let id = taffy.new_leaf(Style::default()).unwrap();
-                node_data.insert(id, NodeData::default());
-                return id;
+                return vec![];
             }
 
             let text_ctx = TextMeasure {
@@ -1128,13 +1155,9 @@ fn build_node(
             };
             let id = taffy.new_leaf_with_context(style, text_ctx).unwrap();
             node_data.insert(id, data);
-            id
+            vec![id]
         }
-        _ => {
-            let id = taffy.new_leaf(Style::default()).unwrap();
-            node_data.insert(id, NodeData::default());
-            id
-        }
+        _ => vec![]
     }
 }
 
@@ -1189,17 +1212,10 @@ fn element_style(tag: &str, el: &scraper::node::Element, css: &ComputedStyle) ->
             // space correctly without them.
             let table_width = if let Some(px) = css.width_px {
                 length(px)
-            } else if let Some(dim) = percent_width_from_attr(el) {
-                // For percentage widths (width="100%"), use auto instead
-                // because taffy doesn't correctly resolve percentages to 0
-                // during min-content measurement, causing cell overflow
-                if matches!(el.attr("width"), Some(w) if w.contains('%')) {
-                    auto()
-                } else {
-                    dim
-                }
+            } else if let Some(pct) = css.width_pct {
+                percent(pct)
             } else {
-                auto()
+                percent_width_from_attr(el).unwrap_or(auto())
             };
             Style {
                 display: Display::Table,

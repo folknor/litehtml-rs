@@ -1381,6 +1381,12 @@ fn build_nodes(
 
             let mut style = element_style(tag, el, &computed);
 
+            // <br> height uses inherited font size for correct line spacing
+            if tag == "br" {
+                let br_fs = child_inherited.font_size.max(1.0);
+                style.size.height = length(resolve_line_height(br_fs, child_inherited.line_height));
+            }
+
             // Check align attr for text-align (common in email HTML)
             let text_align = if computed.text_align.is_some() {
                 child_inherited.text_align
@@ -1757,6 +1763,7 @@ fn element_style(tag: &str, el: &scraper::node::Element, css: &ComputedStyle) ->
             display: Display::Block,
             size: Size {
                 width: length(0.0),
+                // Height is set to inherited line-height in build_nodes
                 height: length(0.0),
             },
             ..Default::default()

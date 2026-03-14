@@ -32,6 +32,8 @@ struct ComputedStyle {
     margin_bottom: Option<f32>,
     margin_left: Option<f32>,
     margin_right: Option<f32>,
+    margin_left_auto: bool,
+    margin_right_auto: bool,
     background_color: Option<(u8, u8, u8, u8)>,
     color: Option<(u8, u8, u8, u8)>,
     font_size: Option<f32>,
@@ -169,16 +171,20 @@ fn apply_property(style: &mut ComputedStyle, prop: &Property) {
                 style.margin_bottom = lp_to_px(lp);
             }
         }
-        Property::MarginLeft(lp) => {
-            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
+        Property::MarginLeft(lp) => match lp {
+            LengthPercentageOrAuto::Auto => style.margin_left_auto = true,
+            LengthPercentageOrAuto::LengthPercentage(lp) => {
                 style.margin_left = lp_to_px(lp);
+                style.margin_left_auto = false;
             }
-        }
-        Property::MarginRight(lp) => {
-            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
+        },
+        Property::MarginRight(lp) => match lp {
+            LengthPercentageOrAuto::Auto => style.margin_right_auto = true,
+            LengthPercentageOrAuto::LengthPercentage(lp) => {
                 style.margin_right = lp_to_px(lp);
+                style.margin_right_auto = false;
             }
-        }
+        },
         Property::Margin(m) => {
             if let LengthPercentageOrAuto::LengthPercentage(lp) = &m.top {
                 style.margin_top = lp_to_px(lp);
@@ -186,11 +192,19 @@ fn apply_property(style: &mut ComputedStyle, prop: &Property) {
             if let LengthPercentageOrAuto::LengthPercentage(lp) = &m.bottom {
                 style.margin_bottom = lp_to_px(lp);
             }
-            if let LengthPercentageOrAuto::LengthPercentage(lp) = &m.left {
-                style.margin_left = lp_to_px(lp);
+            match &m.left {
+                LengthPercentageOrAuto::Auto => style.margin_left_auto = true,
+                LengthPercentageOrAuto::LengthPercentage(lp) => {
+                    style.margin_left = lp_to_px(lp);
+                    style.margin_left_auto = false;
+                }
             }
-            if let LengthPercentageOrAuto::LengthPercentage(lp) = &m.right {
-                style.margin_right = lp_to_px(lp);
+            match &m.right {
+                LengthPercentageOrAuto::Auto => style.margin_right_auto = true,
+                LengthPercentageOrAuto::LengthPercentage(lp) => {
+                    style.margin_right = lp_to_px(lp);
+                    style.margin_right_auto = false;
+                }
             }
         }
         Property::BackgroundColor(c) => {
@@ -352,6 +366,11 @@ fn apply_html_attrs(mut style: ComputedStyle, el: &scraper::node::Element) -> Co
 /// Per-node rendering data.
 #[derive(Debug, Clone)]
 struct NodeData {
+    tag: String,
+    dom_path: String,
+    depth: usize,
+    id_attr: Option<String>,
+    classes: Option<String>,
     background_color: Option<(u8, u8, u8, u8)>,
     text: Option<String>,
     text_color: (u8, u8, u8, u8),
@@ -363,11 +382,19 @@ struct NodeData {
     border_bottom: Option<f32>,
     is_hr: bool,
     text_align: TextAlign,
+    padding: (f32, f32, f32, f32),
+    margin: (f32, f32, f32, f32),
+    max_width_px: Option<f32>,
 }
 
 impl Default for NodeData {
     fn default() -> Self {
         Self {
+            tag: String::new(),
+            dom_path: String::new(),
+            depth: 0,
+            id_attr: None,
+            classes: None,
             background_color: None,
             text: None,
             text_color: (0, 0, 0, 255),
@@ -379,6 +406,9 @@ impl Default for NodeData {
             border_bottom: None,
             is_hr: false,
             text_align: TextAlign::Left,
+            padding: (0.0, 0.0, 0.0, 0.0),
+            margin: (0.0, 0.0, 0.0, 0.0),
+            max_width_px: None,
         }
     }
 }
@@ -386,6 +416,110 @@ impl Default for NodeData {
 // Shared font system for text measurement during tree building.
 thread_local! {
     static FONT_SYSTEM: RefCell<FontSystem> = RefCell::new(FontSystem::new());
+}
+
+/// Load the Ahem test font into the font system.
+fn load_ahem_font() {
+    let ahem_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("Ahem.ttf");
+    if ahem_path.exists() {
+        FONT_SYSTEM.with(|fs| {
+            let mut fs = fs.borrow_mut();
+            let data = std::fs::read(&ahem_path).expect("Failed to read Ahem.ttf");
+            fs.db_mut().load_font_data(data);
+        });
+    }
+}
+
+/// Whether fixture mode is enabled (forces Ahem font)
+static FIXTURE_MODE: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
+
+fn is_fixture_mode() -> bool {
+    FIXTURE_MODE.load(std::sync::atomic::Ordering::Relaxed)
+}
+
+/// Resolve font family, overriding to Ahem in fixture mode.
+fn resolve_font_family(family: &str) -> Family<'_> {
+    if is_fixture_mode() {
+        return Family::Name("Ahem");
+    }
+    match family {
+        "serif" => Family::Serif,
+        "sans-serif" | "sans serif" => Family::SansSerif,
+        "monospace" => Family::Monospace,
+        name => Family::Name(name),
+    }
+}
+
+/// Build cosmic-text Attrs, forcing Ahem normal weight/style in fixture mode
+/// so cosmic-text doesn't fall back to system fonts for bold/italic.
+/// Ahem metrics are identical across weights so this doesn't affect layout.
+fn build_text_attrs(family: &str, weight: u16, italic: bool) -> Attrs<'_> {
+    let f = resolve_font_family(family);
+    if is_fixture_mode() {
+        Attrs::new().family(f).weight(cosmic_text::Weight::NORMAL).style(cosmic_text::Style::Normal)
+    } else {
+        Attrs::new()
+            .family(f)
+            .weight(cosmic_text::Weight(weight))
+            .style(if italic { cosmic_text::Style::Italic } else { cosmic_text::Style::Normal })
+    }
+}
+
+/// Context stored on taffy leaf nodes for dynamic text measurement.
+#[derive(Debug, Clone)]
+struct TextMeasure {
+    text: String,
+    font_size: f32,
+    font_family: String,
+    font_weight: u16,
+    font_italic: bool,
+}
+
+/// Measure function called by taffy during layout to determine text node size.
+fn measure_text_node(
+    known_dimensions: Size<Option<f32>>,
+    available_space: Size<AvailableSpace>,
+    _node_id: taffy::NodeId,
+    context: Option<&mut TextMeasure>,
+    _style: &Style,
+) -> Size<f32> {
+    let Some(ctx) = context else {
+        return Size::ZERO;
+    };
+
+    let available_width = known_dimensions.width.unwrap_or_else(|| match available_space.width {
+        AvailableSpace::Definite(w) => w,
+        AvailableSpace::MinContent => 0.0,
+        AvailableSpace::MaxContent => f32::MAX,
+    });
+
+    if available_width <= 0.0 {
+        return Size::ZERO;
+    }
+
+    // Measure text wrapping at the available width
+    let fs = ctx.font_size.max(1.0);
+    let line_height = (fs * 1.4).ceil().max(1.0);
+
+    FONT_SYSTEM.with(|font_sys| {
+        let mut font_sys = font_sys.borrow_mut();
+        let metrics = Metrics::new(fs, line_height);
+        let mut buffer = cosmic_text::Buffer::new(&mut font_sys, metrics);
+        buffer.set_size(&mut font_sys, Some(available_width), Some(line_height * 100.0));
+
+        let attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic);
+
+        buffer.set_text(&mut font_sys, &ctx.text, &attrs, Shaping::Basic, None);
+        buffer.shape_until_scroll(&mut font_sys, false);
+
+        let num_lines = buffer.layout_runs().count().max(1) as f32;
+        let text_width = buffer.layout_runs().map(|r| r.line_w).fold(0.0_f32, f32::max);
+
+        Size {
+            width: known_dimensions.width.unwrap_or(text_width.min(available_width)),
+            height: known_dimensions.height.unwrap_or(line_height * num_lines),
+        }
+    })
 }
 
 fn measure_text_width(text: &str, font_size: f32, family: &str, weight: u16, italic: bool) -> f32 {
@@ -397,23 +531,7 @@ fn measure_text_width(text: &str, font_size: f32, family: &str, weight: u16, ita
         let mut buffer = cosmic_text::Buffer::new(&mut fs, metrics);
         buffer.set_size(&mut fs, Some(f32::MAX), Some(line_height));
 
-        let cosmic_family = match family {
-            "serif" => Family::Serif,
-            "sans-serif" | "sans serif" => Family::SansSerif,
-            "monospace" => Family::Monospace,
-            name => Family::Name(name),
-        };
-        let cosmic_weight = cosmic_text::Weight(weight);
-        let cosmic_style = if italic {
-            cosmic_text::Style::Italic
-        } else {
-            cosmic_text::Style::Normal
-        };
-
-        let attrs = Attrs::new()
-            .family(cosmic_family)
-            .weight(cosmic_weight)
-            .style(cosmic_style);
+        let attrs = build_text_attrs(family, weight, italic);
         buffer.set_text(&mut fs, text, &attrs, Shaping::Basic, None);
         buffer.shape_until_scroll(&mut fs, false);
 
@@ -421,20 +539,18 @@ fn measure_text_width(text: &str, font_size: f32, family: &str, weight: u16, ita
     })
 }
 
-/// Pre-indexed style rules using lightningcss parsed properties.
-/// Maps selector strings to their raw CSS declaration text (for merging with inline).
+/// Style rules extracted from <style> blocks.
+/// Each rule is a (compiled selector, CSS declaration text) pair.
+/// Uses scraper's selector matching for full CSS selector support
+/// (descendant, child, compound selectors, etc.).
 struct StyleIndex {
-    by_tag: HashMap<String, String>,
-    by_class: HashMap<String, String>,
-    by_id: HashMap<String, String>,
+    rules: Vec<(scraper::Selector, String)>,
 }
 
 impl StyleIndex {
     fn from_document(document: &Html) -> Self {
         use scraper::Selector;
-        let mut by_tag: HashMap<String, String> = HashMap::new();
-        let mut by_class: HashMap<String, String> = HashMap::new();
-        let mut by_id: HashMap<String, String> = HashMap::new();
+        let mut rules = Vec::new();
 
         let style_sel = Selector::parse("style").unwrap();
         for style_el in document.select(&style_sel) {
@@ -442,21 +558,15 @@ impl StyleIndex {
             let Ok(sheet) = StyleSheet::parse(&css_text, ParserOptions::default()) else {
                 continue;
             };
-            Self::collect_rules(&sheet.rules.0, &mut by_tag, &mut by_class, &mut by_id);
+            Self::collect_rules(&sheet.rules.0, &mut rules);
         }
 
-        Self {
-            by_tag,
-            by_class,
-            by_id,
-        }
+        Self { rules }
     }
 
     fn collect_rules(
         rules: &[lightningcss::rules::CssRule],
-        by_tag: &mut HashMap<String, String>,
-        by_class: &mut HashMap<String, String>,
-        by_id: &mut HashMap<String, String>,
+        out: &mut Vec<(scraper::Selector, String)>,
     ) {
         use lightningcss::rules::CssRule;
         use lightningcss::traits::ToCss;
@@ -465,7 +575,6 @@ impl StyleIndex {
         for rule in rules {
             match rule {
                 CssRule::Style(style_rule) => {
-                    // Serialize declarations back to CSS text for merging with inline styles
                     let mut decl_text = String::new();
                     for prop in &style_rule.declarations.declarations {
                         if let Ok(css) = prop.to_css_string(false, PrinterOptions::default()) {
@@ -484,86 +593,59 @@ impl StyleIndex {
                         continue;
                     }
 
-                    // Extract selector text and index by simple selectors
                     let sel_text = style_rule
                         .selectors
                         .to_css_string(PrinterOptions::default())
                         .unwrap_or_default();
 
-                    for sel in sel_text.split(',') {
-                        let sel = sel.trim();
-                        // Only index single-part selectors (no descendant/child combinators)
-                        if sel.contains(char::is_whitespace) || sel.contains('>') {
+                    // Try to compile each comma-separated selector with scraper
+                    for sel_str in sel_text.split(',') {
+                        let sel_str = sel_str.trim();
+                        // Skip pseudo-classes/elements (scraper doesn't support them)
+                        if sel_str.contains(':') {
                             continue;
                         }
-                        // Skip pseudo-classes/elements and attribute selectors
-                        if sel.contains(':') || sel.contains('[') || sel == "*" {
-                            continue;
+                        if let Ok(selector) = scraper::Selector::parse(sel_str) {
+                            out.push((selector, decl_text.clone()));
                         }
-
-                        let target = if !sel.contains('.') && !sel.contains('#') {
-                            &mut *by_tag
-                        } else if sel.starts_with('.') && !sel[1..].contains('.') && !sel.contains('#') {
-                            &mut *by_class
-                        } else if sel.starts_with('#') && !sel.contains('.') {
-                            &mut *by_id
-                        } else {
-                            continue; // compound selectors — skip for now
-                        };
-
-                        let key = if sel.starts_with('.') || sel.starts_with('#') {
-                            &sel[1..]
-                        } else {
-                            sel
-                        };
-
-                        target
-                            .entry(key.to_string())
-                            .and_modify(|e: &mut String| {
-                                e.push_str(&decl_text);
-                            })
-                            .or_insert_with(|| decl_text.clone());
                     }
                 }
                 CssRule::Media(media_rule) => {
-                    // Recurse into @media blocks
-                    Self::collect_rules(&media_rule.rules.0, by_tag, by_class, by_id);
+                    Self::collect_rules(&media_rule.rules.0, out);
                 }
                 _ => {}
             }
         }
     }
 
-    fn match_element(&self, el: &scraper::node::Element) -> String {
+    /// Match an element against all rules in the stylesheet.
+    /// The element must be passed as an ElementRef so scraper can check
+    /// ancestor/descendant relationships.
+    fn match_element_ref(&self, el_ref: &scraper::ElementRef) -> String {
         let mut matched = String::new();
-
-        if let Some(decls) = self.by_tag.get(el.name()) {
-            matched.push_str(decls);
-        }
-        if let Some(classes) = el.attr("class") {
-            for class in classes.split_whitespace() {
-                if let Some(decls) = self.by_class.get(class) {
-                    matched.push_str(decls);
-                }
+        for (selector, decl_text) in &self.rules {
+            if selector.matches(el_ref) {
+                matched.push_str(decl_text);
             }
         }
-        if let Some(id) = el.attr("id") {
-            if let Some(decls) = self.by_id.get(id) {
-                matched.push_str(decls);
-            }
-        }
-
         matched
     }
 
     fn selector_count(&self) -> usize {
-        self.by_tag.len() + self.by_class.len() + self.by_id.len()
+        self.rules.len()
     }
 }
 
 fn main() {
-    let path = std::env::args().nth(1).unwrap_or_else(|| {
-        eprintln!("Usage: litehtml-rs <html-file>");
+    let args: Vec<String> = std::env::args().collect();
+    let dump_mode = args.iter().any(|a| a == "--dump");
+    let fixture_mode = args.iter().any(|a| a == "--fixture");
+    if fixture_mode {
+        FIXTURE_MODE.store(true, std::sync::atomic::Ordering::Relaxed);
+        load_ahem_font();
+    }
+    let path = args.iter().find(|a| !a.starts_with('-') && *a != &args[0]).cloned().unwrap_or_else(|| {
+        eprintln!("Usage: litehtml-rs [--dump] [--fixture] <html-file>");
         std::process::exit(1);
     });
     let html_str = std::fs::read_to_string(&path).unwrap_or_else(|e| {
@@ -616,7 +698,7 @@ fn main() {
 
     // Phase 2+3: Build taffy layout tree with CSS + text measurement
     let t1 = Instant::now();
-    let mut taffy = TaffyTree::<()>::new();
+    let mut taffy = TaffyTree::<TextMeasure>::new();
     let mut node_data: HashMap<taffy::NodeId, NodeData> = HashMap::new();
     let inherited = InheritedStyle::default();
     let root_el = document.root_element();
@@ -628,6 +710,8 @@ fn main() {
         &inherited,
         &style_index,
         None,
+        0,
+        "",
     );
     let tree_build_time = t1.elapsed();
 
@@ -637,7 +721,7 @@ fn main() {
         width: AvailableSpace::Definite(800.0),
         height: AvailableSpace::MaxContent,
     };
-    taffy.compute_layout(root, viewport).unwrap();
+    taffy.compute_layout_with_measure(root, viewport, measure_text_node).unwrap();
     let layout_time = t2.elapsed();
 
     let layout = taffy.layout(root).unwrap();
@@ -645,6 +729,95 @@ fn main() {
         "Layout: {}x{} (root)",
         layout.size.width, layout.size.height
     );
+
+    // Dump mode: output JSON layout data and exit
+    if dump_mode {
+        fn dump_json(
+            taffy: &TaffyTree<TextMeasure>,
+            node_data: &HashMap<taffy::NodeId, NodeData>,
+            id: taffy::NodeId,
+            offset_x: f32,
+            offset_y: f32,
+            out: &mut Vec<String>,
+        ) {
+            let l = taffy.layout(id).unwrap();
+            let data = node_data.get(&id);
+            let x = offset_x + l.location.x;
+            let y = offset_y + l.location.y;
+            let w = l.size.width;
+            let h = l.size.height;
+
+            if let Some(d) = data {
+                if !d.tag.is_empty() {
+                    let bg = if let Some((r, g, b, a)) = d.background_color {
+                        format!("\"rgba({r}, {g}, {b}, {a})\"")
+                    } else {
+                        "null".to_string()
+                    };
+                    let ta = match d.text_align {
+                        TextAlign::Left => "left",
+                        TextAlign::Center => "center",
+                        TextAlign::Right => "right",
+                    };
+                    let id_str = d.id_attr.as_deref().unwrap_or("");
+                    let class_str = d.classes.as_deref().unwrap_or("");
+                    out.push(format!(
+                        concat!(
+                            "{{\"path\":\"{path}\",\"tag\":\"{tag}\",\"depth\":{depth},",
+                            "\"id\":\"{id}\",\"classes\":\"{classes}\",",
+                            "\"x\":{x},\"y\":{y},\"w\":{w},\"h\":{h},",
+                            "\"bg\":{bg},",
+                            "\"color\":\"rgb({cr}, {cg}, {cb})\",",
+                            "\"fontSize\":{fs},\"fontWeight\":{fw},",
+                            "\"paddingTop\":{pt},\"paddingRight\":{pr},",
+                            "\"paddingBottom\":{pb},\"paddingLeft\":{pl},",
+                            "\"marginTop\":{mt},\"marginRight\":{mr},",
+                            "\"marginBottom\":{mb},\"marginLeft\":{ml},",
+                            "\"textAlign\":\"{ta}\",",
+                            "\"maxWidth\":{mw}}}"
+                        ),
+                        path = d.dom_path,
+                        tag = d.tag,
+                        depth = d.depth,
+                        id = id_str,
+                        classes = class_str,
+                        x = (x * 10.0).round() / 10.0,
+                        y = (y * 10.0).round() / 10.0,
+                        w = (w * 10.0).round() / 10.0,
+                        h = (h * 10.0).round() / 10.0,
+                        bg = bg,
+                        cr = d.text_color.0,
+                        cg = d.text_color.1,
+                        cb = d.text_color.2,
+                        fs = d.font_size,
+                        fw = d.font_weight,
+                        pt = d.padding.0,
+                        pr = d.padding.1,
+                        pb = d.padding.2,
+                        pl = d.padding.3,
+                        mt = d.margin.0,
+                        mr = d.margin.1,
+                        mb = d.margin.2,
+                        ml = d.margin.3,
+                        ta = ta,
+                        mw = d.max_width_px.map_or("null".to_string(), |v| v.to_string()),
+                    ));
+                }
+            }
+
+            for child in taffy.children(id).unwrap() {
+                dump_json(taffy, node_data, child, x, y, out);
+            }
+        }
+
+        let mut entries = Vec::new();
+        dump_json(&taffy, &node_data, root, 0.0, 0.0, &mut entries);
+        let out_path = path.replace(".html", "_pipeline.json");
+        let json = format!("[\n{}\n]", entries.join(",\n"));
+        std::fs::write(&out_path, &json).unwrap();
+        eprintln!("Dumped {} elements to {}", entries.len(), out_path);
+        return;
+    }
 
     // Phase 4: Render to tiny-skia with actual text
     let width = layout.size.width.ceil() as u32;
@@ -784,19 +957,43 @@ impl InheritedStyle {
 fn build_node(
     node_id: ego_tree::NodeId,
     tree: &ego_tree::Tree<Node>,
-    taffy: &mut TaffyTree<()>,
+    taffy: &mut TaffyTree<TextMeasure>,
     node_data: &mut HashMap<taffy::NodeId, NodeData>,
     inherited: &InheritedStyle,
     style_index: &StyleIndex,
     cellpadding: Option<f32>,
+    depth: usize,
+    parent_path: &str,
 ) -> taffy::NodeId {
     let node_ref = tree.get(node_id).unwrap();
 
     match node_ref.value() {
         Node::Element(el) => {
             let tag = el.name();
+
+            // Compute sibling index (same-tag siblings before this one)
+            let sib_idx = {
+                let mut idx = 0;
+                let mut sib = node_ref.prev_sibling();
+                while let Some(s) = sib {
+                    if let Node::Element(sib_el) = s.value() {
+                        if sib_el.name() == tag {
+                            idx += 1;
+                        }
+                    }
+                    sib = s.prev_sibling();
+                }
+                idx
+            };
+            let node_path = if parent_path.is_empty() {
+                tag.to_string()
+            } else {
+                format!("{parent_path}>{tag}[{sib_idx}]")
+            };
+
             // Merge style block rules + inline styles (inline wins via cascade order)
-            let rule_css = style_index.match_element(el);
+            let el_ref = scraper::ElementRef::wrap(node_ref).unwrap();
+            let rule_css = style_index.match_element_ref(&el_ref);
             let inline_css = el.attr("style").unwrap_or("");
             let merged = if !rule_css.is_empty() && !inline_css.is_empty() {
                 format!("{rule_css};{inline_css}")
@@ -831,6 +1028,11 @@ fn build_node(
             };
 
             let data = NodeData {
+                tag: tag.to_string(),
+                dom_path: node_path.clone(),
+                depth,
+                id_attr: el.attr("id").map(|s| s.to_string()),
+                classes: el.attr("class").map(|s| s.to_string()),
                 background_color: computed.background_color,
                 text: None,
                 text_color: child_inherited.color,
@@ -842,6 +1044,19 @@ fn build_node(
                 border_bottom: computed.border_bottom,
                 is_hr: tag == "hr",
                 text_align,
+                padding: (
+                    computed.padding_top.unwrap_or(0.0),
+                    computed.padding_right.unwrap_or(0.0),
+                    computed.padding_bottom.unwrap_or(0.0),
+                    computed.padding_left.unwrap_or(0.0),
+                ),
+                margin: (
+                    computed.margin_top.unwrap_or(0.0),
+                    computed.margin_right.unwrap_or(0.0),
+                    computed.margin_bottom.unwrap_or(0.0),
+                    computed.margin_left.unwrap_or(0.0),
+                ),
+                max_width_px: computed.max_width_px,
             };
 
             // If this is a <table> with cellpadding, propagate to child cells
@@ -874,7 +1089,7 @@ fn build_node(
             let children: Vec<taffy::NodeId> = node_ref
                 .children()
                 .map(|child| {
-                    build_node(child.id(), tree, taffy, node_data, &child_inherited, style_index, child_cellpadding)
+                    build_node(child.id(), tree, taffy, node_data, &child_inherited, style_index, child_cellpadding, depth + 1, &node_path)
                 })
                 .collect();
 
@@ -890,27 +1105,15 @@ fn build_node(
                 return id;
             }
 
-            // Measure text with cosmic-text for accurate layout
-            let fs = inherited.font_size.max(1.0);
-            let text_width = measure_text_width(
-                text_str,
-                fs,
-                &inherited.font_family,
-                inherited.font_weight,
-                inherited.font_italic,
-            );
-            let line_height = (fs * 1.4).ceil();
-            let num_lines = (text_width / 780.0).ceil().max(1.0);
+            let text_ctx = TextMeasure {
+                text: text_str.to_string(),
+                font_size: inherited.font_size,
+                font_family: inherited.font_family.clone(),
+                font_weight: inherited.font_weight,
+                font_italic: inherited.font_italic,
+            };
 
             let style = Style {
-                size: Size {
-                    width: auto(),
-                    height: length(line_height * num_lines),
-                },
-                min_size: Size {
-                    width: length(text_width.min(780.0)),
-                    height: auto(),
-                },
                 ..Default::default()
             };
             let data = NodeData {
@@ -923,7 +1126,7 @@ fn build_node(
                 text_align: inherited.text_align,
                 ..Default::default()
             };
-            let id = taffy.new_leaf(style).unwrap();
+            let id = taffy.new_leaf_with_context(style, text_ctx).unwrap();
             node_data.insert(id, data);
             id
         }
@@ -978,13 +1181,51 @@ fn element_style(tag: &str, el: &scraper::node::Element, css: &ComputedStyle) ->
             ..Default::default()
         },
 
-        "table" => Style {
-            display: Display::Table,
-            size: Size {
-                width: percent_width_from_attr(el).unwrap_or(percent(1.0)),
-                height: auto(),
-            },
-            ..Default::default()
+        "table" => {
+            // Tables: use HTML width attr if present, otherwise auto.
+            // CSS percentage widths (like width:100%) are intentionally NOT applied
+            // to the taffy size because they inflate min-content measurements in
+            // nested table layouts. The table layout algorithm handles available
+            // space correctly without them.
+            let table_width = if let Some(px) = css.width_px {
+                length(px)
+            } else if let Some(dim) = percent_width_from_attr(el) {
+                // For percentage widths (width="100%"), use auto instead
+                // because taffy doesn't correctly resolve percentages to 0
+                // during min-content measurement, causing cell overflow
+                if matches!(el.attr("width"), Some(w) if w.contains('%')) {
+                    auto()
+                } else {
+                    dim
+                }
+            } else {
+                auto()
+            };
+            Style {
+                display: Display::Table,
+                item_is_table: true,
+                size: Size {
+                    width: table_width,
+                    height: auto(),
+                },
+                max_size: Size {
+                    width: css.max_width_px.map_or(auto(), length),
+                    height: auto(),
+                },
+                margin: Rect {
+                    top: css.margin_top.map_or(auto(), |v| LengthPercentageAuto::length(v)),
+                    bottom: css.margin_bottom.map_or(auto(), |v| LengthPercentageAuto::length(v)),
+                    left: if css.margin_left_auto { LengthPercentageAuto::auto() } else { css.margin_left.map_or(auto(), |v| LengthPercentageAuto::length(v)) },
+                    right: if css.margin_right_auto { LengthPercentageAuto::auto() } else { css.margin_right.map_or(auto(), |v| LengthPercentageAuto::length(v)) },
+                },
+                padding: Rect {
+                    top: css.padding_top.map_or(LengthPercentage::length(0.0), LengthPercentage::length),
+                    bottom: css.padding_bottom.map_or(LengthPercentage::length(0.0), LengthPercentage::length),
+                    left: css.padding_left.map_or(LengthPercentage::length(0.0), LengthPercentage::length),
+                    right: css.padding_right.map_or(LengthPercentage::length(0.0), LengthPercentage::length),
+                },
+                ..Default::default()
+            }
         },
         "tr" => Style {
             display: Display::TableRow,
@@ -1005,11 +1246,23 @@ fn element_style(tag: &str, el: &scraper::node::Element, css: &ComputedStyle) ->
             ..Default::default()
         },
 
+        "center" => Style {
+            display: Display::Block,
+            size: Size {
+                width: percent(1.0),
+                height: auto(),
+            },
+            ..Default::default()
+        },
+
+        // Inline elements: use Flex so they shrink-wrap their content
+        // instead of stretching to fill parent width (no true inline in taffy)
         "span" | "a" | "strong" | "em" | "b" | "i" | "u" | "small" | "big" | "sub" | "sup"
         | "code" | "kbd" | "samp" | "var" | "cite" | "abbr" | "mark" | "del" | "ins" | "s"
         | "q" | "dfn" | "ruby" | "rt" | "rp" | "bdi" | "bdo" | "wbr" | "time" | "data"
-        | "output" | "font" | "center" => Style {
-            display: Display::Block,
+        | "output" | "font" => Style {
+            display: Display::Flex,
+            flex_wrap: FlexWrap::Wrap,
             ..Default::default()
         },
 
@@ -1053,9 +1306,10 @@ fn element_style(tag: &str, el: &scraper::node::Element, css: &ComputedStyle) ->
         },
 
         "br" => Style {
+            display: Display::Block,
             size: Size {
-                width: percent(1.0),
-                height: length(16.0),
+                width: length(0.0),
+                height: length(0.0),
             },
             ..Default::default()
         },
@@ -1120,6 +1374,12 @@ fn apply_css_overrides(mut style: Style, css: &ComputedStyle) -> Style {
         return style;
     }
 
+    // Tables handle their own CSS in element_style to avoid
+    // percentage widths inflating min-content measurements
+    if style.display == Display::Table {
+        return style;
+    }
+
     if let Some(w) = css.width_px {
         style.size.width = length(w);
     } else if let Some(pct) = css.width_pct {
@@ -1155,10 +1415,14 @@ fn apply_css_overrides(mut style: Style, css: &ComputedStyle) -> Style {
     if let Some(v) = css.margin_bottom {
         style.margin.bottom = LengthPercentageAuto::length(v);
     }
-    if let Some(v) = css.margin_left {
+    if css.margin_left_auto {
+        style.margin.left = LengthPercentageAuto::auto();
+    } else if let Some(v) = css.margin_left {
         style.margin.left = LengthPercentageAuto::length(v);
     }
-    if let Some(v) = css.margin_right {
+    if css.margin_right_auto {
+        style.margin.right = LengthPercentageAuto::auto();
+    } else if let Some(v) = css.margin_right {
         style.margin.right = LengthPercentageAuto::length(v);
     }
 
@@ -1185,7 +1449,7 @@ fn percent_width_from_attr(el: &scraper::node::Element) -> Option<Dimension> {
 }
 
 fn render_node(
-    taffy: &TaffyTree<()>,
+    taffy: &TaffyTree<TextMeasure>,
     node_data: &HashMap<taffy::NodeId, NodeData>,
     node_id: taffy::NodeId,
     pixmap: &mut tiny_skia::Pixmap,
@@ -1289,24 +1553,11 @@ fn draw_text(
         let line_height = (font_size * 1.4).ceil().max(1.0);
         let metrics = Metrics::new(font_size, line_height);
         let mut buffer = cosmic_text::Buffer::new(&mut fs, metrics);
-        // Use available width for text wrapping
-        let available_width = (pixmap.width() as f32 - x).max(100.0);
+        // Use container width for text wrapping
+        let available_width = container_width.max(1.0);
         buffer.set_size(&mut fs, Some(available_width), Some(line_height * 20.0));
 
-        let cosmic_family = match data.font_family.as_str() {
-            "serif" => Family::Serif,
-            "sans-serif" | "sans serif" => Family::SansSerif,
-            "monospace" => Family::Monospace,
-            name => Family::Name(name),
-        };
-        let attrs = Attrs::new()
-            .family(cosmic_family)
-            .weight(cosmic_text::Weight(data.font_weight))
-            .style(if data.font_italic {
-                cosmic_text::Style::Italic
-            } else {
-                cosmic_text::Style::Normal
-            });
+        let attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic);
         buffer.set_text(&mut fs, text, &attrs, Shaping::Advanced, None);
         buffer.shape_until_scroll(&mut fs, false);
 

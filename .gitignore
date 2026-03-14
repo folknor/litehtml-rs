@@ -1,6 +1,8 @@
 target
 *.png
+*.json
 /test-emails/
 /test-emails-eml/
 .brokkr/*
 !.brokkr/results.db
+compare/ahem.woff2

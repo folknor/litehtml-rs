@@ -6,7 +6,7 @@ Pure Rust HTML email rendering pipeline for Ratatoskr's iced UI.
 
 ## Status
 
-The pipeline scaffold is working. All test emails render in **3-23ms** (pipeline only, excluding rasterization), well under the 100ms target. Currently rendering to tiny-skia pixel buffers for validation; final target is native iced widgets.
+The pipeline scaffold is working. All test emails render in **3-23ms** (pipeline only, excluding rasterization), well under the 100ms target. Currently rendering to tiny-skia pixel buffers and saving PNG output for visual validation; final target is native iced widgets.
 
 The old litehtml C++ renderer has been deleted. See `RENDERING-RESEARCH.md` for why (1,260ms per render, 27K FFI round-trips).
 
@@ -39,7 +39,7 @@ Never use `cargo` directly — use brokkr for everything.
 
 ```bash
 brokkr check                                             # clippy + tests
-brokkr run -- test-emails/1.html                         # build release + run
+brokkr run -- test-emails/1.html                         # build release + run, saves PNG next to input
 brokkr run --time -- test-emails/1.html                  # release run with timing output (not stored in db)
 brokkr bench run -- test-emails/1.html                   # benchmark (3 runs, best-of, stored in results.db)
 brokkr bench run --runs 5 -- test-emails/1.html          # benchmark with 5 runs

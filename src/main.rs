@@ -1352,7 +1352,7 @@ fn build_nodes(
             // Also check HTML attributes for bgcolor, color, width (common in email HTML)
             let computed = apply_html_attrs(computed, el);
 
-            let child_inherited = inherited.with_overrides(&computed, tag);
+            let mut child_inherited = inherited.with_overrides(&computed, tag);
 
             let mut style = element_style(tag, el, &computed);
 
@@ -1368,6 +1368,8 @@ fn build_nodes(
             } else {
                 child_inherited.text_align
             };
+            // Propagate resolved text-align to children
+            child_inherited.text_align = text_align;
 
             let data = NodeData {
                 tag: tag.to_string(),
@@ -1468,7 +1470,11 @@ fn build_nodes(
                             letter_spacing: child_inherited.letter_spacing,
                             spans: Some(spans.clone()),
                         };
-                        let leaf_id = taffy.new_leaf_with_context(Style::default(), text_ctx).unwrap();
+                        let leaf_style = Style {
+                            size: Size { width: percent(1.0), height: auto() },
+                            ..Default::default()
+                        };
+                        let leaf_id = taffy.new_leaf_with_context(leaf_style, text_ctx).unwrap();
                         let leaf_data = NodeData {
                             text: Some(full_text),
                             text_color: child_inherited.color,

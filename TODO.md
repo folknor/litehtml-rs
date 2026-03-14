@@ -3,6 +3,7 @@
 ## Layout issues
 
 - **Default line-height from font metrics**: Currently hardcoded to `font_size * 1.2`. Should query cosmic-text for the font's actual ascent/descent metrics to compute `line-height: normal` correctly. Ahem's correct default is 1.0 (no ascenders/descenders), typical system fonts are ~1.15. This causes pills/badges to be slightly too tall and cumulative vertical drift in paragraphs.
+- **Block element centering in table cells**: `align="center"` on a `<td>` sets `justify_content: Center` but this doesn't center block children (like `<img display:block>`) within table cells. The header logo is 32px off-center. May need `margin: 0 auto` on centered block children, or a different approach for table cell child alignment.
 - **`<center>` tag**: Not properly centering child tables/content in all cases.
 
 ## CSS properties not yet supported

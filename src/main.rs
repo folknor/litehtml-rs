@@ -48,6 +48,7 @@ struct ComputedStyle {
     white_space_nowrap: bool,
     letter_spacing: Option<f32>,
     text_transform: Option<TextTransform>,
+    table_layout_fixed: bool,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -335,6 +336,10 @@ fn parse_inline_style(css: &str) -> ComputedStyle {
     }
     for prop in &attr.declarations.important_declarations {
         apply_property(&mut style, prop);
+    }
+    // lightningcss doesn't parse table-layout, so check raw CSS
+    if css.contains("table-layout") && css.contains("fixed") {
+        style.table_layout_fixed = true;
     }
     style
 }
@@ -1532,6 +1537,7 @@ fn element_style(tag: &str, el: &scraper::node::Element, css: &ComputedStyle) ->
                     left: css.padding_left.map_or(LengthPercentage::length(0.0), LengthPercentage::length),
                     right: css.padding_right.map_or(LengthPercentage::length(0.0), LengthPercentage::length),
                 },
+                table_layout: if css.table_layout_fixed { taffy::TableLayout::Fixed } else { taffy::TableLayout::Auto },
                 ..Default::default()
             }
         },
@@ -1677,6 +1683,9 @@ fn apply_align_attr(mut style: Style, el: &scraper::node::Element) -> Style {
 }
 
 fn apply_css_overrides(mut style: Style, css: &ComputedStyle) -> Style {
+    // CSS default is content-box; taffy defaults to border-box
+    style.box_sizing = taffy::BoxSizing::ContentBox;
+
     if css.display_none {
         style.display = Display::None;
         return style;

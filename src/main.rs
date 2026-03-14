@@ -46,6 +46,15 @@ struct ComputedStyle {
     line_height_factor: Option<f32>,
     text_align: Option<TextAlign>,
     white_space_nowrap: bool,
+    letter_spacing: Option<f32>,
+    text_transform: Option<TextTransform>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq)]
+enum TextTransform {
+    Uppercase,
+    Lowercase,
+    Capitalize,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -283,6 +292,21 @@ fn apply_property(style: &mut ComputedStyle, prop: &Property) {
                 style.white_space_nowrap = true;
             }
         }
+        Property::LetterSpacing(ls) => {
+            use lightningcss::properties::text::Spacing;
+            if let Spacing::Length(l) = ls {
+                style.letter_spacing = l.to_px();
+            }
+        }
+        Property::TextTransform(tt) => {
+            use lightningcss::properties::text::TextTransformCase;
+            style.text_transform = match tt.case {
+                TextTransformCase::Uppercase => Some(TextTransform::Uppercase),
+                TextTransformCase::Lowercase => Some(TextTransform::Lowercase),
+                TextTransformCase::Capitalize => Some(TextTransform::Capitalize),
+                _ => None,
+            };
+        }
         Property::BorderTopWidth(w) => {
             style.border_top = match w {
                 BorderSideWidth::Length(l) => l.to_px(),
@@ -391,6 +415,7 @@ struct NodeData {
     font_weight: u16,
     font_italic: bool,
     line_height: Option<f32>,
+    letter_spacing: Option<f32>,
     border_top: Option<f32>,
     border_bottom: Option<f32>,
     is_hr: bool,
@@ -418,6 +443,7 @@ impl Default for NodeData {
             font_weight: 400,
             font_italic: false,
             line_height: None,
+            letter_spacing: None,
             border_top: None,
             border_bottom: None,
             is_hr: false,
@@ -471,16 +497,20 @@ fn resolve_font_family(family: &str) -> Family<'_> {
 /// Build cosmic-text Attrs, forcing Ahem normal weight/style in fixture mode
 /// so cosmic-text doesn't fall back to system fonts for bold/italic.
 /// Ahem metrics are identical across weights so this doesn't affect layout.
-fn build_text_attrs(family: &str, weight: u16, italic: bool) -> Attrs<'_> {
+fn build_text_attrs(family: &str, weight: u16, italic: bool, letter_spacing: Option<f32>) -> Attrs<'_> {
     let f = resolve_font_family(family);
-    if is_fixture_mode() {
+    let mut attrs = if is_fixture_mode() {
         Attrs::new().family(f).weight(cosmic_text::Weight::NORMAL).style(cosmic_text::Style::Normal)
     } else {
         Attrs::new()
             .family(f)
             .weight(cosmic_text::Weight(weight))
             .style(if italic { cosmic_text::Style::Italic } else { cosmic_text::Style::Normal })
+    };
+    if let Some(ls) = letter_spacing {
+        attrs = attrs.letter_spacing(ls);
     }
+    attrs
 }
 
 /// A span of text with its own styling, used for rich text (inline elements).
@@ -492,6 +522,7 @@ struct RichTextSpan {
     font_weight: u16,
     font_italic: bool,
     color: (u8, u8, u8, u8),
+    letter_spacing: Option<f32>,
 }
 
 /// Context stored on taffy leaf nodes for dynamic text measurement.
@@ -504,7 +535,30 @@ struct TextMeasure {
     font_italic: bool,
     line_height: Option<f32>,
     white_space_nowrap: bool,
+    letter_spacing: Option<f32>,
     spans: Option<Vec<RichTextSpan>>,
+}
+
+/// Apply text-transform to a string.
+fn apply_text_transform(text: &str, transform: Option<TextTransform>) -> String {
+    match transform {
+        Some(TextTransform::Uppercase) => text.to_uppercase(),
+        Some(TextTransform::Lowercase) => text.to_lowercase(),
+        Some(TextTransform::Capitalize) => {
+            let mut result = String::with_capacity(text.len());
+            let mut prev_is_space = true;
+            for c in text.chars() {
+                if prev_is_space && c.is_alphabetic() {
+                    result.extend(c.to_uppercase());
+                } else {
+                    result.push(c);
+                }
+                prev_is_space = c.is_whitespace();
+            }
+            result
+        }
+        None => text.to_string(),
+    }
 }
 
 /// Resolve line height: use CSS value if set, otherwise default to font_size * 1.4.
@@ -553,15 +607,15 @@ fn measure_text_node(
                 .iter()
                 .enumerate()
                 .map(|(i, s)| {
-                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic)
+                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic, s.letter_spacing)
                         .metadata(i);
                     (s.text.as_str(), attrs)
                 })
                 .collect();
-            let default_attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic);
+            let default_attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic, ctx.letter_spacing);
             buffer.set_rich_text(&mut font_sys, rich, &default_attrs, Shaping::Basic, None);
         } else {
-            let attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic);
+            let attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic, ctx.letter_spacing);
             buffer.set_text(&mut font_sys, &ctx.text, &attrs, Shaping::Basic, None);
         }
         buffer.shape_until_scroll(&mut font_sys, false);
@@ -585,7 +639,7 @@ fn measure_text_width(text: &str, font_size: f32, family: &str, weight: u16, ita
         let mut buffer = cosmic_text::Buffer::new(&mut fs, metrics);
         buffer.set_size(&mut fs, Some(f32::MAX), Some(line_height));
 
-        let attrs = build_text_attrs(family, weight, italic);
+        let attrs = build_text_attrs(family, weight, italic, None);
         buffer.set_text(&mut fs, text, &attrs, Shaping::Basic, None);
         buffer.shape_until_scroll(&mut fs, false);
 
@@ -942,6 +996,8 @@ struct InheritedStyle {
     text_align: TextAlign,
     line_height: Option<f32>,
     white_space_nowrap: bool,
+    letter_spacing: Option<f32>,
+    text_transform: Option<TextTransform>,
 }
 
 impl Default for InheritedStyle {
@@ -955,6 +1011,8 @@ impl Default for InheritedStyle {
             text_align: TextAlign::Left,
             line_height: None,
             white_space_nowrap: false,
+            letter_spacing: None,
+            text_transform: None,
         }
     }
 }
@@ -987,6 +1045,12 @@ impl InheritedStyle {
         }
         if css.white_space_nowrap {
             out.white_space_nowrap = true;
+        }
+        if let Some(ls) = css.letter_spacing {
+            out.letter_spacing = Some(ls);
+        }
+        if let Some(tt) = css.text_transform {
+            out.text_transform = Some(tt);
         }
         // Tag-based defaults
         match tag {
@@ -1052,6 +1116,7 @@ fn collect_inline_text(
                 if collapsed.is_empty() {
                     continue;
                 }
+                let collapsed = apply_text_transform(&collapsed, inherited.text_transform);
                 // Add space separator between spans if needed
                 if let Some(last) = spans.last() {
                     if !last.text.ends_with(' ') && !collapsed.starts_with(' ') {
@@ -1062,6 +1127,7 @@ fn collect_inline_text(
                             font_weight: inherited.font_weight,
                             font_italic: inherited.font_italic,
                             color: inherited.color,
+                            letter_spacing: inherited.letter_spacing,
                         });
                     }
                 }
@@ -1072,6 +1138,7 @@ fn collect_inline_text(
                     font_weight: inherited.font_weight,
                     font_italic: inherited.font_italic,
                     color: inherited.color,
+                    letter_spacing: inherited.letter_spacing,
                 });
             }
             Node::Element(el) => {
@@ -1084,6 +1151,7 @@ fn collect_inline_text(
                         font_weight: inherited.font_weight,
                         font_italic: inherited.font_italic,
                         color: inherited.color,
+                        letter_spacing: inherited.letter_spacing,
                     });
                     continue;
                 }
@@ -1220,6 +1288,7 @@ fn build_nodes(
                 font_weight: child_inherited.font_weight,
                 font_italic: child_inherited.font_italic,
                 line_height: child_inherited.line_height,
+                letter_spacing: child_inherited.letter_spacing,
                 border_top: computed.border_top,
                 border_bottom: computed.border_bottom,
                 is_hr: tag == "hr",
@@ -1290,6 +1359,7 @@ fn build_nodes(
                             font_italic: child_inherited.font_italic,
                             line_height: child_inherited.line_height,
                             white_space_nowrap: child_inherited.white_space_nowrap,
+                            letter_spacing: child_inherited.letter_spacing,
                             spans: Some(spans.clone()),
                         };
                         let leaf_id = taffy.new_leaf_with_context(Style::default(), text_ctx).unwrap();
@@ -1346,15 +1416,17 @@ fn build_nodes(
             if text_str.is_empty() {
                 return vec![];
             }
+            let text_str = apply_text_transform(text_str, inherited.text_transform);
 
             let text_ctx = TextMeasure {
-                text: text_str.to_string(),
+                text: text_str.clone(),
                 font_size: inherited.font_size,
                 font_family: inherited.font_family.clone(),
                 font_weight: inherited.font_weight,
                 font_italic: inherited.font_italic,
                 line_height: inherited.line_height,
                 white_space_nowrap: inherited.white_space_nowrap,
+                letter_spacing: inherited.letter_spacing,
                 spans: None,
             };
 
@@ -1362,13 +1434,14 @@ fn build_nodes(
                 ..Default::default()
             };
             let data = NodeData {
-                text: Some(text_str.to_string()),
+                text: Some(text_str),
                 text_color: inherited.color,
                 font_size: inherited.font_size,
                 font_family: inherited.font_family.clone(),
                 font_weight: inherited.font_weight,
                 font_italic: inherited.font_italic,
                 line_height: inherited.line_height,
+                letter_spacing: inherited.letter_spacing,
                 text_align: inherited.text_align,
                 ..Default::default()
             };
@@ -1811,15 +1884,15 @@ fn draw_text(
                 .iter()
                 .enumerate()
                 .map(|(i, s)| {
-                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic)
+                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic, s.letter_spacing)
                         .metadata(i);
                     (s.text.as_str(), attrs)
                 })
                 .collect();
-            let default_attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic);
+            let default_attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic, data.letter_spacing);
             buffer.set_rich_text(&mut fs, rich, &default_attrs, Shaping::Advanced, None);
         } else {
-            let attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic);
+            let attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic, data.letter_spacing);
             buffer.set_text(&mut fs, text, &attrs, Shaping::Advanced, None);
         }
         buffer.shape_until_scroll(&mut fs, false);

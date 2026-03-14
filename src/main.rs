@@ -43,6 +43,7 @@ struct ComputedStyle {
     border_top: Option<f32>,
     border_bottom: Option<f32>,
     line_height: Option<f32>,
+    line_height_factor: Option<f32>,
     text_align: Option<TextAlign>,
 }
 
@@ -256,11 +257,15 @@ fn apply_property(style: &mut ComputedStyle, prop: &Property) {
         }
         Property::LineHeight(lh) => {
             use lightningcss::properties::font::LineHeight;
-            style.line_height = match lh {
-                LineHeight::Length(lp) => lp_to_px(lp),
-                LineHeight::Number(n) => Some(n * 16.0),
-                _ => None,
-            };
+            match lh {
+                LineHeight::Length(lp) => {
+                    style.line_height = lp_to_px(lp);
+                }
+                LineHeight::Number(n) => {
+                    style.line_height_factor = Some(*n);
+                }
+                _ => {}
+            }
         }
         Property::TextAlign(ta) => {
             use lightningcss::properties::text::TextAlign as CssTextAlign;
@@ -378,13 +383,16 @@ struct NodeData {
     font_family: String,
     font_weight: u16,
     font_italic: bool,
+    line_height: Option<f32>,
     border_top: Option<f32>,
     border_bottom: Option<f32>,
     is_hr: bool,
+    is_img: bool,
     text_align: TextAlign,
     padding: (f32, f32, f32, f32),
     margin: (f32, f32, f32, f32),
     max_width_px: Option<f32>,
+    rich_spans: Option<Vec<RichTextSpan>>,
 }
 
 impl Default for NodeData {
@@ -402,13 +410,16 @@ impl Default for NodeData {
             font_family: "sans-serif".to_string(),
             font_weight: 400,
             font_italic: false,
+            line_height: None,
             border_top: None,
             border_bottom: None,
             is_hr: false,
+            is_img: false,
             text_align: TextAlign::Left,
             padding: (0.0, 0.0, 0.0, 0.0),
             margin: (0.0, 0.0, 0.0, 0.0),
             max_width_px: None,
+            rich_spans: None,
         }
     }
 }
@@ -465,6 +476,17 @@ fn build_text_attrs(family: &str, weight: u16, italic: bool) -> Attrs<'_> {
     }
 }
 
+/// A span of text with its own styling, used for rich text (inline elements).
+#[derive(Debug, Clone)]
+struct RichTextSpan {
+    text: String,
+    font_size: f32,
+    font_family: String,
+    font_weight: u16,
+    font_italic: bool,
+    color: (u8, u8, u8, u8),
+}
+
 /// Context stored on taffy leaf nodes for dynamic text measurement.
 #[derive(Debug, Clone)]
 struct TextMeasure {
@@ -473,6 +495,13 @@ struct TextMeasure {
     font_family: String,
     font_weight: u16,
     font_italic: bool,
+    line_height: Option<f32>,
+    spans: Option<Vec<RichTextSpan>>,
+}
+
+/// Resolve line height: use CSS value if set, otherwise default to font_size * 1.4.
+fn resolve_line_height(font_size: f32, css_line_height: Option<f32>) -> f32 {
+    css_line_height.unwrap_or((font_size * 1.4).ceil()).max(1.0)
 }
 
 /// Measure function called by taffy during layout to determine text node size.
@@ -499,7 +528,7 @@ fn measure_text_node(
 
     // Measure text wrapping at the available width
     let fs = ctx.font_size.max(1.0);
-    let line_height = (fs * 1.4).ceil().max(1.0);
+    let line_height = resolve_line_height(fs, ctx.line_height);
 
     FONT_SYSTEM.with(|font_sys| {
         let mut font_sys = font_sys.borrow_mut();
@@ -507,9 +536,22 @@ fn measure_text_node(
         let mut buffer = cosmic_text::Buffer::new(&mut font_sys, metrics);
         buffer.set_size(&mut font_sys, Some(available_width), Some(line_height * 100.0));
 
-        let attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic);
-
-        buffer.set_text(&mut font_sys, &ctx.text, &attrs, Shaping::Basic, None);
+        if let Some(ref spans) = ctx.spans {
+            let rich: Vec<(&str, cosmic_text::Attrs)> = spans
+                .iter()
+                .enumerate()
+                .map(|(i, s)| {
+                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic)
+                        .metadata(i);
+                    (s.text.as_str(), attrs)
+                })
+                .collect();
+            let default_attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic);
+            buffer.set_rich_text(&mut font_sys, rich, &default_attrs, Shaping::Basic, None);
+        } else {
+            let attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic);
+            buffer.set_text(&mut font_sys, &ctx.text, &attrs, Shaping::Basic, None);
+        }
         buffer.shape_until_scroll(&mut font_sys, false);
 
         let num_lines = buffer.layout_runs().count().max(1) as f32;
@@ -886,6 +928,7 @@ struct InheritedStyle {
     font_weight: u16,
     font_italic: bool,
     text_align: TextAlign,
+    line_height: Option<f32>,
 }
 
 impl Default for InheritedStyle {
@@ -897,6 +940,7 @@ impl Default for InheritedStyle {
             font_weight: 400,
             font_italic: false,
             text_align: TextAlign::Left,
+            line_height: None,
         }
     }
 }
@@ -921,6 +965,11 @@ impl InheritedStyle {
         }
         if let Some(ta) = css.text_align {
             out.text_align = ta;
+        }
+        if let Some(lh) = css.line_height {
+            out.line_height = Some(lh);
+        } else if let Some(factor) = css.line_height_factor {
+            out.line_height = Some(out.font_size * factor);
         }
         // Tag-based defaults
         match tag {
@@ -967,6 +1016,101 @@ fn is_inline_tag(tag: &str) -> bool {
         | "q" | "dfn" | "ruby" | "rt" | "rp" | "bdi" | "bdo" | "wbr" | "time" | "data"
         | "output" | "font"
     )
+}
+
+/// Recursively collect text from inline children into rich text spans.
+/// Returns None if any non-inline content is found (images, nested blocks, etc.)
+/// signaling fallback to the current flex approach.
+fn collect_inline_text(
+    node_ref: ego_tree::NodeRef<'_, Node>,
+    inherited: &InheritedStyle,
+    style_index: &StyleIndex,
+    spans: &mut Vec<RichTextSpan>,
+) -> bool {
+    for child in node_ref.children() {
+        match child.value() {
+            Node::Text(text) => {
+                // Normalize whitespace: collapse runs of whitespace to single spaces
+                let collapsed: String = text.text.split_whitespace().collect::<Vec<_>>().join(" ");
+                if collapsed.is_empty() {
+                    continue;
+                }
+                // Add space separator between spans if needed
+                if let Some(last) = spans.last() {
+                    if !last.text.ends_with(' ') && !collapsed.starts_with(' ') {
+                        spans.push(RichTextSpan {
+                            text: " ".to_string(),
+                            font_size: inherited.font_size,
+                            font_family: inherited.font_family.clone(),
+                            font_weight: inherited.font_weight,
+                            font_italic: inherited.font_italic,
+                            color: inherited.color,
+                        });
+                    }
+                }
+                spans.push(RichTextSpan {
+                    text: collapsed,
+                    font_size: inherited.font_size,
+                    font_family: inherited.font_family.clone(),
+                    font_weight: inherited.font_weight,
+                    font_italic: inherited.font_italic,
+                    color: inherited.color,
+                });
+            }
+            Node::Element(el) => {
+                let tag = el.name();
+                if tag == "br" {
+                    spans.push(RichTextSpan {
+                        text: "\n".to_string(),
+                        font_size: inherited.font_size,
+                        font_family: inherited.font_family.clone(),
+                        font_weight: inherited.font_weight,
+                        font_italic: inherited.font_italic,
+                        color: inherited.color,
+                    });
+                    continue;
+                }
+                if !is_inline_tag(tag) {
+                    return false;
+                }
+                // Compute style overrides for this inline element
+                let el_ref = scraper::ElementRef::wrap(child).unwrap();
+                let rule_css = style_index.match_element_ref(&el_ref);
+                let inline_css = el.attr("style").unwrap_or("");
+                let merged = if !rule_css.is_empty() && !inline_css.is_empty() {
+                    format!("{rule_css};{inline_css}")
+                } else if !rule_css.is_empty() {
+                    rule_css
+                } else {
+                    inline_css.to_string()
+                };
+                let computed = if !merged.is_empty() {
+                    parse_inline_style(&merged)
+                } else {
+                    ComputedStyle::default()
+                };
+                let computed = apply_html_attrs(computed, el);
+                // Bail if this inline element has visual styling that needs its own box
+                if computed.background_color.is_some()
+                    || computed.padding_top.is_some()
+                    || computed.padding_bottom.is_some()
+                    || computed.padding_left.is_some()
+                    || computed.padding_right.is_some()
+                    || computed.border_top.is_some()
+                    || computed.border_bottom.is_some()
+                    || computed.display_none
+                {
+                    return false;
+                }
+                let child_inherited = inherited.with_overrides(&computed, tag);
+                if !collect_inline_text(child, &child_inherited, style_index, spans) {
+                    return false;
+                }
+            }
+            _ => {}
+        }
+    }
+    true
 }
 
 /// Build taffy nodes for a DOM node. Returns a Vec because inline elements
@@ -1030,17 +1174,6 @@ fn build_nodes(
 
             let child_inherited = inherited.with_overrides(&computed, tag);
 
-            // Inline elements don't create layout boxes — flatten their children
-            // into the parent so they don't stretch to fill width.
-            if is_inline_tag(tag) && !computed.display_none {
-                let child_cellpadding = cellpadding;
-                let mut children = Vec::new();
-                for child in node_ref.children() {
-                    children.extend(build_nodes(child.id(), tree, taffy, node_data, &child_inherited, style_index, child_cellpadding, depth + 1, &node_path));
-                }
-                return children;
-            }
-
             let mut style = element_style(tag, el, &computed);
 
             // Check align attr for text-align (common in email HTML)
@@ -1069,9 +1202,11 @@ fn build_nodes(
                 font_family: child_inherited.font_family.clone(),
                 font_weight: child_inherited.font_weight,
                 font_italic: child_inherited.font_italic,
+                line_height: child_inherited.line_height,
                 border_top: computed.border_top,
                 border_bottom: computed.border_bottom,
                 is_hr: tag == "hr",
+                is_img: tag == "img",
                 text_align,
                 padding: (
                     computed.padding_top.unwrap_or(0.0),
@@ -1086,6 +1221,7 @@ fn build_nodes(
                     computed.margin_left.unwrap_or(0.0),
                 ),
                 max_width_px: computed.max_width_px,
+                rich_spans: None,
             };
 
             // If this is a <table> with cellpadding, propagate to child cells
@@ -1098,7 +1234,7 @@ fn build_nodes(
             };
 
             // Apply cellpadding to td/th cells
-            let style = if (tag == "td" || tag == "th") && child_cellpadding.is_some() {
+            let mut style = if (tag == "td" || tag == "th") && child_cellpadding.is_some() {
                 let cp = child_cellpadding.unwrap();
                 let mut s = style;
                 // Only override default padding, not explicit CSS padding
@@ -1115,12 +1251,73 @@ fn build_nodes(
                 style
             };
 
+            // Try rich text collection for block/cell elements with inline children
+            if matches!(style.display, Display::Block | Display::TableCell) {
+                let has_inline_children = node_ref.children().any(|child| {
+                    match child.value() {
+                        Node::Element(child_el) => is_inline_tag(child_el.name()) || child_el.name() == "br",
+                        Node::Text(_) => false,
+                        _ => false,
+                    }
+                });
+                if has_inline_children {
+                    let mut spans = Vec::new();
+                    if collect_inline_text(node_ref, &child_inherited, style_index, &mut spans) && !spans.is_empty() {
+                        // Success: create a single rich text leaf node
+                        let full_text: String = spans.iter().map(|s| s.text.as_str()).collect();
+                        let text_ctx = TextMeasure {
+                            text: full_text.clone(),
+                            font_size: child_inherited.font_size,
+                            font_family: child_inherited.font_family.clone(),
+                            font_weight: child_inherited.font_weight,
+                            font_italic: child_inherited.font_italic,
+                            line_height: child_inherited.line_height,
+                            spans: Some(spans.clone()),
+                        };
+                        let leaf_id = taffy.new_leaf_with_context(Style::default(), text_ctx).unwrap();
+                        let leaf_data = NodeData {
+                            text: Some(full_text),
+                            text_color: child_inherited.color,
+                            font_size: child_inherited.font_size,
+                            font_family: child_inherited.font_family.clone(),
+                            font_weight: child_inherited.font_weight,
+                            font_italic: child_inherited.font_italic,
+                            line_height: child_inherited.line_height,
+                            text_align: data.text_align,
+                            rich_spans: Some(spans),
+                            ..Default::default()
+                        };
+                        node_data.insert(leaf_id, leaf_data);
+
+                        let id = taffy.new_with_children(style, &[leaf_id]).unwrap();
+                        node_data.insert(id, data);
+                        return vec![id];
+                    }
+                }
+            }
+
             let children: Vec<taffy::NodeId> = node_ref
                 .children()
                 .flat_map(|child| {
                     build_nodes(child.id(), tree, taffy, node_data, &child_inherited, style_index, child_cellpadding, depth + 1, &node_path)
                 })
                 .collect();
+
+            // Fallback: if block has inline children but rich text collection failed,
+            // switch to flex layout so inline children can shrink-wrap.
+            if style.display == Display::Block {
+                let has_inline_children = node_ref.children().any(|child| {
+                    if let Node::Element(child_el) = child.value() {
+                        is_inline_tag(child_el.name())
+                    } else {
+                        false
+                    }
+                });
+                if has_inline_children {
+                    style.display = Display::Flex;
+                    style.flex_wrap = FlexWrap::Wrap;
+                }
+            }
 
             let id = taffy.new_with_children(style, &children).unwrap();
             node_data.insert(id, data);
@@ -1138,6 +1335,8 @@ fn build_nodes(
                 font_family: inherited.font_family.clone(),
                 font_weight: inherited.font_weight,
                 font_italic: inherited.font_italic,
+                line_height: inherited.line_height,
+                spans: None,
             };
 
             let style = Style {
@@ -1150,6 +1349,7 @@ fn build_nodes(
                 font_family: inherited.font_family.clone(),
                 font_weight: inherited.font_weight,
                 font_italic: inherited.font_italic,
+                line_height: inherited.line_height,
                 text_align: inherited.text_align,
                 ..Default::default()
             };
@@ -1499,6 +1699,20 @@ fn render_node(
             }
         }
 
+        // Draw image placeholder (gray box matching Chrome's img { background-color: #d0d0d0 })
+        if data.is_img {
+            if let Some(rect) = tiny_skia::Rect::from_xywh(x, y, w, h) {
+                let paint = tiny_skia::Paint {
+                    shader: tiny_skia::Shader::SolidColor(
+                        tiny_skia::Color::from_rgba8(208, 208, 208, 255),
+                    ),
+                    anti_alias: false,
+                    ..Default::default()
+                };
+                pixmap.fill_rect(rect, &paint, tiny_skia::Transform::identity(), None);
+            }
+        }
+
         // Draw <hr> as a gray line
         if data.is_hr {
             if let Some(rect) = tiny_skia::Rect::from_xywh(x, y, w, 1.0) {
@@ -1566,15 +1780,29 @@ fn draw_text(
     FONT_SYSTEM.with(|fs| {
         let mut fs = fs.borrow_mut();
         let font_size = data.font_size.max(1.0);
-        let line_height = (font_size * 1.4).ceil().max(1.0);
+        let line_height = resolve_line_height(font_size, data.line_height);
         let metrics = Metrics::new(font_size, line_height);
         let mut buffer = cosmic_text::Buffer::new(&mut fs, metrics);
         // Use container width for text wrapping
         let available_width = container_width.max(1.0);
         buffer.set_size(&mut fs, Some(available_width), Some(line_height * 20.0));
 
-        let attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic);
-        buffer.set_text(&mut fs, text, &attrs, Shaping::Advanced, None);
+        if let Some(ref spans) = data.rich_spans {
+            let rich: Vec<(&str, cosmic_text::Attrs)> = spans
+                .iter()
+                .enumerate()
+                .map(|(i, s)| {
+                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic)
+                        .metadata(i);
+                    (s.text.as_str(), attrs)
+                })
+                .collect();
+            let default_attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic);
+            buffer.set_rich_text(&mut fs, rich, &default_attrs, Shaping::Advanced, None);
+        } else {
+            let attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic);
+            buffer.set_text(&mut fs, text, &attrs, Shaping::Advanced, None);
+        }
         buffer.shape_until_scroll(&mut fs, false);
 
         let (cr, cg, cb, _ca) = data.text_color;
@@ -1592,6 +1820,18 @@ fn draw_text(
             let draw_x = (x + align_offset) as i32;
             let baseline_y = run.line_y as i32;
             for glyph in run.glyphs.iter() {
+                // Look up per-glyph color from rich text spans
+                let (gr, gg, gb) = if let Some(ref spans) = data.rich_spans {
+                    let idx = glyph.metadata;
+                    if idx < spans.len() {
+                        let (r, g, b, _) = spans[idx].color;
+                        (r, g, b)
+                    } else {
+                        (cr, cg, cb)
+                    }
+                } else {
+                    (cr, cg, cb)
+                };
                 let physical = glyph.physical((0.0, 0.0), 1.0);
                 if let Some(image) = swash_cache.get_image_uncached(&mut fs, physical.cache_key) {
                     let gx = draw_x + physical.x + image.placement.left;
@@ -1612,9 +1852,9 @@ fn draw_text(
                                                 pix_w as u32,
                                                 px as u32,
                                                 py as u32,
-                                                cr,
-                                                cg,
-                                                cb,
+                                                gr,
+                                                gg,
+                                                gb,
                                                 alpha,
                                             );
                                         }

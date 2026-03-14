@@ -128,7 +128,8 @@ for (const path of matched) {
 }
 
 // --- Report ---
-const total = matched.length;
+const significantChromeOnly = chromeOnly.filter(p => !p.includes('head['));
+const total = matched.length + significantChromeOnly.length; // include unmatched in denominator
 const passRate = total > 0 ? Math.round(exactCount / total * 100) : 0;
 
 console.log(`\n╔══════════════════════════════════════╗`);
@@ -136,11 +137,23 @@ console.log(`║        LAYOUT COMPARISON REPORT      ║`);
 console.log(`╚══════════════════════════════════════╝`);
 console.log(`  Chrome elements:     ${chrome.length}`);
 console.log(`  Pipeline elements:   ${pipeline.length}`);
-console.log(`  Matched by path:     ${total}`);
+console.log(`  Matched by path:     ${matched.length}`);
 console.log(`  Exact matches:       ${exactCount} / ${total} (${passRate}%)`);
 console.log(`  With differences:    ${diffs.length}`);
+if (significantChromeOnly.length > 0) {
+  console.log(`  MISSING from pipeline: ${significantChromeOnly.length}`);
+}
 if (significantPipelineOnly.length > 0) {
   console.log(`  Pipeline-only:       ${significantPipelineOnly.length}`);
+}
+
+if (significantChromeOnly.length > 0) {
+  console.log(`\n── Missing Elements (in Chrome, not in pipeline) ──`);
+  for (const p of significantChromeOnly) {
+    const ce = chromeByPath.get(p);
+    const short = p.split('>').slice(-3).join(' > ');
+    console.log(`  ${short} <${ce.tag}> w=${ce.w} h=${ce.h}`);
+  }
 }
 
 // Categorize diffs

@@ -1224,8 +1224,23 @@ fn collect_inline_text(
     for child in node_ref.children() {
         match child.value() {
             Node::Text(text) => {
-                // Normalize whitespace: collapse runs of whitespace to single spaces
-                let collapsed: String = text.text.split_whitespace().collect::<Vec<_>>().join(" ");
+                // Normalize whitespace: collapse runs of whitespace to single spaces,
+                // but preserve a single leading/trailing space if the original had one.
+                // Note: &nbsp; (\u{00A0}) is converted to regular space since we don't
+                // yet constrain auto-width tables to their parent's width.
+                let has_leading_space = text.text.starts_with(|c: char| c.is_whitespace());
+                let has_trailing_space = text.text.ends_with(|c: char| c.is_whitespace());
+                let mut collapsed: String = text.text.split_whitespace().collect::<Vec<_>>().join(" ");
+                if collapsed.is_empty() {
+                    if has_leading_space && !spans.is_empty() {
+                        collapsed = " ".to_string();
+                    } else {
+                        continue;
+                    }
+                } else {
+                    if has_leading_space { collapsed.insert(0, ' '); }
+                    if has_trailing_space { collapsed.push(' '); }
+                }
                 if collapsed.is_empty() {
                     continue;
                 }

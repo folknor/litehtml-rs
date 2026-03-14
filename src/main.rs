@@ -19,6 +19,7 @@ use taffy::prelude::*;
 #[derive(Debug, Clone, Default)]
 struct ComputedStyle {
     display_none: bool,
+    display_inline_block: bool,
     width_px: Option<f32>,
     height_px: Option<f32>,
     width_pct: Option<f32>,
@@ -114,10 +115,15 @@ fn apply_property(style: &mut ComputedStyle, prop: &Property) {
     use lightningcss::values::length::LengthPercentageOrAuto;
     match prop {
         Property::Display(d) => {
-            use lightningcss::properties::display::DisplayKeyword;
-            // Check for display: none
-            if let CssDisplay::Keyword(DisplayKeyword::None) = d {
-                style.display_none = true;
+            use lightningcss::properties::display::{DisplayKeyword, DisplayPair, DisplayOutside, DisplayInside};
+            match d {
+                CssDisplay::Keyword(DisplayKeyword::None) => {
+                    style.display_none = true;
+                }
+                CssDisplay::Pair(DisplayPair { outside: DisplayOutside::Inline, inside: DisplayInside::FlowRoot, .. }) => {
+                    style.display_inline_block = true;
+                }
+                _ => {}
             }
         }
         Property::Width(s) => match s {
@@ -658,14 +664,10 @@ fn measure_text_node(
     } else {
         known_dimensions.width.unwrap_or_else(|| match available_space.width {
             AvailableSpace::Definite(w) => w,
-            AvailableSpace::MinContent => 0.0,
+            AvailableSpace::MinContent => 1.0,
             AvailableSpace::MaxContent => f32::MAX,
         })
     };
-
-    if available_width <= 0.0 {
-        return Size::ZERO;
-    }
 
     // Measure text wrapping at the available width
     let fs = ctx.font_size.max(1.0);
@@ -1261,6 +1263,7 @@ fn collect_inline_text(
                     || computed.border_left.is_some()
                     || computed.border_right.is_some()
                     || computed.display_none
+                    || computed.display_inline_block
                 {
                     return false;
                 }
@@ -1767,6 +1770,9 @@ fn apply_css_overrides(mut style: Style, css: &ComputedStyle) -> Style {
     if css.display_none {
         style.display = Display::None;
         return style;
+    }
+    if css.display_inline_block {
+        style.display = Display::Block;
     }
 
     // Tables handle their own CSS in element_style to avoid

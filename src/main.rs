@@ -1187,6 +1187,13 @@ impl InheritedStyle {
             "code" | "pre" | "kbd" | "samp" => {
                 out.font_family = "monospace".to_string();
             }
+            // Tables create new formatting contexts — reset text-align
+            // so outer td align="center" doesn't cascade into nested tables.
+            "table" => {
+                if css.text_align.is_none() {
+                    out.text_align = TextAlign::Left;
+                }
+            }
             _ => {}
         }
         out
@@ -1368,7 +1375,7 @@ fn build_nodes(
             } else {
                 child_inherited.text_align
             };
-            // Propagate resolved text-align to children
+            // Propagate text-align to children so direct text nodes get it
             child_inherited.text_align = text_align;
 
             let data = NodeData {

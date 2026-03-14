@@ -42,6 +42,12 @@ struct ComputedStyle {
     font_style_italic: bool,
     border_top: Option<f32>,
     border_bottom: Option<f32>,
+    border_left: Option<f32>,
+    border_right: Option<f32>,
+    border_top_color: Option<(u8, u8, u8, u8)>,
+    border_bottom_color: Option<(u8, u8, u8, u8)>,
+    border_left_color: Option<(u8, u8, u8, u8)>,
+    border_right_color: Option<(u8, u8, u8, u8)>,
     line_height: Option<f32>,
     line_height_factor: Option<f32>,
     text_align: Option<TextAlign>,
@@ -320,6 +326,58 @@ fn apply_property(style: &mut ComputedStyle, prop: &Property) {
                 _ => None,
             };
         }
+        Property::BorderLeft(b) => {
+            style.border_left = match &b.width {
+                BorderSideWidth::Length(l) => l.to_px(),
+                _ => None,
+            };
+            style.border_left_color = css_color_to_rgba(&b.color);
+        }
+        Property::BorderRight(b) => {
+            style.border_right = match &b.width {
+                BorderSideWidth::Length(l) => l.to_px(),
+                _ => None,
+            };
+            style.border_right_color = css_color_to_rgba(&b.color);
+        }
+        Property::BorderTop(b) => {
+            style.border_top = match &b.width {
+                BorderSideWidth::Length(l) => l.to_px(),
+                _ => None,
+            };
+            style.border_top_color = css_color_to_rgba(&b.color);
+        }
+        Property::BorderBottom(b) => {
+            style.border_bottom = match &b.width {
+                BorderSideWidth::Length(l) => l.to_px(),
+                _ => None,
+            };
+            style.border_bottom_color = css_color_to_rgba(&b.color);
+        }
+        Property::BorderLeftWidth(w) => {
+            style.border_left = match w {
+                BorderSideWidth::Length(l) => l.to_px(),
+                _ => None,
+            };
+        }
+        Property::BorderRightWidth(w) => {
+            style.border_right = match w {
+                BorderSideWidth::Length(l) => l.to_px(),
+                _ => None,
+            };
+        }
+        Property::BorderTopColor(c) => {
+            style.border_top_color = css_color_to_rgba(c);
+        }
+        Property::BorderBottomColor(c) => {
+            style.border_bottom_color = css_color_to_rgba(c);
+        }
+        Property::BorderLeftColor(c) => {
+            style.border_left_color = css_color_to_rgba(c);
+        }
+        Property::BorderRightColor(c) => {
+            style.border_right_color = css_color_to_rgba(c);
+        }
         _ => {}
     }
 }
@@ -423,6 +481,12 @@ struct NodeData {
     letter_spacing: Option<f32>,
     border_top: Option<f32>,
     border_bottom: Option<f32>,
+    border_left: Option<f32>,
+    border_right: Option<f32>,
+    border_top_color: Option<(u8, u8, u8, u8)>,
+    border_bottom_color: Option<(u8, u8, u8, u8)>,
+    border_left_color: Option<(u8, u8, u8, u8)>,
+    border_right_color: Option<(u8, u8, u8, u8)>,
     is_hr: bool,
     is_img: bool,
     text_align: TextAlign,
@@ -451,6 +515,12 @@ impl Default for NodeData {
             letter_spacing: None,
             border_top: None,
             border_bottom: None,
+            border_left: None,
+            border_right: None,
+            border_top_color: None,
+            border_bottom_color: None,
+            border_left_color: None,
+            border_right_color: None,
             is_hr: false,
             is_img: false,
             text_align: TextAlign::Left,
@@ -1188,6 +1258,8 @@ fn collect_inline_text(
                     || computed.padding_right.is_some()
                     || computed.border_top.is_some()
                     || computed.border_bottom.is_some()
+                    || computed.border_left.is_some()
+                    || computed.border_right.is_some()
                     || computed.display_none
                 {
                     return false;
@@ -1296,6 +1368,12 @@ fn build_nodes(
                 letter_spacing: child_inherited.letter_spacing,
                 border_top: computed.border_top,
                 border_bottom: computed.border_bottom,
+                border_left: computed.border_left,
+                border_right: computed.border_right,
+                border_top_color: computed.border_top_color,
+                border_bottom_color: computed.border_bottom_color,
+                border_left_color: computed.border_left_color,
+                border_right_color: computed.border_right_color,
                 is_hr: tag == "hr",
                 is_img: tag == "img",
                 text_align,
@@ -1692,8 +1770,14 @@ fn apply_css_overrides(mut style: Style, css: &ComputedStyle) -> Style {
     }
 
     // Tables handle their own CSS in element_style to avoid
-    // percentage widths inflating min-content measurements
+    // percentage widths inflating min-content measurements.
+    // Tables keep border-box so width:100% includes borders (matching browser behavior).
     if style.display == Display::Table {
+        style.box_sizing = taffy::BoxSizing::BorderBox;
+        if let Some(v) = css.border_top { style.border.top = LengthPercentage::length(v); }
+        if let Some(v) = css.border_bottom { style.border.bottom = LengthPercentage::length(v); }
+        if let Some(v) = css.border_left { style.border.left = LengthPercentage::length(v); }
+        if let Some(v) = css.border_right { style.border.right = LengthPercentage::length(v); }
         return style;
     }
 
@@ -1748,6 +1832,12 @@ fn apply_css_overrides(mut style: Style, css: &ComputedStyle) -> Style {
     }
     if let Some(v) = css.border_bottom {
         style.border.bottom = LengthPercentage::length(v);
+    }
+    if let Some(v) = css.border_left {
+        style.border.left = LengthPercentage::length(v);
+    }
+    if let Some(v) = css.border_right {
+        style.border.right = LengthPercentage::length(v);
     }
 
     style
@@ -1828,34 +1918,29 @@ fn render_node(
             }
         }
 
-        // Draw borders (top and bottom for now)
-        if let Some(border_w) = data.border_top {
-            if border_w > 0.0 {
-                if let Some(rect) = tiny_skia::Rect::from_xywh(x, y, w, border_w) {
-                    let paint = tiny_skia::Paint {
-                        shader: tiny_skia::Shader::SolidColor(
-                            tiny_skia::Color::from_rgba8(200, 200, 200, 255),
-                        ),
-                        anti_alias: false,
-                        ..Default::default()
-                    };
-                    pixmap.fill_rect(rect, &paint, tiny_skia::Transform::identity(), None);
-                }
+        // Draw borders
+        let draw_border = |pixmap: &mut tiny_skia::Pixmap, bx: f32, by: f32, bw: f32, bh: f32, color: Option<(u8, u8, u8, u8)>| {
+            let (r, g, b, a) = color.unwrap_or((200, 200, 200, 255));
+            if let Some(rect) = tiny_skia::Rect::from_xywh(bx, by, bw, bh) {
+                let paint = tiny_skia::Paint {
+                    shader: tiny_skia::Shader::SolidColor(tiny_skia::Color::from_rgba8(r, g, b, a)),
+                    anti_alias: false,
+                    ..Default::default()
+                };
+                pixmap.fill_rect(rect, &paint, tiny_skia::Transform::identity(), None);
             }
+        };
+        if let Some(bw) = data.border_top {
+            if bw > 0.0 { draw_border(pixmap, x, y, w, bw, data.border_top_color); }
         }
-        if let Some(border_w) = data.border_bottom {
-            if border_w > 0.0 {
-                if let Some(rect) = tiny_skia::Rect::from_xywh(x, y + h - border_w, w, border_w) {
-                    let paint = tiny_skia::Paint {
-                        shader: tiny_skia::Shader::SolidColor(
-                            tiny_skia::Color::from_rgba8(200, 200, 200, 255),
-                        ),
-                        anti_alias: false,
-                        ..Default::default()
-                    };
-                    pixmap.fill_rect(rect, &paint, tiny_skia::Transform::identity(), None);
-                }
-            }
+        if let Some(bw) = data.border_bottom {
+            if bw > 0.0 { draw_border(pixmap, x, y + h - bw, w, bw, data.border_bottom_color); }
+        }
+        if let Some(bw) = data.border_left {
+            if bw > 0.0 { draw_border(pixmap, x, y, bw, h, data.border_left_color); }
+        }
+        if let Some(bw) = data.border_right {
+            if bw > 0.0 { draw_border(pixmap, x + w - bw, y, bw, h, data.border_right_color); }
         }
 
         // Draw text

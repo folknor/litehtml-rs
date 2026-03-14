@@ -1,9 +1,5 @@
 # Rendering Pipeline TODO
 
-## Waiting on taffy
-
-- **Table cell padding with content-box**: Cell padding-bottom not reflected in row height when cells use `box_sizing: ContentBox`. Causes footer rows to be too short (28px vs 40px expected). Also causes social icon table cells to be 58px wide instead of 46px. Written up and sent to taffy dev.
-
 ## Layout issues
 
 - **Default line-height from font metrics**: Currently hardcoded to `font_size * 1.2`. Should query cosmic-text for the font's actual ascent/descent metrics to compute `line-height: normal` correctly. Ahem's correct default is 1.0 (no ascenders/descenders), typical system fonts are ~1.15. This causes pills/badges to be slightly too tall and cumulative vertical drift in paragraphs.

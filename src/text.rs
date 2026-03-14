@@ -13,7 +13,7 @@ pub static FIXTURE_MODE: std::sync::atomic::AtomicBool =
 
 /// Load the Ahem test font into the font system.
 pub fn load_ahem_font() {
-    let ahem_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("Ahem.ttf");
+    let ahem_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("fixtures/Ahem.ttf");
     if ahem_path.exists() {
         FONT_SYSTEM.with(|fs| {
             let mut fs = fs.borrow_mut();

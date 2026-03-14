@@ -713,8 +713,13 @@ fn measure_text_node(
                 .iter()
                 .enumerate()
                 .map(|(i, s)| {
-                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic, s.letter_spacing, s.font_size)
+                    let span_fs = s.font_size.max(1.0);
+                    let span_lh = resolve_line_height(span_fs, ctx.line_height);
+                    let mut attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic, s.letter_spacing, span_fs)
                         .metadata(i);
+                    if (span_fs - fs).abs() > 0.1 {
+                        attrs = attrs.metrics(Metrics::new(span_fs, span_lh));
+                    }
                     (s.text.as_str(), attrs)
                 })
                 .collect();
@@ -2042,8 +2047,13 @@ fn draw_text(
                 .iter()
                 .enumerate()
                 .map(|(i, s)| {
-                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic, s.letter_spacing, s.font_size)
+                    let span_fs = s.font_size.max(1.0);
+                    let span_lh = resolve_line_height(span_fs, data.line_height);
+                    let mut attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic, s.letter_spacing, span_fs)
                         .metadata(i);
+                    if (span_fs - font_size).abs() > 0.1 {
+                        attrs = attrs.metrics(Metrics::new(span_fs, span_lh));
+                    }
                     (s.text.as_str(), attrs)
                 })
                 .collect();

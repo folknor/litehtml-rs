@@ -56,6 +56,8 @@ struct ComputedStyle {
     letter_spacing: Option<f32>,
     text_transform: Option<TextTransform>,
     table_layout_fixed: bool,
+    border_radius: Option<f32>,
+    border_radius_pct: Option<f32>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -384,6 +386,25 @@ fn apply_property(style: &mut ComputedStyle, prop: &Property) {
         Property::BorderRightColor(c) => {
             style.border_right_color = css_color_to_rgba(c);
         }
+        Property::BorderTopLeftRadius(size, _) | Property::BorderTopRightRadius(size, _)
+        | Property::BorderBottomLeftRadius(size, _) | Property::BorderBottomRightRadius(size, _) => {
+            if style.border_radius.is_none() && style.border_radius_pct.is_none() {
+                if let Some(px) = lp_to_px(&size.0) {
+                    style.border_radius = Some(px);
+                } else if let Some(pct) = lp_to_pct(&size.0) {
+                    style.border_radius_pct = Some(pct);
+                }
+            }
+        }
+        Property::BorderRadius(br, _) => {
+            // Shorthand: take top-left as uniform radius
+            let size = &br.top_left.0;
+            if let Some(px) = lp_to_px(size) {
+                style.border_radius = Some(px);
+            } else if let Some(pct) = lp_to_pct(size) {
+                style.border_radius_pct = Some(pct);
+            }
+        }
         _ => {}
     }
 }
@@ -493,6 +514,8 @@ struct NodeData {
     border_bottom_color: Option<(u8, u8, u8, u8)>,
     border_left_color: Option<(u8, u8, u8, u8)>,
     border_right_color: Option<(u8, u8, u8, u8)>,
+    border_radius: Option<f32>,
+    border_radius_pct: Option<f32>,
     is_hr: bool,
     is_img: bool,
     text_align: TextAlign,
@@ -527,6 +550,8 @@ impl Default for NodeData {
             border_bottom_color: None,
             border_left_color: None,
             border_right_color: None,
+            border_radius: None,
+            border_radius_pct: None,
             is_hr: false,
             is_img: false,
             text_align: TextAlign::Left,
@@ -1379,6 +1404,8 @@ fn build_nodes(
                 border_bottom_color: computed.border_bottom_color,
                 border_left_color: computed.border_left_color,
                 border_right_color: computed.border_right_color,
+                border_radius: computed.border_radius,
+                border_radius_pct: computed.border_radius_pct,
                 is_hr: tag == "hr",
                 is_img: tag == "img",
                 text_align,
@@ -1885,14 +1912,21 @@ fn render_node(
         // Draw background
         if let Some((r, g, b, a)) = data.background_color {
             if a > 0 {
-                if let Some(rect) = tiny_skia::Rect::from_xywh(x, y, w, h) {
-                    let paint = tiny_skia::Paint {
-                        shader: tiny_skia::Shader::SolidColor(
-                            tiny_skia::Color::from_rgba8(r, g, b, a),
-                        ),
-                        anti_alias: false,
-                        ..Default::default()
-                    };
+                let paint = tiny_skia::Paint {
+                    shader: tiny_skia::Shader::SolidColor(
+                        tiny_skia::Color::from_rgba8(r, g, b, a),
+                    ),
+                    anti_alias: data.border_radius.is_some() || data.border_radius_pct.is_some(),
+                    ..Default::default()
+                };
+                let radius = data.border_radius.or_else(|| {
+                    data.border_radius_pct.map(|pct| w.min(h) * pct)
+                });
+                if let Some(radius) = radius {
+                    if let Some(path) = rounded_rect_path(x, y, w, h, radius) {
+                        pixmap.fill_path(&path, &paint, tiny_skia::FillRule::Winding, tiny_skia::Transform::identity(), None);
+                    }
+                } else if let Some(rect) = tiny_skia::Rect::from_xywh(x, y, w, h) {
                     pixmap.fill_rect(rect, &paint, tiny_skia::Transform::identity(), None);
                 }
             }
@@ -2092,6 +2126,39 @@ fn draw_text(
             }
         }
     });
+}
+
+/// Build a rounded rectangle path using cubic bezier curves for corners.
+fn rounded_rect_path(x: f32, y: f32, w: f32, h: f32, r: f32) -> Option<tiny_skia::Path> {
+    // Clamp radius to half the smaller dimension
+    let r = r.min(w / 2.0).min(h / 2.0).max(0.0);
+    if r < 0.5 {
+        // Degenerate to regular rect
+        return tiny_skia::PathBuilder::from_rect(tiny_skia::Rect::from_xywh(x, y, w, h)?).into();
+    }
+    // Kappa: cubic bezier control point distance for a quarter circle
+    let k = r * 0.5522848;
+    let mut pb = tiny_skia::PathBuilder::new();
+    // Start at top-left, after the radius
+    pb.move_to(x + r, y);
+    // Top edge
+    pb.line_to(x + w - r, y);
+    // Top-right corner
+    pb.cubic_to(x + w - r + k, y, x + w, y + r - k, x + w, y + r);
+    // Right edge
+    pb.line_to(x + w, y + h - r);
+    // Bottom-right corner
+    pb.cubic_to(x + w, y + h - r + k, x + w - r + k, y + h, x + w - r, y + h);
+    // Bottom edge
+    pb.line_to(x + r, y + h);
+    // Bottom-left corner
+    pb.cubic_to(x + r - k, y + h, x, y + h - r + k, x, y + h - r);
+    // Left edge
+    pb.line_to(x, y + r);
+    // Top-left corner
+    pb.cubic_to(x, y + r - k, x + r - k, y, x + r, y);
+    pb.close();
+    pb.finish()
 }
 
 fn blend_pixel(data: &mut [u8], width: u32, x: u32, y: u32, r: u8, g: u8, b: u8, a: u8) {

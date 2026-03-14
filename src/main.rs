@@ -1436,18 +1436,21 @@ fn build_nodes(
                 cellpadding
             };
 
-            // Apply cellpadding to td/th cells
+            // Apply cellpadding to td/th cells — only override sides without explicit CSS padding
             let mut style = if (tag == "td" || tag == "th") && child_cellpadding.is_some() {
                 let cp = child_cellpadding.unwrap();
                 let mut s = style;
-                // Only override default padding, not explicit CSS padding
                 if computed.padding_top.is_none() {
-                    s.padding = Rect {
-                        top: length(cp),
-                        bottom: length(cp),
-                        left: length(cp),
-                        right: length(cp),
-                    };
+                    s.padding.top = length(cp);
+                }
+                if computed.padding_bottom.is_none() {
+                    s.padding.bottom = length(cp);
+                }
+                if computed.padding_left.is_none() {
+                    s.padding.left = length(cp);
+                }
+                if computed.padding_right.is_none() {
+                    s.padding.right = length(cp);
                 }
                 s
             } else {

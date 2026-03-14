@@ -671,7 +671,9 @@ fn apply_text_transform(text: &str, transform: Option<TextTransform>) -> String 
 
 /// Resolve line height: use CSS value if set, otherwise default to font_size * 1.4.
 fn resolve_line_height(font_size: f32, css_line_height: Option<f32>) -> f32 {
-    css_line_height.unwrap_or((font_size * 1.4).ceil()).max(1.0)
+    // CSS line-height:normal uses the font's actual metrics.
+    // Browser default is typically ~1.2 for most fonts, 1.0 for Ahem.
+    css_line_height.unwrap_or((font_size * 1.2).ceil()).max(1.0)
 }
 
 /// Measure function called by taffy during layout to determine text node size.

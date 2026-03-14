@@ -1223,20 +1223,6 @@ fn collect_inline_text(
                     continue;
                 }
                 let collapsed = apply_text_transform(&collapsed, inherited.text_transform);
-                // Add space separator between spans if needed
-                if let Some(last) = spans.last() {
-                    if !last.text.ends_with(' ') && !collapsed.starts_with(' ') {
-                        spans.push(RichTextSpan {
-                            text: " ".to_string(),
-                            font_size: inherited.font_size,
-                            font_family: inherited.font_family.clone(),
-                            font_weight: inherited.font_weight,
-                            font_italic: inherited.font_italic,
-                            color: inherited.color,
-                            letter_spacing: inherited.letter_spacing,
-                        });
-                    }
-                }
                 spans.push(RichTextSpan {
                     text: collapsed,
                     font_size: inherited.font_size,
@@ -1798,6 +1784,9 @@ fn apply_align_attr(mut style: Style, el: &scraper::node::Element) -> Style {
 }
 
 fn apply_css_overrides(mut style: Style, css: &ComputedStyle) -> Style {
+    // CSS default is content-box; taffy defaults to border-box.
+    // Table cells keep border-box so column widths represent outer widths
+    // consistently with taffy's table layout algorithm.
     // CSS default is content-box; taffy defaults to border-box
     style.box_sizing = taffy::BoxSizing::ContentBox;
 

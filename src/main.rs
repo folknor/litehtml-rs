@@ -45,6 +45,7 @@ struct ComputedStyle {
     line_height: Option<f32>,
     line_height_factor: Option<f32>,
     text_align: Option<TextAlign>,
+    white_space_nowrap: bool,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -276,6 +277,12 @@ fn apply_property(style: &mut ComputedStyle, prop: &Property) {
                 _ => None,
             };
         }
+        Property::WhiteSpace(ws) => {
+            use lightningcss::properties::text::WhiteSpace;
+            if matches!(ws, WhiteSpace::NoWrap | WhiteSpace::Pre) {
+                style.white_space_nowrap = true;
+            }
+        }
         Property::BorderTopWidth(w) => {
             style.border_top = match w {
                 BorderSideWidth::Length(l) => l.to_px(),
@@ -496,6 +503,7 @@ struct TextMeasure {
     font_weight: u16,
     font_italic: bool,
     line_height: Option<f32>,
+    white_space_nowrap: bool,
     spans: Option<Vec<RichTextSpan>>,
 }
 
@@ -516,11 +524,15 @@ fn measure_text_node(
         return Size::ZERO;
     };
 
-    let available_width = known_dimensions.width.unwrap_or_else(|| match available_space.width {
-        AvailableSpace::Definite(w) => w,
-        AvailableSpace::MinContent => 0.0,
-        AvailableSpace::MaxContent => f32::MAX,
-    });
+    let available_width = if ctx.white_space_nowrap {
+        f32::MAX
+    } else {
+        known_dimensions.width.unwrap_or_else(|| match available_space.width {
+            AvailableSpace::Definite(w) => w,
+            AvailableSpace::MinContent => 0.0,
+            AvailableSpace::MaxContent => f32::MAX,
+        })
+    };
 
     if available_width <= 0.0 {
         return Size::ZERO;
@@ -929,6 +941,7 @@ struct InheritedStyle {
     font_italic: bool,
     text_align: TextAlign,
     line_height: Option<f32>,
+    white_space_nowrap: bool,
 }
 
 impl Default for InheritedStyle {
@@ -941,6 +954,7 @@ impl Default for InheritedStyle {
             font_italic: false,
             text_align: TextAlign::Left,
             line_height: None,
+            white_space_nowrap: false,
         }
     }
 }
@@ -970,6 +984,9 @@ impl InheritedStyle {
             out.line_height = Some(lh);
         } else if let Some(factor) = css.line_height_factor {
             out.line_height = Some(out.font_size * factor);
+        }
+        if css.white_space_nowrap {
+            out.white_space_nowrap = true;
         }
         // Tag-based defaults
         match tag {
@@ -1272,6 +1289,7 @@ fn build_nodes(
                             font_weight: child_inherited.font_weight,
                             font_italic: child_inherited.font_italic,
                             line_height: child_inherited.line_height,
+                            white_space_nowrap: child_inherited.white_space_nowrap,
                             spans: Some(spans.clone()),
                         };
                         let leaf_id = taffy.new_leaf_with_context(Style::default(), text_ctx).unwrap();
@@ -1336,6 +1354,7 @@ fn build_nodes(
                 font_weight: inherited.font_weight,
                 font_italic: inherited.font_italic,
                 line_height: inherited.line_height,
+                white_space_nowrap: inherited.white_space_nowrap,
                 spans: None,
             };
 

@@ -578,7 +578,7 @@ fn resolve_font_family(family: &str) -> Family<'_> {
 /// Build cosmic-text Attrs, forcing Ahem normal weight/style in fixture mode
 /// so cosmic-text doesn't fall back to system fonts for bold/italic.
 /// Ahem metrics are identical across weights so this doesn't affect layout.
-fn build_text_attrs(family: &str, weight: u16, italic: bool, letter_spacing: Option<f32>) -> Attrs<'_> {
+fn build_text_attrs(family: &str, weight: u16, italic: bool, letter_spacing: Option<f32>, font_size: f32) -> Attrs<'_> {
     let f = resolve_font_family(family);
     let mut attrs = if is_fixture_mode() {
         Attrs::new().family(f).weight(cosmic_text::Weight::NORMAL).style(cosmic_text::Style::Normal)
@@ -588,8 +588,10 @@ fn build_text_attrs(family: &str, weight: u16, italic: bool, letter_spacing: Opt
             .weight(cosmic_text::Weight(weight))
             .style(if italic { cosmic_text::Style::Italic } else { cosmic_text::Style::Normal })
     };
-    if let Some(ls) = letter_spacing {
-        attrs = attrs.letter_spacing(ls);
+    if let Some(ls_px) = letter_spacing {
+        // cosmic-text expects letter-spacing in EM units, CSS gives us px
+        let fs = font_size.max(1.0);
+        attrs = attrs.letter_spacing(ls_px / fs);
     }
     attrs
 }
@@ -684,15 +686,15 @@ fn measure_text_node(
                 .iter()
                 .enumerate()
                 .map(|(i, s)| {
-                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic, s.letter_spacing)
+                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic, s.letter_spacing, s.font_size)
                         .metadata(i);
                     (s.text.as_str(), attrs)
                 })
                 .collect();
-            let default_attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic, ctx.letter_spacing);
+            let default_attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic, ctx.letter_spacing, fs);
             buffer.set_rich_text(&mut font_sys, rich, &default_attrs, Shaping::Basic, None);
         } else {
-            let attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic, ctx.letter_spacing);
+            let attrs = build_text_attrs(&ctx.font_family, ctx.font_weight, ctx.font_italic, ctx.letter_spacing, fs);
             buffer.set_text(&mut font_sys, &ctx.text, &attrs, Shaping::Basic, None);
         }
         buffer.shape_until_scroll(&mut font_sys, false);
@@ -716,7 +718,7 @@ fn measure_text_width(text: &str, font_size: f32, family: &str, weight: u16, ita
         let mut buffer = cosmic_text::Buffer::new(&mut fs, metrics);
         buffer.set_size(&mut fs, Some(f32::MAX), Some(line_height));
 
-        let attrs = build_text_attrs(family, weight, italic, None);
+        let attrs = build_text_attrs(family, weight, italic, None, font_size);
         buffer.set_text(&mut fs, text, &attrs, Shaping::Basic, None);
         buffer.shape_until_scroll(&mut fs, false);
 
@@ -1984,15 +1986,15 @@ fn draw_text(
                 .iter()
                 .enumerate()
                 .map(|(i, s)| {
-                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic, s.letter_spacing)
+                    let attrs = build_text_attrs(&s.font_family, s.font_weight, s.font_italic, s.letter_spacing, s.font_size)
                         .metadata(i);
                     (s.text.as_str(), attrs)
                 })
                 .collect();
-            let default_attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic, data.letter_spacing);
+            let default_attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic, data.letter_spacing, font_size);
             buffer.set_rich_text(&mut fs, rich, &default_attrs, Shaping::Advanced, None);
         } else {
-            let attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic, data.letter_spacing);
+            let attrs = build_text_attrs(&data.font_family, data.font_weight, data.font_italic, data.letter_spacing, font_size);
             buffer.set_text(&mut fs, text, &attrs, Shaping::Advanced, None);
         }
         buffer.shape_until_scroll(&mut fs, false);

@@ -1997,7 +1997,7 @@ fn draw_text(
         }
         buffer.shape_until_scroll(&mut fs, false);
 
-        let (cr, cg, cb, _ca) = data.text_color;
+        let (cr, cg, cb, ca) = data.text_color;
         let pix_w = pixmap.width() as i32;
         let pix_h = pixmap.height() as i32;
         let draw_y = y as i32;
@@ -2012,17 +2012,16 @@ fn draw_text(
             let draw_x = (x + align_offset) as i32;
             let baseline_y = run.line_y as i32;
             for glyph in run.glyphs.iter() {
-                // Look up per-glyph color from rich text spans
-                let (gr, gg, gb) = if let Some(ref spans) = data.rich_spans {
+                // Look up per-glyph color (with alpha) from rich text spans
+                let (gr, gg, gb, ga) = if let Some(ref spans) = data.rich_spans {
                     let idx = glyph.metadata;
                     if idx < spans.len() {
-                        let (r, g, b, _) = spans[idx].color;
-                        (r, g, b)
+                        spans[idx].color
                     } else {
-                        (cr, cg, cb)
+                        (cr, cg, cb, ca)
                     }
                 } else {
-                    (cr, cg, cb)
+                    (cr, cg, cb, ca)
                 };
                 let physical = glyph.physical((0.0, 0.0), 1.0);
                 if let Some(image) = swash_cache.get_image_uncached(&mut fs, physical.cache_key) {
@@ -2037,7 +2036,9 @@ fn draw_text(
                                     let px = gx + off_x;
                                     let py = gy + off_y;
                                     if px >= 0 && px < pix_w && py >= 0 && py < pix_h {
-                                        let alpha = image.data[i];
+                                        let glyph_alpha = image.data[i];
+                                        // Combine glyph coverage with text color alpha
+                                        let alpha = ((glyph_alpha as u16 * ga as u16) / 255) as u8;
                                         if alpha > 0 {
                                             blend_pixel(
                                                 pixmap.data_mut(),

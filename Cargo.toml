@@ -15,4 +15,5 @@ cosmic-text = "0.18"
 ego-tree = "0.10"
 lightningcss = "1.0.0-alpha.71"
 hotpath = "0.14"
+ttf-parser = "0.25"
 clap = { version = "4", features = ["derive"] }

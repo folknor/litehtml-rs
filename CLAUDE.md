@@ -49,7 +49,7 @@ Never use `cargo` directly — use brokkr for everything.
 
 ```bash
 brokkr check                                             # clippy + tests
-brokkr run -- --fixture fixtures/src/foo.html            # build release + render fixture
+brokkr run -- --fixture fixtures/src/foo.html            # build release + render fixture (output: fixtures/src/foo_pipeline.png + .json)
 brokkr run -- test-emails/1.html                         # render without Ahem fixture mode
 brokkr run --time -- test-emails/1.html                  # release run with timing output (not stored in db)
 brokkr bench run -- test-emails/1.html                   # benchmark (3 runs, best-of, stored in results.db)
@@ -97,8 +97,12 @@ brokkr litehtml approve text_flow_test                   # record current diverg
 - Never chain commands with &&
 - Never chain commands with ;
 - Never pipe commands with |
-- Never read or write from /tmp. All data lives in the project.
+- Never read or write from /tmp. All data lives in the project. `*.png` and `*.json` are gitignored, so render output can safely go in the project directory.
 - Never run raw cargo, curl, pkill. Use `brokkr`.
+
+## Commit rules
+
+- Don't commit pure markdown changes on their own. Bundle them with the code change they relate to, or skip them unless the update is substantive.
 
 ## Parent project
 

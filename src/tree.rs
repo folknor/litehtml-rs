@@ -138,10 +138,11 @@ pub(crate) fn measure_text_node(
 
     // Measure text wrapping at the available width
     let fs = ctx.font_size.max(1.0);
-    let line_height = resolve_line_height(fs, ctx.line_height);
 
     FONT_SYSTEM.with(|font_sys| {
         let mut font_sys = font_sys.borrow_mut();
+        let line_height =
+            resolve_line_height(&font_sys, fs, ctx.line_height, &ctx.font_family);
         let metrics = Metrics::new(fs, line_height);
         let mut buffer = cosmic_text::Buffer::new(&mut font_sys, metrics);
         buffer.set_size(
@@ -156,7 +157,8 @@ pub(crate) fn measure_text_node(
                 .enumerate()
                 .map(|(i, s)| {
                     let span_fs = s.font_size.max(1.0);
-                    let span_lh = resolve_line_height(span_fs, ctx.line_height);
+                    let span_lh =
+                        resolve_line_height(&font_sys, span_fs, ctx.line_height, &s.font_family);
                     let mut attrs = build_text_attrs(
                         &s.font_family,
                         s.font_weight,
@@ -410,8 +412,16 @@ pub(crate) fn build_nodes(
             // <br> height uses inherited font size for correct line spacing
             if tag == "br" {
                 let br_fs = child_inherited.font_size.max(1.0);
-                style.size.height =
-                    length(resolve_line_height(br_fs, child_inherited.line_height));
+                let br_lh = FONT_SYSTEM.with(|fs| {
+                    let fs = fs.borrow();
+                    resolve_line_height(
+                        &fs,
+                        br_fs,
+                        child_inherited.line_height,
+                        &child_inherited.font_family,
+                    )
+                });
+                style.size.height = length(br_lh);
             }
 
             // Check align attr for text-align (common in email HTML)

@@ -110,6 +110,8 @@ pub(crate) struct RichTextSpan {
     pub(crate) font_italic: bool,
     pub(crate) color: (u8, u8, u8, u8),
     pub(crate) letter_spacing: Option<f32>,
+    pub(crate) underline: bool,
+    pub(crate) line_through: bool,
 }
 
 /// Measure function called by taffy during layout to determine text node size.
@@ -265,7 +267,10 @@ pub(crate) fn collect_inline_text(
                         continue;
                     }
                 } else {
-                    if has_leading_space {
+                    // Only preserve leading space between spans, not at block start.
+                    // Leading whitespace from HTML indentation must be stripped for the
+                    // first text in a block, matching browser behavior. (text_decoration_test)
+                    if has_leading_space && !spans.is_empty() {
                         collapsed.insert(0, ' ');
                     }
                     if has_trailing_space {
@@ -284,6 +289,8 @@ pub(crate) fn collect_inline_text(
                     font_italic: inherited.font_italic,
                     color: inherited.color,
                     letter_spacing: inherited.letter_spacing,
+                    underline: inherited.text_decoration_underline,
+                    line_through: inherited.text_decoration_line_through,
                 });
             }
             Node::Element(el) => {
@@ -297,6 +304,8 @@ pub(crate) fn collect_inline_text(
                         font_italic: inherited.font_italic,
                         color: inherited.color,
                         letter_spacing: inherited.letter_spacing,
+                        underline: false,
+                        line_through: false,
                     });
                     continue;
                 }
@@ -424,14 +433,21 @@ pub(crate) fn build_nodes(
                 style.size.height = length(br_lh);
             }
 
-            // Check align attr for text-align (common in email HTML)
+            // Check align attr for text-align on cells/blocks (common in email HTML).
+            // On <table>, align="center" means center the table itself (handled by
+            // apply_align_attr on the taffy style), NOT text-align for content.
+            // (text_decoration_test)
             let text_align = if computed.text_align.is_some() {
                 child_inherited.text_align
-            } else if let Some(align) = el.attr("align") {
-                match align.to_lowercase().as_str() {
-                    "center" => TextAlign::Center,
-                    "right" => TextAlign::Right,
-                    _ => child_inherited.text_align,
+            } else if tag != "table" {
+                if let Some(align) = el.attr("align") {
+                    match align.to_lowercase().as_str() {
+                        "center" => TextAlign::Center,
+                        "right" => TextAlign::Right,
+                        _ => child_inherited.text_align,
+                    }
+                } else {
+                    child_inherited.text_align
                 }
             } else {
                 child_inherited.text_align

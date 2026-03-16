@@ -34,9 +34,7 @@ Table layout uses a local taffy fork (`/home/folk/Programs/taffy`) with CSS tabl
 - `src/main.rs` — CLI wrapper (clap)
 - `Cargo.toml` — Dependencies
 - `brokkr.toml` — Brokkr dev tooling config
-- `fixtures/fixtures.toml` — Visual test fixture manifest
-- `fixtures/src/` — Fixture HTML files
-- `fixtures/reference/` — Chrome reference screenshots + layout JSON
+- `fixtures/<id>/` — Per-fixture directory: source HTML + Chrome reference + pipeline output + diff
 - `docs/RENDERING-RESEARCH.md` — Performance analysis, ecosystem survey, benchmarks
 - `docs/PIPELINE-PLAN.md` — Implementation plan and work items
 - `test-emails/` — HTML test corpus (numbered by complexity + real Gmail emails)
@@ -64,7 +62,7 @@ brokkr history                                           # browse command histor
 
 ### Visual reference testing (brokkr litehtml)
 
-Compares pipeline output against Chrome reference renders. Fixtures are defined in `fixtures/fixtures.toml`.
+Compares pipeline output against Chrome reference renders. Fixtures are defined in `brokkr.toml` under `[litehtml]`.
 
 ```bash
 brokkr litehtml test --all                               # run all fixtures
@@ -99,6 +97,10 @@ brokkr litehtml approve text_flow_test                   # record current diverg
 - Never pipe commands with |
 - Never read or write from /tmp. All data lives in the project. `*.png` and `*.json` are gitignored, so render output can safely go in the project directory.
 - Never run raw cargo, curl, pkill. Use `brokkr`.
+
+## Code rules
+
+- Every behavioral change to rendering logic (CSS resolution, layout, tree building, pixel rendering) MUST include a code comment explaining what the change does and referencing at least one fixture by ID (e.g. `// Strip leading whitespace at block start (text_decoration_test)`). No uncommented rendering fixes.
 
 ## Commit rules
 

@@ -51,6 +51,8 @@ pub(crate) struct ComputedStyle {
     pub(crate) table_layout_fixed: bool,
     pub(crate) border_radius: Option<f32>,
     pub(crate) border_radius_pct: Option<f32>,
+    pub(crate) text_decoration_underline: Option<bool>,
+    pub(crate) text_decoration_line_through: Option<bool>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -405,6 +407,19 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
             } else if let Some(pct) = lp_to_pct(size) {
                 style.border_radius_pct = Some(pct);
             }
+        }
+        Property::TextDecorationLine(line, _) => {
+            use lightningcss::properties::text::TextDecorationLine;
+            style.text_decoration_underline = Some(line.contains(TextDecorationLine::Underline));
+            style.text_decoration_line_through =
+                Some(line.contains(TextDecorationLine::LineThrough));
+        }
+        Property::TextDecoration(td, _) => {
+            use lightningcss::properties::text::TextDecorationLine;
+            style.text_decoration_underline =
+                Some(td.line.contains(TextDecorationLine::Underline));
+            style.text_decoration_line_through =
+                Some(td.line.contains(TextDecorationLine::LineThrough));
         }
         _ => {}
     }

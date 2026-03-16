@@ -117,6 +117,8 @@ pub(crate) struct InheritedStyle {
     pub(crate) white_space_nowrap: bool,
     pub(crate) letter_spacing: Option<f32>,
     pub(crate) text_transform: Option<TextTransform>,
+    pub(crate) text_decoration_underline: bool,
+    pub(crate) text_decoration_line_through: bool,
 }
 
 impl Default for InheritedStyle {
@@ -132,6 +134,8 @@ impl Default for InheritedStyle {
             white_space_nowrap: false,
             letter_spacing: None,
             text_transform: None,
+            text_decoration_underline: false,
+            text_decoration_line_through: false,
         }
     }
 }
@@ -171,15 +175,39 @@ impl InheritedStyle {
         if let Some(tt) = css.text_transform {
             out.text_transform = Some(tt);
         }
+        // text-decoration is NOT inherited in CSS, so reset for each element
+        // then apply explicit CSS or tag defaults
+        out.text_decoration_underline = false;
+        out.text_decoration_line_through = false;
+        if let Some(u) = css.text_decoration_underline {
+            out.text_decoration_underline = u;
+        }
+        if let Some(lt) = css.text_decoration_line_through {
+            out.text_decoration_line_through = lt;
+        }
         // Tag-based defaults
         match tag {
             "a" => {
                 if out.color == (0, 0, 0, 255) {
                     out.color = (0, 102, 204, 255); // link blue
                 }
+                // Default underline for links unless explicitly overridden
+                if css.text_decoration_underline.is_none() {
+                    out.text_decoration_underline = true;
+                }
             }
             "b" | "strong" => out.font_weight = out.font_weight.max(700),
             "i" | "em" => out.font_italic = true,
+            "u" | "ins" => {
+                if css.text_decoration_underline.is_none() {
+                    out.text_decoration_underline = true;
+                }
+            }
+            "del" | "s" => {
+                if css.text_decoration_line_through.is_none() {
+                    out.text_decoration_line_through = true;
+                }
+            }
             "h1" => {
                 out.font_size = out.font_size.max(32.0);
                 out.font_weight = out.font_weight.max(700);

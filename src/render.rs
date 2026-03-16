@@ -5,7 +5,7 @@ use taffy::prelude::*;
 
 use crate::css::TextAlign;
 use crate::text::{build_text_attrs, resolve_line_height, FONT_SYSTEM};
-use crate::tree::{NodeData, TextMeasure};
+use crate::tree::{NodeData, RichTextSpan, TextMeasure};
 
 pub(crate) fn render_node(
     taffy: &TaffyTree<TextMeasure>,
@@ -314,8 +314,133 @@ pub(crate) fn draw_text(
                     }
                 }
             }
+
+            // Draw text-decoration lines (underline, line-through) per span
+            if let Some(ref spans) = data.rich_spans {
+                draw_decoration_lines(
+                    pixmap, &run, spans, draw_x, draw_y, baseline_y, font_size,
+                );
+            }
         }
     });
+}
+
+/// Draw underline and/or line-through decoration lines for a layout run.
+/// Groups consecutive glyphs by span to draw continuous lines.
+fn draw_decoration_lines(
+    pixmap: &mut tiny_skia::Pixmap,
+    run: &cosmic_text::LayoutRun,
+    spans: &[RichTextSpan],
+    draw_x: i32,
+    draw_y: i32,
+    baseline_y: i32,
+    font_size: f32,
+) {
+    let pix_w = pixmap.width() as i32;
+    let pix_h = pixmap.height() as i32;
+    // Thickness: ~1/16th of font size, minimum 1px
+    let thickness = (font_size / 16.0).ceil().max(1.0) as i32;
+    // Underline offset: below baseline, ~1/8th font size below
+    let underline_offset = (font_size / 8.0).ceil() as i32;
+    // Line-through: roughly at middle of x-height (≈ 0.4 × font_size above baseline)
+    let strikethrough_offset = -(font_size * 0.3).ceil() as i32;
+
+    // Group consecutive glyphs by span index
+    let glyphs = &run.glyphs;
+    if glyphs.is_empty() {
+        return;
+    }
+
+    let mut i = 0;
+    while i < glyphs.len() {
+        let span_idx = glyphs[i].metadata;
+        let (has_underline, has_line_through) = if span_idx < spans.len() {
+            (spans[span_idx].underline, spans[span_idx].line_through)
+        } else {
+            (false, false)
+        };
+
+        if !has_underline && !has_line_through {
+            i += 1;
+            continue;
+        }
+
+        // Find the extent of consecutive glyphs in this span
+        let start_x = draw_x + glyphs[i].x as i32;
+        let mut end_x = start_x + glyphs[i].w as i32;
+        let mut j = i + 1;
+        while j < glyphs.len() && glyphs[j].metadata == span_idx {
+            end_x = draw_x + glyphs[j].x as i32 + glyphs[j].w as i32;
+            j += 1;
+        }
+
+        let (r, g, b, a) = if span_idx < spans.len() {
+            spans[span_idx].color
+        } else {
+            (0, 0, 0, 255)
+        };
+
+        if has_underline {
+            draw_decoration_rect(
+                pixmap.data_mut(),
+                pix_w,
+                pix_h,
+                start_x,
+                draw_y + baseline_y + underline_offset,
+                end_x - start_x,
+                thickness,
+                r,
+                g,
+                b,
+                a,
+            );
+        }
+        if has_line_through {
+            draw_decoration_rect(
+                pixmap.data_mut(),
+                pix_w,
+                pix_h,
+                start_x,
+                draw_y + baseline_y + strikethrough_offset,
+                end_x - start_x,
+                thickness,
+                r,
+                g,
+                b,
+                a,
+            );
+        }
+
+        i = j;
+    }
+}
+
+/// Draw a filled rectangle for text decoration (underline/line-through).
+fn draw_decoration_rect(
+    data: &mut [u8],
+    pix_w: i32,
+    pix_h: i32,
+    x: i32,
+    y: i32,
+    width: i32,
+    height: i32,
+    r: u8,
+    g: u8,
+    b: u8,
+    a: u8,
+) {
+    for dy in 0..height {
+        let py = y + dy;
+        if py < 0 || py >= pix_h {
+            continue;
+        }
+        for dx in 0..width {
+            let px = x + dx;
+            if px >= 0 && px < pix_w {
+                blend_pixel(data, pix_w as u32, px as u32, py as u32, r, g, b, a);
+            }
+        }
+    }
 }
 
 /// Build a rounded rectangle path using cubic bezier curves for corners.

@@ -47,7 +47,7 @@ Never use `cargo` directly — use brokkr for everything.
 
 ```bash
 brokkr check                                             # clippy + tests
-brokkr run -- --fixture fixtures/src/foo.html            # build release + render fixture (output: fixtures/src/foo_pipeline.png + .json)
+brokkr run -- --fixture fixtures/foo_test/foo_test.html   # build release + render fixture (output in same directory)
 brokkr run -- test-emails/1.html                         # render without Ahem fixture mode
 brokkr run --time -- test-emails/1.html                  # release run with timing output (not stored in db)
 brokkr bench run -- test-emails/1.html                   # benchmark (3 runs, best-of, stored in results.db)
@@ -101,6 +101,12 @@ brokkr litehtml approve text_flow_test                   # record current diverg
 ## Code rules
 
 - Every behavioral change to rendering logic (CSS resolution, layout, tree building, pixel rendering) MUST include a code comment explaining what the change does and referencing at least one fixture by ID (e.g. `// Strip leading whitespace at block start (text_decoration_test)`). No uncommented rendering fixes.
+
+## Gotchas
+
+- **HTML `align` attribute**: On `<table>` it means "center the table in its parent" (margin auto). On `<td>`/`<th>` it means `text-align`. Don't treat them the same — this caused a bug where table `align="center"` set text-align on all cell content.
+- **CSS `text-decoration` is NOT inherited**: Unlike color/font-size, it doesn't cascade to children. In our pipeline it's tracked per-`RichTextSpan` and resets to false in `InheritedStyle::with_overrides` for each element, then re-applied from CSS or tag defaults (`<a>`, `<u>`, `<del>`, etc.).
+- **Leading whitespace in blocks**: HTML indentation whitespace must be stripped for the first text node in a block. The `collect_inline_text` function only preserves a leading space when `!spans.is_empty()` (i.e. between spans, not at block start).
 
 ## Commit rules
 

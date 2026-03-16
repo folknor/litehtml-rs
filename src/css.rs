@@ -285,7 +285,13 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
             use lightningcss::properties::font::LineHeight;
             match lh {
                 LineHeight::Length(lp) => {
-                    style.line_height = lp_to_px(lp);
+                    // Try px first, fall back to percentage as factor
+                    // (line-height: 150% → factor 1.5) (footer_footer_test)
+                    if let Some(px) = lp_to_px(lp) {
+                        style.line_height = Some(px);
+                    } else if let Some(pct) = lp_to_pct(lp) {
+                        style.line_height_factor = Some(pct);
+                    }
                 }
                 LineHeight::Number(n) => {
                     style.line_height_factor = Some(*n);

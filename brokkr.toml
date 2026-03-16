@@ -73,6 +73,14 @@ pixel_diff_threshold = 10.0
 element_match_threshold = 80.0
 
 [[litehtml.fixture]]
+id = "gmail_creatine_week"
+path = "fixtures/gmail_creatine_week/gmail_creatine-week.html"
+tags = ["full-email", "gmail"]
+expected = "fail"
+pixel_diff_threshold = 25.0
+waive_element_threshold = true
+
+[[litehtml.fixture]]
 id = "gmail_gpu_price_changes"
 path = "fixtures/gmail_gpu_price_changes/gmail_gpu-price-changes.html"
 tags = ["full-email", "gmail"]

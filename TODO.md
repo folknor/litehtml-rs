@@ -22,6 +22,12 @@
 - ~~**`line-height` as percentage**~~: Fixed in c059957. `line-height: 150%` was silently dropped; now treated as factor (1.5).
 - **`&nbsp;`** and other HTML entities in text nodes: May not be handled correctly in all cases.
 
+## Test emails to fixture-ify
+
+- **gmail_creatine-week.html**: MJML marketing email. Line-through pricing, responsive table columns. Simplest of the batch — good test for text-decoration.
+- **gmail_steam-purchase.html**: Steam purchase receipt. Deep nested tables, custom @font-face (Motiva Sans), background images on cells.
+- **gmail_gullinbursti-dividend.html**: Newsletter. Complex responsive CSS, modern selectors (`:has()`), figure layouts. Most complex.
+
 ## Rendering quality
 
 - **Glyph sub-pixel positioning**: Ahem font glyphs land at slightly different positions than Chrome, causing pixel-level diffs even when layout is structurally correct.

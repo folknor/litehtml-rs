@@ -433,6 +433,25 @@ pub(crate) fn build_nodes(
                 style.size.height = length(br_lh);
             }
 
+            // Center block children with fixed pixel widths when parent has
+            // align="center". In CSS, text-align:center only centers inline content;
+            // block elements need margin:0 auto. HTML align="center" on <td> should
+            // do both. Only apply when child has a fixed px width (not percentage or
+            // auto, which would fill the container) and no explicit margins.
+            // (header_test)
+            if inherited.text_align == TextAlign::Center
+                && style.display == Display::Block
+                && !computed.margin_left_auto
+                && !computed.margin_right_auto
+                && computed.margin_left.is_none()
+                && computed.margin_right.is_none()
+                && computed.width_px.is_some() // fixed pixel width, not auto
+                && computed.width_pct.is_none() // not percentage (would fill parent)
+            {
+                style.margin.left = LengthPercentageAuto::auto();
+                style.margin.right = LengthPercentageAuto::auto();
+            }
+
             // Check align attr for text-align on cells/blocks (common in email HTML).
             // On <table>, align="center" means center the table itself (handled by
             // apply_align_attr on the taffy style), NOT text-align for content.

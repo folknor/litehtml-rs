@@ -50,10 +50,10 @@ element_match_threshold = 0.0
 id = "footer_footer_test"
 path = "fixtures/footer_footer_test/footer_footer_test.html"
 tags = ["footer"]
-expected = "fail"
+expected = "pass"
 pixel_diff_threshold = 20.0
 element_match_threshold = 0.0
-notes = "Known issues: auto-width table overflow, &nbsp; handling"
+notes = "Remaining issue: auto-width table overflow from &nbsp; handling"
 
 [[litehtml.fixture]]
 id = "text_decoration_test"

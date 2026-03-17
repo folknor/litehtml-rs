@@ -213,7 +213,10 @@ impl InheritedStyle {
         // Tag-based defaults
         match tag {
             "a" => {
-                if out.color == (0, 0, 0, 255) {
+                // Only apply default link blue when no color was explicitly set
+                // via CSS — checking the value is wrong because explicit black
+                // is indistinguishable from inherited black (creatine_header)
+                if css.color.is_none() {
                     out.color = (0, 102, 204, 255); // link blue
                 }
                 // Default underline for links unless explicitly overridden

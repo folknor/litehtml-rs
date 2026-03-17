@@ -8,6 +8,7 @@
 - ~~**Table `align="center"` leaking text-align**~~: Fixed in 42108d7. `align="center"` on `<table>` was incorrectly setting text-align:center on cell content; now only affects table positioning.
 - ~~**Leading whitespace at block start**~~: Fixed in 42108d7. HTML indentation was preserved as a leading space in the first text span of a block, causing ~20px offset with Ahem.
 - **`<center>` tag**: Not properly centering child tables/content in all cases.
+- **MJML `font-size:0` wrapper pattern collapsing child content** (`creatine_header`): The creatine_header fixture has a duplicate mobile nav section at the bottom (same "Klær", "Sko", "Matvarer", "Tilskudd", "Utstyr" links). Chrome renders this as ~270px of height, our pipeline collapses it to ~0px. The root cause is the MJML pattern where wrapper `<td>` elements use `font-size:0px` to collapse whitespace between inline-block children, while the actual content `<div>`s and `<a>` tags inside override with their own font-size (14px) and explicit heights (22px line-height). Our pipeline inherits `font-size:0` down and doesn't properly let child elements override it back for layout purposes. The section has: a `height:20px` spacer div, then 5 nav items each with `line-height:22px` and `font-size:14px` on the `<a>` tags, plus `height:10px` spacer divs — totaling ~270px that Chrome renders but we collapse. The `font-size:0` is on the `<td style="font-size:0px;word-break:break-word;">` and `<div style="font-size:0px;text-align:left;...">` wrappers.
 
 ## CSS properties not yet supported
 
@@ -24,7 +25,7 @@
 
 ## Test emails to fixture-ify
 
-- **gmail_creatine-week.html**: MJML marketing email. Line-through pricing, responsive table columns. Simplest of the batch — good test for text-decoration.
+- ~~**gmail_creatine-week.html**~~: Split into 6 focused fixtures: creatine_header (PASS 1.3%), creatine_hero (PASS 1.9%), creatine_products (FAIL 29%), flare_hero (FAIL 18%), flare_products (FAIL 30%), monster_snacks (FAIL 29%). Original monolithic fixture retained as gmail_creatine_week.
 - **gmail_steam-purchase.html**: Steam purchase receipt. Deep nested tables, custom @font-face (Motiva Sans), background images on cells.
 - **gmail_gullinbursti-dividend.html**: Newsletter. Complex responsive CSS, modern selectors (`:has()`), figure layouts. Most complex.
 

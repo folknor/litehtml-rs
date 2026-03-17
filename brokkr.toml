@@ -81,6 +81,54 @@ pixel_diff_threshold = 25.0
 waive_element_threshold = true
 
 [[litehtml.fixture]]
+id = "creatine_header"
+path = "fixtures/creatine_header/creatine_header.html"
+tags = ["gmail", "creatine", "header"]
+expected = "fail"
+pixel_diff_threshold = 25.0
+waive_element_threshold = true
+
+[[litehtml.fixture]]
+id = "creatine_hero"
+path = "fixtures/creatine_hero/creatine_hero.html"
+tags = ["gmail", "creatine", "hero"]
+expected = "fail"
+pixel_diff_threshold = 25.0
+waive_element_threshold = true
+
+[[litehtml.fixture]]
+id = "creatine_products"
+path = "fixtures/creatine_products/creatine_products.html"
+tags = ["gmail", "creatine", "products"]
+expected = "fail"
+pixel_diff_threshold = 25.0
+waive_element_threshold = true
+
+[[litehtml.fixture]]
+id = "flare_hero"
+path = "fixtures/flare_hero/flare_hero.html"
+tags = ["gmail", "creatine", "hero"]
+expected = "fail"
+pixel_diff_threshold = 25.0
+waive_element_threshold = true
+
+[[litehtml.fixture]]
+id = "flare_products"
+path = "fixtures/flare_products/flare_products.html"
+tags = ["gmail", "creatine", "products"]
+expected = "fail"
+pixel_diff_threshold = 25.0
+waive_element_threshold = true
+
+[[litehtml.fixture]]
+id = "monster_snacks"
+path = "fixtures/monster_snacks/monster_snacks.html"
+tags = ["gmail", "creatine", "products"]
+expected = "fail"
+pixel_diff_threshold = 25.0
+waive_element_threshold = true
+
+[[litehtml.fixture]]
 id = "gmail_gpu_price_changes"
 path = "fixtures/gmail_gpu_price_changes/gmail_gpu-price-changes.html"
 tags = ["full-email", "gmail"]

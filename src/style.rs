@@ -431,16 +431,35 @@ pub(crate) fn element_style(
         },
 
         "img" => {
-            let w = el.attr("width").and_then(|v| v.parse::<f32>().ok());
-            let h = el.attr("height").and_then(|v| v.parse::<f32>().ok());
-            // Without an actual image source, use width as height if no height attr
-            // (most email images are roughly square placeholders)
-            let default_h = w.unwrap_or(100.0).min(32.0);
+            // Parse width/height from HTML attrs — support px ("600") and percent ("100%")
+            // CSS overrides are applied later in apply_css_overrides (creatine_hero)
+            let w_attr = el.attr("width");
+            let h_attr = el.attr("height");
+            let img_w = match w_attr {
+                Some(v) if v.ends_with('%') => v
+                    .trim_end_matches('%')
+                    .parse::<f32>()
+                    .ok()
+                    .map(|p| percent(p / 100.0)),
+                Some(v) => v.parse::<f32>().ok().map(length),
+                None => None,
+            };
+            let w_px = w_attr.and_then(|v| v.parse::<f32>().ok());
+            // height="auto" means the image should derive height from its intrinsic
+            // aspect ratio. With placeholder images (no real source), use width as
+            // height for a square — matching Chrome's 1x1 data URI behavior (creatine_hero).
+            // When height attr is missing entirely and there's no src, use a small
+            // placeholder to avoid inflating logo-style images (header_test).
+            let img_h = match h_attr {
+                Some("auto") | Some("") => w_px.map(length),
+                Some(v) => v.parse::<f32>().ok().map(length),
+                None => w_px.map(|w| length(w.min(32.0))),
+            };
             Style {
                 display: Display::Block,
                 size: Size {
-                    width: w.map_or(length(100.0), length),
-                    height: h.map_or(length(default_h), length),
+                    width: img_w.unwrap_or(auto()),
+                    height: img_h.unwrap_or(auto()),
                 },
                 ..Default::default()
             }

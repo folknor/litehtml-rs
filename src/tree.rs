@@ -45,6 +45,7 @@ pub(crate) struct NodeData {
     pub(crate) padding: (f32, f32, f32, f32),
     pub(crate) margin: (f32, f32, f32, f32),
     pub(crate) max_width_px: Option<f32>,
+    pub(crate) display_inline_block: bool,
     pub(crate) rich_spans: Option<Vec<RichTextSpan>>,
 }
 
@@ -81,6 +82,7 @@ impl Default for NodeData {
             padding: (0.0, 0.0, 0.0, 0.0),
             margin: (0.0, 0.0, 0.0, 0.0),
             max_width_px: None,
+            display_inline_block: false,
             rich_spans: None,
         }
     }
@@ -515,6 +517,7 @@ pub(crate) fn build_nodes(
                     computed.margin_left.unwrap_or(0.0),
                 ),
                 max_width_px: computed.max_width_px,
+                display_inline_block: computed.display_inline_block,
                 rich_spans: None,
             };
 
@@ -628,8 +631,11 @@ pub(crate) fn build_nodes(
                 })
                 .collect();
 
-            // Fallback: if block has inline children but rich text collection failed,
-            // switch to flex layout so inline children can shrink-wrap.
+            // Fallback: if block has inline or inline-block children but rich text
+            // collection failed, switch to flex-wrap so children flow horizontally.
+            // Inline-block children (e.g. MJML mj-column-per-50 divs) need to sit
+            // side-by-side; flex-wrap gives the correct wrapping behavior.
+            // (creatine_products)
             if style.display == Display::Block {
                 let has_inline_children = node_ref.children().any(|child| {
                     if let Node::Element(child_el) = child.value() {
@@ -638,7 +644,10 @@ pub(crate) fn build_nodes(
                         false
                     }
                 });
-                if has_inline_children {
+                let has_inline_block_children = children
+                    .iter()
+                    .any(|id| node_data.get(id).is_some_and(|d| d.display_inline_block));
+                if has_inline_children || has_inline_block_children {
                     style.display = Display::Flex;
                     style.flex_wrap = FlexWrap::Wrap;
                 }

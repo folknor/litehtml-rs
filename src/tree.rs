@@ -650,6 +650,18 @@ pub(crate) fn build_nodes(
                 if has_inline_children || has_inline_block_children {
                     style.display = Display::Flex;
                     style.flex_wrap = FlexWrap::Wrap;
+                    // Translate text-align to justify-content so inline/inline-block
+                    // children are centered or right-aligned in the flex container,
+                    // matching CSS inline formatting behavior. (creatine_products)
+                    match text_align {
+                        TextAlign::Center => {
+                            style.justify_content = Some(JustifyContent::Center);
+                        }
+                        TextAlign::Right => {
+                            style.justify_content = Some(JustifyContent::End);
+                        }
+                        _ => {}
+                    }
                 }
             }
 
@@ -660,7 +672,78 @@ pub(crate) fn build_nodes(
         Node::Text(text) => {
             let text_str = text.text.trim();
             if text_str.is_empty() {
-                return vec![];
+                // Preserve inter-element whitespace as a single space between
+                // inline-block siblings. Without this, trimmed whitespace lets
+                // atomic inlines pack tighter than browsers render, preventing
+                // flex-wrap from breaking them onto separate lines.
+                // (creatine_products)
+                if !text.text.contains(char::is_whitespace) {
+                    return vec![];
+                }
+                let node_ref = tree.get(node_id).unwrap();
+                let sibling_is_inline_block = |sib: ego_tree::NodeRef<Node>| -> bool {
+                    if let Node::Element(el) = sib.value() {
+                        let el_ref = match scraper::ElementRef::wrap(sib) {
+                            Some(r) => r,
+                            None => return false,
+                        };
+                        let rule_css = style_index.match_element_ref(&el_ref);
+                        let inline_css = el.attr("style").unwrap_or("");
+                        let merged = if !rule_css.is_empty() && !inline_css.is_empty() {
+                            format!("{rule_css};{inline_css}")
+                        } else if !rule_css.is_empty() {
+                            rule_css
+                        } else {
+                            inline_css.to_string()
+                        };
+                        if merged.is_empty() {
+                            return false;
+                        }
+                        parse_inline_style(&merged).display_inline_block
+                    } else {
+                        false
+                    }
+                };
+                let prev_ib = node_ref
+                    .prev_sibling()
+                    .is_some_and(sibling_is_inline_block);
+                let next_ib = node_ref
+                    .next_sibling()
+                    .is_some_and(sibling_is_inline_block);
+                if !(prev_ib && next_ib) {
+                    return vec![];
+                }
+                // Keep as a single space
+                let text_str = " ".to_string();
+                let text_ctx = TextMeasure {
+                    text: text_str.clone(),
+                    font_size: inherited.font_size,
+                    font_family: inherited.font_family.clone(),
+                    font_weight: inherited.font_weight,
+                    font_italic: inherited.font_italic,
+                    line_height: inherited.line_height,
+                    white_space_nowrap: inherited.white_space_nowrap,
+                    letter_spacing: inherited.letter_spacing,
+                    spans: None,
+                };
+                let style = Style {
+                    ..Default::default()
+                };
+                let data = NodeData {
+                    text: Some(text_str),
+                    text_color: inherited.color,
+                    font_size: inherited.font_size,
+                    font_family: inherited.font_family.clone(),
+                    font_weight: inherited.font_weight,
+                    font_italic: inherited.font_italic,
+                    line_height: inherited.line_height,
+                    letter_spacing: inherited.letter_spacing,
+                    text_align: inherited.text_align,
+                    ..Default::default()
+                };
+                let id = taffy.new_leaf_with_context(style, text_ctx).unwrap();
+                node_data.insert(id, data);
+                return vec![id];
             }
             let text_str = apply_text_transform(text_str, inherited.text_transform);
 

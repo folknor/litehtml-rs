@@ -14,6 +14,7 @@ tiny-skia = "0.11"
 cosmic-text = "0.18"
 ego-tree = "0.10"
 lightningcss = "1.0.0-alpha.71"
+cssparser = "0.33"
 hotpath = "0.14"
 ttf-parser = "0.25"
 clap = { version = "4", features = ["derive"] }

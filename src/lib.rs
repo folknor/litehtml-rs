@@ -36,13 +36,14 @@ pub struct RenderResult {
 
 /// Run the full rendering pipeline: parse HTML, build layout tree, compute layout,
 /// render to pixmap, and generate element layout JSON.
-pub fn render(html_str: &str) -> RenderResult {
+/// viewport_width controls both media query evaluation and layout available space.
+pub fn render(html_str: &str, viewport_width: f32) -> RenderResult {
     // Phase 1: Parse HTML
     let t0 = Instant::now();
     let document = Html::parse_document(html_str);
     let parse_time = t0.elapsed();
 
-    let style_index = StyleIndex::from_document(&document);
+    let style_index = StyleIndex::from_document(&document, viewport_width);
     let selector_count = style_index.selector_count();
 
     let mut element_count = 0;
@@ -95,7 +96,7 @@ pub fn render(html_str: &str) -> RenderResult {
     // Compute layout
     let t2 = Instant::now();
     let viewport = Size {
-        width: AvailableSpace::Definite(800.0),
+        width: AvailableSpace::Definite(viewport_width),
         height: AvailableSpace::MaxContent,
     };
     taffy

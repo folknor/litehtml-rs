@@ -10,6 +10,10 @@ struct Cli {
     #[arg(long)]
     fixture: bool,
 
+    /// Viewport width in pixels for layout and media query evaluation (default: 800)
+    #[arg(long, default_value_t = 800.0)]
+    width: f32,
+
     /// Output directory for PNG and JSON files (default: same directory as input)
     #[arg(long)]
     output_dir: Option<String>,
@@ -28,7 +32,7 @@ fn main() {
         std::process::exit(1);
     });
 
-    let result = litehtml_rs::render(&html_str);
+    let result = litehtml_rs::render(&html_str, cli.width);
 
     if result.selector_count > 0 {
         println!("Style rules extracted: {} selectors", result.selector_count);

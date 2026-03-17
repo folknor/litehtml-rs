@@ -1,4 +1,9 @@
+use lightningcss::media_query::{
+    MediaCondition, MediaFeatureId, MediaFeatureValue, MediaQuery, MediaType, Operator,
+    QueryFeature, Qualifier,
+};
 use lightningcss::stylesheet::ParserOptions;
+use lightningcss::values::length::Length;
 use scraper::Html;
 use taffy::prelude::*;
 
@@ -13,18 +18,35 @@ pub(crate) struct StyleIndex {
 }
 
 impl StyleIndex {
-    pub(crate) fn from_document(document: &Html) -> Self {
+    /// Build style index from document, evaluating @media queries against viewport_width.
+    /// Also respects `<style media="...">` attributes (gmail_creatine_week).
+    pub(crate) fn from_document(document: &Html, viewport_width: f32) -> Self {
         use lightningcss::stylesheet::StyleSheet;
         use scraper::Selector;
         let mut rules = Vec::new();
 
         let style_sel = Selector::parse("style").unwrap();
         for style_el in document.select(&style_sel) {
+            // Check <style media="..."> attribute — skip if media doesn't match
+            // (gmail_creatine_week uses <style media="screen and (min-width:480px)">)
+            if let Some(media_attr) = style_el.value().attr("media") {
+                let mut input = cssparser::ParserInput::new(media_attr);
+                let mut parser = cssparser::Parser::new(&mut input);
+                if let Ok(media_list) = lightningcss::media_query::MediaList::parse(
+                    &mut parser,
+                    &ParserOptions::default(),
+                ) {
+                    if !eval_media_list(&media_list, viewport_width) {
+                        continue;
+                    }
+                }
+            }
+
             let css_text = style_el.text().collect::<String>();
             let Ok(sheet) = StyleSheet::parse(&css_text, ParserOptions::default()) else {
                 continue;
             };
-            Self::collect_rules(&sheet.rules.0, &mut rules);
+            Self::collect_rules(&sheet.rules.0, viewport_width, &mut rules);
         }
 
         Self { rules }
@@ -32,6 +54,7 @@ impl StyleIndex {
 
     fn collect_rules(
         rules: &[lightningcss::rules::CssRule],
+        viewport_width: f32,
         out: &mut Vec<(scraper::Selector, String)>,
     ) {
         use lightningcss::rules::CssRule;
@@ -76,10 +99,12 @@ impl StyleIndex {
                         }
                     }
                 }
-                CssRule::Media(_) => {
-                    // Skip @media blocks — we render at a fixed 800px viewport
-                    // and email @media queries are typically max-width:600px responsive
-                    // overrides that shouldn't apply at desktop width.
+                // Evaluate @media blocks against viewport width and recurse
+                // into matching rules (gmail_creatine_week)
+                CssRule::Media(media_rule) => {
+                    if eval_media_list(&media_rule.query, viewport_width) {
+                        Self::collect_rules(&media_rule.rules.0, viewport_width, out);
+                    }
                 }
                 _ => {}
             }
@@ -612,5 +637,147 @@ pub(crate) fn percent_width_from_attr(el: &scraper::node::Element) -> Option<Dim
             .map(|v| Dimension::percent(v / 100.0))
     } else {
         w.trim().parse::<f32>().ok().map(Dimension::length)
+    }
+}
+
+// --- Media query evaluation ---
+
+/// Evaluate a media query list (OR semantics: any query matching → true).
+/// Empty list matches everything per CSS spec.
+fn eval_media_list(list: &lightningcss::media_query::MediaList, viewport_width: f32) -> bool {
+    if list.media_queries.is_empty() {
+        return true;
+    }
+    list.media_queries
+        .iter()
+        .any(|mq| eval_media_query(mq, viewport_width))
+}
+
+/// Evaluate a single media query against the viewport width.
+/// Handles qualifier (only/not), media type (screen/all/print), and conditions.
+fn eval_media_query(query: &MediaQuery, viewport_width: f32) -> bool {
+    // Check media type — we're a screen renderer, so screen and all match
+    let type_matches = matches!(
+        query.media_type,
+        MediaType::All | MediaType::Screen
+    );
+
+    let condition_matches = match &query.condition {
+        Some(condition) => eval_media_condition(condition, viewport_width),
+        None => true,
+    };
+
+    let result = type_matches && condition_matches;
+
+    // "not" negates the entire query, "only" is a no-op for modern parsers
+    match query.qualifier {
+        Some(Qualifier::Not) => !result,
+        _ => result,
+    }
+}
+
+/// Evaluate a media condition tree (features, not, and/or operations).
+fn eval_media_condition(condition: &MediaCondition, viewport_width: f32) -> bool {
+    match condition {
+        MediaCondition::Feature(feature) => eval_media_feature(feature, viewport_width),
+        MediaCondition::Not(inner) => !eval_media_condition(inner, viewport_width),
+        MediaCondition::Operation {
+            operator,
+            conditions,
+        } => match operator {
+            Operator::And => conditions
+                .iter()
+                .all(|c| eval_media_condition(c, viewport_width)),
+            Operator::Or => conditions
+                .iter()
+                .any(|c| eval_media_condition(c, viewport_width)),
+        },
+        // Unknown tokens — can't evaluate, skip conservatively
+        MediaCondition::Unknown(_) => false,
+    }
+}
+
+/// Extract pixel value from a media feature length value.
+fn length_to_px(value: &MediaFeatureValue) -> Option<f32> {
+    match value {
+        MediaFeatureValue::Length(Length::Value(lv)) => lv.to_px(),
+        // Number 0 is valid as a zero-length in media queries
+        MediaFeatureValue::Number(n) if *n == 0.0 => Some(0.0),
+        _ => None,
+    }
+}
+
+/// Evaluate a single media feature against the viewport width.
+/// Only width features are supported — other features (height, color, etc.)
+/// are conservatively treated as non-matching.
+fn eval_media_feature(feature: &QueryFeature<'_, MediaFeatureId>, viewport_width: f32) -> bool {
+    use lightningcss::media_query::MediaFeatureComparison::*;
+    use lightningcss::media_query::MediaFeatureName;
+
+    match feature {
+        // (width) — boolean: true if viewport has non-zero width
+        QueryFeature::Boolean { name } => matches!(
+            name,
+            MediaFeatureName::Standard(MediaFeatureId::Width)
+        ),
+
+        // (width: 600px) or (min-width: 480px) — plain equality or
+        // range comparison (lightningcss normalizes min-/max- to Range)
+        QueryFeature::Plain { name, value } => match name {
+            MediaFeatureName::Standard(MediaFeatureId::Width) => {
+                length_to_px(value).is_some_and(|px| (viewport_width - px).abs() < 0.01)
+            }
+            _ => false,
+        },
+
+        // (width >= 480px), (width <= 600px), etc.
+        // lightningcss normalizes min-width/max-width to this form
+        QueryFeature::Range {
+            name,
+            operator,
+            value,
+        } => match name {
+            MediaFeatureName::Standard(MediaFeatureId::Width) => {
+                let Some(px) = length_to_px(value) else {
+                    return false;
+                };
+                match operator {
+                    Equal => (viewport_width - px).abs() < 0.01,
+                    GreaterThan => viewport_width > px,
+                    GreaterThanEqual => viewport_width >= px,
+                    LessThan => viewport_width < px,
+                    LessThanEqual => viewport_width <= px,
+                }
+            }
+            _ => false,
+        },
+
+        // (480px <= width <= 600px)
+        QueryFeature::Interval {
+            name,
+            start,
+            start_operator,
+            end,
+            end_operator,
+        } => match name {
+            MediaFeatureName::Standard(MediaFeatureId::Width) => {
+                let (Some(start_px), Some(end_px)) = (length_to_px(start), length_to_px(end))
+                else {
+                    return false;
+                };
+                let start_ok = match start_operator {
+                    LessThan => start_px < viewport_width,
+                    LessThanEqual => start_px <= viewport_width,
+                    _ => false,
+                };
+                let end_ok = match end_operator {
+                    LessThan => viewport_width < end_px,
+                    LessThanEqual => viewport_width <= end_px,
+                    _ => false,
+                };
+                start_ok && end_ok
+            }
+            _ => false,
+        },
     }
 }

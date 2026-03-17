@@ -965,6 +965,7 @@ version = "0.1.0"
 dependencies = [
  "clap",
  "cosmic-text",
+ "cssparser 0.33.0",
  "ego-tree",
  "hotpath",
  "lightningcss",

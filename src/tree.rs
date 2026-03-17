@@ -46,6 +46,7 @@ pub(crate) struct NodeData {
     pub(crate) margin: (f32, f32, f32, f32),
     pub(crate) max_width_px: Option<f32>,
     pub(crate) display_inline_block: bool,
+    pub(crate) vertical_align_middle: bool,
     pub(crate) rich_spans: Option<Vec<RichTextSpan>>,
 }
 
@@ -83,6 +84,7 @@ impl Default for NodeData {
             margin: (0.0, 0.0, 0.0, 0.0),
             max_width_px: None,
             display_inline_block: false,
+            vertical_align_middle: false,
             rich_spans: None,
         }
     }
@@ -518,6 +520,7 @@ pub(crate) fn build_nodes(
                 ),
                 max_width_px: computed.max_width_px,
                 display_inline_block: computed.display_inline_block,
+                vertical_align_middle: computed.vertical_align_middle,
                 rich_spans: None,
             };
 
@@ -661,6 +664,16 @@ pub(crate) fn build_nodes(
                             style.justify_content = Some(JustifyContent::End);
                         }
                         _ => {}
+                    }
+                    // Translate vertical-align:middle on inline-block children to
+                    // align-items:center on the flex parent, matching CSS inline
+                    // formatting where middle-aligned atomic inlines are vertically
+                    // centered relative to each other. (creatine_products)
+                    let any_valign_middle = children.iter().any(|id| {
+                        node_data.get(id).is_some_and(|d| d.vertical_align_middle)
+                    });
+                    if any_valign_middle {
+                        style.align_items = Some(AlignItems::Center);
                     }
                 }
             }

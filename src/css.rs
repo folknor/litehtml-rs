@@ -53,6 +53,7 @@ pub(crate) struct ComputedStyle {
     pub(crate) border_radius_pct: Option<f32>,
     pub(crate) text_decoration_underline: Option<bool>,
     pub(crate) text_decoration_line_through: Option<bool>,
+    pub(crate) vertical_align_middle: bool,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -318,6 +319,13 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
             use lightningcss::properties::text::Spacing;
             if let Spacing::Length(l) = ls {
                 style.letter_spacing = l.to_px();
+            }
+        }
+        Property::VerticalAlign(va) => {
+            use lightningcss::properties::font::VerticalAlign;
+            use lightningcss::properties::font::VerticalAlignKeyword;
+            if let VerticalAlign::Keyword(VerticalAlignKeyword::Middle) = va {
+                style.vertical_align_middle = true;
             }
         }
         Property::TextTransform(tt) => {

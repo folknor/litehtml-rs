@@ -23,9 +23,48 @@
 - ~~**`line-height` as percentage**~~: Fixed in c059957. `line-height: 150%` was silently dropped; now treated as factor (1.5).
 - **`&nbsp;`** and other HTML entities in text nodes: May not be handled correctly in all cases.
 
+## Fixture migration to `brokkr litehtml prepare` / `extract`
+
+All fixtures need to be regenerated using the new `prepare` and `extract` commands (see `docs/FIXTURE-PREPROCESSING.md`). This replaces the manual Ahem injection, 1x1 base64 image hacks, and hand-extracted sub-fixtures with a deterministic pipeline that produces correctly-sized image placeholders and preserves layout context.
+
+### Full email fixtures (run `prepare` on source, recapture Chrome reference)
+
+- [ ] **gmail_creatine_week**: Source: `test-emails/gmail_creatine-week.html`. Prepare, replace fixture HTML, recapture, re-approve.
+- [ ] **gmail_gpu_price_changes**: Source: `test-emails/gmail_gpu-price-changes.html` (verify source location). Prepare, replace, recapture.
+
+### Extracted sub-fixtures (run `extract` on prepared full email, recapture)
+
+All extracted from prepared `gmail_creatine_week`. Need to determine correct CSS selectors for each section.
+
+- [ ] **creatine_header**: Extract header/nav section. Determine selector.
+- [ ] **creatine_hero**: Extract hero product section (image + text). Determine selector.
+- [ ] **creatine_products**: Extract creatine product grid. Determine selector.
+- [ ] **flare_hero**: Extract flare pants hero section. Determine selector.
+- [ ] **flare_products**: Extract flare product grid. Determine selector.
+- [ ] **monster_snacks**: Extract monster snacks product section. Determine selector.
+
+### Hand-crafted test fixtures (run `prepare` to standardize Ahem injection)
+
+These don't have external images but need the Ahem injection standardized (remove manually embedded WOFF2, let `prepare` inject from shared source).
+
+- [ ] **text_flow_test**: Prepare, recapture.
+- [ ] **table_test**: Prepare, recapture.
+- [ ] **footer_test**: Prepare, recapture.
+- [ ] **header_test**: Prepare, recapture. Has one image placeholder — verify sizing.
+- [ ] **border_test**: Prepare, recapture.
+- [ ] **footer_footer_test**: Prepare, recapture.
+- [ ] **text_decoration_test**: Prepare, recapture.
+- [ ] **line_height_normal_test**: Prepare, recapture.
+
+### After migration
+
+- [ ] Update `brokkr.toml` thresholds and expected statuses based on new baselines.
+- [ ] Remove old `data-fixture="ahem"` style blocks from any remaining fixtures.
+- [ ] Verify all fixtures pass `brokkr litehtml test --all` with updated baselines.
+
 ## Test emails to fixture-ify
 
-- ~~**gmail_creatine-week.html**~~: Split into 6 focused fixtures: creatine_header (PASS 1.3%), creatine_hero (PASS 1.9%), creatine_products (FAIL 29%), flare_hero (FAIL 18%), flare_products (FAIL 30%), monster_snacks (FAIL 29%). Original monolithic fixture retained as gmail_creatine_week.
+- ~~**gmail_creatine-week.html**~~: Split into 6 focused fixtures: creatine_header (PASS 1.3%), creatine_hero (PASS 1.9%), creatine_products (PASS 1.3%), flare_hero (PASS 1.8%), flare_products (PASS 1.5%), monster_snacks (PASS 5.0%). Original monolithic fixture retained as gmail_creatine_week.
 - **gmail_steam-purchase.html**: Steam purchase receipt. Deep nested tables, custom @font-face (Motiva Sans), background images on cells.
 - **gmail_gullinbursti-dividend.html**: Newsletter. Complex responsive CSS, modern selectors (`:has()`), figure layouts. Most complex.
 

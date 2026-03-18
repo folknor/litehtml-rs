@@ -74,6 +74,38 @@ brokkr litehtml status                                   # show last run vs appr
 brokkr litehtml approve text_flow_test                   # record current divergence as accepted (clean tree required)
 ```
 
+### Fixture preparation (brokkr litehtml prepare/extract/outline)
+
+Creates deterministic, self-contained fixture HTML from raw email sources. See `docs/FIXTURE-PREPROCESSING.md` for the full spec.
+
+```bash
+# Step 1: Normalize a raw email — fetches images, replaces with correctly-sized
+# gray placeholders, injects Ahem font, strips external @imports, pretty-prints.
+# Image cache lives in .brokkr/prepare-cache/.
+brokkr litehtml prepare test-emails/raw-email.html fixtures/email/email.html
+
+# Step 2: Inspect the prepared HTML structure to find extract selectors.
+# Shows section boundaries with content summaries (images, text).
+brokkr litehtml outline fixtures/email/email.html --selectors
+brokkr litehtml outline fixtures/email/email.html --depth 8  # deeper nesting
+brokkr litehtml outline fixtures/email/email.html --full      # no depth limit
+
+# Step 3: Extract a sub-fixture from a prepared email.
+# Single section:
+brokkr litehtml extract fixtures/email/email.html \
+  --selector "div:nth-of-type(2) > table > tbody > tr > td > div:nth-of-type(3) > div" \
+  fixtures/hero/hero.html
+# Range of sibling sections (--from/--to):
+brokkr litehtml extract fixtures/email/email.html \
+  --from "div:nth-of-type(2) > table > tbody > tr > td > div:nth-of-type(4) > div" \
+  --to   "div:nth-of-type(2) > table > tbody > tr > td > div:nth-of-type(7) > div" \
+  fixtures/products/products.html
+```
+
+**Workflow**: `prepare` → `outline --selectors` → `extract` → `test --recapture` → `test`
+
+Never hand-edit fixture HTML for Ahem injection or image replacement — always use `prepare`. Hand-crafted test fixtures (text_flow_test, etc.) should also be run through `prepare` to standardize their Ahem injection.
+
 `brokkr bench` requires a clean git tree to store results, but ignores dirty markdown files and `results.db` itself.
 
 **Always commit `.brokkr/`**. The `results.db` inside it is the benchmark history and must be tracked in git.

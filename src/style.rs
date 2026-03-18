@@ -281,6 +281,60 @@ pub(crate) fn is_inline_tag(tag: &str) -> bool {
     )
 }
 
+/// Extract natural (width, height) from a PNG data URI by decoding just
+/// the IHDR chunk header. Returns None if the src is not a PNG data URI
+/// or the header can't be parsed. (creatine_products)
+fn png_data_uri_dimensions(src: &str) -> Option<(u32, u32)> {
+    let b64 = src.strip_prefix("data:image/png;base64,")?;
+    let b64_prefix: String = b64.chars().filter(|c| !c.is_whitespace()).take(48).collect();
+    let decoded = base64_decode_prefix(&b64_prefix)?;
+    if decoded.len() < 24 {
+        return None;
+    }
+    if &decoded[0..8] != b"\x89PNG\r\n\x1a\n" {
+        return None;
+    }
+    let w = u32::from_be_bytes([decoded[16], decoded[17], decoded[18], decoded[19]]);
+    let h = u32::from_be_bytes([decoded[20], decoded[21], decoded[22], decoded[23]]);
+    if w == 0 || h == 0 {
+        return None;
+    }
+    Some((w, h))
+}
+
+fn base64_decode_prefix(input: &str) -> Option<Vec<u8>> {
+    fn val(c: u8) -> Option<u8> {
+        match c {
+            b'A'..=b'Z' => Some(c - b'A'),
+            b'a'..=b'z' => Some(c - b'a' + 26),
+            b'0'..=b'9' => Some(c - b'0' + 52),
+            b'+' => Some(62),
+            b'/' => Some(63),
+            b'=' => Some(0),
+            _ => None,
+        }
+    }
+    let bytes = input.as_bytes();
+    let mut out = Vec::with_capacity(bytes.len() * 3 / 4);
+    for chunk in bytes.chunks(4) {
+        if chunk.len() < 4 {
+            break;
+        }
+        let a = val(chunk[0])?;
+        let b = val(chunk[1])?;
+        let c = val(chunk[2])?;
+        let d = val(chunk[3])?;
+        out.push((a << 2) | (b >> 4));
+        if chunk[2] != b'=' {
+            out.push((b << 4) | (c >> 2));
+        }
+        if chunk[3] != b'=' {
+            out.push((c << 6) | d);
+        }
+    }
+    Some(out)
+}
+
 pub(crate) fn element_style(
     tag: &str,
     el: &scraper::node::Element,
@@ -435,7 +489,7 @@ pub(crate) fn element_style(
 
         "img" => {
             // Parse width/height from HTML attrs — support px ("600") and percent ("100%")
-            // CSS overrides are applied later in apply_css_overrides (creatine_hero)
+            // CSS overrides are applied later in apply_css_overrides
             let w_attr = el.attr("width");
             let h_attr = el.attr("height");
             let img_w = match w_attr {
@@ -448,15 +502,30 @@ pub(crate) fn element_style(
                 None => None,
             };
             let w_px = w_attr.and_then(|v| v.parse::<f32>().ok());
-            // height="auto" means the image should derive height from its intrinsic
-            // aspect ratio. With placeholder images (no real source), use width as
-            // height for a square — matching Chrome's 1x1 data URI behavior (creatine_hero).
-            // When height attr is missing entirely and there's no src, use a small
-            // placeholder to avoid inflating logo-style images (header_test).
-            let img_h = match h_attr {
-                Some("auto") | Some("") => w_px.map(length),
-                Some(v) => v.parse::<f32>().ok().map(length),
-                None => w_px.map(|w| length(w.min(32.0))),
+            // When CSS explicitly says height:auto, read intrinsic dimensions
+            // from PNG data URI src and use aspect_ratio so taffy computes the
+            // correct height for both px and % widths. Without intrinsic data
+            // (no src or not a PNG data URI), fall back to square.
+            // (creatine_products, creatine_hero)
+            let css_height_auto = css.height_auto;
+            let html_height_auto = matches!(h_attr, Some("auto") | Some(""));
+            let intrinsic = el.attr("src").and_then(png_data_uri_dimensions);
+            let (img_h, ratio) = if css_height_auto || html_height_auto {
+                if let Some((nat_w, nat_h)) = intrinsic {
+                    // Use aspect_ratio — height stays auto, taffy derives it
+                    (None, Some(nat_w as f32 / nat_h as f32))
+                } else {
+                    // No intrinsic data (no src or not a PNG data URI) — use
+                    // small cap to avoid inflating broken images (header_test)
+                    (w_px.map(|w| length(w.min(32.0))), None)
+                }
+            } else {
+                match h_attr {
+                    Some(v) => (v.parse::<f32>().ok().map(length), None),
+                    // No height attr, no CSS height:auto — use small default
+                    // to avoid inflating logo-style images (header_test)
+                    None => (w_px.map(|w| length(w.min(32.0))), None),
+                }
             };
             Style {
                 display: Display::Block,
@@ -464,6 +533,7 @@ pub(crate) fn element_style(
                     width: img_w.unwrap_or(auto()),
                     height: img_h.unwrap_or(auto()),
                 },
+                aspect_ratio: ratio,
                 ..Default::default()
             }
         }

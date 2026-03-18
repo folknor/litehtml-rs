@@ -54,6 +54,7 @@ pub(crate) struct ComputedStyle {
     pub(crate) text_decoration_underline: Option<bool>,
     pub(crate) text_decoration_line_through: Option<bool>,
     pub(crate) vertical_align_middle: bool,
+    pub(crate) height_auto: bool,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -147,6 +148,9 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
                 } else if let Some(pct) = lp_to_pct(lp) {
                     style.height_pct = Some(pct);
                 }
+            }
+            Size::Auto => {
+                style.height_auto = true;
             }
             _ => {}
         },

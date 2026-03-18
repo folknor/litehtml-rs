@@ -1,135 +1,198 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style type="text/css" data-fixture="ahem">
-@font-face {
-    font-family: 'ahem';
-    src: url(data:application/font-woff2;charset=utf-8;base64,d09GMgABAAAAAAXYAA0AAAAAKjgAAAWAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGh4GYACEUhEQCrUAlzALg3AAATYCJAOHVgQgBYZQB4RFG5AYFeOYFbBxgM3u/5P9f53AyfVjdayDrHio6Mo1sl6KByXlCXnIVzSV5fT5TQ6ZXYT2USiITV79J77MWg5EBsol7qDhyo33x8P3c+Gf+142my1jCuTYlRUqFhJYETii8Z2qKkDFIPmzBIAMunuOxJGJPs+89lYS9Ec0RfnM0Mq1cEQnuxeTQGhm4JhuxBMZ4EBHEV1vjc4Fu7x5fMIF6JSO/8U5lc0B0A3VCXQhbYfk///VdNbjMwXYa1vASnF+7bd0/afj0z/RstqGAQUSRwFlCwcaZ1maalGAqYWaZhAIp0HbGFGhQp8R+fesEPDRAacNrm2GQQH4Yj1KJ9ANA5CE8LtQICHlL+OkliLdSodxIjppPDY1MknRAfZzqZd6AcCqaTlzdf8x5brZybVnteg9V2ZJ49QC2eMMgyGWIKTLKGIyFpirpdLdeHud1wBDLIvtcTo9TZ/me3U/MBAgQ0eIFMUoWdJlcnQ5uufoPjIjC7IjN6Mfo7/jfuP+/TE16K420VkXY0osJTGepPeBfUGBAxKT+N7qR/I7o/n99ma5sMfNpdn8778f/+vxxa27wV3/rnfXvivdpe6Ct5PbIVzANRzDEWzDBsxAAoyguwJ99HOvD8EOipKwViRk7A2KVtmuOl107da9R8/bQOaB8A+ceQBEmFDGhVTaWOdDnOZl3fbjvO7n/X4ty4uyqpu264dxmhfL1Xqz3e0Px9P5cr3dH09CoxWTnllYVtPY0NTS3Nre2dHV3dvT1z84PDQyNjo1OT1zxkBjCEe8OM274BCfdYFX5surkXt1+7j7ZhMBcoN4bXi/9v5gFx8jFerSxZW9/eOTg8Pxt/kyIJ/cIA5DO/tXSabE7IzcvPyc4hLEFaquXFjfdpW8vrEZ3tlaQ8gqSS/RyOAPiO/xC/kVxV1ADRIIhPayEkwZPFmF/VHetd2z3NS91a3du+zl1aO36LEDX4L21P96y+5f+qv+8ss34XX05bPtoNb3U1j23Ox8QHjXnz+Jjeh7z5m/VV3zl6+r2zXg/GWuUUk90q+Y/EuCia9U+V/Hi3vKH2k91NA5kbZXA39cAiZjp55uyKLoEGfIKFRxhpIecY6yOq5TYVC8ppYB8S2VqpTkXnoX6q1H6pPvU6bX9MyANJGem5xm0wtV2uR6qUxbj/iQDUm7DXkVyeQAoxApohs55BkYMxBARTYKQGkjUUiYlrTXGBSTjPdZNEwhsv5GiIu2WLutqCjOzBiNUCJVG2QEcri6wGFxMxBSkWAxQFvbyOdIvmgOfP2RUPAtqClwBVkbyNVkJIhXG06ZEQlFppEZcsCo8Jgh54qFAIdogE8JK7bbCCWduZxmZpdZQNvw9obxRlBsXOEYyGiQrvayDC6imNOoxRAvSK5Oi0j9dkxmgftX5lagZSZaGPpMFCeJmRL5zynRq5RLsUtvhRAgXnS+tgl8l86WDo2N/RgrP+RBKOZDEZsI70NJdph0Qz+iBDQi/djb/kBEiiz/cnqnqnR01U13PfTUS299vCeRyuQKpUqt0er0BiMAQjCCYjhBUjTDcrwgmswWq83ucLrcHq/PDw0DCwePgIiEjIKKho6BiYWNg4uHT0BIRExCSkZOQUlFrVuKmsaE1yMtK5OIgjTrjY4lcfn2w8JHbwX4F1X059e/pIota3ohaeVD26K3btOebTt2vTM4su9AH5w/DvuOnTD59C0DkZmVnY1DPRo3Fw8vP5+AoA8hEWFRYkQblyATK57Cqx+TDvRrGMk6dO/KtRt3Ltyq0tTS1bNqWMeaREtpStbNmhkzi/HLCwr40MIpLMfGzWOQwrZ5C2lFGe2oolOu9ndsWTO1zQnXTp7cFzWnznij+LuUYlVenjzayBbkk89aAgA=) format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-* { font-family: 'ahem' !important; }
-</style>
-<style type="text/css">
-body { margin: 0; padding: 0; font-family: sans-serif; background-color: #f5f5f5; }
-table, td { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-.pricing-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    overflow: hidden;
-    table-layout: fixed;
-}
-.pricing-table th {
-    background-color: #f9fafb;
-    padding: 12px 16px;
-    text-align: left;
-    font-size: 11px;
-    font-weight: 700;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-bottom: 1px solid #e5e7eb;
-}
-.pricing-table td {
-    padding: 16px;
-    font-size: 14px;
-    color: #111827;
-    border-bottom: 1px solid #e5e7eb;
-}
-.pricing-table tr:last-child td {
-    border-bottom: none;
-}
-.col-gpu { width: auto; }
-.col-price { width: 85px; text-align: right; white-space: nowrap; }
-.pricing-table th.col-price { text-align: right; }
-
-.badge-new {
-    background-color: #fef08a;
-    color: #854d0e;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 800;
-    text-transform: uppercase;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 6px;
-}
-.btn-reserve {
-    background-color: #4C59D3;
-    color: #ffffff !important;
-    padding: 5px 14px;
-    border-radius: 5px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 12px;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-}
-</style>
-</head>
-<body style="background-color:#f5f5f5;margin:0;padding:0;width:100%;">
-  <center>
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#f5f5f5;table-layout:fixed;">
-      <tr>
-        <td align="center" style="padding:24px 16px;">
-          <div style="max-width:600px;margin:0 auto;">
-            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%;max-width:600px;background-color:#ffffff;">
-              <tr>
-                <td style="padding:40px;">
-                  <table class="pricing-table">
-                    <thead>
-                      <tr>
-                        <th class="col-gpu">GPU</th>
-                        <th class="col-price">Prev</th>
-                        <th class="col-price">New</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="col-gpu"><strong>A100 80GB</strong></td>
-                        <td class="col-price">$0.89</td>
-                        <td class="col-price">$0.89</td>
-                      </tr>
-                      <tr>
-                        <td class="col-gpu"><strong>H100 80GB</strong></td>
-                        <td class="col-price">$1.69</td>
-                        <td class="col-price"><strong>$1.79</strong></td>
-                      </tr>
-                      <tr>
-                        <td class="col-gpu"><strong>H200 141GB</strong></td>
-                        <td class="col-price">$1.99</td>
-                        <td class="col-price"><strong>$2.19</strong></td>
-                      </tr>
-                      <tr>
-                        <td class="col-gpu"><strong>B200 180GB</strong></td>
-                        <td class="col-price">$2.49</td>
-                        <td class="col-price"><strong>$2.79</strong></td>
-                      </tr>
-                      <tr>
-                        <td class="col-gpu">
-                          <span class="col-gpu-content">
-                            <strong>B300</strong><span class="badge-new">New</span><a href="#" class="btn-reserve">Reserve Now</a>
-                          </span>
-                        </td>
-                        <td class="col-price" style="color:#9ca3af;">—</td>
-                        <td class="col-price"><strong>$4.20</strong></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </center>
-</body>
+  <head>
+    <style>
+      @font-face {
+      font-family: 'ahem';
+      src: url('data:font/ttf;base64,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ESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AAAAAMAADEhFSED6PwYyAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAAAAAPoAyAAAwAAESERIQPo/BgDIPzgAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEhESED6PwYAyD8GAAAAAEAAP84A+gDIAADAAARIREhA+j8GAMg/BgAAAABAAD/OAPoAyAAAwAAESERIQPo/BgDIPwYAAAAAQAA/zgD6AMgAAMAABEh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AGgAZQAgAGIAYQBzAGUAbABpAG4AZQAuACAAVQBzAGUAZgB1AGwAIABmAG8AcgAgAHQAZQBzAHQAaQBuAGcAIABjAG8AbQBwAG8AcwBpAHQAaQBvAG4AIABzAHkAcwB0AGUAbQBzAC4AIABQAHIAbwBkAHUAYwBlAGQAIABiAHkAIABUAG8AZABkACAARgBhAGgAcgBuAGUAcgAgAGYAbwByACAAdABoAGUAIABDAFMAUwAgAFMAYQBtAHUAcgBhAGkAJwBzACAAYgByAG8AdwBzAGUAcgAgAHQAZQBzAHQAaQBuAGcALgBBAGgAZQBtAFIAZQBnAHUAbABhAHIAVgBlAHIAcwBpAG8AbgAgADEALgAxACAAQQBoAGUAbQBBAGgAZQBtAFYAZQByAHMAaQBvAG4AIAAxAC4AMQBBAGgAZQBtTW9zdCBjaGFyYWN0ZXJzIGFyZSB0aGUgZW0gc3F1YXJlLCBleGNlcHQgJkVBY3V0ZSBhbmQgInAiLCB3aGljaCBzaG93IGFzY2VudC9kZXNjZW50IGZyb20gdGhlIGJhc2VsaW5lLiBVc2VmdWwgZm9yIHRlc3RpbmcgY29tcG9zaXRpb24gc3lzdGVtcy4gUHJvZHVjZWQgYnkgVG9kZCBGYWhybmVyIGZvciB0aGUgQ1NTIFNhbXVyYWkncyBicm93c2VyIHRlc3RpbmcuQWhlbVJlZ3VsYXJWZXJzaW9uIDEuMSBBaGVtQWhlbVZlcnNpb24gMS4xQWhlbUFoZW1SZWd1bGFyQWhlbQBNAG8AcwB0ACAAYwBoAGEAcgBhAGMAdABlAHIAcwAgAGEAcgBlACAAdABoAGUAIABlAG0AIABzAHEAdQBhAHIAZQAsACAAZQB4AGMAZQBwAHQAIAAmAEUAQQBjAHUAdABlACAAYQBuAGQAIAAiAHAAIgAsACAAdwBoAGkAYwBoACAAcwBoAG8AdwAgAGEAcwBjAGUAbgB0AC8AZABlAHMAYwBlAG4AdAAgAGYAcgBvAG0AIAB0AGgAZQAgAGIAYQBzAGUAbABpAG4AZQAuACAAVQBzAGUAZgB1AGwAIABmAG8AcgAgAHQAZQBzAHQAaQBuAGcAIABjAG8AbQBwAG8AcwBpAHQAaQBvAG4AIABzAHkAcwB0AGUAbQBzAC4AIABQAHIAbwBkAHUAYwBlAGQAIABiAHkAIABUAG8AZABkACAARgBhAGgAcgBuAGUAcgAgAGYAbwByACAAdABoAGUAIABDAFMAUwAgAFMAYQBtAHUAcgBhAGkAJwBzACAAYgByAG8AdwBzAGUAcgAgAHQAZQBzAHQAaQBuAGcALgBBAGgAZQBtAFIAZQBnAHUAbABhAHIAVgBlAHIAcwBpAG8AbgAgADEALgAxACAAQQBoAGUAbQBBAGgAZQBtAFYAZQByAHMAaQBvAG4AIAAxAC4AMQBBAGgAZQBtAEEAaABlAG0AUgBlAGcAdQBsAGEAcgBBAGgAZQBtAAIAAAAAAAD/ewAUAAAAAQAAAAAAAAAAAAAAAAAAAAAA9QAAAQIAAgADAAQABQAGAAcACAAJAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMAJAAlACYAJwAoACkAKgArACwALQAuAC8AMAAxADIAMwA0ADUANgA3ADgAOQA6ADsAPAA9AD4APwBAAEEAQgBDAEQARQBGAEcASABJAEoASwBMAE0ATgBPAFAAUQBSAFMAVABVAFYAVwBYAFkAWgBbAFwAXQBeAF8AYABhAGIAYwBkAGUAZgBnAGgAaQBqAGsAbABtAG4AbwBwAHEAcgBzAHQAdQB2AHcAeAB5AHoAewB8AH0AfgB/AIAAgQCDAIQAhQCGAIgAiQCKAIsAjQCOAJAAkQCTAJYAlwCdAJ4AoAChAKIAowCkAKkAqgCsAK0ArgCvALYAtwC4ALoAvQDDAMcAyADJAMoAywDMAM0AzgDPANAA0QDTANQA1QDWANcA2ADZANoA2wDcAN0A3gDfAOAA4QDoAOkA6gDrAOwA7QDuAO8A8ADxAPIA8wD0APUA9gAAAAAAsACxALsApgCoAJ8AmwCyALMAxAC0ALUAxQCCAMIAhwCrAMYAvgC/ALwAjACYAJoAmQClAJIAnACPAJQAlQCnALkA0gDAAMEBAwACAQQETlVMTAJIVANERUwAAAADAAgAAgAQAAH//wAD') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      }
+      * { font-family: 'ahem' !important; }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+    <style type="text/css">
+      :root { color-scheme: light; supported-color-schemes: light; }
+      body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f5f5f5; }
+      table, td { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+      img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+      .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+      table-layout: fixed;
+      }
+      .pricing-table th {
+      background-color: #f9fafb;
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid #e5e7eb;
+      }
+      .pricing-table td {
+      padding: 16px;
+      font-size: 14px;
+      color: #111827;
+      border-bottom: 1px solid #e5e7eb;
+      }
+      .pricing-table tr:last-child td {
+      border-bottom: none;
+      }
+      /* Column sizing logic */
+      .col-gpu { width: auto; }
+      .col-price { width: 85px; text-align: right; white-space: nowrap; }
+      .pricing-table th.col-price { text-align: right; }
+      .badge-new {
+      background-color: #fef08a;
+      color: #854d0e;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 6px;
+      }
+      .btn-reserve {
+      background-color: #4C59D3;
+      color: #ffffff !important;
+      padding: 5px 14px;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 12px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      }
+    </style>
+    <style type="text/css">
+      @media only screen and (max-width: 600px) {
+      .container { width: 100% !important; max-width: 100% !important; }
+      .outer-pad { padding: 10px 8px !important; }
+      .pad-section { padding: 25px 15px !important; }
+      .h2 { font-size: 20px !important; line-height: 1.3 !important; }
+      .pricing-table th { padding: 10px 8px !important; font-size: 10px !important; }
+      .pricing-table td { padding: 12px 8px !important; font-size: 12px !important; }
+      .col-price { width: 70px !important; }
+      /* Ensure text wraps nicely in the GPU column if space is tight */
+      .col-gpu-content { display: block !important; }
+      .badge-new { margin: 4px 0 4px 0 !important; display: inline-block !important; }
+      .btn-reserve { margin: 4px 0 4px 4px !important; display: inline-block !important; padding: 4px 8px !important; font-size: 10px !important; }
+      .logo-header { width: 120px !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#f5f5f5;table-layout:fixed;">
+        <tbody>
+          <tr>
+            <td align="center" class="outer-pad" style="padding:24px 16px;">
+              <div style="max-width:600px;margin:0 auto;">
+                <table class="container" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="width:100%;max-width:600px;background-color:#ffffff;border-radius:8px;overflow:hidden;">
+                  <tbody>
+                    <tr>
+                      <td class="pad-section" style="padding:40px;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                          <tbody>
+                            <tr>
+                              <td class="h2" style="font-size:26px;font-weight:700;color:#0a0a1a;padding-bottom:16px;line-height:1.2;">
+                                Scaling DeepInfra for the Next Wave of AI
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="font-size:15px;color:#444444;line-height:1.6;padding-bottom:20px;">
+                                It's been a massive year for AI, and we've loved watching your projects move into high gear. As demand for high-performance inference continues to surge, we're making some adjustments to our private GPU pricing starting
+                                <strong>March 17, 2026</strong>
+                                — so we can keep our fleet growing and stay ready for whatever comes next.
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="font-size:15px;color:#444444;line-height:1.6;padding-bottom:20px;">
+                                Due to rising costs of high-performance memory and storage components, we're updating pricing on select private GPUs. Here's a full breakdown:
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table class="pricing-table">
+                                  <thead>
+                                    <tr>
+                                      <th class="col-gpu">GPU</th>
+                                      <th class="col-price">Prev</th>
+                                      <th class="col-price">New</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td class="col-gpu"><strong>A100 80GB</strong></td>
+                                      <td class="col-price">$0.89</td>
+                                      <td class="col-price">$0.89</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="col-gpu"><strong>H100 80GB</strong></td>
+                                      <td class="col-price">$1.69</td>
+                                      <td class="col-price"><strong>$1.79</strong></td>
+                                    </tr>
+                                    <tr>
+                                      <td class="col-gpu"><strong>H200 141GB</strong></td>
+                                      <td class="col-price">$1.99</td>
+                                      <td class="col-price"><strong>$2.19</strong></td>
+                                    </tr>
+                                    <tr>
+                                      <td class="col-gpu"><strong>B200 180GB</strong></td>
+                                      <td class="col-price">$2.49</td>
+                                      <td class="col-price"><strong>$2.79</strong></td>
+                                    </tr>
+                                    <tr>
+                                      <td class="col-gpu">
+                                        <span class="col-gpu-content">
+                                          <strong>B300</strong>
+                                          <span class="badge-new">New</span>
+                                          <a href="https://deepinfra.us14.list-manage.com/track/click?u=dedd07968badba1c4f3d5dc52&id=4991997c3c&e=e6cc8f732f" target="_blank" class="btn-reserve">Reserve Now</a>
+                                        </span>
+                                      </td>
+                                      <td class="col-price" style="color:#9ca3af;">—</td>
+                                      <td class="col-price"><strong>$4.20</strong></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="font-size:15px;color:#444444;line-height:1.6;padding-top:20px;">
+                                <strong>Your per-token pricing isn't changing.</strong>
+                                We want to be upfront about that. Pricing on all of our hosted models stays exactly the same; these updates only affect private GPU rentals.
+                                <br>
+                                <br>
+                                These changes reflect our continued investments in expanding GPU clusters, improving inference throughput and latency, bringing next-generation hardware like the B300 online, and maintaining reliable global infrastructure.
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+  </body>
 </html>

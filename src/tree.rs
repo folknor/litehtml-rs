@@ -135,7 +135,7 @@ pub(crate) fn measure_text_node(
     } else {
         known_dimensions
             .width
-            .unwrap_or_else(|| match available_space.width {
+            .unwrap_or(match available_space.width {
                 AvailableSpace::Definite(w) => w,
                 AvailableSpace::MinContent => 1.0,
                 AvailableSpace::MaxContent => f32::MAX,
@@ -361,6 +361,7 @@ pub(crate) fn collect_inline_text(
 
 /// Build taffy nodes for a DOM node. Returns a Vec because inline elements
 /// are flattened — their children become direct children of the parent.
+#[allow(clippy::too_many_arguments)]
 pub(crate) fn build_nodes(
     node_id: ego_tree::NodeId,
     tree: &ego_tree::Tree<Node>,
@@ -383,10 +384,10 @@ pub(crate) fn build_nodes(
                 let mut idx = 0;
                 let mut sib = node_ref.prev_sibling();
                 while let Some(s) = sib {
-                    if let Node::Element(sib_el) = s.value() {
-                        if sib_el.name() == tag {
-                            idx += 1;
-                        }
+                    if let Node::Element(sib_el) = s.value()
+                        && sib_el.name() == tag
+                    {
+                        idx += 1;
                     }
                     sib = s.prev_sibling();
                 }
@@ -482,8 +483,8 @@ pub(crate) fn build_nodes(
                 tag: tag.to_string(),
                 dom_path: node_path.clone(),
                 depth,
-                id_attr: el.attr("id").map(|s| s.to_string()),
-                classes: el.attr("class").map(|s| s.to_string()),
+                id_attr: el.attr("id").map(std::string::ToString::to_string),
+                classes: el.attr("class").map(std::string::ToString::to_string),
                 background_color: computed.background_color,
                 text: None,
                 text_color: child_inherited.color,
@@ -527,7 +528,7 @@ pub(crate) fn build_nodes(
             // If this is a <table> with cellpadding, propagate to child cells
             let child_cellpadding = if tag == "table" {
                 el.attr("cellpadding")
-                    .and_then(|v| parse_css_value_px(v))
+                    .and_then(parse_css_value_px)
                     .or(cellpadding)
             } else {
                 cellpadding
@@ -535,8 +536,7 @@ pub(crate) fn build_nodes(
 
             // Apply cellpadding to td/th cells — only override sides without explicit CSS padding
             let mut style =
-                if (tag == "td" || tag == "th") && child_cellpadding.is_some() {
-                    let cp = child_cellpadding.unwrap();
+                if let Some(cp) = child_cellpadding.filter(|_| tag == "td" || tag == "th") {
                     let mut s = style;
                     if computed.padding_top.is_none() {
                         s.padding.top = length(cp);

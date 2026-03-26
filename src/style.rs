@@ -35,10 +35,8 @@ impl StyleIndex {
                 if let Ok(media_list) = lightningcss::media_query::MediaList::parse(
                     &mut parser,
                     &ParserOptions::default(),
-                ) {
-                    if !eval_media_list(&media_list, viewport_width) {
-                        continue;
-                    }
+                ) && !eval_media_list(&media_list, viewport_width) {
+                    continue;
                 }
             }
 
@@ -101,10 +99,10 @@ impl StyleIndex {
                 }
                 // Evaluate @media blocks against viewport width and recurse
                 // into matching rules (gmail_creatine_week)
-                CssRule::Media(media_rule) => {
-                    if eval_media_list(&media_rule.query, viewport_width) {
-                        Self::collect_rules(&media_rule.rules.0, viewport_width, out);
-                    }
+                CssRule::Media(media_rule)
+                    if eval_media_list(&media_rule.query, viewport_width) =>
+                {
+                    Self::collect_rules(&media_rule.rules.0, viewport_width, out);
                 }
                 _ => {}
             }
@@ -226,15 +224,15 @@ impl InheritedStyle {
             }
             "b" | "strong" => out.font_weight = out.font_weight.max(700),
             "i" | "em" => out.font_italic = true,
-            "u" | "ins" => {
-                if css.text_decoration_underline.is_none() {
-                    out.text_decoration_underline = true;
-                }
+            "u" | "ins"
+                if css.text_decoration_underline.is_none() =>
+            {
+                out.text_decoration_underline = true;
             }
-            "del" | "s" => {
-                if css.text_decoration_line_through.is_none() {
-                    out.text_decoration_line_through = true;
-                }
+            "del" | "s"
+                if css.text_decoration_line_through.is_none() =>
+            {
+                out.text_decoration_line_through = true;
             }
             "h1" => {
                 out.font_size = out.font_size.max(32.0);
@@ -258,10 +256,10 @@ impl InheritedStyle {
             }
             // Tables create new formatting contexts — reset text-align
             // so outer td align="center" doesn't cascade into nested tables.
-            "table" => {
-                if css.text_align.is_none() {
-                    out.text_align = TextAlign::Left;
-                }
+            "table"
+                if css.text_align.is_none() =>
+            {
+                out.text_align = TextAlign::Left;
             }
             _ => {}
         }
@@ -409,21 +407,21 @@ pub(crate) fn element_style(
                 margin: Rect {
                     top: css
                         .margin_top
-                        .map_or(auto(), |v| LengthPercentageAuto::length(v)),
+                        .map_or(auto(), LengthPercentageAuto::length),
                     bottom: css
                         .margin_bottom
-                        .map_or(auto(), |v| LengthPercentageAuto::length(v)),
+                        .map_or(auto(), LengthPercentageAuto::length),
                     left: if css.margin_left_auto {
                         LengthPercentageAuto::auto()
                     } else {
                         css.margin_left
-                            .map_or(auto(), |v| LengthPercentageAuto::length(v))
+                            .map_or(auto(), LengthPercentageAuto::length)
                     },
                     right: if css.margin_right_auto {
                         LengthPercentageAuto::auto()
                     } else {
                         css.margin_right
-                            .map_or(auto(), |v| LengthPercentageAuto::length(v))
+                            .map_or(auto(), LengthPercentageAuto::length)
                     },
                 },
                 padding: Rect {

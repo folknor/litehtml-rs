@@ -27,66 +27,66 @@ pub(crate) fn render_node(
 
     if w > 0.0 && h > 0.0 && y < pix_h && y + h > 0.0 {
         // Draw background
-        if let Some((r, g, b, a)) = data.background_color {
-            if a > 0 {
-                let paint = tiny_skia::Paint {
-                    shader: tiny_skia::Shader::SolidColor(
-                        tiny_skia::Color::from_rgba8(r, g, b, a),
-                    ),
-                    anti_alias: data.border_radius.is_some()
-                        || data.border_radius_pct.is_some(),
-                    ..Default::default()
-                };
-                let radius = data
-                    .border_radius
-                    .or_else(|| data.border_radius_pct.map(|pct| w.min(h) * pct));
-                if let Some(radius) = radius {
-                    if let Some(path) = rounded_rect_path(x, y, w, h, radius) {
-                        pixmap.fill_path(
-                            &path,
-                            &paint,
-                            tiny_skia::FillRule::Winding,
-                            tiny_skia::Transform::identity(),
-                            None,
-                        );
-                    }
-                } else if let Some(rect) = tiny_skia::Rect::from_xywh(x, y, w, h) {
-                    pixmap.fill_rect(
-                        rect,
+        if let Some((r, g, b, a)) = data.background_color
+            && a > 0
+        {
+            let paint = tiny_skia::Paint {
+                shader: tiny_skia::Shader::SolidColor(
+                    tiny_skia::Color::from_rgba8(r, g, b, a),
+                ),
+                anti_alias: data.border_radius.is_some()
+                    || data.border_radius_pct.is_some(),
+                ..Default::default()
+            };
+            let radius = data
+                .border_radius
+                .or_else(|| data.border_radius_pct.map(|pct| w.min(h) * pct));
+            if let Some(radius) = radius {
+                if let Some(path) = rounded_rect_path(x, y, w, h, radius) {
+                    pixmap.fill_path(
+                        &path,
                         &paint,
+                        tiny_skia::FillRule::Winding,
                         tiny_skia::Transform::identity(),
                         None,
                     );
                 }
+            } else if let Some(rect) = tiny_skia::Rect::from_xywh(x, y, w, h) {
+                pixmap.fill_rect(
+                    rect,
+                    &paint,
+                    tiny_skia::Transform::identity(),
+                    None,
+                );
             }
         }
 
         // Draw image placeholder (gray box matching Chrome's img { background-color: #d0d0d0 })
-        if data.is_img {
-            if let Some(rect) = tiny_skia::Rect::from_xywh(x, y, w, h) {
-                let paint = tiny_skia::Paint {
-                    shader: tiny_skia::Shader::SolidColor(
-                        tiny_skia::Color::from_rgba8(208, 208, 208, 255),
-                    ),
-                    anti_alias: false,
-                    ..Default::default()
-                };
-                pixmap.fill_rect(rect, &paint, tiny_skia::Transform::identity(), None);
-            }
+        if data.is_img
+            && let Some(rect) = tiny_skia::Rect::from_xywh(x, y, w, h)
+        {
+            let paint = tiny_skia::Paint {
+                shader: tiny_skia::Shader::SolidColor(
+                    tiny_skia::Color::from_rgba8(208, 208, 208, 255),
+                ),
+                anti_alias: false,
+                ..Default::default()
+            };
+            pixmap.fill_rect(rect, &paint, tiny_skia::Transform::identity(), None);
         }
 
         // Draw <hr> as a gray line
-        if data.is_hr {
-            if let Some(rect) = tiny_skia::Rect::from_xywh(x, y, w, 1.0) {
-                let paint = tiny_skia::Paint {
-                    shader: tiny_skia::Shader::SolidColor(
-                        tiny_skia::Color::from_rgba8(180, 180, 180, 255),
-                    ),
-                    anti_alias: false,
-                    ..Default::default()
-                };
-                pixmap.fill_rect(rect, &paint, tiny_skia::Transform::identity(), None);
-            }
+        if data.is_hr
+            && let Some(rect) = tiny_skia::Rect::from_xywh(x, y, w, 1.0)
+        {
+            let paint = tiny_skia::Paint {
+                shader: tiny_skia::Shader::SolidColor(
+                    tiny_skia::Color::from_rgba8(180, 180, 180, 255),
+                ),
+                anti_alias: false,
+                ..Default::default()
+            };
+            pixmap.fill_rect(rect, &paint, tiny_skia::Transform::identity(), None);
         }
 
         // Draw borders
@@ -108,32 +108,32 @@ pub(crate) fn render_node(
                 pixmap.fill_rect(rect, &paint, tiny_skia::Transform::identity(), None);
             }
         };
-        if let Some(bw) = data.border_top {
-            if bw > 0.0 {
-                draw_border(pixmap, x, y, w, bw, data.border_top_color);
-            }
+        if let Some(bw) = data.border_top
+            && bw > 0.0
+        {
+            draw_border(pixmap, x, y, w, bw, data.border_top_color);
         }
-        if let Some(bw) = data.border_bottom {
-            if bw > 0.0 {
-                draw_border(pixmap, x, y + h - bw, w, bw, data.border_bottom_color);
-            }
+        if let Some(bw) = data.border_bottom
+            && bw > 0.0
+        {
+            draw_border(pixmap, x, y + h - bw, w, bw, data.border_bottom_color);
         }
-        if let Some(bw) = data.border_left {
-            if bw > 0.0 {
-                draw_border(pixmap, x, y, bw, h, data.border_left_color);
-            }
+        if let Some(bw) = data.border_left
+            && bw > 0.0
+        {
+            draw_border(pixmap, x, y, bw, h, data.border_left_color);
         }
-        if let Some(bw) = data.border_right {
-            if bw > 0.0 {
-                draw_border(
-                    pixmap,
-                    x + w - bw,
-                    y,
-                    bw,
-                    h,
-                    data.border_right_color,
-                );
-            }
+        if let Some(bw) = data.border_right
+            && bw > 0.0
+        {
+            draw_border(
+                pixmap,
+                x + w - bw,
+                y,
+                bw,
+                h,
+                data.border_right_color,
+            );
         }
 
         // Draw text
@@ -233,7 +233,7 @@ pub(crate) fn draw_text(
             };
             let draw_x = (x + align_offset) as i32;
             let baseline_y = run.line_y as i32;
-            for glyph in run.glyphs.iter() {
+            for glyph in run.glyphs {
                 // Look up per-glyph color (with alpha) from rich text spans
                 let (gr, gg, gb, ga) = if let Some(ref spans) = data.rich_spans {
                     let idx = glyph.metadata;
@@ -416,6 +416,7 @@ fn draw_decoration_lines(
 }
 
 /// Draw a filled rectangle for text decoration (underline/line-through).
+#[allow(clippy::too_many_arguments)]
 fn draw_decoration_rect(
     data: &mut [u8],
     pix_w: i32,
@@ -490,6 +491,7 @@ pub(crate) fn rounded_rect_path(
     pb.finish()
 }
 
+#[allow(clippy::too_many_arguments)]
 pub(crate) fn blend_pixel(
     data: &mut [u8],
     width: u32,

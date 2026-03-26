@@ -77,10 +77,8 @@ pub(crate) fn css_color_to_rgba(color: &CssColor) -> Option<(u8, u8, u8, u8)> {
         CssColor::RGBA(rgba) => Some((rgba.red, rgba.green, rgba.blue, rgba.alpha)),
         other => {
             // Try converting to RGB for named colors, hsl, etc.
-            if let Ok(rgb) = other.to_rgb() {
-                if let CssColor::RGBA(rgba) = rgb {
-                    return Some((rgba.red, rgba.green, rgba.blue, rgba.alpha));
-                }
+            if let Ok(CssColor::RGBA(rgba)) = other.to_rgb() {
+                return Some((rgba.red, rgba.green, rgba.blue, rgba.alpha));
             }
             None
         }
@@ -131,53 +129,37 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
                 _ => {}
             }
         }
-        Property::Width(s) => match s {
-            Size::LengthPercentage(lp) => {
-                if let Some(px) = lp_to_px(lp) {
-                    style.width_px = Some(px);
-                } else if let Some(pct) = lp_to_pct(lp) {
-                    style.width_pct = Some(pct);
-                }
-            }
-            _ => {}
-        },
-        Property::Height(s) => match s {
-            Size::LengthPercentage(lp) => {
-                if let Some(px) = lp_to_px(lp) {
-                    style.height_px = Some(px);
-                } else if let Some(pct) = lp_to_pct(lp) {
-                    style.height_pct = Some(pct);
-                }
-            }
-            Size::Auto => {
-                style.height_auto = true;
-            }
-            _ => {}
-        },
-        Property::MaxWidth(s) => {
-            if let MaxSize::LengthPercentage(lp) = s {
-                style.max_width_px = lp_to_px(lp);
+        Property::Width(Size::LengthPercentage(lp)) => {
+            if let Some(px) = lp_to_px(lp) {
+                style.width_px = Some(px);
+            } else if let Some(pct) = lp_to_pct(lp) {
+                style.width_pct = Some(pct);
             }
         }
-        Property::PaddingTop(lp) => {
-            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
-                style.padding_top = lp_to_px(lp);
+        Property::Height(Size::LengthPercentage(lp)) => {
+            if let Some(px) = lp_to_px(lp) {
+                style.height_px = Some(px);
+            } else if let Some(pct) = lp_to_pct(lp) {
+                style.height_pct = Some(pct);
             }
         }
-        Property::PaddingBottom(lp) => {
-            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
-                style.padding_bottom = lp_to_px(lp);
-            }
+        Property::Height(Size::Auto) => {
+            style.height_auto = true;
         }
-        Property::PaddingLeft(lp) => {
-            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
-                style.padding_left = lp_to_px(lp);
-            }
+        Property::MaxWidth(MaxSize::LengthPercentage(lp)) => {
+            style.max_width_px = lp_to_px(lp);
         }
-        Property::PaddingRight(lp) => {
-            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
-                style.padding_right = lp_to_px(lp);
-            }
+        Property::PaddingTop(LengthPercentageOrAuto::LengthPercentage(lp)) => {
+            style.padding_top = lp_to_px(lp);
+        }
+        Property::PaddingBottom(LengthPercentageOrAuto::LengthPercentage(lp)) => {
+            style.padding_bottom = lp_to_px(lp);
+        }
+        Property::PaddingLeft(LengthPercentageOrAuto::LengthPercentage(lp)) => {
+            style.padding_left = lp_to_px(lp);
+        }
+        Property::PaddingRight(LengthPercentageOrAuto::LengthPercentage(lp)) => {
+            style.padding_right = lp_to_px(lp);
         }
         Property::Padding(p) => {
             if let LengthPercentageOrAuto::LengthPercentage(lp) = &p.top {
@@ -193,15 +175,11 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
                 style.padding_right = lp_to_px(lp);
             }
         }
-        Property::MarginTop(lp) => {
-            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
-                style.margin_top = lp_to_px(lp);
-            }
+        Property::MarginTop(LengthPercentageOrAuto::LengthPercentage(lp)) => {
+            style.margin_top = lp_to_px(lp);
         }
-        Property::MarginBottom(lp) => {
-            if let LengthPercentageOrAuto::LengthPercentage(lp) = lp {
-                style.margin_bottom = lp_to_px(lp);
-            }
+        Property::MarginBottom(LengthPercentageOrAuto::LengthPercentage(lp)) => {
+            style.margin_bottom = lp_to_px(lp);
         }
         Property::MarginLeft(lp) => match lp {
             LengthPercentageOrAuto::Auto => style.margin_left_auto = true,
@@ -262,7 +240,7 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
                             .trim_matches('"')
                             .to_string()
                     }
-                    CssFontFamily::Generic(g) => format!("{:?}", g).to_lowercase(),
+                    CssFontFamily::Generic(g) => format!("{g:?}").to_lowercase(),
                 });
             }
         }
@@ -408,13 +386,13 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
         Property::BorderTopLeftRadius(size, _)
         | Property::BorderTopRightRadius(size, _)
         | Property::BorderBottomLeftRadius(size, _)
-        | Property::BorderBottomRightRadius(size, _) => {
-            if style.border_radius.is_none() && style.border_radius_pct.is_none() {
-                if let Some(px) = lp_to_px(&size.0) {
-                    style.border_radius = Some(px);
-                } else if let Some(pct) = lp_to_pct(&size.0) {
-                    style.border_radius_pct = Some(pct);
-                }
+        | Property::BorderBottomRightRadius(size, _)
+            if style.border_radius.is_none() && style.border_radius_pct.is_none() =>
+        {
+            if let Some(px) = lp_to_px(&size.0) {
+                style.border_radius = Some(px);
+            } else if let Some(pct) = lp_to_pct(&size.0) {
+                style.border_radius_pct = Some(pct);
             }
         }
         Property::BorderRadius(br, _) => {
@@ -499,29 +477,31 @@ pub(crate) fn apply_html_attrs(
     mut style: ComputedStyle,
     el: &scraper::node::Element,
 ) -> ComputedStyle {
-    if let Some(bgcolor) = el.attr("bgcolor") {
-        if style.background_color.is_none() {
-            style.background_color = parse_css_color(bgcolor);
+    if let Some(bgcolor) = el.attr("bgcolor")
+        && style.background_color.is_none()
+    {
+        style.background_color = parse_css_color(bgcolor);
+    }
+    if let Some(color) = el.attr("color")
+        && style.color.is_none()
+    {
+        style.color = parse_css_color(color);
+    }
+    if let Some(width) = el.attr("width")
+        && style.width_px.is_none()
+        && style.width_pct.is_none()
+    {
+        if let Some(pct) = parse_css_value_pct(width) {
+            style.width_pct = Some(pct);
+        } else if let Some(px) = parse_css_value_px(width) {
+            style.width_px = Some(px);
         }
     }
-    if let Some(color) = el.attr("color") {
-        if style.color.is_none() {
-            style.color = parse_css_color(color);
-        }
-    }
-    if let Some(width) = el.attr("width") {
-        if style.width_px.is_none() && style.width_pct.is_none() {
-            if let Some(pct) = parse_css_value_pct(width) {
-                style.width_pct = Some(pct);
-            } else if let Some(px) = parse_css_value_px(width) {
-                style.width_px = Some(px);
-            }
-        }
-    }
-    if let Some(height) = el.attr("height") {
-        if style.height_px.is_none() && style.height_pct.is_none() {
-            style.height_px = parse_css_value_px(height);
-        }
+    if let Some(height) = el.attr("height")
+        && style.height_px.is_none()
+        && style.height_pct.is_none()
+    {
+        style.height_px = parse_css_value_px(height);
     }
     style
 }

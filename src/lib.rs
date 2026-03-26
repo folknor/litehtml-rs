@@ -167,62 +167,62 @@ fn dump_json(
     let w = l.size.width;
     let h = l.size.height;
 
-    if let Some(d) = data {
-        if !d.tag.is_empty() {
-            let bg = if let Some((r, g, b, a)) = d.background_color {
-                format!("\"rgba({r}, {g}, {b}, {a})\"")
-            } else {
-                "null".to_string()
-            };
-            let ta = match d.text_align {
-                TextAlign::Left => "left",
-                TextAlign::Center => "center",
-                TextAlign::Right => "right",
-            };
-            let id_str = d.id_attr.as_deref().unwrap_or("");
-            let class_str = d.classes.as_deref().unwrap_or("");
-            out.push(format!(
-                concat!(
-                    "{{\"path\":\"{path}\",\"tag\":\"{tag}\",\"depth\":{depth},",
-                    "\"id\":\"{id}\",\"classes\":\"{classes}\",",
-                    "\"x\":{x},\"y\":{y},\"w\":{w},\"h\":{h},",
-                    "\"bg\":{bg},",
-                    "\"color\":\"rgb({cr}, {cg}, {cb})\",",
-                    "\"fontSize\":{fs},\"fontWeight\":{fw},",
-                    "\"paddingTop\":{pt},\"paddingRight\":{pr},",
-                    "\"paddingBottom\":{pb},\"paddingLeft\":{pl},",
-                    "\"marginTop\":{mt},\"marginRight\":{mr},",
-                    "\"marginBottom\":{mb},\"marginLeft\":{ml},",
-                    "\"textAlign\":\"{ta}\",",
-                    "\"maxWidth\":{mw}}}"
-                ),
-                path = d.dom_path,
-                tag = d.tag,
-                depth = d.depth,
-                id = id_str,
-                classes = class_str,
-                x = (x * 10.0).round() / 10.0,
-                y = (y * 10.0).round() / 10.0,
-                w = (w * 10.0).round() / 10.0,
-                h = (h * 10.0).round() / 10.0,
-                bg = bg,
-                cr = d.text_color.0,
-                cg = d.text_color.1,
-                cb = d.text_color.2,
-                fs = d.font_size,
-                fw = d.font_weight,
-                pt = d.padding.0,
-                pr = d.padding.1,
-                pb = d.padding.2,
-                pl = d.padding.3,
-                mt = d.margin.0,
-                mr = d.margin.1,
-                mb = d.margin.2,
-                ml = d.margin.3,
-                ta = ta,
-                mw = d.max_width_px.map_or("null".to_string(), |v| v.to_string()),
-            ));
-        }
+    if let Some(d) = data
+        && !d.tag.is_empty()
+    {
+        let bg = if let Some((r, g, b, a)) = d.background_color {
+            format!("\"rgba({r}, {g}, {b}, {a})\"")
+        } else {
+            "null".to_string()
+        };
+        let ta = match d.text_align {
+            TextAlign::Left => "left",
+            TextAlign::Center => "center",
+            TextAlign::Right => "right",
+        };
+        let id_str = d.id_attr.as_deref().unwrap_or("");
+        let class_str = d.classes.as_deref().unwrap_or("");
+        out.push(format!(
+            concat!(
+                "{{\"path\":\"{path}\",\"tag\":\"{tag}\",\"depth\":{depth},",
+                "\"id\":\"{id}\",\"classes\":\"{classes}\",",
+                "\"x\":{x},\"y\":{y},\"w\":{w},\"h\":{h},",
+                "\"bg\":{bg},",
+                "\"color\":\"rgb({cr}, {cg}, {cb})\",",
+                "\"fontSize\":{fs},\"fontWeight\":{fw},",
+                "\"paddingTop\":{pt},\"paddingRight\":{pr},",
+                "\"paddingBottom\":{pb},\"paddingLeft\":{pl},",
+                "\"marginTop\":{mt},\"marginRight\":{mr},",
+                "\"marginBottom\":{mb},\"marginLeft\":{ml},",
+                "\"textAlign\":\"{ta}\",",
+                "\"maxWidth\":{mw}}}"
+            ),
+            path = d.dom_path,
+            tag = d.tag,
+            depth = d.depth,
+            id = id_str,
+            classes = class_str,
+            x = (x * 10.0).round() / 10.0,
+            y = (y * 10.0).round() / 10.0,
+            w = (w * 10.0).round() / 10.0,
+            h = (h * 10.0).round() / 10.0,
+            bg = bg,
+            cr = d.text_color.0,
+            cg = d.text_color.1,
+            cb = d.text_color.2,
+            fs = d.font_size,
+            fw = d.font_weight,
+            pt = d.padding.0,
+            pr = d.padding.1,
+            pb = d.padding.2,
+            pl = d.padding.3,
+            mt = d.margin.0,
+            mr = d.margin.1,
+            mb = d.margin.2,
+            ml = d.margin.3,
+            ta = ta,
+            mw = d.max_width_px.map_or("null".to_string(), |v| v.to_string()),
+        ));
     }
 
     for child in taffy.children(id).unwrap() {

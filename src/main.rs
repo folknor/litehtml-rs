@@ -83,8 +83,8 @@ fn main() {
     println!("  Tree+CSS:     {:?}", result.tree_build_time);
     println!("  Layout:       {:?}", result.layout_time);
     println!("  Render:       {:?}", result.render_time);
-    println!("  PNG encode:   {:?}", png_time);
-    println!("  Total (no PNG): {:?}", pipeline_total);
+    println!("  PNG encode:   {png_time:?}");
+    println!("  Total (no PNG): {pipeline_total:?}");
 
     // Machine-readable key=value output for brokkr
     eprintln!("elapsed_ms={}", pipeline_total.as_millis());

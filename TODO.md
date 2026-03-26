@@ -69,6 +69,10 @@ These don't have external images but need the Ahem injection standardized (remov
 - **gmail_steam-purchase.html**: Steam purchase receipt. Deep nested tables, custom @font-face (Motiva Sans), background images on cells.
 - **gmail_gullinbursti-dividend.html**: Newsletter. Complex responsive CSS, modern selectors (`:has()`), figure layouts. Most complex.
 
+## Dependencies
+
+- **cssparser pinned to 0.33**: lightningcss 1.0.0-alpha.71 depends on cssparser 0.33. Upgrading cssparser to 0.37 causes version conflicts. Check if a newer lightningcss release unblocks the upgrade before release.
+
 ## Rendering quality
 
 - **Glyph sub-pixel positioning**: Ahem font glyphs land at slightly different positions than Chrome, causing pixel-level diffs even when layout is structurally correct.

@@ -60,21 +60,22 @@ brokkr results --compare-last --command "bench run"      # diff two most recent 
 brokkr history                                           # browse command history (all projects)
 ```
 
-### Visual reference testing (brokkr litehtml)
+### Visual reference testing
 
 Compares pipeline output against Chrome reference renders. Fixtures are defined in `brokkr.toml` under `[litehtml]`.
 
 ```bash
-brokkr litehtml test --all                               # run all fixtures
-brokkr litehtml test --suite smoke                       # run fixtures tagged "smoke"
-brokkr litehtml test text_flow_test                      # run single fixture by ID
-brokkr litehtml test --recapture text_flow_test          # force-regenerate Chrome reference
-brokkr litehtml list                                     # list fixtures and tags
-brokkr litehtml status                                   # show last run vs approved baselines
-brokkr litehtml approve text_flow_test                   # record current divergence as accepted (clean tree required)
+brokkr test --all                                        # run all fixtures
+brokkr test --suite smoke                                # run fixtures tagged "smoke"
+brokkr test text_flow_test                               # run single fixture by ID
+brokkr test --recapture text_flow_test                   # force-regenerate Chrome reference
+brokkr list                                              # list fixtures, tags, approval state
+brokkr visual-status                                     # dashboard: fixtures vs baselines
+brokkr approve text_flow_test                            # record current divergence as baseline (clean tree required)
+brokkr report <run_id>                                   # show results for a past run
 ```
 
-### Fixture preparation (brokkr litehtml prepare/extract/outline)
+### Fixture preparation (prepare/outline/html-extract)
 
 Creates deterministic, self-contained fixture HTML from raw email sources. See `docs/FIXTURE-PREPROCESSING.md` for the full spec.
 
@@ -82,27 +83,27 @@ Creates deterministic, self-contained fixture HTML from raw email sources. See `
 # Step 1: Normalize a raw email — fetches images, replaces with correctly-sized
 # gray placeholders, injects Ahem font, strips external @imports, pretty-prints.
 # Image cache lives in .brokkr/prepare-cache/.
-brokkr litehtml prepare test-emails/raw-email.html fixtures/email/email.html
+brokkr prepare test-emails/raw-email.html fixtures/email/email.html
 
 # Step 2: Inspect the prepared HTML structure to find extract selectors.
 # Shows section boundaries with content summaries (images, text).
-brokkr litehtml outline fixtures/email/email.html --selectors
-brokkr litehtml outline fixtures/email/email.html --depth 8  # deeper nesting
-brokkr litehtml outline fixtures/email/email.html --full      # no depth limit
+brokkr outline fixtures/email/email.html --selectors
+brokkr outline fixtures/email/email.html --depth 8       # deeper nesting
+brokkr outline fixtures/email/email.html --full           # no depth limit
 
 # Step 3: Extract a sub-fixture from a prepared email.
 # Single section:
-brokkr litehtml extract fixtures/email/email.html \
+brokkr html-extract fixtures/email/email.html \
   --selector "div:nth-of-type(2) > table > tbody > tr > td > div:nth-of-type(3) > div" \
   fixtures/hero/hero.html
 # Range of sibling sections (--from/--to):
-brokkr litehtml extract fixtures/email/email.html \
+brokkr html-extract fixtures/email/email.html \
   --from "div:nth-of-type(2) > table > tbody > tr > td > div:nth-of-type(4) > div" \
   --to   "div:nth-of-type(2) > table > tbody > tr > td > div:nth-of-type(7) > div" \
   fixtures/products/products.html
 ```
 
-**Workflow**: `prepare` → `outline --selectors` → `extract` → `test --recapture` → `test`
+**Workflow**: `prepare` → `outline --selectors` → `html-extract` → `test --recapture` → `test`
 
 Never hand-edit fixture HTML for Ahem injection or image replacement — always use `prepare`. Hand-crafted test fixtures (text_flow_test, etc.) should also be run through `prepare` to standardize their Ahem injection.
 
@@ -112,11 +113,11 @@ Never hand-edit fixture HTML for Ahem injection or image replacement — always 
 
 ## Dependencies
 
-- **scraper** 0.25 (html5ever + ego-tree DOM)
+- **scraper** 0.26 (html5ever + ego-tree DOM)
 - **taffy** local fork (layout: block, flex, grid, table)
 - **cosmic-text** 0.18 (text measurement + glyph rasterization)
-- **tiny-skia** 0.11 (CPU rasterization, scaffold only)
-- **ego-tree** 0.10 (DOM tree traversal)
+- **tiny-skia** 0.12 (CPU rasterization, scaffold only)
+- **ego-tree** 0.11 (DOM tree traversal)
 - **lightningcss** 1.0.0-alpha.71 (CSS parsing — inline styles + stylesheet rules)
 - **hotpath** 0.14 (profiling, behind `profile` feature flag)
 - **clap** 4 (CLI argument parsing, binary only)

@@ -4,6 +4,9 @@ Pure Rust HTML email rendering pipeline. Parses HTML email bodies and renders th
 
 Part of [Ratatoskr](https://github.com/folknor/ratatoskr), a native email client built with [iced](https://github.com/iced-rs/iced).
 
+Built with LLMs. See [LLM.md](LLM.md).
+
+
 ## Pipeline
 
 ```

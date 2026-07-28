@@ -402,7 +402,12 @@ pub(crate) fn element_style(
                 item_is_table: true,
                 size: Size {
                     width: table_width,
-                    height: auto(),
+                    // Px heights are honored: the Steam Points banner is an
+                    // inner <table style="height:77px"> whose only row measures
+                    // 22px of text, so dropping the height collapsed the box
+                    // (gmail_steam_purchase). Percentage heights stay auto -
+                    // email parents are height-indefinite.
+                    height: css.height_px.map_or(auto(), length),
                 },
                 max_size: Size {
                     width: css.max_width_px.map_or(auto(), length),

@@ -117,12 +117,13 @@ from how the raw email actually renders.
 
 ## Changes in this repo (renderer / dump)
 
-17. **Reduce cumulative line-height drift.** Our `.ceil()` line-height rounding
-    vs Chrome's fractional values is the drift source (~6px per 10,000px).
-    Parent-relative comparison makes the element metric immune, but drift still
-    shifts pixel content; matching Chrome's rounding more closely would tighten
-    pixel scores on long emails. Already tracked in TODO.md under text
-    rendering.
+17. ~~**Reduce cumulative line-height drift.**~~ Fixed 2026-07-28, and the
+    original attribution was wrong: the drift source was the `border` CSS
+    shorthand being silently dropped (`border: 1px solid` on MJML button tds,
+    2px per button), not line-height rounding. Fractional line heights survive
+    to taffy, whose whole-pixel rounding doesn't accumulate error. After adding
+    `border`/`border-width`/`border-color` shorthand handling, dy stays within
+    ±0.7px over gmail_creatine_week's 10,400px (`scripts/drift_analysis.py`).
 18. **No dump changes needed for matching.** The pipeline dump already emits
     `path` in the compatible format; head elements are filtered on the compare
     side. Leave the zero-height `tbody` convention alone - harness-side

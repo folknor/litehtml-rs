@@ -388,6 +388,49 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
             };
             style.border_bottom_color = css_color_to_rgba(&b.color);
         }
+        // The `border` shorthand was silently dropped: MJML buttons put
+        // `border: 1px solid #000` on the td, so every button lost 2px of
+        // width/height and the whole email drifted ~2px shorter per button
+        // (gmail_creatine_week). `border: none`/`hidden` parses with a
+        // default medium width that must not become a visible edge.
+        Property::Border(b) => {
+            use lightningcss::properties::border::LineStyle;
+            let w = if matches!(b.style, LineStyle::None | LineStyle::Hidden) {
+                None
+            } else {
+                match &b.width {
+                    BorderSideWidth::Length(l) => l.to_px(),
+                    _ => None,
+                }
+            };
+            let c = css_color_to_rgba(&b.color);
+            style.border_top = w;
+            style.border_bottom = w;
+            style.border_left = w;
+            style.border_right = w;
+            style.border_top_color = c;
+            style.border_bottom_color = c;
+            style.border_left_color = c;
+            style.border_right_color = c;
+        }
+        // Width/color shorthands, same silent-drop issue as `border` above
+        // (gmail_creatine_week)
+        Property::BorderWidth(bw) => {
+            let side = |w: &BorderSideWidth| match w {
+                BorderSideWidth::Length(l) => l.to_px(),
+                _ => None,
+            };
+            style.border_top = side(&bw.top);
+            style.border_right = side(&bw.right);
+            style.border_bottom = side(&bw.bottom);
+            style.border_left = side(&bw.left);
+        }
+        Property::BorderColor(bc) => {
+            style.border_top_color = css_color_to_rgba(&bc.top);
+            style.border_right_color = css_color_to_rgba(&bc.right);
+            style.border_bottom_color = css_color_to_rgba(&bc.bottom);
+            style.border_left_color = css_color_to_rgba(&bc.left);
+        }
         Property::BorderLeftWidth(w) => {
             style.border_left = match w {
                 BorderSideWidth::Length(l) => l.to_px(),

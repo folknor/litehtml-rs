@@ -408,25 +408,37 @@ pub(crate) fn element_style(
                     width: css.max_width_px.map_or(auto(), length),
                     height: auto(),
                 },
-                margin: Rect {
-                    top: css
-                        .margin_top
-                        .map_or(auto(), LengthPercentageAuto::length),
-                    bottom: css
-                        .margin_bottom
-                        .map_or(auto(), LengthPercentageAuto::length),
-                    left: if css.margin_left_auto {
-                        LengthPercentageAuto::auto()
+                // Tables default to margin:auto so align="center" centers them
+                // in block flow. Inline-tables are inline-level: CSS resolves
+                // their auto margins to zero, and in the parent's flex row
+                // per-item auto margins would spread the items evenly instead
+                // of packing them (gmail_creatine_week social icons)
+                margin: {
+                    let default_margin = if css.display_inline_block {
+                        LengthPercentageAuto::length(0.0)
                     } else {
-                        css.margin_left
-                            .map_or(auto(), LengthPercentageAuto::length)
-                    },
-                    right: if css.margin_right_auto {
                         LengthPercentageAuto::auto()
-                    } else {
-                        css.margin_right
-                            .map_or(auto(), LengthPercentageAuto::length)
-                    },
+                    };
+                    Rect {
+                        top: css
+                            .margin_top
+                            .map_or(default_margin, LengthPercentageAuto::length),
+                        bottom: css
+                            .margin_bottom
+                            .map_or(default_margin, LengthPercentageAuto::length),
+                        left: if css.margin_left_auto {
+                            LengthPercentageAuto::auto()
+                        } else {
+                            css.margin_left
+                                .map_or(default_margin, LengthPercentageAuto::length)
+                        },
+                        right: if css.margin_right_auto {
+                            LengthPercentageAuto::auto()
+                        } else {
+                            css.margin_right
+                                .map_or(default_margin, LengthPercentageAuto::length)
+                        },
+                    }
                 },
                 padding: Rect {
                     top: css
@@ -658,7 +670,10 @@ pub(crate) fn apply_css_overrides(mut style: Style, css: &ComputedStyle) -> Styl
         style.display = Display::None;
         return style;
     }
-    if css.display_inline_block {
+    // inline-table elements keep Display::Table for internal layout; the
+    // inline (side-by-side) flow is handled by the parent wrapping its
+    // inline-block children in a flex row (gmail_creatine_week)
+    if css.display_inline_block && style.display != Display::Table {
         style.display = Display::Block;
     }
 

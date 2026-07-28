@@ -669,6 +669,41 @@ pub(crate) fn build_nodes(
                 }
             }
 
+            // Table cells with inline-block/inline-table children (MJML social
+            // icons: <table style="display:inline-table"> x3 in one td) get an
+            // anonymous flex-wrap container so the children flow horizontally
+            // like an inline formatting context. The cell itself must stay
+            // TableCell for the table algorithm, so the flex container is
+            // inserted as its single child. (gmail_creatine_week)
+            let children = if style.display == Display::TableCell
+                && children
+                    .iter()
+                    .any(|id| node_data.get(id).is_some_and(|d| d.display_inline_block))
+            {
+                let mut wrap_style = Style {
+                    display: Display::Flex,
+                    flex_wrap: FlexWrap::Wrap,
+                    size: Size {
+                        width: percent(1.0),
+                        height: auto(),
+                    },
+                    ..Default::default()
+                };
+                match text_align {
+                    TextAlign::Center => {
+                        wrap_style.justify_content = Some(JustifyContent::CENTER);
+                    }
+                    TextAlign::Right => {
+                        wrap_style.justify_content = Some(JustifyContent::END);
+                    }
+                    _ => {}
+                }
+                let wrapper = taffy.new_with_children(wrap_style, &children).unwrap();
+                vec![wrapper]
+            } else {
+                children
+            };
+
             let id = taffy.new_with_children(style, &children).unwrap();
             node_data.insert(id, data);
             vec![id]

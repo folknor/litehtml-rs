@@ -136,6 +136,16 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
                 }) => {
                     style.display_inline_block = true;
                 }
+                // display:inline-table flows horizontally like inline-block;
+                // the element keeps table layout internally. MJML social
+                // icons rely on this to sit side by side (gmail_creatine_week)
+                CssDisplay::Pair(DisplayPair {
+                    outside: DisplayOutside::Inline,
+                    inside: DisplayInside::Table,
+                    ..
+                }) => {
+                    style.display_inline_block = true;
+                }
                 _ => {}
             }
         }

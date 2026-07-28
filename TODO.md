@@ -8,6 +8,7 @@
 - ~~**Table `align="center"` leaking text-align**~~: Fixed in 42108d7. `align="center"` on `<table>` was incorrectly setting text-align:center on cell content; now only affects table positioning.
 - ~~**Leading whitespace at block start**~~: Fixed in 42108d7. HTML indentation was preserved as a leading space in the first text span of a block, causing ~20px offset with Ahem.
 - **`<center>` tag**: Not properly centering child tables/content in all cases.
+- **Specified table width smaller than content min-content** (`gmail_creatine_week` footer social icons): CSS auto table layout treats a specified width as a minimum - Chrome grows `<table style="width:30px">` containing a 60px img to 60px wide (used width = max(specified, min-content)). Our taffy fork clamps to the specified width, so the icon tables render 50px wide instead of 80px (icons still draw at 60px, overflowing their box). Fix belongs in the taffy fork's table algorithm.
 - ~~**`width:100%` images not constrained by container in MJML tables**~~ (`creatine_hero`, `creatine_products`): Fixed. Root cause was in `apply_html_attrs`: the `height="925"` attr overrode CSS `height:auto`, giving the img a definite height; combined with the intrinsic aspect ratio, taffy derived width = 925 × ratio = 1200px as the cell's intrinsic contribution, inflating the entire table chain to 1200px. CSS `height:auto` now wins over the presentational attr, so the img resolves `width:100%` against its 600px cell and derives height from the aspect ratio. This took every MJML fixture from expected-fail to pass (creatine_hero 43.7% → 2.0% pixel diff).
 - ~~**MJML `font-size:0` wrapper pattern collapsing child content**~~ (`creatine_header`): Fixed (description was stale - the collapse itself no longer reproduced). The remaining divergence was `StyleIndex::collect_rules` serializing important declarations with `to_css_string(false, ...)`, stripping the `!important` flag; when the rule text was merged with inline styles, the inline declaration won. MJML relies on `!important` media rules beating inline styles (`.menu-desktop-padding { padding-left:20px !important }` vs inline `padding:0 10px 10px`), which is what makes the nav links wide enough to wrap onto two rows in Chrome. Now serialized with the flag preserved; creatine_header at 1.1% pixel diff / 90% element match.
 
@@ -23,6 +24,17 @@
 - **`line-height` as number**: Parsed and applied, but rounding differs from Chrome (we use `.ceil()`, Chrome may round differently).
 - ~~**`line-height` as percentage**~~: Fixed in c059957. `line-height: 150%` was silently dropped; now treated as factor (1.5).
 - **`&nbsp;`** and other HTML entities in text nodes: May not be handled correctly in all cases.
+
+## Visual harness: element-match scores are misleading (for the brokkr wiring work)
+
+Analysis from 2026-07-28 (chrome.json vs pipeline json, sequence-aligned by tag): the low element-match percentages on the big fixtures are comparison artifacts, not layout bugs.
+
+- **monster_snacks reports 29% element match, but layout is ~97% correct**: after dropping `<br>` and head-only tags from both dumps, both have exactly 744 elements and 721 align within 3px. The score collapses because Chrome's dump emits `<br>` elements as boxes while our pipeline folds them into rich-text leaves, so any positional/sequential matcher derails at the first `<br>` run.
+- **Empty `tbody`/`tr` width convention differs**: Chrome reports zero-height structural elements at container width (`w=590 h=0`), we report `w=0 h=0`. Invisible either way, but counts as a mismatch.
+- **Cumulative y-drift on long emails**: Chrome has fractional heights (e.g. 955.2), we produce integers; the difference compounds to ~6px over gmail_creatine_week's 10,400px. With a fixed few-px threshold, every element below the drift point counts as mismatched: of gmail_creatine_week's ~1500 "mismatches", 1388 are pure y-drift with x/w/h correct. Only ~84 elements had genuinely wrong geometry (the social icon region, since fixed).
+- **Our dump includes `head`/`style`/`meta`** with zero boxes; Chrome's doesn't.
+
+Suggested harness fixes: match by dom_path instead of sequence, skip `br`/head-only tags and zero-height structural elements, and compare y positions with a proportional (not absolute) tolerance.
 
 ## Fixture migration to `brokkr litehtml prepare` / `extract`
 

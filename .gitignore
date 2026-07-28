@@ -3,6 +3,7 @@
 target
 *.png
 *.json
+fixtures/*/offenders.txt
 /test-emails/
 /test-emails-eml/
 .brokkr/*

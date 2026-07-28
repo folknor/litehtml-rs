@@ -6,11 +6,11 @@ Ratatoskr needs to render HTML email bodies inside an iced GUI. The current appr
 
 ### Performance Target
 
-The widely-accepted UI responsiveness threshold (Nielsen Norman Group, adopted by Google's RAIL model) is **100ms** for interactions to feel instantaneous. For rendering an email when the user clicks on it, we need to be under 100ms. We're currently at **1,260ms** — over 12x too slow.
+The widely-accepted UI responsiveness threshold (Nielsen Norman Group, adopted by Google's RAIL model) is **100ms** for interactions to feel instantaneous. For rendering an email when the user clicks on it, we need to be under 100ms. We're currently at **1,260ms** - over 12x too slow.
 
-- **100ms** — feels instantaneous, system responds directly to user input
-- **1,000ms** — user notices delay but stays in flow
-- **10,000ms** — attention is lost
+- **100ms** - feels instantaneous, system responds directly to user input
+- **1,000ms** - user notices delay but stays in flow
+- **10,000ms** - attention is lost
 
 ### Profiling Results (1000.html, ~78KB email)
 
@@ -33,7 +33,7 @@ The widely-accepted UI responsiveness threshold (Nielsen Norman Group, adopted b
 **Key findings:**
 - **Layout is the bottleneck**, not rasterization. `rebuild_document` (HTML parse + CSS layout) = 610ms, driven by 27K `text_width` FFI round-trips (390ms).
 - **Text drawing** = 284ms for 10K `draw_text` calls (cosmic-text shaping + tiny-skia compositing).
-- **unpremultiply_rgba** = 219ms doing per-pixel math — pure overhead from premultiplied→straight alpha conversion.
+- **unpremultiply_rgba** = 219ms doing per-pixel math - pure overhead from premultiplied→straight alpha conversion.
 - **Actual tiny-skia drawing** (fills, borders) = only ~70ms. Swapping rasterizers wouldn't help much.
 - The fundamental problem is the C++ layout engine making 27K FFI callbacks for font metrics. This architecture cannot be optimized from the Rust side.
 
@@ -95,7 +95,7 @@ HTML string → gumbo_parse() → GumboOutput tree → litehtml element tree
 - Relatively small codebase (~21K lines C++ + ~5K lines C for Gumbo)
 
 ### What makes litehtml unsuitable
-- C++ via FFI — 27K round-trip callbacks per render for text measurement alone
+- C++ via FFI - 27K round-trip callbacks per render for text measurement alone
 - No way to batch font metric queries
 - Custom CSS parser with limited modern CSS support
 - Unmaintained Gumbo parser
@@ -109,11 +109,11 @@ HTML string → gumbo_parse() → GumboOutput tree → litehtml element tree
 
 **html5ever** (servo/html5ever)
 - Latest: v0.38.0 (January 2026), actively maintained by the Servo project
-- Downloads: ~4.78M/month — the foundational HTML parser in the Rust ecosystem
+- Downloads: ~4.78M/month - the foundational HTML parser in the Rust ecosystem
 - WHATWG HTML5 compliant. Passes all html5lib tokenizer tests; passes most tree-builder tests
-- Does NOT produce a DOM itself — uses a `TreeSink` callback trait, you supply the tree implementation
+- Does NOT produce a DOM itself - uses a `TreeSink` callback trait, you supply the tree implementation
 - Common tree backends: markup5ever_rcdom (Rc-based, officially for testing), ego-tree (Vec-backed, cache-friendly, used by scraper), kuchikiki (Brave's maintained fork of kuchiki), dom_query's custom tree
-- Excellent malformed HTML handling — implements the HTML5 error-recovery algorithm, same as browsers
+- Excellent malformed HTML handling - implements the HTML5 error-recovery algorithm, same as browsers
 - Performance: moderate. ~10-15x slower than simpler parsers like quick-xml, but doing spec-compliant error recovery
 - **Best choice for parsing. You'd pair it with a tree backend.**
 
@@ -123,7 +123,7 @@ HTML string → gumbo_parse() → GumboOutput tree → litehtml element tree
 - `Html::parse_document()` returns a traversable DOM with CSS selector queries
 - ego-tree is Vec-backed, efficient, full parent/child/sibling traversal
 - Inherits html5ever's spec compliance and error recovery
-- **Most practical all-in-one option** — parse HTML, get a DOM tree, query with CSS selectors
+- **Most practical all-in-one option** - parse HTML, get a DOM tree, query with CSS selectors
 
 **dom_query**
 - Latest: v0.26.0 (March 2026), very actively maintained, ~17K/month
@@ -134,22 +134,22 @@ HTML string → gumbo_parse() → GumboOutput tree → litehtml element tree
 ### Tier 2: Useful with Caveats
 
 **tl**
-- Latest: v0.7.8 (January 2024) — no updates in 14+ months, 19 open issues
+- Latest: v0.7.8 (January 2024) - no updates in 14+ months, 19 open issues
 - ~424K/month downloads
-- SIMD-accelerated, zero-copy parsing — fastest pure-Rust parser by a wide margin
+- SIMD-accelerated, zero-copy parsing - fastest pure-Rust parser by a wide margin
 - **Explicitly not HTML5 compliant.** Silently drops invalid tags rather than error-recovering
-- **Not recommended for email** — malformed markup is the norm in email HTML, silent content loss is unacceptable
+- **Not recommended for email** - malformed markup is the norm in email HTML, silent content loss is unacceptable
 
 **html5gum**
 - Latest: v0.8.3 (December 2025), ~45K/month
 - WHATWG-compliant HTML5 **tokenizer only**, no tree builder
 - ~2x slower than quick-xml but faster than html5ever's tokenizer
-- Not directly useful — no DOM tree output
+- Not directly useful - no DOM tree output
 
 **select (select.rs)**
 - Latest: v0.6.1 (March 2025), ~58K/month
 - html5ever + markup5ever_rcdom wrapper
-- Uses older html5ever (v0.26), less maintained than scraper — use scraper instead
+- Uses older html5ever (v0.26), less maintained than scraper - use scraper instead
 
 **kuchikiki** (Brave)
 - Released February 2025, Brave's maintained fork of archived kuchiki
@@ -159,24 +159,24 @@ HTML string → gumbo_parse() → GumboOutput tree → litehtml element tree
 ### Tier 3: Not Suitable
 
 **lol_html** (Cloudflare)
-- v2.7.2 (February 2026), streaming/SAX-like rewriter, no DOM tree — designed for transformation, not rendering
+- v2.7.2 (February 2026), streaming/SAX-like rewriter, no DOM tree - designed for transformation, not rendering
 
 **html_parser / lithtml**
-- Pest-based, lightweight, no HTML5 error recovery — too simplistic for email
+- Pest-based, lightweight, no HTML5 error recovery - too simplistic for email
 
 **browser-tester** (finitefield-org)
 - Actively developed (March 2026) but 0 stars, niche testing harness
 - Contains a custom HTML parser from scratch (~1295 lines in `src/core_impl/html.rs`)
 - Hand-written byte-level scanner, handles comments, void tags, `<script>`, `<noscript>`, `<template>`, optional tag closing
 - Post-parse normalization (implied table bodies, head/body elements)
-- Partial spec compliance, basic malformed HTML tolerance — not production-grade
+- Partial spec compliance, basic malformed HTML tolerance - not production-grade
 
 **marked** (dekellum)
-- v0.3.0 (January 2021) — unmaintained for 5+ years. Vec-backed DOM, interesting architecture, dead project
+- v0.3.0 (January 2021) - unmaintained for 5+ years. Vec-backed DOM, interesting architecture, dead project
 
 ### Benchmarks
 
-Source: [y21/rust-html-parser-benchmark](https://github.com/y21/rust-html-parser-benchmark) — Criterion benchmarks on Wikipedia (~312 KiB HTML).
+Source: [y21/rust-html-parser-benchmark](https://github.com/y21/rust-html-parser-benchmark) - Criterion benchmarks on Wikipedia (~312 KiB HTML).
 
 | Parser | Time | Throughput | Spec Compliant | Builds DOM |
 |--------|------|-----------|----------------|------------|
@@ -185,13 +185,13 @@ Source: [y21/rust-html-parser-benchmark](https://github.com/y21/rust-html-parser
 | **htmlstream** | 1.80 ms | 174 MiB/s | No | No (SAX) |
 | **html5ever** | 6.22 ms | 50 MiB/s | Yes (full) | Yes (via TreeSink) |
 
-scraper, dom_query, kuchikiki, select.rs all use html5ever under the hood — their parse performance is effectively html5ever's. They differ in DOM representation and query API overhead, not parse speed.
+scraper, dom_query, kuchikiki, select.rs all use html5ever under the hood - their parse performance is effectively html5ever's. They differ in DOM representation and query API overhead, not parse speed.
 
 The 10x gap between tl and html5ever reflects fundamentally different work: tl scans for tag boundaries (SIMD-accelerated, zero-copy) while html5ever builds a spec-compliant parse tree with error recovery, implicit element insertion, and foster parenting.
 
 **For our use case, parse speed is irrelevant.** A 78KB email at html5ever's 50 MiB/s = ~1.5ms. Our 100ms budget is consumed by layout (610ms) and drawing (654ms), not parsing. Correctness on malformed email HTML matters far more than parse throughput.
 
-Cross-language context ([imWildCat/html-parser-benchmark](https://github.com/imWildCat/html-parser-benchmark) — Wikipedia ~1MB + 10K CSS selector queries, Apple M1 Max):
+Cross-language context ([imWildCat/html-parser-benchmark](https://github.com/imWildCat/html-parser-benchmark) - Wikipedia ~1MB + 10K CSS selector queries, Apple M1 Max):
 
 | Runtime | Time |
 |---------|------|
@@ -218,21 +218,21 @@ Cross-language context ([imWildCat/html-parser-benchmark](https://github.com/imW
 - Built on `cssparser` and `selectors` from Servo
 - Can parse inline `style` attributes via `transformStyleAttribute`
 - Handles modern colors, nesting, custom properties, calc(), media queries, selectors, shorthands
-- No layout, no cascade/specificity resolution — purely parse/transform/serialize
-- **Excellent CSS parser layer for email** — parse `<style>` blocks and inline `style=""` into typed values
+- No layout, no cascade/specificity resolution - purely parse/transform/serialize
+- **Excellent CSS parser layer for email** - parse `<style>` blocks and inline `style=""` into typed values
 
 **cssparser** (Servo)
 - CSS Syntax Level 3 tokenization and component value tree building only
 - Currently at v0.35.x, active (part of Servo/Stylo ecosystem)
 - Does not parse property values into typed representations, does not understand selectors or specificity
-- Foundation that both lightningcss and stylo build on — you'd use it indirectly
+- Foundation that both lightningcss and stylo build on - you'd use it indirectly
 - **Too low-level on its own**
 
 **selectors** (Servo)
 - Parses CSS selectors, computes specificity, matches against a generic element tree
 - You implement a trait describing your DOM, it handles matching
 - Active, lives inside `servo/stylo` repo
-- **Useful if building your own style resolution** — free selector parsing + specificity + matching
+- **Useful if building your own style resolution** - free selector parsing + specificity + matching
 
 ### CSS Engines (Cascade + Specificity)
 
@@ -249,13 +249,13 @@ Cross-language context ([imWildCat/html-parser-benchmark](https://github.com/imW
 **taffy** (Dioxus)
 - Pure Rust CSS layout engine implementing Block, Flexbox, and CSS Grid
 - **No table layout.** Open issue [#467](https://github.com/DioxusLabs/taffy/issues/467) in "Todo" status, no timeline
-- No CSS parsing, no cascade — purely layout tree computation
+- No CSS parsing, no cascade - purely layout tree computation
 - Active development
 - **Missing table layout is a dealbreaker for email HTML**
 
 **yoga-rs**
 - Rust FFI bindings to Facebook's Yoga C++ library, flexbox-only
-- Largely superseded by Taffy — not suitable
+- Largely superseded by Taffy - not suitable
 
 **morphorm** (Vizia)
 - Simplified one-pass layout with Row/Column types, designed for UI widgets
@@ -275,7 +275,7 @@ Cross-language context ([imWildCat/html-parser-benchmark](https://github.com/imW
 **Gosub Engine**
 - Pure Rust browser engine with HTML5 tokenizer/parser, CSS3 tokenizer/parser, document tree, rendering
 - Plans to be a "standalone library that can be used by other projects"
-- Currently "in its infancy" — no usable browser, rendering engine incomplete
+- Currently "in its infancy" - no usable browser, rendering engine incomplete
 - Not ready for use
 
 ### CSS Summary
@@ -293,7 +293,7 @@ Cross-language context ([imWildCat/html-parser-benchmark](https://github.com/imW
 
 #### CSS Parsing
 
-LightningCSS (built on Servo's `cssparser`) — parse + transform + minify, single pass:
+LightningCSS (built on Servo's `cssparser`) - parse + transform + minify, single pass:
 
 | File | LightningCSS | esbuild | cssnano |
 |------|-------------|---------|---------|
@@ -301,7 +301,7 @@ LightningCSS (built on Servo's `cssparser`) — parse + transform + minify, sing
 | Animate.css | **1.97 ms** | 11.9 ms | 283.1 ms |
 | Tailwind CSS (large, ~2MB) | **43.4 ms** | 107.7 ms | 2,198 ms |
 
-LightningCSS is ~4x faster than esbuild and ~130x faster than cssnano. Email CSS is tiny compared to these files — expect sub-millisecond parse times.
+LightningCSS is ~4x faster than esbuild and ~130x faster than cssnano. Email CSS is tiny compared to these files - expect sub-millisecond parse times.
 
 Source: [LightningCSS GitHub](https://github.com/parcel-bundler/lightningcss), [GoalSmashers CSS minification benchmark](https://goalsmashers.github.io/css-minification-benchmark/)
 
@@ -319,8 +319,8 @@ Source: [Inside a super fast CSS engine: Quantum CSS (Mozilla Hacks)](https://ha
 
 #### Layout
 
-Taffy (Dioxus — Rust flexbox/grid layout engine):
-- 10,000-node tree at depth 14: **~3 ms** (after caching fix — was 17 seconds before, PR #246)
+Taffy (Dioxus - Rust flexbox/grid layout engine):
+- 10,000-node tree at depth 14: **~3 ms** (after caching fix - was 17 seconds before, PR #246)
 - Linear scaling with node count; Yoga (Meta's C++ flexbox engine) has exponential blowup on certain patterns
 - PanGui benchmarks: Taffy was **129x faster** than Yoga on `perpendicular_expand_with_wrap` at 10x node count
 - **No table layout support** (open issue [#467](https://github.com/DioxusLabs/taffy/issues/467))
@@ -331,33 +331,33 @@ Source: [Taffy GitHub](https://github.com/DioxusLabs/taffy), [PanGui layout benc
 
 - Chrome style recalculation for a moderately complex page: **~18 ms**
 - Per-frame budget at 60fps: **16.7 ms** total for script + style + layout + paint
-- Email HTML is simpler than a typical web page — hundreds to low thousands of nodes, minimal CSS
+- Email HTML is simpler than a typical web page - hundreds to low thousands of nodes, minimal CSS
 
 #### What This Means for Us
 
 | Operation | Modern Rust crates | Our litehtml | Ratio |
 |-----------|-------------------|-------------|-------|
-| CSS parse | <1 ms (lightningcss) | Part of 610ms rebuild | — |
-| Style resolution | ~24 ms (stylo, full page) | Part of 610ms rebuild | — |
-| Layout | ~3 ms (taffy, 10K nodes) | Part of 610ms rebuild | — |
-| Text measurement | Cacheable, batchable | 390ms (27K FFI calls) | — |
+| CSS parse | <1 ms (lightningcss) | Part of 610ms rebuild | - |
+| Style resolution | ~24 ms (stylo, full page) | Part of 610ms rebuild | - |
+| Layout | ~3 ms (taffy, 10K nodes) | Part of 610ms rebuild | - |
+| Text measurement | Cacheable, batchable | 390ms (27K FFI calls) | - |
 | **Total parse+style+layout** | **<30 ms estimated** | **610 ms measured** | **~20x** |
 
-The 610ms `rebuild_document` in litehtml includes HTML parsing + CSS parsing + style resolution + layout + 27K FFI round-trips for `text_width`. Modern Rust crates can do all of this in under 30ms. The FFI round-trips for text measurement are the dominant cost — a native Rust layout engine can cache font metrics and batch text measurement, collapsing the 390ms `text_width` overhead.
+The 610ms `rebuild_document` in litehtml includes HTML parsing + CSS parsing + style resolution + layout + 27K FFI round-trips for `text_width`. Modern Rust crates can do all of this in under 30ms. The FFI round-trips for text measurement are the dominant cost - a native Rust layout engine can cache font metrics and batch text measurement, collapsing the 390ms `text_width` overhead.
 
 No published benchmarks exist for litehtml or Blitz.
 
 ### Verdict
 
-No single Rust crate gives you table layout + CSS cascade today. The hard part is **table layout** — the one thing email HTML relies on most, and the one thing missing from Taffy. Blitz is assembling the right pieces but isn't ready.
+No single Rust crate gives you table layout + CSS cascade today. The hard part is **table layout** - the one thing email HTML relies on most, and the one thing missing from Taffy. Blitz is assembling the right pieces but isn't ready.
 
 ---
 
 ## Ladybird Browser
 
-Ladybird's Rust effort (February 2026) is limited to **LibJS, their JavaScript engine** — specifically the lexer, parser, AST, scope collector, and bytecode code generator. ~25K lines of Rust produced in ~2 weeks using AI-assisted translation (Claude Code and Codex).
+Ladybird's Rust effort (February 2026) is limited to **LibJS, their JavaScript engine** - specifically the lexer, parser, AST, scope collector, and bytecode code generator. ~25K lines of Rust produced in ~2 weeks using AI-assisted translation (Claude Code and Codex).
 
-**HTML parser, CSS engine, layout engine: NOT rewritten.** All remain C++. The Rust code is not available as standalone crates. It lives within the monorepo and deliberately mimics C++ patterns. C++ remains the primary development language — "a sidetrack that runs for a long time."
+**HTML parser, CSS engine, layout engine: NOT rewritten.** All remain C++. The Rust code is not available as standalone crates. It lives within the monorepo and deliberately mimics C++ patterns. C++ remains the primary development language - "a sidetrack that runs for a long time."
 
 **Nothing usable for HTML rendering from Ladybird.**
 
@@ -374,7 +374,7 @@ Replace each component with a Rust equivalent:
 - DocumentContainer → direct Rust trait, eliminate FFI overhead
 
 **Pros:**
-- Mechanical, testable work — litehtml has well-structured layout code
+- Mechanical, testable work - litehtml has well-structured layout code
 - Can validate against litehtml's own test suite and existing rendering output
 - Eliminates the 27K FFI round-trips that cause the performance problem
 - Can incrementally improve layout algorithms once in Rust
@@ -411,7 +411,7 @@ Monitor Blitz development, contribute if possible, adopt when it reaches beta qu
 **Cons:**
 - Pre-alpha today
 - Large dependency footprint
-- Uses Vello (GPU) — would need architectural changes for iced integration, or use their CPU rendering path
+- Uses Vello (GPU) - would need architectural changes for iced integration, or use their CPU rendering path
 - Timeline uncertain
 
 ### Option 4: Optimize litehtml FFI (short-term)
@@ -452,13 +452,13 @@ Parse email HTML into an intermediate representation, walk it with a trait to pr
 
 ## Recommendation
 
-**Short-term (now):** Option 4 — optimize litehtml FFI to make the current approach usable while we build the replacement.
+**Short-term (now):** Option 4 - optimize litehtml FFI to make the current approach usable while we build the replacement.
 
-**Medium-term (build):** Option 1 or Option 2 — port litehtml's layout to Rust (using html5ever + lightningcss), or build from components. The choice depends on whether we value litehtml's known-working table layout (port it) vs. cleaner architecture (build from components but face the table layout gap).
+**Medium-term (build):** Option 1 or Option 2 - port litehtml's layout to Rust (using html5ever + lightningcss), or build from components. The choice depends on whether we value litehtml's known-working table layout (port it) vs. cleaner architecture (build from components but face the table layout gap).
 
-**Long-term (watch):** Option 3 — Blitz. If it delivers on table layout and reaches beta, it becomes the obvious choice. Worth contributing to if we're building table layout anyway (contribute to Taffy's table support).
+**Long-term (watch):** Option 3 - Blitz. If it delivers on table layout and reaches beta, it becomes the obvious choice. Worth contributing to if we're building table layout anyway (contribute to Taffy's table support).
 
-**Avoid:** Option 5 (HTML → iced widgets) — too much fidgety iteration with no convergence guarantee.
+**Avoid:** Option 5 (HTML → iced widgets) - too much fidgety iteration with no convergence guarantee.
 
 ---
 

@@ -7,7 +7,7 @@ use lightningcss::values::length::Length;
 use scraper::Html;
 use taffy::prelude::*;
 
-use crate::css::{ComputedStyle, TextAlign, TextTransform};
+use crate::css::{ComputedStyle, TextAlign, TextTransform, VerticalAlign};
 
 /// Style rules extracted from <style> blocks.
 /// Each rule is a (compiled selector, CSS declaration text) pair.
@@ -27,7 +27,7 @@ impl StyleIndex {
 
         let style_sel = Selector::parse("style").unwrap();
         for style_el in document.select(&style_sel) {
-            // Check <style media="..."> attribute — skip if media doesn't match
+            // Check <style media="..."> attribute - skip if media doesn't match
             // (gmail_creatine_week uses <style media="screen and (min-width:480px)">)
             if let Some(media_attr) = style_el.value().attr("media") {
                 let mut input = cssparser::ParserInput::new(media_attr);
@@ -212,7 +212,7 @@ impl InheritedStyle {
         match tag {
             "a" => {
                 // Only apply default link blue when no color was explicitly set
-                // via CSS — checking the value is wrong because explicit black
+                // via CSS - checking the value is wrong because explicit black
                 // is indistinguishable from inherited black (creatine_header)
                 if css.color.is_none() {
                     out.color = (0, 102, 204, 255); // link blue
@@ -254,7 +254,7 @@ impl InheritedStyle {
             "code" | "pre" | "kbd" | "samp" => {
                 out.font_family = "monospace".to_string();
             }
-            // Tables create new formatting contexts — reset text-align
+            // Tables create new formatting contexts - reset text-align
             // so outer td align="center" doesn't cascade into nested tables.
             "table"
                 if css.text_align.is_none() =>
@@ -267,7 +267,7 @@ impl InheritedStyle {
     }
 }
 
-/// Tags that are CSS inline elements — they don't create layout boxes,
+/// Tags that are CSS inline elements - they don't create layout boxes,
 /// they just apply styling to their children.
 pub(crate) fn is_inline_tag(tag: &str) -> bool {
     matches!(
@@ -458,6 +458,11 @@ pub(crate) fn element_style(
                 left: length(4.0),
                 right: length(4.0),
             },
+            // Browsers vertically center cell content by default (Chrome UA
+            // sheet: cells inherit vertical-align:middle from the row group).
+            // Taffy stretches cells to row height and reads align_content for
+            // vertical positioning, so middle = CENTER (table_test)
+            align_content: Some(AlignContent::CENTER),
             ..Default::default()
         },
         "thead" | "tbody" | "tfoot" => Style {
@@ -486,7 +491,7 @@ pub(crate) fn element_style(
         },
 
         "img" => {
-            // Parse width/height from HTML attrs — support px ("600") and percent ("100%")
+            // Parse width/height from HTML attrs - support px ("600") and percent ("100%")
             // CSS overrides are applied later in apply_css_overrides
             let w_attr = el.attr("width");
             let h_attr = el.attr("height");
@@ -510,17 +515,17 @@ pub(crate) fn element_style(
             let intrinsic = el.attr("src").and_then(png_data_uri_dimensions);
             let (img_h, ratio) = if css_height_auto || html_height_auto {
                 if let Some((nat_w, nat_h)) = intrinsic {
-                    // Use aspect_ratio — height stays auto, taffy derives it
+                    // Use aspect_ratio - height stays auto, taffy derives it
                     (None, Some(nat_w as f32 / nat_h as f32))
                 } else {
-                    // No intrinsic data (no src or not a PNG data URI) — use
+                    // No intrinsic data (no src or not a PNG data URI) - use
                     // small cap to avoid inflating broken images (header_test)
                     (w_px.map(|w| length(w.min(32.0))), None)
                 }
             } else {
                 match h_attr {
                     Some(v) => (v.parse::<f32>().ok().map(length), None),
-                    // No height attr, no CSS height:auto — use small default
+                    // No height attr, no CSS height:auto - use small default
                     // to avoid inflating logo-style images (header_test)
                     None => (w_px.map(|w| length(w.min(32.0))), None),
                 }
@@ -594,28 +599,45 @@ pub(crate) fn element_style(
     };
 
     let styled = apply_css_overrides(base, css);
-    apply_align_attr(styled, el)
+    apply_align_attr(styled, el, css)
 }
 
-pub(crate) fn apply_align_attr(mut style: Style, el: &scraper::node::Element) -> Style {
+pub(crate) fn apply_align_attr(
+    mut style: Style,
+    el: &scraper::node::Element,
+    css: &ComputedStyle,
+) -> Style {
     if let Some(align) = el.attr("align") {
         match align.to_lowercase().as_str() {
             "center" => {
-                style.justify_content = Some(JustifyContent::Center);
-                style.align_items = Some(AlignItems::Center);
+                style.justify_content = Some(JustifyContent::CENTER);
+                style.align_items = Some(AlignItems::CENTER);
             }
             "right" => {
-                style.justify_content = Some(JustifyContent::End);
+                style.justify_content = Some(JustifyContent::END);
             }
             _ => {}
         }
     }
     if let Some(valign) = el.attr("valign") {
-        match valign.to_lowercase().as_str() {
-            "middle" => style.align_items = Some(AlignItems::Center),
-            "bottom" => style.align_items = Some(AlignItems::End),
-            "top" => style.align_items = Some(AlignItems::Start),
+        let valign = valign.to_lowercase();
+        match valign.as_str() {
+            "middle" => style.align_items = Some(AlignItems::CENTER),
+            "bottom" => style.align_items = Some(AlignItems::END),
+            "top" => style.align_items = Some(AlignItems::START),
             _ => {}
+        }
+        // On table cells valign maps to align_content, which is what taffy's
+        // table algorithm reads for cell vertical alignment. As a
+        // presentational hint it loses to CSS vertical-align, which is
+        // applied in apply_css_overrides (creatine_hero, monster_snacks)
+        if style.display == Display::TableCell && css.vertical_align.is_none() {
+            match valign.as_str() {
+                "top" => style.align_content = Some(AlignContent::START),
+                "middle" => style.align_content = Some(AlignContent::CENTER),
+                "bottom" => style.align_content = Some(AlignContent::END),
+                _ => {}
+            }
         }
     }
     style
@@ -654,6 +676,18 @@ pub(crate) fn apply_css_overrides(mut style: Style, css: &ComputedStyle) -> Styl
             style.border.right = LengthPercentage::length(v);
         }
         return style;
+    }
+
+    // CSS vertical-align on table cells maps to align_content: taffy's table
+    // algorithm stretches cells to full row height and reads align_content
+    // for vertical positioning of cell content (creatine_hero)
+    if style.display == Display::TableCell {
+        match css.vertical_align {
+            Some(VerticalAlign::Top) => style.align_content = Some(AlignContent::START),
+            Some(VerticalAlign::Middle) => style.align_content = Some(AlignContent::CENTER),
+            Some(VerticalAlign::Bottom) => style.align_content = Some(AlignContent::END),
+            None => {}
+        }
     }
 
     if let Some(w) = css.width_px {
@@ -746,7 +780,7 @@ fn eval_media_list(list: &lightningcss::media_query::MediaList, viewport_width: 
 /// Evaluate a single media query against the viewport width.
 /// Handles qualifier (only/not), media type (screen/all/print), and conditions.
 fn eval_media_query(query: &MediaQuery, viewport_width: f32) -> bool {
-    // Check media type — we're a screen renderer, so screen and all match
+    // Check media type - we're a screen renderer, so screen and all match
     let type_matches = matches!(
         query.media_type,
         MediaType::All | MediaType::Screen
@@ -782,7 +816,7 @@ fn eval_media_condition(condition: &MediaCondition, viewport_width: f32) -> bool
                 .iter()
                 .any(|c| eval_media_condition(c, viewport_width)),
         },
-        // Unknown tokens — can't evaluate, skip conservatively
+        // Unknown tokens - can't evaluate, skip conservatively
         MediaCondition::Unknown(_) => false,
     }
 }
@@ -798,20 +832,20 @@ fn length_to_px(value: &MediaFeatureValue) -> Option<f32> {
 }
 
 /// Evaluate a single media feature against the viewport width.
-/// Only width features are supported — other features (height, color, etc.)
+/// Only width features are supported - other features (height, color, etc.)
 /// are conservatively treated as non-matching.
 fn eval_media_feature(feature: &QueryFeature<'_, MediaFeatureId>, viewport_width: f32) -> bool {
     use lightningcss::media_query::MediaFeatureComparison::*;
     use lightningcss::media_query::MediaFeatureName;
 
     match feature {
-        // (width) — boolean: true if viewport has non-zero width
+        // (width) - boolean: true if viewport has non-zero width
         QueryFeature::Boolean { name } => matches!(
             name,
             MediaFeatureName::Standard(MediaFeatureId::Width)
         ),
 
-        // (width: 600px) or (min-width: 480px) — plain equality or
+        // (width: 600px) or (min-width: 480px) - plain equality or
         // range comparison (lightningcss normalizes min-/max- to Range)
         QueryFeature::Plain { name, value } => match name {
             MediaFeatureName::Standard(MediaFeatureId::Width) => {

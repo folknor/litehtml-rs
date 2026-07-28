@@ -6,6 +6,7 @@ use taffy::prelude::*;
 
 use crate::css::{
     apply_html_attrs, parse_css_value_px, parse_inline_style, ComputedStyle, TextAlign,
+    VerticalAlign,
 };
 use crate::style::{element_style, is_inline_tag, InheritedStyle, StyleIndex};
 use crate::text::{
@@ -151,11 +152,7 @@ pub(crate) fn measure_text_node(
             resolve_line_height(&font_sys, fs, ctx.line_height, &ctx.font_family);
         let metrics = Metrics::new(fs, line_height);
         let mut buffer = cosmic_text::Buffer::new(&mut font_sys, metrics);
-        buffer.set_size(
-            &mut font_sys,
-            Some(available_width),
-            Some(line_height * 100.0),
-        );
+        buffer.set_size(Some(available_width), Some(line_height * 100.0));
 
         if let Some(ref spans) = ctx.spans {
             let rich: Vec<(&str, cosmic_text::Attrs)> = spans
@@ -186,13 +183,7 @@ pub(crate) fn measure_text_node(
                 ctx.letter_spacing,
                 fs,
             );
-            buffer.set_rich_text(
-                &mut font_sys,
-                rich,
-                &default_attrs,
-                Shaping::Basic,
-                None,
-            );
+            buffer.set_rich_text(rich, &default_attrs, Shaping::Basic, None);
         } else {
             let attrs = build_text_attrs(
                 &ctx.font_family,
@@ -201,7 +192,7 @@ pub(crate) fn measure_text_node(
                 ctx.letter_spacing,
                 fs,
             );
-            buffer.set_text(&mut font_sys, &ctx.text, &attrs, Shaping::Basic, None);
+            buffer.set_text(&ctx.text, &attrs, Shaping::Basic, None);
         }
         buffer.shape_until_scroll(&mut font_sys, false);
 
@@ -236,10 +227,10 @@ pub(crate) fn measure_text_width(
         let line_height = (font_size * 1.4).ceil().max(1.0);
         let metrics = Metrics::new(font_size, line_height);
         let mut buffer = cosmic_text::Buffer::new(&mut fs, metrics);
-        buffer.set_size(&mut fs, Some(f32::MAX), Some(line_height));
+        buffer.set_size(Some(f32::MAX), Some(line_height));
 
         let attrs = build_text_attrs(family, weight, italic, None, font_size);
-        buffer.set_text(&mut fs, text, &attrs, Shaping::Basic, None);
+        buffer.set_text(text, &attrs, Shaping::Basic, None);
         buffer.shape_until_scroll(&mut fs, false);
 
         buffer.layout_runs().map(|run| run.line_w).sum::<f32>()
@@ -360,7 +351,7 @@ pub(crate) fn collect_inline_text(
 }
 
 /// Build taffy nodes for a DOM node. Returns a Vec because inline elements
-/// are flattened — their children become direct children of the parent.
+/// are flattened - their children become direct children of the parent.
 #[allow(clippy::too_many_arguments)]
 pub(crate) fn build_nodes(
     node_id: ego_tree::NodeId,
@@ -521,7 +512,7 @@ pub(crate) fn build_nodes(
                 ),
                 max_width_px: computed.max_width_px,
                 display_inline_block: computed.display_inline_block,
-                vertical_align_middle: computed.vertical_align_middle,
+                vertical_align_middle: computed.vertical_align == Some(VerticalAlign::Middle),
                 rich_spans: None,
             };
 
@@ -534,7 +525,7 @@ pub(crate) fn build_nodes(
                 cellpadding
             };
 
-            // Apply cellpadding to td/th cells — only override sides without explicit CSS padding
+            // Apply cellpadding to td/th cells - only override sides without explicit CSS padding
             let mut style =
                 if let Some(cp) = child_cellpadding.filter(|_| tag == "td" || tag == "th") {
                     let mut s = style;
@@ -658,10 +649,10 @@ pub(crate) fn build_nodes(
                     // matching CSS inline formatting behavior. (creatine_products)
                     match text_align {
                         TextAlign::Center => {
-                            style.justify_content = Some(JustifyContent::Center);
+                            style.justify_content = Some(JustifyContent::CENTER);
                         }
                         TextAlign::Right => {
-                            style.justify_content = Some(JustifyContent::End);
+                            style.justify_content = Some(JustifyContent::END);
                         }
                         _ => {}
                     }
@@ -673,7 +664,7 @@ pub(crate) fn build_nodes(
                         node_data.get(id).is_some_and(|d| d.vertical_align_middle)
                     });
                     if any_valign_middle {
-                        style.align_items = Some(AlignItems::Center);
+                        style.align_items = Some(AlignItems::CENTER);
                     }
                 }
             }

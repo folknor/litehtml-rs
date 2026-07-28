@@ -53,8 +53,18 @@ pub(crate) struct ComputedStyle {
     pub(crate) border_radius_pct: Option<f32>,
     pub(crate) text_decoration_underline: Option<bool>,
     pub(crate) text_decoration_line_through: Option<bool>,
-    pub(crate) vertical_align_middle: bool,
+    pub(crate) vertical_align: Option<VerticalAlign>,
     pub(crate) height_auto: bool,
+}
+
+/// Resolved `vertical-align` keyword. Used both for table cell content
+/// alignment (mapped to taffy `align_content`) and for centering
+/// inline-block children in flex fallback containers.
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub(crate) enum VerticalAlign {
+    Top,
+    Middle,
+    Bottom,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -304,10 +314,19 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
             }
         }
         Property::VerticalAlign(va) => {
-            use lightningcss::properties::font::VerticalAlign;
+            use lightningcss::properties::font::VerticalAlign as CssVerticalAlign;
             use lightningcss::properties::font::VerticalAlignKeyword;
-            if let VerticalAlign::Keyword(VerticalAlignKeyword::Middle) = va {
-                style.vertical_align_middle = true;
+            if let CssVerticalAlign::Keyword(kw) = va {
+                style.vertical_align = match kw {
+                    VerticalAlignKeyword::Top => Some(VerticalAlign::Top),
+                    VerticalAlignKeyword::Middle => Some(VerticalAlign::Middle),
+                    VerticalAlignKeyword::Bottom => Some(VerticalAlign::Bottom),
+                    // Taffy tables have no true baseline alignment; top is the
+                    // closest approximation for same-font cell content
+                    // (creatine_hero)
+                    VerticalAlignKeyword::Baseline => Some(VerticalAlign::Top),
+                    _ => None,
+                };
             }
         }
         Property::TextTransform(tt) => {

@@ -165,11 +165,7 @@ pub(crate) fn draw_text(
         let mut buffer = cosmic_text::Buffer::new(&mut fs, metrics);
         // Use container width for text wrapping
         let available_width = container_width.max(1.0);
-        buffer.set_size(
-            &mut fs,
-            Some(available_width),
-            Some(line_height * 20.0),
-        );
+        buffer.set_size(Some(available_width), Some(line_height * 20.0));
 
         if let Some(ref spans) = data.rich_spans {
             let rich: Vec<(&str, cosmic_text::Attrs)> = spans
@@ -200,13 +196,7 @@ pub(crate) fn draw_text(
                 data.letter_spacing,
                 font_size,
             );
-            buffer.set_rich_text(
-                &mut fs,
-                rich,
-                &default_attrs,
-                Shaping::Advanced,
-                None,
-            );
+            buffer.set_rich_text(rich, &default_attrs, Shaping::Advanced, None);
         } else {
             let attrs = build_text_attrs(
                 &data.font_family,
@@ -215,7 +205,7 @@ pub(crate) fn draw_text(
                 data.letter_spacing,
                 font_size,
             );
-            buffer.set_text(&mut fs, text, &attrs, Shaping::Advanced, None);
+            buffer.set_text(text, &attrs, Shaping::Advanced, None);
         }
         buffer.shape_until_scroll(&mut fs, false);
 

@@ -41,13 +41,13 @@ hotpath = ["hotpath/hotpath"]
 hotpath-alloc = ["hotpath/hotpath", "hotpath/hotpath-alloc"]
 
 [dependencies]
-scraper = "0.26"
+scraper = "0.27.0"
 taffy = { path = "/home/folk/Programs/taffy" }
 tiny-skia = "0.12"
-cosmic-text = "0.18"
+cosmic-text = "0.19.0"
 ego-tree = "0.11"
-lightningcss = "1.0.0-alpha.71"
-cssparser = "0.33"
-hotpath = "0.14"
+lightningcss = "1.0.0-alpha.72"
+cssparser = "0.37.0"
+hotpath = "0.22.0"
 ttf-parser = "0.25"
 clap = { version = "4", features = ["derive"] }

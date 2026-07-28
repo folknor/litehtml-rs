@@ -90,4 +90,4 @@ These don't have external images but need the Ahem injection standardized (remov
 
 ## Rendering quality
 
-- **Glyph sub-pixel positioning**: Ahem font glyphs land at slightly different positions than Chrome, causing pixel-level diffs even when layout is structurally correct.
+- **Glyph sub-pixel positioning**: Ahem font glyphs land at slightly different positions than Chrome, causing pixel-level diffs even when layout is structurally correct. Tested 2026-07-28: feeding fractional positions into `glyph.physical()` (quarter-pixel subpixel bins + swash AA) was a wash (±0.2pp per fixture) because taffy rounds layout to whole pixels, so our glyph origins are already integers - the edge noise comes from Chrome's *fractional layout*, not our rasterization. Fixing it means disabling taffy's layout rounding end-to-end (fractional dump output, full re-baseline); only worth it as a deliberate experiment.

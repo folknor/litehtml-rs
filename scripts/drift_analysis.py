@@ -38,6 +38,17 @@ def main():
     common = sorted(set(chrome) & set(ours), key=lambda p: chrome[p]["y"])
     print(f"chrome: {len(chrome)} elements, ours: {len(ours)}, matched by path: {len(common)}")
 
+    chrome_only = sorted(set(chrome) - set(ours))
+    ours_only = sorted(set(ours) - set(chrome))
+    if chrome_only:
+        print(f"\n=== {len(chrome_only)} chrome-only paths ===")
+        for p in chrome_only[:20]:
+            print(f"  {p}")
+    if ours_only:
+        print(f"\n=== {len(ours_only)} ours-only paths ===")
+        for p in ours_only[:20]:
+            print(f"  {p}")
+
     # Children index over matched paths
     children = defaultdict(list)
     for p in common:

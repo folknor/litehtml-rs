@@ -160,6 +160,15 @@ fn dump_json(
     offset_y: f32,
     out: &mut Vec<String>,
 ) {
+    // Skip display:none subtrees: head/style/script/meta nodes (and e.g.
+    // .mobile-hide elements) produced 0x0 dump entries that Chrome's
+    // reference never contains, dragging element-match scores down as
+    // ours-only paths - including <style> inside <body>, which head-path
+    // filtering on the compare side can't catch (footer_footer_test)
+    if taffy.style(id).unwrap().display == taffy::Display::None {
+        return;
+    }
+
     let l = taffy.layout(id).unwrap();
     let data = node_data.get(&id);
     let x = offset_x + l.location.x;

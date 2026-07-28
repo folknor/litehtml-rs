@@ -4,6 +4,29 @@ Findings and proposed changes from the 2026-07-28 review of the visual reference
 testing setup. Covers three codebases: brokkr's compare/capture code, brokkr's
 prepare.js, and this renderer. Written ahead of the brokkr harness wiring work.
 
+## Status (2026-07-28)
+
+Items 1-9 landed in brokkr (commit 13782ac), with three notes:
+
+- **Item 5 was half-done already**: the approval table stored
+  `element_match_pct` all along; only `determine_status` ignored it. The
+  ratchet fires on a >0.5pp drop below the approved value.
+- **Item 4 deviation**: offenders are not stored in the results db, so the
+  `report` command can't show them retroactively. Instead the full worst-first
+  list persists as `fixtures/<id>/offenders.txt` (removed on clean runs) and
+  the top 10 print under `FAIL_THRESHOLD`/`REGRESSION` rows in `visual`.
+- **Item 8 resolution**: the pre-screenshot viewport resize was removed
+  entirely, not just the cap - `fullPage` doesn't need it, and keeping the
+  measurement viewport means the JSON dump and PNG can't disagree on
+  viewport-dependent layout. (First recapture may shift references for
+  fixtures with vh-dependent styling, if any exist.)
+
+prepare.js dep bumps (cheerio 1.2, image-size 2.0) landed with an image-size
+2.x API fix (brokkr 32de5b5); not yet exercised against the corpus. Items
+10-16 (prepare.js fidelity) and 17-23 remain open; next steps per the order
+table are validating the honest scores against the corpus, then item 21
+(approve baselines).
+
 ## What the review established
 
 The overall methodology is sound: deterministic fixtures (Ahem + natural-size

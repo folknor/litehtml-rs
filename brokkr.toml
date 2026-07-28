@@ -20,51 +20,47 @@ path = "fixtures/table_test/table_test.html"
 tags = ["table", "smoke"]
 expected = "pass"
 pixel_diff_threshold = 10.0
-waive_element_threshold = true
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "footer_test"
 path = "fixtures/footer_test/footer_test.html"
 tags = ["footer", "smoke"]
 expected = "pass"
-pixel_diff_threshold = 16.0
-waive_element_threshold = true
-notes = "Line-height drift in text, footer social icon layout differences"
+pixel_diff_threshold = 10.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "header_test"
 path = "fixtures/header_test/header_test.html"
 tags = ["header", "smoke"]
-expected = "fail"
-pixel_diff_threshold = 25.0
-waive_element_threshold = true
-notes = "Image renders at natural size instead of container width (width:100% bug)"
+expected = "pass"
+pixel_diff_threshold = 6.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "border_test"
 path = "fixtures/border_test/border_test.html"
 tags = ["border"]
 expected = "pass"
-pixel_diff_threshold = 22.0
-element_match_threshold = 0.0
+pixel_diff_threshold = 10.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "footer_footer_test"
 path = "fixtures/footer_footer_test/footer_footer_test.html"
 tags = ["footer"]
 expected = "pass"
-pixel_diff_threshold = 20.0
-element_match_threshold = 0.0
-notes = "Remaining issue: auto-width table overflow from &nbsp; handling"
+pixel_diff_threshold = 10.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "text_decoration_test"
 path = "fixtures/text_decoration_test/text_decoration_test.html"
 tags = ["text", "decoration"]
 expected = "pass"
-pixel_diff_threshold = 22.0
-waive_element_threshold = true
-notes = "Diff is from Ahem text wrapping differences, not decoration rendering"
+pixel_diff_threshold = 6.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "line_height_normal_test"
@@ -72,69 +68,68 @@ path = "fixtures/line_height_normal_test/line_height_normal_test.html"
 tags = ["text"]
 expected = "pass"
 pixel_diff_threshold = 10.0
-element_match_threshold = 80.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "gmail_creatine_week"
 path = "fixtures/gmail_creatine_week/gmail_creatine-week.html"
 tags = ["full-email", "gmail"]
-expected = "fail"
-pixel_diff_threshold = 25.0
-waive_element_threshold = true
+expected = "pass"
+pixel_diff_threshold = 10.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "creatine_header"
 path = "fixtures/creatine_header/creatine_header.html"
 tags = ["gmail", "creatine", "header"]
-expected = "fail"
-pixel_diff_threshold = 25.0
-waive_element_threshold = true
+expected = "pass"
+pixel_diff_threshold = 6.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "creatine_hero"
 path = "fixtures/creatine_hero/creatine_hero.html"
 tags = ["gmail", "creatine", "hero"]
-expected = "fail"
-pixel_diff_threshold = 25.0
-waive_element_threshold = true
+expected = "pass"
+pixel_diff_threshold = 6.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "creatine_products"
 path = "fixtures/creatine_products/creatine_products.html"
 tags = ["gmail", "creatine", "products"]
-expected = "fail"
-pixel_diff_threshold = 25.0
-waive_element_threshold = true
+expected = "pass"
+pixel_diff_threshold = 6.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "flare_hero"
 path = "fixtures/flare_hero/flare_hero.html"
 tags = ["gmail", "creatine", "hero"]
-expected = "fail"
-pixel_diff_threshold = 25.0
-waive_element_threshold = true
+expected = "pass"
+pixel_diff_threshold = 6.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "flare_products"
 path = "fixtures/flare_products/flare_products.html"
 tags = ["gmail", "creatine", "products"]
-expected = "fail"
-pixel_diff_threshold = 25.0
-waive_element_threshold = true
+expected = "pass"
+pixel_diff_threshold = 6.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "monster_snacks"
 path = "fixtures/monster_snacks/monster_snacks.html"
 tags = ["gmail", "creatine", "products"]
-expected = "fail"
-pixel_diff_threshold = 25.0
-waive_element_threshold = true
+expected = "pass"
+pixel_diff_threshold = 6.0
+element_match_threshold = 90.0
 
 [[litehtml.fixture]]
 id = "gmail_gpu_price_changes"
 path = "fixtures/gmail_gpu_price_changes/gmail_gpu-price-changes.html"
 tags = ["full-email", "gmail"]
-expected = "fail"
-pixel_diff_threshold = 25.0
-waive_element_threshold = true
-notes = "Cumulative line-height drift, img centering, footer footer overflow"
+expected = "pass"
+pixel_diff_threshold = 10.0
+element_match_threshold = 90.0

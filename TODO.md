@@ -39,44 +39,11 @@ Analysis from 2026-07-28 (chrome.json vs pipeline json, sequence-aligned by tag)
 
 Suggested harness fixes: match by dom_path instead of sequence, skip `br`/head-only tags and zero-height structural elements, and compare y positions with a proportional (not absolute) tolerance.
 
-## Fixture migration to `brokkr litehtml prepare` / `extract`
+All of the above landed in brokkr 2026-07-28 (docs/HARNESS-IMPROVEMENTS.md, since deleted, has the full history in git). One future idea from that review not yet done anywhere: weight element mismatches by box area, so a hero image counts more than a spacer div and the element score tracks what a human sees in the diff.
 
-All fixtures need to be regenerated using the new `prepare` and `extract` commands (see `docs/FIXTURE-PREPROCESSING.md`). This replaces the manual Ahem injection, 1x1 base64 image hacks, and hand-extracted sub-fixtures with a deterministic pipeline that produces correctly-sized image placeholders and preserves layout context.
+## ~~Fixture migration to `brokkr litehtml prepare` / `extract`~~
 
-### Full email fixtures (run `prepare` on source, recapture Chrome reference)
-
-- [ ] **gmail_creatine_week**: Source: `test-emails/gmail_creatine-week.html`. Prepare, replace fixture HTML, recapture, re-approve.
-- [ ] **gmail_gpu_price_changes**: Source: `test-emails/gmail_gpu-price-changes.html` (verify source location). Prepare, replace, recapture.
-
-### Extracted sub-fixtures (run `extract` on prepared full email, recapture)
-
-All extracted from prepared `gmail_creatine_week`. Need to determine correct CSS selectors for each section.
-
-- [ ] **creatine_header**: Extract header/nav section. Determine selector.
-- [ ] **creatine_hero**: Extract hero product section (image + text). Determine selector.
-- [ ] **creatine_products**: Extract creatine product grid. Determine selector.
-- [ ] **flare_hero**: Extract flare pants hero section. Determine selector.
-- [ ] **flare_products**: Extract flare product grid. Determine selector.
-- [ ] **monster_snacks**: Extract monster snacks product section. Determine selector.
-
-### Hand-crafted test fixtures (run `prepare` to standardize Ahem injection)
-
-These don't have external images but need the Ahem injection standardized (remove manually embedded WOFF2, let `prepare` inject from shared source).
-
-- [ ] **text_flow_test**: Prepare, recapture.
-- [ ] **table_test**: Prepare, recapture.
-- [ ] **footer_test**: Prepare, recapture.
-- [ ] **header_test**: Prepare, recapture. Has one image placeholder - verify sizing.
-- [ ] **border_test**: Prepare, recapture.
-- [ ] **footer_footer_test**: Prepare, recapture.
-- [ ] **text_decoration_test**: Prepare, recapture.
-- [ ] **line_height_normal_test**: Prepare, recapture.
-
-### After migration
-
-- [ ] Update `brokkr.toml` thresholds and expected statuses based on new baselines.
-- [ ] Remove old `data-fixture="ahem"` style blocks from any remaining fixtures.
-- [ ] Verify all fixtures pass `brokkr litehtml test --all` with updated baselines.
+Completed 2026-07-28, after prepare.js fidelity items 10-16 landed in brokkr (8a961d9). All 16 fixtures regenerated: both full emails re-prepared from `test-emails/` sources, the six sub-fixtures re-extracted from the prepared gmail_creatine_week (header divs 1-2, hero div 3, creatine products divs 4-7, flare hero div 8, flare products divs 9-12, monster snacks divs 13-19 - `brokkr outline --selectors` suggestions need a `body >` anchor prefix or they match nested MJML column divs), and the eight hand-crafted fixtures run through `prepare` in place. Chrome references recaptured, all diffs eyeballed, baselines approved. `brokkr.toml` updated: everything `expected = "pass"`, element threshold 90 across the board (current worst: 96), pixel thresholds 6-10%, stale waivers and notes removed. Suite state at approval: ten fixtures at 100% element match, none below 96%; pixel 0.2-5.6%.
 
 ## Test emails to fixture-ify
 

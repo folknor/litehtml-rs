@@ -69,8 +69,12 @@ impl StyleIndex {
                             decl_text.push(';');
                         }
                     }
+                    // Serialize with the !important flag preserved so these
+                    // declarations beat inline styles when the merged text is
+                    // re-parsed - MJML media rules rely on !important to
+                    // override inline padding/width (creatine_header)
                     for prop in &style_rule.declarations.important_declarations {
-                        if let Ok(css) = prop.to_css_string(false, PrinterOptions::default()) {
+                        if let Ok(css) = prop.to_css_string(true, PrinterOptions::default()) {
                             decl_text.push_str(&css);
                             decl_text.push(';');
                         }

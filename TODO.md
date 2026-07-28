@@ -14,6 +14,14 @@
 - ~~**`width:100%` images not constrained by container in MJML tables**~~ (`creatine_hero`, `creatine_products`): Fixed. Root cause was in `apply_html_attrs`: the `height="925"` attr overrode CSS `height:auto`, giving the img a definite height; combined with the intrinsic aspect ratio, taffy derived width = 925 × ratio = 1200px as the cell's intrinsic contribution, inflating the entire table chain to 1200px. CSS `height:auto` now wins over the presentational attr, so the img resolves `width:100%` against its 600px cell and derives height from the aspect ratio. This took every MJML fixture from expected-fail to pass (creatine_hero 43.7% → 2.0% pixel diff).
 - ~~**MJML `font-size:0` wrapper pattern collapsing child content**~~ (`creatine_header`): Fixed (description was stale - the collapse itself no longer reproduced). The remaining divergence was `StyleIndex::collect_rules` serializing important declarations with `to_css_string(false, ...)`, stripping the `!important` flag; when the rule text was merged with inline styles, the inline declaration won. MJML relies on `!important` media rules beating inline styles (`.menu-desktop-padding { padding-left:20px !important }` vs inline `padding:0 10px 10px`), which is what makes the nav links wide enough to wrap onto two rows in Chrome. Now serialized with the flag preserved; creatine_header at 1.1% pixel diff / 90% element match.
 
+## gmail_gullinbursti_dividend remaining gaps (FAIL, 32.2%/76%)
+
+Fixed so far: figure-table +906 width blowup (taffy column-width fix), em/unitless line-height inheritance, ul/ol UA defaults. Remaining ~172px height shortfall and offenders:
+
+- **Em lengths resolve against a hardcoded 16px base** (`lp_to_px` in css.rs): margins/paddings/widths declared in `em` ignore the element's font size. Substack's typography sets em margins on p/h2/h3, accounting for most of the remaining shortfall (~105px "own" on the typography container). Fix requires resolving em at style-application time when the element's font size is known - a refactor of ComputedStyle to keep em values unresolved until `with_overrides`/`element_style`.
+- **Header nav link** at dx +182 and a −20 nav table (y≈478): unidentified, likely related centering.
+- **fs=18 div −20** (y≈2786): one line-height class not yet diagnosed.
+
 ## CSS properties not yet supported
 
 - ~~**vertical-align**~~: Mostly fixed. On table cells, CSS `vertical-align` and HTML `valign` (top/middle/bottom) now map to taffy `align_content`, which is what the table algorithm reads for cell content positioning; cells default to CENTER matching the browser default of middle. `baseline` is approximated as top. Remaining gap: `valign` on `<tr>` should cascade to all cells in the row but is currently ignored (common in email HTML; no current fixture exercises it).

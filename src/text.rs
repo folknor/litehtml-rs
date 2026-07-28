@@ -77,16 +77,22 @@ pub(crate) fn build_text_attrs(
     attrs
 }
 
-/// Resolve line height: use CSS value if set, otherwise query the font's actual metrics
-/// for `line-height: normal` (ascent + descent + line_gap scaled to font size).
+/// Resolve line height: px wins, then a unitless factor against this
+/// element's own font size (gmail_gullinbursti_dividend), otherwise query the
+/// font's actual metrics for `line-height: normal` (ascent + descent +
+/// line_gap scaled to font size).
 pub(crate) fn resolve_line_height(
     font_system: &FontSystem,
     font_size: f32,
     css_line_height: Option<f32>,
+    css_line_height_factor: Option<f32>,
     family: &str,
 ) -> f32 {
     if let Some(lh) = css_line_height {
         return lh.max(1.0);
+    }
+    if let Some(factor) = css_line_height_factor {
+        return (font_size * factor).max(1.0);
     }
     let ratio = font_normal_line_height_ratio(font_system, family);
     (font_size * ratio).ceil().max(1.0)

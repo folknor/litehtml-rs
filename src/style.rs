@@ -141,6 +141,9 @@ pub(crate) struct InheritedStyle {
     pub(crate) font_italic: bool,
     pub(crate) text_align: TextAlign,
     pub(crate) line_height: Option<f32>,
+    /// Unitless line-height, inherited as a factor and re-resolved against
+    /// each element's own font size (gmail_gullinbursti_dividend)
+    pub(crate) line_height_factor: Option<f32>,
     pub(crate) white_space_nowrap: bool,
     pub(crate) letter_spacing: Option<f32>,
     pub(crate) text_transform: Option<TextTransform>,
@@ -158,6 +161,7 @@ impl Default for InheritedStyle {
             font_italic: false,
             text_align: TextAlign::Left,
             line_height: None,
+            line_height_factor: None,
             white_space_nowrap: false,
             letter_spacing: None,
             text_transform: None,
@@ -188,10 +192,21 @@ impl InheritedStyle {
         if let Some(ta) = css.text_align {
             out.text_align = ta;
         }
+        // Px and percentage line-heights resolve to px here (% against the
+        // element's own font size) and inherit as that px. Unitless inherits
+        // as a factor so descendants re-resolve it against their own font
+        // size - resolving it to px at the declaring element made every
+        // Substack h2/h3 shorter than its own font
+        // (gmail_gullinbursti_dividend)
         if let Some(lh) = css.line_height {
             out.line_height = Some(lh);
+            out.line_height_factor = None;
+        } else if let Some(pct) = css.line_height_pct {
+            out.line_height = Some(out.font_size * pct);
+            out.line_height_factor = None;
         } else if let Some(factor) = css.line_height_factor {
-            out.line_height = Some(out.font_size * factor);
+            out.line_height_factor = Some(factor);
+            out.line_height = None;
         }
         if css.white_space_nowrap {
             out.white_space_nowrap = true;
@@ -562,15 +577,26 @@ pub(crate) fn element_style(
             }
         }
 
+        // UA defaults: 40px indent and 1em vertical margins. Width must be
+        // auto (not percent) so the indent narrows the content box - with
+        // width:100% content-box the padding only shifted the list right and
+        // li text wrapped at the full column width, one line short of Chrome
+        // (gmail_gullinbursti_dividend)
         "ul" | "ol" => Style {
             display: Display::Block,
             size: Size {
-                width: percent(1.0),
+                width: auto(),
                 height: auto(),
             },
             padding: Rect {
-                left: length(20.0),
+                left: length(40.0),
                 ..Rect::zero()
+            },
+            margin: Rect {
+                top: LengthPercentageAuto::length(16.0),
+                bottom: LengthPercentageAuto::length(16.0),
+                left: LengthPercentageAuto::length(0.0),
+                right: LengthPercentageAuto::length(0.0),
             },
             ..Default::default()
         },

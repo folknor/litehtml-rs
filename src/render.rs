@@ -159,8 +159,13 @@ pub(crate) fn draw_text(
     FONT_SYSTEM.with(|fs| {
         let mut fs = fs.borrow_mut();
         let font_size = data.font_size.max(1.0);
-        let line_height =
-            resolve_line_height(&fs, font_size, data.line_height, &data.font_family);
+        let line_height = resolve_line_height(
+            &fs,
+            font_size,
+            data.line_height,
+            data.line_height_factor,
+            &data.font_family,
+        );
         let metrics = Metrics::new(font_size, line_height);
         let mut buffer = cosmic_text::Buffer::new(&mut fs, metrics);
         // Use container width for text wrapping
@@ -174,7 +179,13 @@ pub(crate) fn draw_text(
                 .map(|(i, s)| {
                     let span_fs = s.font_size.max(1.0);
                     let span_lh =
-                        resolve_line_height(&fs, span_fs, data.line_height, &s.font_family);
+                        resolve_line_height(
+                            &fs,
+                            span_fs,
+                            data.line_height,
+                            data.line_height_factor,
+                            &s.font_family,
+                        );
                     let mut attrs = build_text_attrs(
                         &s.font_family,
                         s.font_weight,

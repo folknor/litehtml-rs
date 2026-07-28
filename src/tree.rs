@@ -29,6 +29,7 @@ pub(crate) struct NodeData {
     pub(crate) font_weight: u16,
     pub(crate) font_italic: bool,
     pub(crate) line_height: Option<f32>,
+    pub(crate) line_height_factor: Option<f32>,
     pub(crate) letter_spacing: Option<f32>,
     pub(crate) border_top: Option<f32>,
     pub(crate) border_bottom: Option<f32>,
@@ -67,6 +68,7 @@ impl Default for NodeData {
             font_weight: 400,
             font_italic: false,
             line_height: None,
+            line_height_factor: None,
             letter_spacing: None,
             border_top: None,
             border_bottom: None,
@@ -100,6 +102,7 @@ pub(crate) struct TextMeasure {
     pub(crate) font_weight: u16,
     pub(crate) font_italic: bool,
     pub(crate) line_height: Option<f32>,
+    pub(crate) line_height_factor: Option<f32>,
     pub(crate) white_space_nowrap: bool,
     pub(crate) letter_spacing: Option<f32>,
     pub(crate) spans: Option<Vec<RichTextSpan>>,
@@ -148,8 +151,13 @@ pub(crate) fn measure_text_node(
 
     FONT_SYSTEM.with(|font_sys| {
         let mut font_sys = font_sys.borrow_mut();
-        let line_height =
-            resolve_line_height(&font_sys, fs, ctx.line_height, &ctx.font_family);
+        let line_height = resolve_line_height(
+            &font_sys,
+            fs,
+            ctx.line_height,
+            ctx.line_height_factor,
+            &ctx.font_family,
+        );
         let metrics = Metrics::new(fs, line_height);
         let mut buffer = cosmic_text::Buffer::new(&mut font_sys, metrics);
         buffer.set_size(Some(available_width), Some(line_height * 100.0));
@@ -160,8 +168,13 @@ pub(crate) fn measure_text_node(
                 .enumerate()
                 .map(|(i, s)| {
                     let span_fs = s.font_size.max(1.0);
-                    let span_lh =
-                        resolve_line_height(&font_sys, span_fs, ctx.line_height, &s.font_family);
+                    let span_lh = resolve_line_height(
+                        &font_sys,
+                        span_fs,
+                        ctx.line_height,
+                        ctx.line_height_factor,
+                        &s.font_family,
+                    );
                     let mut attrs = build_text_attrs(
                         &s.font_family,
                         s.font_weight,
@@ -440,6 +453,7 @@ pub(crate) fn build_nodes(
                         &fs,
                         br_fs,
                         child_inherited.line_height,
+                        child_inherited.line_height_factor,
                         &child_inherited.font_family,
                     )
                 });
@@ -501,6 +515,7 @@ pub(crate) fn build_nodes(
                 font_weight: child_inherited.font_weight,
                 font_italic: child_inherited.font_italic,
                 line_height: child_inherited.line_height,
+                line_height_factor: child_inherited.line_height_factor,
                 letter_spacing: child_inherited.letter_spacing,
                 border_top: computed.border_top,
                 border_bottom: computed.border_bottom,
@@ -604,6 +619,7 @@ pub(crate) fn build_nodes(
                             font_weight: child_inherited.font_weight,
                             font_italic: child_inherited.font_italic,
                             line_height: child_inherited.line_height,
+                            line_height_factor: child_inherited.line_height_factor,
                             white_space_nowrap: child_inherited.white_space_nowrap,
                             letter_spacing: child_inherited.letter_spacing,
                             spans: Some(spans.clone()),
@@ -625,6 +641,7 @@ pub(crate) fn build_nodes(
                             font_weight: child_inherited.font_weight,
                             font_italic: child_inherited.font_italic,
                             line_height: child_inherited.line_height,
+                            line_height_factor: child_inherited.line_height_factor,
                             text_align: data.text_align,
                             rich_spans: Some(spans),
                             ..Default::default()
@@ -802,6 +819,7 @@ pub(crate) fn build_nodes(
                     font_weight: inherited.font_weight,
                     font_italic: inherited.font_italic,
                     line_height: inherited.line_height,
+                    line_height_factor: inherited.line_height_factor,
                     white_space_nowrap: inherited.white_space_nowrap,
                     letter_spacing: inherited.letter_spacing,
                     spans: None,
@@ -817,6 +835,7 @@ pub(crate) fn build_nodes(
                     font_weight: inherited.font_weight,
                     font_italic: inherited.font_italic,
                     line_height: inherited.line_height,
+                    line_height_factor: inherited.line_height_factor,
                     letter_spacing: inherited.letter_spacing,
                     text_align: inherited.text_align,
                     ..Default::default()
@@ -834,6 +853,7 @@ pub(crate) fn build_nodes(
                 font_weight: inherited.font_weight,
                 font_italic: inherited.font_italic,
                 line_height: inherited.line_height,
+                line_height_factor: inherited.line_height_factor,
                 white_space_nowrap: inherited.white_space_nowrap,
                 letter_spacing: inherited.letter_spacing,
                 spans: None,
@@ -850,6 +870,7 @@ pub(crate) fn build_nodes(
                 font_weight: inherited.font_weight,
                 font_italic: inherited.font_italic,
                 line_height: inherited.line_height,
+                line_height_factor: inherited.line_height_factor,
                 letter_spacing: inherited.letter_spacing,
                 text_align: inherited.text_align,
                 ..Default::default()

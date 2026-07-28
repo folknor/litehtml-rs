@@ -43,6 +43,7 @@ pub(crate) struct ComputedStyle {
     pub(crate) border_left_color: Option<(u8, u8, u8, u8)>,
     pub(crate) border_right_color: Option<(u8, u8, u8, u8)>,
     pub(crate) line_height: Option<f32>,
+    pub(crate) line_height_pct: Option<f32>,
     pub(crate) line_height_factor: Option<f32>,
     pub(crate) text_align: Option<TextAlign>,
     pub(crate) white_space_nowrap: bool,
@@ -288,15 +289,28 @@ pub(crate) fn apply_property(style: &mut ComputedStyle, prop: &Property) {
             use lightningcss::properties::font::LineHeight;
             match lh {
                 LineHeight::Length(lp) => {
-                    // Try px first, fall back to percentage as factor
-                    // (line-height: 150% → factor 1.5) (footer_footer_test)
-                    if let Some(px) = lp_to_px(lp) {
+                    use lightningcss::values::length::LengthValue;
+                    // Px applies directly; percentage and em resolve against
+                    // the declaring element's own font size and inherit as
+                    // that px (line-height: 150% → 1.5 × own font size).
+                    // Em must not go through lp_to_px: its global 16px em
+                    // base turned Substack's `line-height: 1.16em` into a
+                    // 19px line on 26px h2s (gmail_gullinbursti_dividend,
+                    // footer_footer_test)
+                    if let CssLengthPercentage::Dimension(LengthValue::Em(v)) = lp {
+                        style.line_height_pct = Some(*v);
+                    } else if let Some(px) = lp_to_px(lp) {
                         style.line_height = Some(px);
                     } else if let Some(pct) = lp_to_pct(lp) {
-                        style.line_height_factor = Some(pct);
+                        style.line_height_pct = Some(pct);
                     }
                 }
                 LineHeight::Number(n) => {
+                    // Unitless inherits as a factor, re-resolving against each
+                    // descendant's own font size: Substack sets a unitless
+                    // line-height on a 16px ancestor, and resolving it to 19px
+                    // there made every h2/h3 shorter than its own font
+                    // (gmail_gullinbursti_dividend)
                     style.line_height_factor = Some(*n);
                 }
                 _ => {}

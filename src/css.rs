@@ -516,9 +516,13 @@ pub(crate) fn apply_html_attrs(
             style.width_px = Some(px);
         }
     }
+    // height:auto in CSS must win over the height attr (presentational hint),
+    // otherwise MJML imgs with width:100%;height:auto keep their attr height
+    // and ignore the aspect ratio when the width is constrained (creatine_hero)
     if let Some(height) = el.attr("height")
         && style.height_px.is_none()
         && style.height_pct.is_none()
+        && !style.height_auto
     {
         style.height_px = parse_css_value_px(height);
     }

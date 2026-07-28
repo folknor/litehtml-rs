@@ -47,8 +47,8 @@ Never use `cargo` directly - use brokkr for everything.
 
 ```bash
 brokkr check                                             # clippy + tests
-brokkr run -- --fixture fixtures/foo_test/foo_test.html   # build release + render fixture (output in same directory)
-brokkr run -- test-emails/1.html                         # render without Ahem fixture mode
+brokkr run -- -- --fixture fixtures/foo_test/foo_test.html   # build + render fixture (output in same directory)
+brokkr run -- -- test-emails/1.html                      # render without Ahem fixture mode (second -- separates cargo args from binary args)
 brokkr run --time -- test-emails/1.html                  # release run with timing output (not stored in db)
 brokkr bench run -- test-emails/1.html                   # benchmark (3 runs, best-of, stored in results.db)
 brokkr bench run --runs 5 -- test-emails/1.html          # benchmark with 5 runs
@@ -144,6 +144,7 @@ Never hand-edit fixture HTML for Ahem injection or image replacement - always us
 - **CSS `text-decoration` is NOT inherited**: Unlike color/font-size, it doesn't cascade to children. In our pipeline it's tracked per-`RichTextSpan` and resets to false in `InheritedStyle::with_overrides` for each element, then re-applied from CSS or tag defaults (`<a>`, `<u>`, `<del>`, etc.).
 - **Leading whitespace in blocks**: HTML indentation whitespace must be stripped for the first text node in a block. The `collect_inline_text` function only preserves a leading space when `!spans.is_empty()` (i.e. between spans, not at block start).
 - **Table cell vertical alignment uses `align_content`, not `align_items`**: taffy stretches cells to full row height and reads `align_content` for vertical positioning of cell content. HTML `valign` and CSS `vertical-align` both map to it (CSS wins over the attr); td/th default to `CENTER` because browsers default cells to middle.
+- **Presentational attrs must lose to CSS**: `width`/`height`/`valign`/`bgcolor` attrs are only applied when the corresponding CSS property is absent — including keyword values like `height:auto`. Getting this wrong is expensive: a `height` attr overriding `height:auto` gave imgs a definite height, and taffy derived width from height × aspect-ratio, inflating a 600px table to 1200px (creatine_hero).
 
 ## Commit rules
 

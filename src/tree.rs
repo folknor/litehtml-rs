@@ -644,6 +644,14 @@ pub(crate) fn build_nodes(
                 if has_inline_children || has_inline_block_children {
                     style.display = Display::Flex;
                     style.flex_wrap = FlexWrap::Wrap;
+                    // Taffy's default align-items:stretch inflates auto-height
+                    // inline-blocks to the tallest sibling (nav separator links
+                    // measured 32px vs Chrome's 22px). Inline formatting never
+                    // stretches atomic inlines: they size to content and sit on
+                    // the baseline, which START approximates since stretch and
+                    // baseline both start items at the line top for same
+                    // line-height content. (gmail_creatine_week, creatine_header)
+                    style.align_items = Some(AlignItems::START);
                     // Translate text-align to justify-content so inline/inline-block
                     // children are centered or right-aligned in the flex container,
                     // matching CSS inline formatting behavior. (creatine_products)
@@ -683,6 +691,9 @@ pub(crate) fn build_nodes(
                 let mut wrap_style = Style {
                     display: Display::Flex,
                     flex_wrap: FlexWrap::Wrap,
+                    // Same no-stretch rule as the block fallback above:
+                    // atomic inlines size to content (gmail_creatine_week)
+                    align_items: Some(AlignItems::START),
                     size: Size {
                         width: percent(1.0),
                         height: auto(),

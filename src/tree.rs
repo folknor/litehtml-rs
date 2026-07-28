@@ -249,14 +249,31 @@ pub(crate) fn collect_inline_text(
     for child in node_ref.children() {
         match child.value() {
             Node::Text(text) => {
+                // Strip zero-width characters (U+200B ZWSP, U+FEFF): they are
+                // not Unicode whitespace so they survive collapsing, and Ahem
+                // has no glyph for them, so Basic shaping gives them a visible
+                // fallback width - "vidar\u{200B}braut" wrapped onto an extra
+                // line in the Steam account cells (gmail_steam_purchase).
+                // Chrome renders them at zero width.
+                let source: String = text
+                    .text
+                    .chars()
+                    .filter(|c| !matches!(c, '\u{200B}' | '\u{FEFF}'))
+                    .collect();
                 // Normalize whitespace: collapse runs of whitespace to single spaces,
                 // but preserve a single leading/trailing space if the original had one.
-                let has_leading_space = text.text.starts_with(|c: char| c.is_whitespace());
-                let has_trailing_space = text.text.ends_with(|c: char| c.is_whitespace());
+                let has_leading_space = source.starts_with(|c: char| c.is_whitespace());
+                let has_trailing_space = source.ends_with(|c: char| c.is_whitespace());
                 let mut collapsed: String =
-                    text.text.split_whitespace().collect::<Vec<_>>().join(" ");
+                    source.split_whitespace().collect::<Vec<_>>().join(" ");
+                // Whitespace after a <br> collapses away like whitespace at
+                // block start: it is the leading space of the new line. The
+                // indentation between "<br></strong>" and "</td>" otherwise
+                // became a " " span after the "\n" span, adding a phantom
+                // line to every Steam receipt title (gmail_steam_purchase)
+                let after_break = spans.last().is_some_and(|s| s.text.ends_with('\n'));
                 if collapsed.is_empty() {
-                    if has_leading_space && !spans.is_empty() {
+                    if has_leading_space && !spans.is_empty() && !after_break {
                         collapsed = " ".to_string();
                     } else {
                         continue;
@@ -265,7 +282,7 @@ pub(crate) fn collect_inline_text(
                     // Only preserve leading space between spans, not at block start.
                     // Leading whitespace from HTML indentation must be stripped for the
                     // first text in a block, matching browser behavior. (text_decoration_test)
-                    if has_leading_space && !spans.is_empty() {
+                    if has_leading_space && !spans.is_empty() && !after_break {
                         collapsed.insert(0, ' ');
                     }
                     if has_trailing_space {
@@ -564,6 +581,19 @@ pub(crate) fn build_nodes(
                         &mut spans,
                     ) && !spans.is_empty()
                     {
+                        // A trailing <br> must not add a phantom line: Chrome
+                        // renders "text<br>" as one line ("text<br><br>" as
+                        // two, "<br>" alone as one), but our trailing "\n"
+                        // span makes cosmic-text emit an empty final line that
+                        // measurement counts. Each <br> is its own span, so
+                        // drop the last span iff it is exactly "\n" and not
+                        // the block's only content. Steam receipt titles are
+                        // all "<strong>Title<br></strong>", which made every
+                        // line item one line-height too tall
+                        // (gmail_steam_purchase)
+                        if spans.len() > 1 && spans.last().is_some_and(|s| s.text == "\n") {
+                            spans.pop();
+                        }
                         // Success: create a single rich text leaf node
                         let full_text: String =
                             spans.iter().map(|s| s.text.as_str()).collect();

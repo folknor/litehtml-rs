@@ -139,8 +139,8 @@ id = "gmail_steam_purchase"
 path = "fixtures/gmail_steam_purchase/gmail_steam-purchase.html"
 tags = ["full-email", "gmail"]
 expected = "pass"
-pixel_diff_threshold = 25.0
-element_match_threshold = 0.0
+pixel_diff_threshold = 10.0
+element_match_threshold = 85.0
 
 [[litehtml.fixture]]
 id = "gmail_gullinbursti_dividend"

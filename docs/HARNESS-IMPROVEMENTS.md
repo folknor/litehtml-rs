@@ -22,10 +22,37 @@ Items 1-9 landed in brokkr (commit 13782ac), with three notes:
   fixtures with vh-dependent styling, if any exist.)
 
 prepare.js dep bumps (cheerio 1.2, image-size 2.0) landed with an image-size
-2.x API fix (brokkr 32de5b5); not yet exercised against the corpus. Items
-10-16 (prepare.js fidelity) and 17-23 remain open; next steps per the order
-table are validating the honest scores against the corpus, then item 21
-(approve baselines).
+2.x API fix (brokkr 32de5b5).
+
+**Field-findings round** (brokkr ad130dd): chrome-only inline elements now
+leave the denominator - the pipeline folds plain CSS-inline tags into
+rich-text leaves, so text_decoration_test/footer_footer_test/table_test/
+gmail_gpu_price_changes were pure inline suppression. The filter mirrors
+`is_inline_tag` (this repo, src/style.rs - **keep in sync**) and applies
+ONLY to the chrome-only bucket: path-matched inline elements
+(display:inline-block) are always scored, since those comparisons catch
+real bugs. Capture failing with "Could not find Chrome" now hints at
+`npx puppeteer browsers install chrome`.
+
+**Items 10-16 landed** (brokkr 8a961d9): author width/height attrs
+preserved (natural size only fills in when the author gave neither);
+image data URIs re-encoded to gray placeholders idempotently; author
+font-family declarations rewritten to 'ahem' (preserving !important) with
+author @font-face removed; the pretty-printer keeps inline-sibling runs
+verbatim regardless of length; the img background-color hack regex is
+anchored to start-or-brace (deliberately narrower than `(^|[\s,}])`:
+whitespace is indistinguishable from a descendant combinator, and a comma
+means a shared selector list); failed fetches negative-cached as
+`<key>.miss`; fetches send a browser-like UA; the extract colgroup
+limitation is documented at the stub site.
+`scripts/litehtml-prepare/smoke.js` (committed) asserts items 10-14
+offline.
+
+Remaining: 17-19 (renderer, this repo), and the workflow items - the
+coordinated re-prepare + `visual --recapture` + re-approve (items 21/22;
+the prepare changes deliberately change prepared output, so fixtures and
+references must regenerate together), then the ratchet carries the gate
+(20). Item 23 (area-weighted scores) stays longer-term.
 
 ## What the review established
 
